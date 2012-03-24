@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: management | Need for Air]]></title>
+  <link href="http://czzarr.github.com/blog/categories/management/atom.xml" rel="self"/>
+  <link href="http://czzarr.github.com/"/>
+  <updated>2012-03-24T19:12:18+01:00</updated>
+  <id>http://czzarr.github.com/</id>
+  <author>
+    <name><![CDATA[Need for Air]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Makers Don't Work With Deadlines]]></title>
+    <link href="http://czzarr.github.com/blog/2012/03/12/makers-dont-work-with-deadlines/"/>
+    <updated>2012-03-12T12:00:00+01:00</updated>
+    <id>http://czzarr.github.com/blog/2012/03/12/makers-dont-work-with-deadlines</id>
+    <content type="html"><![CDATA[<p>A maker is someone who likes to make stuff, to build things. It can be
+an artist, a craftsman, an architect, a designer. But it can also be a
+software developer. I'm talking about good developers. Those that take
+pride in their work.</p>
+
+<h2>How we work</h2>
+
+<p>Often times, people ask me how we work, how we manage things, and more
+generally how software should be managed. And my response always
+suprises them: no deadlines, <a href="http://gettingreal.37signals.com/ch07_Meetings_Are_Toxic.php">no meetings</a>, we just make stuff as we go.</p>
+
+<h2>Why French project managers mostly do it wrong</h2>
+
+<p>In France most people think
+software is a commodity, meaning they try to find the cheapest person
+out there that will do the job. If your site is selling socks, that's
+probaly a decent bet because their isn't a lot of technology involved
+and your core business is selling socks, not your website.</p>
+
+<p>So the problem with that thinking is that the premise is utterly wrong.
+Good software is not a commodity, it comes at a price and not
+everyone can do it. Even people who sell <a href="http://dollarshaveclub.com">shaving kits</a> have figured that
+out.</p>
+
+<h2>Let your artists work for you</h2>
+
+<p>My point is good developers are not mere factory workers. They are elite
+craftsmen or even artists, and they should be managed as such. Craftsmen
+and artists can't measure their work by the hour, they can't follow a
+well-defined schedule, you can't tell them what are the priorities. They
+will figure it out by themselves! Just let them work. If a bug needs to
+be fixed, they will fix it because they care about the quality of their
+code.</p>
+
+<h2>Productivity cannot be commanded</h2>
+
+<p>Developers, like artists, need to get "<a href="http://en.wikipedia.org/wiki/Flow_%28psycholog%29">in the zone</a>)" in order to be
+productive. You can't make them get in the zone, you let them do it. So
+stop handing them a todolist lovingly prioritised with strict deadlines,
+it is useless. They are makers, they will work becauses they like what
+they do and they love building things. There is no need to tell them to
+do it. And if they want to work from 3pm to 3am because that's when they
+are the most productive, let them.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[Digest] Lies from Losers, Web/Mobile Integration, Community Feedback]]></title>
+    <link href="http://czzarr.github.com/blog/2012/03/01/digest-lies-from-losers-web-mobile-integration-community-feedback/"/>
+    <updated>2012-03-01T12:00:00+01:00</updated>
+    <id>http://czzarr.github.com/blog/2012/03/01/digest-lies-from-losers-web-mobile-integration-community-feedback</id>
+    <content type="html"><![CDATA[<p><em>Digests are summaries of articles posted by entrepreneurs, VCs, and
+other people who write about startups and technology in general, curated
+by yours truly. The goal is to make them shorter to read by extracting the most relevant
+information from our point of view and to encourage you to go read the
+complete post should you find the topic interesting.</em></p>
+
+<h3><a href="http://bhorowitz.com/2012/02/29/lies-that-losers-tell/" title="Source">Lies that Losers Tell</a></h3>
+
+<p><em>by <a href="https://twitter.com/#!/bhorowitz">@bhorowitz</a> - Feb 29, 2012</em></p>
+
+<p><em>Ben Horowitz describes the false explanations CEOs and employees find a
+posteriori to justify their failure and why they do that. Stop burrying
+your head in the sand.</em></p>
+
+<ul>
+<li><strong>Familiar lies</strong>
+
+<ul>
+<li>“<em>She left, but we were going to fire her, or give her a bad performance review</em>” : Instead of justifying the departure of your employees giving false excuses, ask yourself why you couldn't keep them.</li>
+<li>“<em>We would have won, but the other guys gave the deal away</em>” : Validate this claim with the actual customer instead of believing the Sales Rep who doesn't want to take the blame.</li>
+<li>"<em>Just because we missed the intermediate milestones doesn’t mean we won’t hit our product schedule</em>" : When the facts don’t align with the good news, a clever manager will find the narrative to make everybody feel better... until the next meeting.</li>
+<li>“<em>We have a very high churn rate, but as soon as we turn on email marketing to our user base, people will come back</em>” : The reason that people leave our service and don’t come back is that we have not been sending them enough spam ?</li>
+</ul>
+</li>
+<li><strong>Why are the CEOs/employees lying ?</strong>
+
+<ul>
+<li>Andy Grove explains that humans, particularly those who build things, only listen to leading indicators of good news and tend to justify bad news with false excuses.</li>
+<li>Lying CEOs regularly take action on the positive indicator and look for alternative explanations on the negative indicator.</li>
+<li>CEOs are not lying to investors, they are lying to themselves.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3><a href="http://www.bothsidesofthetable.com/2012/01/28/web-second-mobile-first/" title="Source">Web Second, Mobile First</a></h3>
+
+<p><em>by <a href="https://twitter.com/intent/user?screen_name=msuster">@msuster</a> - Jan 28, 2012</em></p>
+
+<p><em>Mark Suster reacts to Fred Wilson's blog post <a href="http://www.avc.com/a_vc/2010/09/mobile-first-web-second.html" title="AVC blog post">Mobile First, Web Second</a> reminding startups not to forget the Web</em></p>
+
+<ul>
+<li><strong>For 1.5 year people forgot Web Second and just thought Mobile First</strong>
+
+<ul>
+<li>It's important not give up on the power of the tethered web, of large screen real estate, of a keyboard.</li>
+<li>What's even more important is to have a strategy that matches
+customers wants and not developers whims.</li>
+</ul>
+</li>
+<li><strong>Mobile has clearly critical attributes</strong>
+
+<ul>
+<li>They are personal, location aware, occupy a lot of people's leisure
+time.</li>
+<li>They are one touch away from buying and represent the "<em>bottom
+end of the sales funnel</em>"</li>
+<li>The limited real estate forces less choice and offers more focus on
+the content.</li>
+</ul>
+</li>
+<li><strong>But products have to be integrated</strong>
+
+<ul>
+<li>Many things cannot be done on a mobile</li>
+<li>Mobile should serve a different experience, a different usecase of the service.</li>
+<li>The web product can offer complementary services that make the
+product even more attractive.</li>
+</ul>
+</li>
+<li><strong>Leverage the web to :</strong>
+
+<ul>
+<li>Create a differentiated product vs your mobile-only competitors.</li>
+<li>Enable content creation and curation to make mobile consumption a better experience.</li>
+<li>Organize and make the most of the content created by the mobile</li>
+<li>Build features that make using native-phones apps pointless.</li>
+</ul>
+</li>
+<li><strong>Tablets come third</strong>
+
+<ul>
+<li>Extension to mobile strategy (larger real estate make content
+  discovery different, increase the features possible...)</li>
+</ul>
+</li>
+</ul>
+
+
+<h3><a href="http://www.codinghorror.com/blog/2012/02/listen-to-your-community-but-dont-let-them-tell-you-what-to-do.html" title="Source">Listen to Your Community, But Don't Let Them Tell You What to Do</a></h3>
+
+<p><em>by <a href="https://twitter.com/#!/codinghorror">@codinghorror</a> - Feb 3, 2012</em></p>
+
+<p><em>Jeff Atwoods talks about the need to organize your community feedback
+to take the most out of it</em></p>
+
+<ul>
+<li><strong>Having a meta place to discuss the product is important</strong>
+
+<ul>
+<li>Meta participation is the source of all meaningful leadership and governance in a community, so it is cultivated and monitored closely.</li>
+<li>Meta is for people who care so deeply about their community that they're willing to go one step further, to come together and spend even more of their time deciding how to maintain and govern it.</li>
+</ul>
+</li>
+<li><strong>How to leverage this meta place ?</strong>
+
+<ul>
+<li>Animate the place : listen, respond</li>
+<li>Sort between feedback and feature requests</li>
+<li>Know how to extract core information and underlying needs from feature requests</li>
+<li>Know to sort between useless and awesome feedback, 10% of the feedback is useful and can be gems</li>
+<li>Don't hesitate to be honest explaining the choices the company did
+about the features the product offers.</li>
+</ul>
+</li>
+</ul>
+
+
+<p><em>If you would like your article not to be summarized on this blog,
+please contact us and we'll take it down
+asap</em></p>
+]]></content>
+  </entry>
+  
+</feed>
