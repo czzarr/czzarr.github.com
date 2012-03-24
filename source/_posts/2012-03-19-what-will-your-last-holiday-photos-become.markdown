@@ -1,7 +1,11 @@
-Title: What Will Your Last Holidays Photos Become?  
-Tags: storage, persistence, memory     
-Autopost: true     
-Private: false     
+---
+layout: post
+title: What Will Your Last Holidays Photos Become? 
+date: 2012-03-19 12:00
+comments: true
+author: Charles Miglietti
+categories: [storage, persistence, memory]    
+---
 
 Yesterday was my wife's grand father funeral. Those moments are intense
 family time where everybody gathers together and tells all the anecdotes they

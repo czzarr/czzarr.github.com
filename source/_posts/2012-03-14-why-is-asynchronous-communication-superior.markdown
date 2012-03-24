@@ -1,7 +1,11 @@
-Title: Why Is Asynchronous Communication Superior?   
-Tags: communication, asynchronous, chat, productivity  
-Autopost: true  
-Private: false  
+---
+layout: post
+title: Why Is Asynchronous Communication Superior?  
+date: 2012-03-14 12:00
+comments: true
+author: Charles Miglietti
+categories: [productivity, workflow, communication, chat]
+---
 
 In my [last article](http://needforair.com/why-you-shouldnt-use-synchronous-communicatio-70441 "last article") 
 I detailed why synchronous communication is not

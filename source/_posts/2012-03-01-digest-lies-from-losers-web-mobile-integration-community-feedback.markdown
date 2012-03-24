@@ -1,8 +1,17 @@
+---
+layout: post
+title: [Digest] Lies from Losers, Web/Mobile Integration, Community Feedback
+date: 2012-03-01 12:00
+comments: true
+author: Charles Miglietti
+categories: [digest, management, startups, community, feedback, mobile]
+---
 
 *Digests are summaries of articles posted by entrepreneurs, VCs, and
 other people who write about startups and technology in general, curated
 by yours truly. The goal is to make them shorter to read by extracting the most relevant
-information from our point of view.*
+information from our point of view and to encourage you to go read the
+complete post should you find the topic interesting.*
 
 
 ### [Lies that Losers Tell](http://bhorowitz.com/2012/02/29/lies-that-losers-tell/ "Source")

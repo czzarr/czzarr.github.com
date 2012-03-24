@@ -1,7 +1,17 @@
+---
+layout: post
+title: [Digest] Time Dimension on the Web, Raspberry Pi
+date: 2012-03-04 12:00
+comments: true
+author: Louis Chatriot
+categories: [digest, time, web, rasperrypi]
+---
+
 *Digests are summaries of articles posted by entrepreneurs, VCs, and
 other people who write about startups and technology in general, curated
 by yours truly. The goal is to make them shorter to read by extracting the most relevant
-information from our point of view.*
+information from our point of view and to encourage you to go read the
+complete post should you find the topic interesting.*
 
 
 ### [Bringing Time Back to the Web (Or: The Struggle for Depth)](http://continuations.com/post/18605081084/bringing-time-back-to-the-web-or-the-struggle-for "Source")

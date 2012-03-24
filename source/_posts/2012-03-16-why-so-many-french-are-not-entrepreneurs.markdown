@@ -1,7 +1,11 @@
-Title: Why so Many French are not Entrepreneurs  
-Tags: education, French, US, America, entrepreneur  
-Autopost: false  
-Private: true  
+---
+layout: post
+title: Why so Many French are Not Entrepreneurs 
+date: 2012-03-16 12:00
+comments: true
+author: Louis Chatriot
+categories: [education, entrepreneurship, France]
+---
 
 
 _France's higher education trains one of the world's best academic

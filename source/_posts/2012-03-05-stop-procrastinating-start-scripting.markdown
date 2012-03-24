@@ -1,7 +1,11 @@
-Title: Stop procrastinating, start scripting  
-Tags: productivity, script 
-Autopost: true   
-Private: false  
+---
+layout: post
+title: Stop Procrastinating, Start Scripting
+date: 2012-03-05 12:00
+comments: true
+author: Charles Miglietti
+categories: [productivity, scripting]
+---
 
 When working on a project we always face repetitive tasks. But we shouldn't have to spend as much time on those tasks as we usually do. We love
 to think: "_I just have to do it once and I won't have to do it again_" But we never have to do it only once, be it for the current project or
@@ -16,9 +20,9 @@ Task repetition can be solved in a painless way: scripting. When you don't autom
 because we tend to procrastinate and we don't face this reality that we
 postpone the moment we start scripting.  
 
-**Spare your time**  
+**Save your time**  
 I think scripting is a very important activity, above
-all because it makes us spare a lot of time. The inputs changed? No problem, just
+all because it makes us save a lot of time. The inputs changed? No problem, just
 rerun the script and you're done.  
 
 **Ship a product**  

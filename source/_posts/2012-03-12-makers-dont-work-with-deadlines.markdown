@@ -1,7 +1,11 @@
-Title: Makers don't work with deadlines
-Tags: deadlines, makers, workflow, management
-Autopost: true  
-Private: false
+---
+layout: post
+title: Makers Don't Work With Deadlines
+date: 2012-03-12 12:00
+comments: true
+author: Stanislas Marion
+categories: [productivity, workflow, management, makers]
+---
 
 
 A maker is someone who likes to make stuff, to build things. It can be

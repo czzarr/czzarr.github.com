@@ -1,7 +1,17 @@
+---
+layout: post
+title: [Digest] Habits, Realtime Analytics, Media Content
+date: 2012-03-06 12:00
+comments: true
+author: Charles Miglietti
+categories: [digest, analytics, curation, habits, viral, realtime]
+---
+
 *Digests are summaries of articles posted by entrepreneurs, VCs, and
 other people who write about startups and technology in general, curated
 by yours truly. The goal is to make them shorter to read by extracting the most relevant
-information from our point of view.*
+information from our point of view and to encourage you to go read the
+complete post should you find the topic interesting.*
 
 ### [Habits Are The New Viral: Why Startups Must Be Behavior Experts](http://www.nirandfar.com/2012/02/habits-are-new-viral-why-startups-must.html "Source")
 *by [@nireyal](https://twitter.com/#!/nireyal) - Feb 26, 2012*

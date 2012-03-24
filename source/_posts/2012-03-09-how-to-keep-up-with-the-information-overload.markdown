@@ -1,7 +1,11 @@
-Title: Information overload and how to keep up with it  
-Tags: productivity, information, news, time  
-Autopost: true  
-Private: false  
+---
+layout: post
+title: Information overload and how to keep up with it 
+date: 2012-03-09 12:00
+comments: true
+author: Stanislas Marion
+categories: [information, news, time, twitter]
+---
 
 Facebook notifications, Twitter feeds, RSS feeds, emails, news
 aggregators and now so much

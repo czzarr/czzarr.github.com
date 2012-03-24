@@ -1,7 +1,17 @@
+---
+layout: post
+title: [Digest] Assets of a Consumer-Web Startup, Internal People Metrics
+date: 2012-02-29 12:00
+comments: true
+author: Stanislas Marion
+categories: [digest, assets, metrics, startups, consumerweb]
+---
+
 *Digests are summaries of articles posted by entrepreneurs, VCs, and
 other people who write about startups and technology in general, curated
 by yours truly. The goal is to make them shorter to read by extracting the most relevant
-information from our point of view.*
+information from our point of view and to encourage you to go read the
+complete post should you find the topic interesting.*
 
 
 ### [What assets are you building ?](http://mporat.tumblr.com/post/16753414806/what-asset-are-you-building "Source")
