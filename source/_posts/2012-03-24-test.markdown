@@ -1,0 +1,9 @@
+---
+layout: post
+title: "test"
+date: 2012-03-24 15:05
+comments: true
+author: Stanislas Marion
+categories: [information, news, twitter]
+#published: false
+---
