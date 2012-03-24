@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Why We Write Digests of Interesting Content 
+title: "Why We Write Digests of Interesting Content"
 date: 2012-03-21 12:00
 comments: true
 author: Stanislas Marion

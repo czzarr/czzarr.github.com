@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Makers Don't Work With Deadlines
+title: "Makers Don't Work With Deadlines"
 date: 2012-03-12 12:00
 comments: true
 author: Stanislas Marion

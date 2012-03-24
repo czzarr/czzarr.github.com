@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Why so Many French are Not Entrepreneurs 
+title: "Why so Many French are Not Entrepreneurs"
 date: 2012-03-16 12:00
 comments: true
 author: Louis Chatriot

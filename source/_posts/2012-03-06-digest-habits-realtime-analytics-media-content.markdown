@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Digest] Habits, Realtime Analytics, Media Content
+title: "[Digest] Habits, Realtime Analytics, Media Content"
 date: 2012-03-06 12:00
 comments: true
 author: Charles Miglietti

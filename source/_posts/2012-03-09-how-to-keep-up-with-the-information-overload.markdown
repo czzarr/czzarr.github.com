@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Information overload and how to keep up with it 
+title: "How to Keep Up With the Information Overload"
 date: 2012-03-09 12:00
 comments: true
 author: Stanislas Marion

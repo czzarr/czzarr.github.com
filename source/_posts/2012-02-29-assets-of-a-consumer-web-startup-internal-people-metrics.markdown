@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Digest] Assets of a Consumer-Web Startup, Internal People Metrics
+title: "[Digest] Assets of a Consumer-Web Startup, Internal People Metrics"
 date: 2012-02-29 12:00
 comments: true
 author: Stanislas Marion

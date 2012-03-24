@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Stop Procrastinating, Start Scripting
+title: "Stop Procrastinating, Start Scripting"
 date: 2012-03-05 12:00
 comments: true
 author: Charles Miglietti

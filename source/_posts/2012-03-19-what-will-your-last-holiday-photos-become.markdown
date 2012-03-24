@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What Will Your Last Holidays Photos Become? 
+title: "What Will Your Last Holidays Photos Become?"
 date: 2012-03-19 12:00
 comments: true
 author: Charles Miglietti

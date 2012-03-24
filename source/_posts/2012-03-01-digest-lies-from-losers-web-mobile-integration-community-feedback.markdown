@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Digest] Lies from Losers, Web/Mobile Integration, Community Feedback
+title: "[Digest] Lies from Losers, Web/Mobile Integration, Community Feedback"
 date: 2012-03-01 12:00
 comments: true
 author: Charles Miglietti

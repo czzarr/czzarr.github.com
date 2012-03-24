@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Why You Should'nt Use Synchronous Communication At Work 
+title: "Why You Should'nt Use Synchronous Communication At Work" 
 date: 2012-03-13 12:00
 comments: true
 author: Charles Miglietti

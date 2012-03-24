@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Digest] Time Dimension on the Web, Raspberry Pi
+title: "[Digest] Time Dimension on the Web, Raspberry Pi"
 date: 2012-03-04 12:00
 comments: true
 author: Louis Chatriot

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Why Is Asynchronous Communication Superior?  
+title: "Why Is Asynchronous Communication Superior?"
 date: 2012-03-14 12:00
 comments: true
 author: Charles Miglietti
