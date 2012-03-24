@@ -7,8 +7,7 @@ author: Stanislas Marion
 categories: [digest, tldr, content, time, memory, sharing]    
 ---
 
-All three of us read a lot. Blogs, [Hacker
-News](http://news.ycombinator.com "Hacker News"), links we get through
+All three of us read a lot. Blogs, [Hacker News](http://news.ycombinator.com "Hacker News"), links we get through
 Twitter, etc. Browsing dozens of articles a week to stay informed is great but do we get the most out of it? **Do we
 actually memorize the gist of all that content we are reading?** Spending
 so much time reading would be a huge waste if it wasn't consolidated in
