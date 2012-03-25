@@ -27,7 +27,8 @@ After working for 1.5 years at a [Parisian startup](http://yseop.com), I decided
 I graduated from Ecole Centrale Paris and have an MS in Management Science and Engineering from Stanford University.
 
 
-## [Charles Miglietti](https://twitter.com/#!/charlesmigli)
+## [Charles Miglietti](https://twitter.com/#!/charlesmigli) <a href="https://twitter.com/charlesmigli" class="twitter-follow-button" data-show-count="false">Follow @charlesmigli</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 I do what I love and I'm always on the lookout for a good challenge. Being passionate about computer science and math,
 as well as innovation,I became more and more interested in entrepreneurship.
@@ -36,7 +37,8 @@ After graduating from Ecole Polytechnique, I spent a year as an embedded systems
 one of the most promising French startups at the moment. Inspired by this experience, I decided to quit to start my own company.
 
 
-## [Louis Chatriot](https://twitter.com/#!/louisChatriot)
+## [Louis Chatriot](https://twitter.com/#!/louisChatriot) <a href="https://twitter.com/louisChatriot" class="twitter-follow-button" data-show-count="false">Follow @louisChatriot</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 I'm a long-time geek who's always wanted to understand how things work, especially in the fields of math, physics, computer science and economy.
 
