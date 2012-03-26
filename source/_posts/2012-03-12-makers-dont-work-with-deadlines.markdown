@@ -13,6 +13,9 @@ an artist, a craftsman, an architect, a designer. But it can also be a
 software developer. I'm talking about good developers. Those that take
 pride in their work.
 
+[![Carrier Pigeon](http://farm4.staticflickr.com/3140/2331754875_e6a2a81429_m.jpg)](http://www.flickr.com/photos/aidanmorgan/2331754875/)
+*[CC license](http://creativecommons.org/licenses/by/2.0 "license") - by [John-Morgan](http://www.flickr.com/photos/24742305@N00/ "Author")*
+
 ## How we work
 
 Often times, people ask me how we work, how we manage things, and more
