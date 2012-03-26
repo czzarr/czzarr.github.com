@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: web | Need for Air]]></title>
+  <link href="http://czzarr.github.com/blog/categories/web/atom.xml" rel="self"/>
+  <link href="http://czzarr.github.com/"/>
+  <updated>2012-03-26T18:11:35+02:00</updated>
+  <id>http://czzarr.github.com/</id>
+  <author>
+    <name><![CDATA[Need for Air]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[Digest] Time Dimension on the Web, Raspberry Pi]]></title>
+    <link href="http://czzarr.github.com/blog/2012/03/04/digest-getting-time-back-on-the-web-raspberry-pie/"/>
+    <updated>2012-03-04T12:00:00+01:00</updated>
+    <id>http://czzarr.github.com/blog/2012/03/04/digest-getting-time-back-on-the-web-raspberry-pie</id>
+    <content type="html"><![CDATA[<p><em>Digests are summaries of articles posted by entrepreneurs, VCs, and
+other people who write about startups and technology in general, curated
+by yours truly. The goal is to make them shorter to read by extracting the most relevant
+information from our point of view and to encourage you to go read the
+complete post should you find the topic interesting.</em></p>
+
+<h3><a href="http://continuations.com/post/18605081084/bringing-time-back-to-the-web-or-the-struggle-for" title="Source">Bringing Time Back to the Web (Or: The Struggle for Depth)</a></h3>
+
+<p><em>by <a href="https://twitter.com/#!/albertwenger">Albert Wenger</a> - February 29, 2012</em></p>
+
+<ul>
+<li>There is so much new content on the Web every day that one can barely
+keep up with it</li>
+<li>It is becoming ever harder to delve into the past, a problem
+aggravated by Google's recent tilt of their search algorithm towards
+recency</li>
+<li>We need to surface time explicitly. For example, imagine a version of
+Techmeme where you can see the historical precedents of any post, or a
+search engine that allows you to "scroll" into the past of any result</li>
+</ul>
+
+
+<h3><a href="http://www.huffingtonpost.com/2012/02/29/raspberry-pi_n_1310441.html" title="Source">Raspberry Pi Mini Computer Served Up For $35</a></h3>
+
+<p><em>by <a href="http://www.huffingtonpost.com/courteney-palis">Courteney Palis, Huffington Post</a> - February 29, 2012</em></p>
+
+<p><em>Palis describes the $35-a-piece Raspberry PI micro-computer and the
+implications for the teaching of computer science</em></p>
+
+<ul>
+<li><p><strong>The Raspberry Pi device</strong></p>
+
+<ul>
+<li>A complete computer for $35</li>
+<li>Credit-card sized</li>
+<li>"Last-decade" hardware (700 Mhz processor, 256 MB RAM) that's still
+enough to run Linux, code, browse the internet and even play games such
+as Quake 3 !</li>
+</ul>
+</li>
+<li><p><strong>What this means</strong></p>
+
+<ul>
+<li>Programming can be learned by almost anyone</li>
+<li>People in poor areas, children in poor schools get access to technology</li>
+<li>Like the Kinect, the Raspberry Pi will enable hackers to build ever
+more impressive prototypes. The possibilities are endless</li>
+</ul>
+</li>
+</ul>
+
+
+<h3><a href="http://www.avc.com/a_vc/2012/03/raspberry-pi.html" title="Source">Fred Wilson on the Raspberry Pi</a></h3>
+
+<p><em>by <a href="https://twitter.com/#!/fredwilson">@fredwilson</a> - March 1, 2012</em></p>
+
+<p><em>Fred Wilson explains why he thinks the Raspberry Pi is a game changer</em></p>
+
+<ul>
+<li>Hardware that's currently expensive (phones and especially tablets)
+is going to be cheaper and cheaper. We will see sub $100 tablets in 3 to
+5 years</li>
+<li>The Raspberry Pi's goal is, according to the developper, to entice
+children to learn to code. But all markets that can be end-to-end
+digital, not just education, will be disrupted</li>
+</ul>
+
+
+<p><em>If you would like your article not to be summarized on this blog,
+please contact us and we'll take it down
+asap</em></p>
+]]></content>
+  </entry>
+  
+</feed>

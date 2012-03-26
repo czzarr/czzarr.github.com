@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: communication | Need for Air]]></title>
+  <link href="http://czzarr.github.com/blog/categories/communication/atom.xml" rel="self"/>
+  <link href="http://czzarr.github.com/"/>
+  <updated>2012-03-26T18:11:35+02:00</updated>
+  <id>http://czzarr.github.com/</id>
+  <author>
+    <name><![CDATA[Need for Air]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Why Is Asynchronous Communication Superior?]]></title>
+    <link href="http://czzarr.github.com/blog/2012/03/14/why-is-asynchronous-communication-superior/"/>
+    <updated>2012-03-14T12:00:00+01:00</updated>
+    <id>http://czzarr.github.com/blog/2012/03/14/why-is-asynchronous-communication-superior</id>
+    <content type="html"><![CDATA[<p>In my <a href="http://needforair.com/why-you-shouldnt-use-synchronous-communicatio-70441" title="last article">last article</a>
+I detailed why synchronous communication is not
+appropriate for work: it leads to interruptions, involves moving or
+shouting, drifts and leaves no trace.<br/>
+To solve this communication problem I believe in the asynchronous way of
+doing it.</p>
+
+<p><a href="http://www.flickr.com/photos/68346521@N08/6370949347/"><img src="http://farm7.staticflickr.com/6052/6370949347_a66d54d217_m.jpg" alt="Carrier Pigeon" /></a>
+<em><a href="http://creativecommons.org/%20licenses/by/2.0" title="license">CC license</a> - by <a href="http://www.flickr.com/photos/68346521@N08/" title="Author">Modestas J</a></em></p>
+
+<h2>Asynchronous?</h2>
+
+<p>WTF is this? In an asynchronous communication
+interlocutors can exchange and continue their discussion
+whenever they want it. Examples of
+asynchronous communication media are letter, text message, email,
+chat. They all share a common something in common: they are <strong>written communication
+media</strong>.</p>
+
+<h2>Asynchronous Channels Are Superior</h2>
+
+<p>The massive use of text messages illustrates the <strong>usefulness and the
+advantages an asynchronous communication offers over an oral conversation.</strong>
+It's quick, efficient, you can respond hours later and  keep track of the history.
+You should use different asynchronous communication media for different usecases. Your day-to-day conversation?
+Do it by chat. A code review? Use Github and Pull Requests. Important annoucements? Write an email. Organize
+your communication and insert it in your workflow. Segmenting your communication will help you manage it efficiently
+and will diminish the pressure of a single overloaded inbox.</p>
+
+<h2>Why Does Email Kill Your Productivity?</h2>
+
+<p>At work, people seem to use email as the sole form of asynchronous communication. Emails are adapted for
+internal communication like <strong>reports, formal announcements</strong>. If you write less-than-two-lines emails
+you are doing it wrong. Do you really need an email to say <em>"Ok I'll do it"</em> or <em>"Thanks"</em>?
+For everyday use they are counter productive. You end up receiving tons
+of emails a day, <strong>spending hours responding, deleting and archiving.</strong></p>
+
+<h2>The Right Communication Medium: the Chat Room</h2>
+
+<p>Setting up a chat room for your team is probably one of the most important
+action you can do to improve its efficiency and productivity.
+90% of its communication should occur there. With a chat room solution
+<strong>conversations history is easily accessible, you can simultaneously participate to
+multiple groups of discussions, sending a message is so much easier</strong>! Aren't you bored of
+clicking <em>New Message</em>, filling in recipients addresses? Even clicking on <em>Respond</em>
+is painful.<br/>
+Chat rooms are really the most adequate medium to communicate for your team.
+<a href="http://needforair.com/why-you-shouldnt-use-synchronous-communicatio-70441" title="Previous post">Even</a>
+if you work at the same place.</p>
+
+<p><strong>Don't waste more time and set up your private chat room.</strong>
+<a href="http://www.hipchat.com" title="HipChat">HipChat</a> is a great tool for that.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Why You Shouldn't Use Synchronous Communication At Work]]></title>
+    <link href="http://czzarr.github.com/blog/2012/03/13/why-you-shouldnt-use-synchronous-communication-at-work/"/>
+    <updated>2012-03-13T12:00:00+01:00</updated>
+    <id>http://czzarr.github.com/blog/2012/03/13/why-you-shouldnt-use-synchronous-communication-at-work</id>
+    <content type="html"><![CDATA[<p>In a recent <a href="http://www.forbes.com/sites/bruceupbin/2011/12/13/five-new-management-metrics-you-need-to-know/" title="Article">post</a>,
+James Slavet (Greylock Partners) describes metrics we should consider to
+be more productive. The top one is called Flow State Percentage and
+measures the relative time we are deeply concentrated on what we are doing. Flow state has
+an amazing impact on development cycles times. A big threat to flow state lies in synchronous communication.</p>
+
+<p><a href="http://www.flickr.com/photos/hand-nor-glove/1226209342/"><img src="http://farm2.staticflickr.com/1209/1226209342_ad08767199_m.jpg" alt="Muzzle" /></a>
+<em><a href="http://creativecommons.org/%20licenses/by/2.0" title="license">CC license</a> - by <a href="http://www.flickr.com/photos/hand-nor-glove/" title="Author">This Year Love</a></em></p>
+
+<h2>Synchronous communication?</h2>
+
+<p>Synchronous forms of communication include face
+to face conversation or phone discussion.
+Synchronous because people talking do it at the
+same exact moment: ever tried answering your colleagues
+2 minutes or 1 hour after they asked you a question? That's impossible
+as oral conversations don't work with delay.
+Asynchronous communication solves that problem
+by relies on a written exchange.</p>
+
+<h2>What for?</h2>
+
+<p>Oral conversations are <strong>only appropriate when a written exchange could take
+much longer than it should</strong>: conflict resolution, detailed
+explanation of a topic, etc. For other situations
+synchronous communication is counter-productive.</p>
+
+<h2>The pitfalls of synchronous communication at work</h2>
+
+<p>For your everyday work conversations you should think twice
+before having an oral discussion. Why? Here are <strong>4 reasons</strong>:</p>
+
+<ul>
+<li><p><strong>Oral discussion = interruption</strong> When somebody
+asks you something it drains all your attention. You have to switch your
+focus to provide the adequate answer which means you lose all the
+concentration you had in your work.
+The ten-seconds question becomes a ten-minutes perturbation, taking into
+account the time you need to refocus (if you even manage to refocus)
+and recall what your were doing.</p></li>
+<li><p><strong>It involves moving and/or shouting in the office</strong>. Depending on
+your work office configuration talking with somebody means moving to his
+desk or shouting through the open space. In the former case it
+magnifies your work interruption. In the latter case you'll manage
+to effectively disturb everyone of your coworkers.</p></li>
+<li><p><strong>Fatally you drift</strong> Oral conversations drift more than
+a bobsleigh on ice. Have you ever started a conversation about
+the crucial decision you should take and ended up speaking of the last
+hilarious meme you read?</p></li>
+<li><p><strong>Exchanges are lost for the posterity</strong> Oral conversations are not actionable, for you
+or your teammates. What if you need to recall all the points
+stated? How do you keep track of the history of your conversation?
+What if the following week you'll have the same question?
+Won't you feel bad disturbing your colleagues again?</p></li>
+</ul>
+
+
+<p>Before engaging in any kind of communication there is one thing
+you should try: <strong>find an answer by yourself</strong>.
+But sometimes it's more efficient
+to ask for somebody's help instead of googling to find the appropriate
+answer. In that case <strong>go for asynchronous communication.</strong></p>
+
+<p>In a later post I'll cover asynchronous communication
+especially the pitfalls of emails and the benefits of having a chat room
+for your team.</p>
+]]></content>
+  </entry>
+  
+</feed>

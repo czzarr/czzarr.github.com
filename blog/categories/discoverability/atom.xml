@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: discoverability | Need for Air]]></title>
+  <link href="http://czzarr.github.com/blog/categories/discoverability/atom.xml" rel="self"/>
+  <link href="http://czzarr.github.com/"/>
+  <updated>2012-03-26T18:11:35+02:00</updated>
+  <id>http://czzarr.github.com/</id>
+  <author>
+    <name><![CDATA[Need for Air]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Great Article on Improving the Discoverability of Good Content]]></title>
+    <link href="http://czzarr.github.com/blog/2012/03/17/great-article-on-improving-the-discoverability-of-good-content/"/>
+    <updated>2012-03-17T18:01:00+01:00</updated>
+    <id>http://czzarr.github.com/blog/2012/03/17/great-article-on-improving-the-discoverability-of-good-content</id>
+    <content type="html"><![CDATA[<p><a href="http://www.jacquesmattheij.com/What+you+could+do+if+you+were+google+and+had+their+databases">What could you do if you were Google and had their databases?</a>
+by <a href="https://twitter.com/#!/jmattheij">@jmattheij</a></p>
+
+<p>Jacques Mattheij explains his point of view on how Google+ is making its
+user base work collaboratively towards better Google search results, for
+free!</p>
+]]></content>
+  </entry>
+  
+</feed>
