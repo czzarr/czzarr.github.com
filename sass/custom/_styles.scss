@@ -2,5 +2,11 @@
 // Add styles here to make changes without digging in too much
 
 body {
-  font-size:1em;
+  font-size:0.8em;
 }
+
+h1, h2, h3 {
+ > a {
+   text-decoration:none;
+ }
+ }
