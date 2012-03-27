@@ -10,12 +10,12 @@ categories: [summary, tldr, article, curation]
 *In a nutshell...* Have you never been looking for this expression 
 while reading an article? The fact is that we are all fond of digested
 information. With Internet and social medias the quantity of information
-one has access to has become huge; one can even say we are coping with an 
+one has access to has become huge; we are coping with an 
 [information overload problem](http://needforair.com/information-overload-and-how-to-keep-up-with-5849 "Overload"). 
-We can potentially be aware of all what is going on everywhere, instantaneously 
+We can potentially be aware of everything that is going on everywhere, instantaneously 
 and regarding any topic. **In this context, the demand for digested 
 information is growing tremendously.**  
-Many recent startups have been able to leverage these expectations to
+Recently, many startups have been leveraging that fondness to
 succeed. [Franbridge](http://www.fanbridge.com/ "Fanbridge") with its 
 [Social digest](http://www.fanbridge.com/blog/introducing-social-digest "Social Digest") 
 will soon reach [10 millions subscribers](http://pandodaily.com/2012/03/21/as-it-turns-out-fanbridges-most-exciting-product-is-boring-old-email/)!  
