@@ -34,7 +34,7 @@ we scan the text to form our overall picture of the content. Digested
 information gathers all those clues and eases this process.  
 Part of this cognitive process is the memorisation. Digested information
 makes memorisation more accessible. Remember those cheatsheets you 
-conscientiously you wrote for your revision in college? Reading an
+conscientiously wrote for your revision in college? Reading an
 article digest gives the same benefits. When building our personal knowledge 
 database we store those keywords, key sentences. Digested information is
 the natural form of information we manipulate in our brain when
@@ -42,7 +42,7 @@ classifying, archiving, querying.
 
 ## Digested information piques reader's curiosity  
 
-When reading we like when the content arouse curiosity. I would even say
+When reading we like when the content arouses curiosity. I would even say
 that we expect an article to catch us. The digested information provides
 the essential to drive us into the details. It avoids the wall of text and 
 stimulates our will to deepen the subject. It's like reading gossips! You
