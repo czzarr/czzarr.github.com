@@ -20,3 +20,9 @@ sub {
   top: .5ex;
 }
 
+h1.entry-title,h2.entry-title,h3.entry-title {
+  >a {
+    text-decoration:none;
+  }
+}
+
