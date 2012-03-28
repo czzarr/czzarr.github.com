@@ -39,15 +39,3 @@
 	@media only screen and (max-width: 479px) {}
 
 
-/* #Font-Face
-================================================== */
-/* 	This is the proper syntax for an @font-face file
-		Just create a "fonts" folder at the root,
-		copy your FontName into code below and remove
-		comment brackets */
-
-	@font-face {
-    font-family: 'CassanetBold';
-    src: url('../../fonts/CassanetBold.otf');
-    font-weight: normal;
-    font-style: normal; }
