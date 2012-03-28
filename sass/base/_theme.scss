@@ -136,9 +136,9 @@ aside.sidebar a {
     font-family: $sans;
     font-weight: normal; }
   h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
-  h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
-  h2 { font-size: 35px; line-height: 40px; margin-bottom: 10px; }
-  h3 { font-size: 28px; line-height: 34px; margin-bottom: 8px; }
+  h1 { font-size: 36px; line-height: 50px; margin-bottom: 14px;}
+  h2 { font-size: 30px; line-height: 40px; margin-bottom: 10px; }
+  h3 { font-size: 23px; line-height: 34px; margin-bottom: 8px; }
   h4 { font-size: 21px; line-height: 30px; margin-bottom: 4px; }
   h5 { font-size: 17px; line-height: 24px; }
   h6 { font-size: 14px; line-height: 21px; }
@@ -164,7 +164,7 @@ aside.sidebar a {
 
 /* #Links
 ================================================== */
-  a, a:visited { color: #333; text-decoration: underline; outline: 0; }
+  a, a:visited { color: #008CD4; text-decoration: none; outline: 0; }
   a:hover, a:focus { color: #000; }
   p a, p a:visited { line-height: inherit; }
 
@@ -172,7 +172,8 @@ aside.sidebar a {
 /* #Lists
 ================================================== */
   ul, ol { margin-bottom: 20px; }
-  ul { list-style: none outside; }
+  ul { list-style: outside; }
+  nav ul, aside ul { list-style: none outside; }
   ol { list-style: decimal; }
   ol, ul.square, ul.circle, ul.disc { margin-left: 30px; }
   ul.square { list-style: square outside; }
@@ -460,7 +461,7 @@ li.current-menu-item a:after {
   }  
 
 header hgroup h1, h1.entry-title {
-  color: #6B0001;
+  color: #111;
   border-top: 3px solid #444;
   letter-spacing: -1px;
   font-size: 44px;
@@ -468,10 +469,13 @@ header hgroup h1, h1.entry-title {
   padding-top: 8px;
   margin-top: 20px;
 }
+h1.entry-title {
+  font-size:36px;
+}
 
 time .month, time .day, time .year {
   display: inline;
-  color: #aaa !important;
+  color: #AAA !important;
   font-family: $sans;
 }
 
@@ -600,9 +604,6 @@ footer p.credit {
 }
 
 article div.entry-content p a {
-  color: #000;
-  text-decoration: none;
-  border-bottom: 1px solid #aaa;
   &:hover {
     border-bottom: none;
   }

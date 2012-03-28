@@ -16,14 +16,14 @@ should you find the topic interesting.*
 
 
 
-### [BizDev is the new SEO](http://also.roybahat.com/post/19307918051/bd-is-the-new-seo "Source")
+## [BizDev is the new SEO](http://also.roybahat.com/post/19307918051/bd-is-the-new-seo "Source")
 *by [@roybahat](https://twitter.com/#!/roybahat) - Mar 16, 2012*
 
 
-*Roy Bahat writes a follow up to Roger and Mike's 
+Roy Bahat writes a follow up to Roger and Mike's 
 [article on the Hypernet](http://rogerandmike.com/post/18870279638/what-is-the-hypernet "Hypernet"). 
 He explains why business development may replace SEO in the next
-Internet era.*
+Internet era.
 
 * **Changes**
   * the iPhone changed the internet, by taking us away from the SEO-driven world of URLs and websites
@@ -34,15 +34,15 @@ Internet era.*
   * Business development may take the place of SEO.  This could be great for companies with well-known brands based on a quality service
   * That’s awful for new services with great content but no way to get an *in* – but it’s great for wonderful brands who might otherwise have struggled with the strange world of search algorithms
 
-### [What you could do if you were google and had their databases](http://www.jacquesmattheij.com/What+you+could+do+if+you+were+google+and+had+their+databases "Source")
+## [What you could do if you were google and had their databases](http://www.jacquesmattheij.com/What+you+could+do+if+you+were+google+and+had+their+databases "Source")
 *by [@jmattheij](https://twitter.com/#!/jmattheij) - Mar 15, 2012*
 
 
 
 
 
-*Jacques Mattheij thinks about the value of Google+ for Google and why
-they are pushing it so hard. This article outlines a hypothetical way in which Google+ could be of major strategic value for Google in its core business, search.*
+Jacques Mattheij thinks about the value of Google+ for Google and why
+they are pushing it so hard. This article outlines a hypothetical way in which Google+ could be of major strategic value for Google in its core business, search.
 
 * **The value of links is decreasing**
   * People that relied on links will now rely on Google reducing the value of links between sites 
