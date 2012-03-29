@@ -29,9 +29,9 @@ h1.entry-title,h2.entry-title,h3.entry-title {
 }
 
 h1 a {
-  color:black;
+  color:#333;
   &:visited {
-    color:black;
+    color:#333;
   }
   &:hover,&:active {
     color:#008CD4;
@@ -42,6 +42,7 @@ header hgroup h1 {
   border-top: 3px solid #008CD4;
   font-family: CassanetOutline, "proxima nova", sans-serif;
   color:#008CD4;
+  font-size: 50px;
 }
 
 ul.title {
@@ -55,4 +56,12 @@ span.author {
 div.sharing {
   margin-top: 0.5em;
   text-align:left;
+}
+
+aside.sidebar a {
+  color: #333;
+}
+
+p {
+  text-align: justify;
 }
