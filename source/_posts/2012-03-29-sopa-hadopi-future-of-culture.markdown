@@ -30,7 +30,7 @@ On the contrary, the last four ("bringing the content to consumers"), have been 
 
 
 ## People still want to pay for what they love
-Does that mean that labels and artists are doomed to be left destitue as we all get their work for free? I really think not. People (myself included) *want* to pay for what they love. For example, you can look at [Flattr](http://flattr.com/ Flattr). Or you can consider the fact that [Radiohead made between $6M and $10M from a
+Does that mean that labels and artists are doomed to be left destitue as we all get their work for free? I really think not. People (myself included) *want* to pay for what they love. For example, you can look at [Flattr](http://flattr.com/  "Flattr"). Or you can consider the fact that [Radiohead made between $6M and $10M from a
 "pay-what-you-want" downloadable album](http://www.wired.com/listening_post/2007/10/estimates-radio/ "Radiohead").  
 
 But what I love is music, movies, tv series. In a word, *culture*. Now that I've seen how easy it is to access it on the Internet, I want the paying offer to be at least as good as the free one: a large choice, fast downloads and unlimited access from anywhere. I am sick of DVDs rendered unreadable due to copy-protection (happened again last week), and music I can't copy however I wish.  
