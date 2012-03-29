@@ -1,0 +1,72 @@
+---
+layout: post
+title: "[Digest] Time Dimension on the Web, Raspberry Pi"
+date: 2012-03-04 12:00
+comments: true
+author: Louis Chatriot
+categories: [digest, time, web, rasperrypi]
+---
+
+*Digests are summaries of articles posted by entrepreneurs, VCs, and
+other people who write about startups and technology in general, curated
+by yours truly. The goal is to make them shorter to read by extracting the most relevant
+information from our point of view and to encourage you to go read the
+complete post should you find the topic interesting.*
+
+
+### [Bringing Time Back to the Web (Or: The Struggle for Depth)](http://continuations.com/post/18605081084/bringing-time-back-to-the-web-or-the-struggle-for "Source")
+*by [Albert Wenger](https://twitter.com/#!/albertwenger) - February 29, 2012*
+
+* There is so much new content on the Web every day that one can barely
+  keep up with it
+* It is becoming ever harder to delve into the past, a problem
+  aggravated by Google's recent tilt of their search algorithm towards
+recency
+* We need to surface time explicitly. For example, imagine a version of
+  Techmeme where you can see the historical precedents of any post, or a
+search engine that allows you to "scroll" into the past of any result
+
+
+
+
+### [Raspberry Pi Mini Computer Served Up For $35](http://www.huffingtonpost.com/2012/02/29/raspberry-pi_n_1310441.html "Source")
+*by [Courteney Palis, Huffington Post](http://www.huffingtonpost.com/courteney-palis) - February 29, 2012*
+
+
+*Palis describes the $35-a-piece Raspberry PI micro-computer and the
+implications for the teaching of computer science*
+
+* **The Raspberry Pi device**
+  * A complete computer for $35
+  * Credit-card sized
+  * "Last-decade" hardware (700 Mhz processor, 256 MB RAM) that's still
+enough to run Linux, code, browse the internet and even play games such
+as Quake 3 !
+
+* **What this means**
+  * Programming can be learned by almost anyone
+  * People in poor areas, children in poor schools get access to technology
+  * Like the Kinect, the Raspberry Pi will enable hackers to build ever
+more impressive prototypes. The possibilities are endless
+
+
+
+### [Fred Wilson on the Raspberry Pi](http://www.avc.com/a_vc/2012/03/raspberry-pi.html "Source")
+*by [@fredwilson](https://twitter.com/#!/fredwilson) - March 1, 2012*
+
+
+*Fred Wilson explains why he thinks the Raspberry Pi is a game changer*
+
+* Hardware that's currently expensive (phones and especially tablets)
+is going to be cheaper and cheaper. We will see sub $100 tablets in 3 to
+5 years
+* The Raspberry Pi's goal is, according to the developper, to entice
+children to learn to code. But all markets that can be end-to-end
+digital, not just education, will be disrupted
+
+
+
+
+*If you would like your article not to be summarized on this blog,
+please contact us and we'll take it down
+asap*
