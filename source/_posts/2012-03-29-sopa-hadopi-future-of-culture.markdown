@@ -37,7 +37,7 @@ But what I love is music, movies, tv series. In a word, *culture*. Now that I've
 
 
 ## How labels and artists can get paid
-In my opinion, a *global subscription model*, much like Spotify, would be a very nice solution. I estimate the number of Internet subscriptions in the same region to be 80M (it was [70M in the US alone in 2009](http://www.internetworldstats.com/am/us.htm)). The [North American music industry made a total of $26.5B in 2011](http://grabstats.com/statmain.asp?StatID=74), which corresponds to about $28 per subscribtion and per month. I share one subscription with my girlfriend whom I live with, so that means I would have to pay $14 per month for unlimited and legal music. I would do that gladly.  
+In my opinion, a *global subscription model*, much like Spotify's, would be a very nice solution. I estimate the number of Internet subscriptions in the same region to be 80M (it was [70M in the US alone in 2009](http://www.internetworldstats.com/am/us.htm)). The [North American music industry made a total of $26.5B in 2011](http://grabstats.com/statmain.asp?StatID=74), which corresponds to about $28 per subscribtion and per month. I share one subscription with my girlfriend whom I live with, so that means I would have to pay $14 per month for unlimited and legal music. I would do that gladly.  
 
 The exchanges could be
 monitored so that the most downloaded artists receive more money than
