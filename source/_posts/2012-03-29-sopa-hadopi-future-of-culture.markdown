@@ -10,7 +10,7 @@ categories: [sopa, copyright, music, movies, culture]
 The entertainment industry is busy trying to make the US to adopt the SOPA
 law which is considered dangerous for the Internet by [many](http://www.guardian.co.uk/technology/2012/jan/18/sopa-wikipedia-blackout-google-reddit "many"). This brings two questions:
 
-* What can the future model for accessing culture be? Will today's
+* What can the future model for accessing culture look like? Will today's
   giants be part of it?
 * How can we ensure that laws are made by people with sufficient
   knowledge of the field they try to regulate?
