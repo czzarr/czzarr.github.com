@@ -30,11 +30,11 @@ h1.entry-title,h2.entry-title,h3.entry-title {
 
 h1 a {
   color:black;
-  &:hover {
-    color:#008CD4;
-  }
   &:visited {
     color:black;
+  }
+  &:hover,&:active {
+    color:#008CD4;
   }
 }
 
@@ -49,4 +49,9 @@ ul.title {
 
 span.author {
   color:#aaa;
+}
+
+div.sharing {
+  margin-top: 0.5em;
+  text-align:left;
 }
