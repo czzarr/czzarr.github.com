@@ -44,6 +44,6 @@ monitored so that the most downloaded artists receive more money than
 the others. This redistribution system could also be tweaked in favor of smaller, unknown artists to support discovery.  
 
 The above only concerns personal content consumption at home. *There
-are alternative revenue streams for artists and labels that cannot be copied nor downloaded*: concerts, movie theatres, goodies and so on. For example, [the total 2011 revenue for live music in North America is $10.3B](http://grabstats.com/statmain.asp?StatID=73). It seems to be enough to sustain content creation, doesn't it?
+are alternative revenue streams for artists and labels that cannot be copied nor downloaded*: concerts, movie theatres, goodies and so on. For example, [the total 2011 revenue for live music in North America is $10.3B](http://grabstats.com/statmain.asp?StatID=73). It seems to be enough to sustain music creation, doesn't it?
 
 [In a nutshell](http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers/), I think that major players still have a role to play, but should focus on content creation and marketing, where their true value addition resides. I fear that if they continue to try to keep the old business model in place, they will be replaced by more suited players.
