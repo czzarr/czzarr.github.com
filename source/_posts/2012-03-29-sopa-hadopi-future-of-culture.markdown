@@ -10,10 +10,10 @@ The copyright industry is busy trying to force the US to adopt the SOPA
 law while its French counterpart, Hadopi, is already up and
 running. This brings two questions:
 
-* What will be the future model for accessing culture ? Will today's
-  giants be part of it ?
+* What will be the future model for accessing culture? Will today's
+  giants be part of it?
 * How can we ensure that laws are made by people with sufficient
-  knowledge of the field they try to regulate ?
+  knowledge of the field they try to regulate?
 
 I will cover the first question in this post and the second one in a few
 days.
@@ -43,7 +43,7 @@ to be pretty good at providing exactly this, for free.
 ## People still want to pay for what they love
 Does that mean that artists are doomed to become destitue as consumers
 will get their work for free, as the story championed by these
-industries go ? Of course not ! People want to pay for what they love.
+industries go? Of course not! People want to pay for what they love.
 For example, you can look at [Flattr](http://flattr.com/ Flattr). Or you
 can consider the fact that [Radiohead made between $6M and $10M from a
 "pay-what-you-want" album](http://www.wired.com/listening_post/2007/10/estimates-radio/ "Radiohead").  
