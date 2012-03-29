@@ -35,14 +35,13 @@ offer, when we offer it and at the price we're offering it, you always have
 the option of not getting it". They may be right, but they're not [pragmatic](http://www.marco.org/2012/02/25/right-vs-pragmatic "pragmatic"). Consumers don't like to pay for CDs that are DRM-locked, or for a zone 1 DVD that only works in 2 countries and begins with a 10 minutes ["illegal downloading is ripping out a beating human heart" ad](http://www.youtube.com/watch?v=OWPfcEOr2Yg "Bender piracy warning"). In fact, consumers don't even want to drive to the nearest Virgin Megastore to get the latest season of Game of Thrones.  
 
 That's why these industries will die eventually: they try to stick to
-their old business model of selling *products* (CDs, DVDs, MP3 files) ladden with commercials while the public only
+their old business model of selling *products* (CDs, DVDs, MP3 files) laden with commercials while the public only
 wants access to *culture* (songs, movies, series, books). And the Internet has proven
 to be pretty good at providing exactly this, for free.
 
 
 ## People still want to pay for what they love
-Does that mean that artists are doomed to become destitue as consumers
-will get their work for free, as the story championed by these
+Does that mean that artists are doomed to be left destitue as consumers get their work for free, as the story championed by these
 industries go? Of course not! People want to pay for what they love.
 For example, you can look at [Flattr](http://flattr.com/ Flattr). Or you
 can consider the fact that [Radiohead made between $6M and $10M from a
