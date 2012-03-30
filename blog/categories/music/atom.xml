@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: music | Need for Air]]></title>
+  <link href="http://czzarr.github.com/blog/categories/music/atom.xml" rel="self"/>
+  <link href="http://czzarr.github.com/"/>
+  <updated>2012-03-30T10:34:35+02:00</updated>
+  <id>http://czzarr.github.com/</id>
+  <author>
+    <name><![CDATA[Need for Air]]></name>
+    
+  </author>
+  <generator uri="http://ryandeussing.com/">Ryan Deussing</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SOPA, the entertainment industry and the future of culture]]></title>
+    <link href="http://czzarr.github.com/blog/2012/03/29/sopa-hadopi-future-of-culture/"/>
+    <updated>2012-03-29T08:24:00+02:00</updated>
+    <id>http://czzarr.github.com/blog/2012/03/29/sopa-hadopi-future-of-culture</id>
+    <content type="html"><![CDATA[<p>The entertainment industry is busy trying to make the US adopt the SOPA
+law which is considered dangerous for the Internet by <a href="http://www.guardian.co.uk/technology/2012/jan/18/sopa-wikipedia-blackout-google-reddit" title="many">many</a>. This brings two questions:</p>
+
+<ul>
+<li>What can the future model for accessing culture look like? Will today's
+giants be part of it?</li>
+<li>How can we ensure that laws are made by people with sufficient
+knowledge of the field they try to regulate?</li>
+</ul>
+
+
+<p>I give my consumer and tech enthusiast point of view on the first question in this post and I will tackle the second one in a few days.</p>
+
+<p><a href="http://www.flickr.com/photos/27539822@N05/3697785107/"><img src="http://farm3.staticflickr.com/2608/3697785107_579dac8a0f_n.jpg" alt="Concert" /></a>
+<em>by <a href="http://www.christianholmer.com/" title="Author">Christian Holmer</a></em></p>
+
+<h2>How the Internet disrupted the entertainment industry's business model</h2>
+
+<p>The major movie and music producers (Hollywood, Sony, Universal to name a few) engage in the <a href="http://musicfacts2.wordpress.com/2010/06/25/15-analysis-of-the-cost-structure/">following activities</a>: content production (recording in the case of music), royalties payments to artists and copyrights holders,  marketing and promotion, purchase, manufacturing, warehousing and distribution. The first four can be referred to as "creating the content and making it known", and the Internet didn't have much impact on them.</p>
+
+<p>On the contrary, the last four ("bringing the content to consumers"), have been completely disrupted by the arrival of the Internet, which brings these costs close to zero. In my opinion, the major labels have failed to accept this fact, which is why they took such a long time to open downloading services. And even then, the online prices have not gone down by as much as they could. They may have every right to tell consumers that they always have the option not to get music/videos, but I think that's not a <a href="http://www.marco.org/2012/02/25/right-vs-pragmatic" title="pragmatic">pragmatic approach</a>. I want to listen to music and watch movies, but I don't like to pay for CDs that are DRM-locked, or for a zone 1 DVD that only works in 2 countries and begins with an <a href="http://www.youtube.com/watch?v=OWPfcEOr2Yg" title="Bender piracy warning">"illegal downloading is ripping out a beating human heart" ad</a>. In fact, I don't even want to have to drive to the nearest Virgin Megastore to get the latest season of Game of Thrones. <em>What I want is to be able to get access to music and videos freely from my home</em>.</p>
+
+<h2>People still want to pay for what they love</h2>
+
+<p>Does that mean that labels and artists are doomed to be left destitute as we all get their work for free? I really don't think so. People (myself included) <em>want</em> to pay for what they love. For example, you can look at <a href="http://flattr.com/" title="Flattr">Flattr</a>. Or you can consider the fact that <a href="http://www.wired.com/listening_post/2007/10/estimates-radio/" title="Radiohead">Radiohead made between $6M and $10M from a
+"pay-what-you-want" downloadable album</a>.</p>
+
+<p>But what I love is music, movies, tv series. In a word, <em>culture</em>. Now that I've seen how easy it is to access it on the Internet, I want the paying offer to be at least as good as the free one: a large choice, fast downloads and unlimited access from anywhere. I am sick of DVDs rendered unreadable due to copy-protection (happened again last week), and music I can't copy however I wish.</p>
+
+<h2>How labels and artists can get paid</h2>
+
+<p>In my opinion, a <em>global subscription model</em>, much like Spotify's, would be a very nice solution. I estimate the number of Internet subscriptions in North America to be 80M (it was <a href="http://www.internetworldstats.com/am/us.htm">70M in the US alone in 2009</a>). The <a href="http://grabstats.com/statmain.asp?StatID=74">music industry made a total of $26.5B in the same region in 2011</a>, which corresponds to about $28 per subscribtion and per month. I share one subscription with my girlfriend whom I live with, so that means I would have to pay $14 per month for unlimited and legal music. I would do that gladly!</p>
+
+<p>The exchanges could be
+monitored so that the most downloaded artists receive more money than
+the others. This redistribution system could also be tweaked in favor of smaller, unknown artists to support discovery.</p>
+
+<p>The above only concerns personal content consumption. <em>There
+are alternative revenue streams for artists and labels that cannot be copied nor downloaded</em>: concerts, movie theatres, goodies and so on. For example, <a href="http://grabstats.com/statmain.asp?StatID=73">the total 2011 revenue for live music in North America is $10.3B</a>. It seems to be enough to sustain music creation, doesn't it?</p>
+
+<p><a href="http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers/">In a nutshell</a>, I think that major labels still have a role to play, but should focus on content creation and marketing, where their true value addition resides. I fear that if they continue to try to keep the old business model in place, they will be replaced by more suited players.</p>
+]]></content>
+  </entry>
+  
+</feed>
