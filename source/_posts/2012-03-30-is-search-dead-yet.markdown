@@ -73,7 +73,8 @@ and more like a 1990's portal...
 
 On a higher level, I want to ask: how could search die? Are
 people suddenly going to stop looking for stuff online? How could that
-be? People are always going to need or want to search. It cannot die.
+be? People are always going to need or want to search unless we get to a
+point where [everybody knows exactly what they want](http://www.avc.com/a_vc/2003/10/search.html). It cannot die.
 Only a certain UX can die. I think new search engines are going to
 differentiate themselves by the content they index (like
 [teleportd's](http://teleportd.com) for user-uploaded photos) or a
