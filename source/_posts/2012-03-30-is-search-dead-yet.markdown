@@ -1,84 +1,110 @@
 ---
 layout: post
-title: "Is Search Dead Yet?"
-date: 2012-03-30 17:58
+title: "Siri or the Reinvention of Search User Experience"
+date: 2012-03-31 17:58
 author: Stanislas Marion
 comments: true
 categories: search, social, mobile, content, shell
 ---
 
-The future of search engines has recently been [discussed](http://rogerandmike.com/post/13133644688/10-hypotheses-for-technology-investing) [at](http://continuations.com/post/18605081084/bringing-time-back-to-the-web-or-the-struggle-for) [length](http://also.roybahat.com/post/19307918051/bd-is-the-new-seo).
-Admittedly the major shift from computers to mobile devices and the
-global pervasion of social media into everyone's behavior do not bode
-well for search. I think this is not a good indicator though, and that
-the problem isn't inherent to search.
+Search is a behavior, it is what people do when they want to find
+something and don't know exactly what they're looking for, or when they
+know what they're looking for but don't know where to find it. 
+But search on computers and online has traditionally been either
+intuitive and useless or unintuitive and powerful, as I'm going to show
+you.
+Even searching on Google used to be really really [hard and
+unintuitive](http://www.avc.com/a_vc/2003/10/search.html)
+for the layperson. But Google improved the UX a lot and it was so
+powerful that people just learned to use it.
+
+Until now
+search was basically equated to Google (a single-entry point to all of
+the resources available on the web), but with the major
+[shift](http://www.codinghorror.com/blog/2012/03/welcome-to-the-post-pc-era.html) from computers to mobile devices
+search UX needs to be reinvented.
 
 ## Mobile Search User Experience Sucks
 
 Searching on smartphones is currently a terrible user experience. Screens are
 tiny, typos frequent, missclicks incredibly annoying. Search results
 don't account well for the fact that smartphones are not simply smaller versions of
-computers.
+computers. Recently for instance, an [app](http://itunes.apple.com/bw/app/quickmaps/id506283203?mt=8) that is a 
+simple user interface for frequent
+Google Maps queries received a very positive feedback and was an instant
+success.
 
-I think that's why social media have been winning so far on mobile
-devices. Discovering content and generally browsing social media apps
-such as Facebook's is a much more enjoyable and user-friendly experience
-than searching for content. When UX sucks to the point that it's too
-inconvenient, people don't use the product.
+That's why most search on mobile is done on vertically differentiated
+apps: search for places to stay on the Airbnb app, look for movies on the IMDB
+app. These apps provide a better search experience, from the query to
+the results "page". The problem with that scheme is when you don't know
+the particular app that suits your needs. Unless you follow Techcrunch
+or HackerNews religiously it can get tricky. The beauty of Google and
+other search engines was that they provided a single entry point for web
+content.
+
+But the UX of single entry point search is so bad on mobile that people
+don't bother using it. Instead they're left with discovering content
+through social media apps which a very decent UX for that. But they
+cannot look for something, they cannot search, and that's too bad.
+
+## Lets Go Back In Time
+
+When Windows arrived on the market, it represented a major shift in UX.
+Before Windows, people interacted with computers using a command-line
+interface(CLI), otherwise known as the shell. Command-line means that instead
+of clicking around, navigating in your folders and moving files
+visually, you gave a command to the computer and it executed your
+command. The CLI was (and still is) a great UX for search of files in a
+computer. Windows, on the other hand, was absolutely terrible at this.
 
 Can you remember when you still had Windows? Looking for a file was
 absurdly hard and difficult, borderline impossible. That's why most
 people just used their brain to remember where they put their files on
 their hard drive, and went looking for it by opening folder after
-folder, eventhough they using Google for looking for stuff on the web.
-And yet that was a regression from the days when there was no graphical
-interface.
+folder. And people who are now used to Google search for the web still act the same on
+Windows when they want to access a file.
+
+So Windows was a huge regression in search UX from the days when there was no graphical
+interface. I know a lot of people who lost files in their computers
+because they couldn't search for them like they search for web pages in Google.
+
+Windows was arguably more intuitive than the CLI, you didn't have to
+learn any commands to use it. All you had to do is click buttons and move your cursor
+around.
+
+The reason why I'm talking about
+all this is we are currently witnessing a similar change of paradigms
+as websites are becoming webapps or even native mobile apps, that cannot
+be cleanly separated into different pages anymore. And again search UX
+is getting the bitter end of the deal.
+
+Apps are more intuitive, there are no more files, no more links, it's
+pure visual and intuition heaven such that 2-year olds are comfortable with iPads,
+but search is not part of the experience.
 
 ## Enters Siri 
+
+Siri is the new personal assistant that lives in all iPhones 4S. You
+talk to her and she executes your wishes to the best of her abilities.
 
 A lot of people say it's a gadget, it's not actionable,
 it's an Apple marketing ploy to sell you an iPhone 4 at a 20% premium. I
 think however that it's much more than that and that these critics are
 missing the elephant in the room. For me, Siri is the new
-shell. 
+command-line interface. 
 
-For those that don't know what a shell is, it's a command-line
-interface to your computer's operating system that enables you to tell
-your computer to do things (like copy/paste files, move them, delete
-them, or... **search** for them) instead of doing them yourself with
-your mouse. The shell is a great interface for search inside your
-computer. Finding files by name or content is easy. Most people never
-knew it existed because Windows just hid it from every non tech-savvy
-user out there, for whatever reason.
-
-But think about what Siri does. You ask her to set your
-alarm, to give you the weather, to find a restaurant. Basically, it's a
-vocal recognition-enabled shell. And eventhough it's still rough on the
+Think about what Siri does. You ask her to set your
+alarm, to give you the weather, to find a restaurant, to look for places. Basically, it's a
+vocal recognition enabled command interface. And eventhough it's still rough on the
 edges, I'm positive it's going to become much more powerful in the near
-future. Basically, Siri is going to bring search back to mobile devices,
-as it is a great UX to search on smartphones.
+future. Vocal commands are the ultimate user experience, everybody gets
+it. The sole interface that would be even better would be a mind-reading
+interface. So for the first time we have a search UX that is both intuitive
+and powerful (or promising to be at least). Siri is abstracting links
+and complicated queries from the end-user. Most oeople don't care about
+links, they just want the data, the resource that the links point to.
 
+Siri is going to bring search back to mobile devices.
 
-## Search will never die
-
-In fact, search is actually [blowing up](http://news.ycombinator.com/item?id=3770958). [DuckDuckGo](http://duckduckgo.com)
-is a new search engine that differentiates itself from Google and the
-others by respecting your privacy, among other things. This is their
-killer feature on paper. But more interesting I think is the fact that
-the growth shot up right after its visual refresh. The homepage is now as simple as the Google homepage used to be.
-There is only a search box and a logo. No clutter, no toolbar, no
-nothing. This is arguably the best desktop
-UX for search. On the other hand, the google homepage is looking more
-and more like a 1990's portal...
-
-On a higher level, I want to ask: how could search die? Are
-people suddenly going to stop looking for stuff online? How could that
-be? People are always going to need or want to search unless we get to a
-point where [everybody knows exactly what they want](http://www.avc.com/a_vc/2003/10/search.html). It cannot die.
-Only a certain UX can die. I think new search engines are going to
-differentiate themselves by the content they index (like
-[teleportd's](http://teleportd.com) for user-uploaded photos) or a
-radically contrarian positionning like duckduckgo's.
-
-Long live search engines.
 
