@@ -46,8 +46,9 @@ still google "facebook" to reach the facebook website.
 
 But the UX of single entry point search is so bad on mobile that people
 don't bother using it. Instead they're left with discovering content
-through social media apps which a very decent UX for that. But they
-cannot look for something, they cannot search, and that's too bad.
+through social media apps which offer a very decent UX for that. But they
+cannot look for something from a single-entry point unless they muster
+enough courage to deal with Google's web app, and that's too bad.
 
 ## Lets Go Back In Time
 
@@ -57,22 +58,18 @@ interface(CLI), otherwise known as the shell. Command-line means that instead
 of clicking around, navigating in your folders and moving files
 visually, you gave a command to the computer and it executed your
 command. The CLI was (and still is) a great UX for search of files in a
-computer. Windows, on the other hand, was absolutely terrible at this.
+computer. Windows' graphical user interface, on the other hand, was absolutely terrible at this.
 
 Can you remember when you still had Windows? Looking for a file was
 absurdly hard and difficult, borderline impossible. That's why most
 people just used their brain to remember where they put their files on
 their hard drive, and went looking for it by opening folder after
-folder. And people who are now used to Google search for the web still act the same on
-Windows when they want to access a file.
-
-So Windows was a huge regression in search UX from the days when there was no graphical
-interface. I know a lot of people who lost files in their computers
-because they couldn't search for them like they search for web pages in Google.
+folder. So Windows was a huge regression in search UX from the days when there was no graphical
+interface. 
 
 Windows was arguably more intuitive than the CLI, you didn't have to
 learn any commands to use it. All you had to do is click buttons and move your cursor
-around.
+around. But as you gained intuitiveness, you lost the power of the CLI.
 
 The reason why I'm talking about
 all this is we are currently witnessing a similar change of paradigms
@@ -82,7 +79,7 @@ is getting the bitter end of the deal.
 
 Apps are more intuitive, there are no more files, no more links, it's
 pure visual and intuition heaven such that 2-year olds are comfortable with iPads,
-but search is not part of the experience.
+but powerful search is not part of the experience.
 
 ## Enters Siri 
 
@@ -96,16 +93,19 @@ missing the elephant in the room. For me, Siri is the new
 command-line interface. 
 
 Think about what Siri does. You ask her to set your
-alarm, to give you the weather, to find a restaurant, to look for places. Basically, it's a
-vocal recognition enabled command interface. And eventhough it's still rough on the
+alarm, to give you the weather, to find a restaurant, to look for places, all from a single entry point. 
+Basically, it's a **vocal recognition enabled command interface**. 
+And eventhough it's still rough on the
 edges, I'm positive it's going to become much more powerful in the near
 future. Vocal commands are the ultimate user experience, everybody gets
-it. The sole interface that would be even better would be a mind-reading
-interface. So for the first time we have a search UX that is both intuitive
-and powerful (or promising to be at least). Siri is abstracting links
+it. The sole interface that beat vocal commands would be a mind-reading
+interface. 
+So for the first time we have a **search UX that is both intuitive
+and powerful** (or promising to be at least). Siri is abstracting links
 and complicated queries from the end-user. Most people don't care about
 links, they just want the data, the resource that the links point to.
 
-Siri is going to bring search back to mobile devices.
+Siri is going to bring search back to mobile devices, and make search a
+huge part of the mobile ecosystem once it opens its API to developers.
 
 
