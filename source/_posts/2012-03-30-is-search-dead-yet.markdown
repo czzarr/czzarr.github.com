@@ -95,7 +95,7 @@ command-line interface.
 Think about what Siri does. You ask her to set your
 alarm, to give you the weather, to find a restaurant, to look for places, all from a single entry point. 
 Basically, it's a **vocal recognition enabled command interface**. 
-And eventhough it's still rough on the
+And even though it's still rough on the
 edges, I'm positive it's going to become much more powerful in the near
 future. Vocal commands are the ultimate user experience, everybody gets
 it. The sole interface that beat vocal commands would be a mind-reading
