@@ -102,7 +102,7 @@ future. Vocal commands are the ultimate user experience, everybody gets
 it. The sole interface that would be even better would be a mind-reading
 interface. So for the first time we have a search UX that is both intuitive
 and powerful (or promising to be at least). Siri is abstracting links
-and complicated queries from the end-user. Most oeople don't care about
+and complicated queries from the end-user. Most people don't care about
 links, they just want the data, the resource that the links point to.
 
 Siri is going to bring search back to mobile devices.
