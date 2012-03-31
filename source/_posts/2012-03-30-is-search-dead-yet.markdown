@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "Siri or the Reinvention of Search User Experience"
+title: "Siri or the Reinvention of Mobile Search User Experience"
 date: 2012-03-31 17:58
 author: Stanislas Marion
 comments: true
-categories: search, social, mobile, content, shell
+categories: search, ux, mobile, shell
 ---
 
 Search is a behavior, it is what people do when they want to find
 something and don't know exactly what they're looking for, or when they
 know what they're looking for but don't know where to find it. 
-But search on computers and online has traditionally been either
+But search on computers or on the web has traditionally been either
 intuitive and useless or unintuitive and powerful, as I'm going to show
 you.
-Even searching on Google used to be really really [hard and
+Even searching on Google used to be [hard and
 unintuitive](http://www.avc.com/a_vc/2003/10/search.html)
-for the layperson. But Google improved the UX a lot and it was so
+for the layperson. But Google improved the UX and it was so
 powerful that people just learned to use it.
 
 Until now
@@ -24,24 +24,25 @@ the resources available on the web), but with the major
 [shift](http://www.codinghorror.com/blog/2012/03/welcome-to-the-post-pc-era.html) from computers to mobile devices,
 search UX needs to be reinvented.
 
-## Mobile Search User Experience Sucks
+## Fact: Mobile Search User Experience Sucks
 
 Searching on smartphones is currently a terrible user experience. Screens are
 tiny, typos frequent, missclicks incredibly annoying. Search results
 don't account well for the fact that smartphones are not simply smaller versions of
-computers. Recently for instance, an [app](http://itunes.apple.com/bw/app/quickmaps/id506283203?mt=8) that is a 
+computers. Recently for instance, an [iphone app](http://itunes.apple.com/bw/app/quickmaps/id506283203?mt=8) that is a 
 simple user interface for frequent
 Google Maps queries received a very positive feedback and was an instant
 success.
 
 That's why most search on mobile is done on vertically differentiated
-apps: search for places to stay on the Airbnb app, look for movies on the IMDB
+apps: one searches for places to stay on the Airbnb app, and looks for movies on the IMDB
 app. These apps provide a better search experience, from the query to
 the results "page". The problem with that scheme is when you don't know
 the particular app that suits your needs. Unless you follow Techcrunch
 or HackerNews religiously it can get tricky. The beauty of Google and
 other search engines was that they provided a single entry point for web
-content.
+content. You didn't have to know anything else, and a lot of people
+still google "facebook" to reach the facebook website.
 
 But the UX of single entry point search is so bad on mobile that people
 don't bother using it. Instead they're left with discovering content
