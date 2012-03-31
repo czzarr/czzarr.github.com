@@ -21,7 +21,7 @@ powerful that people just learned to use it.
 Until now
 search was basically equated to Google (a single-entry point to all of
 the resources available on the web), but with the major
-[shift](http://www.codinghorror.com/blog/2012/03/welcome-to-the-post-pc-era.html) from computers to mobile devices
+[shift](http://www.codinghorror.com/blog/2012/03/welcome-to-the-post-pc-era.html) from computers to mobile devices,
 search UX needs to be reinvented.
 
 ## Mobile Search User Experience Sucks
