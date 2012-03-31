@@ -24,6 +24,10 @@ the resources available on the web), but with the major
 [shift](http://www.codinghorror.com/blog/2012/03/welcome-to-the-post-pc-era.html) from computers to mobile devices,
 search UX needs to be reinvented.
 
+
+[![Siri helps Doggy](http://farm8.staticflickr.com/7143/6751892711_f59c0452e8.jpg)](http://www.flickr.com/photos/37161567@N04/6751892711/)
+*[CC license](http://creativecommons.org/ licenses/by/2.0 "license") - by [Yogesh Mhatre](http://www.flickr.com/photos/37161567@N04/ "Author")*
+
 ## Fact: Mobile Search User Experience Sucks
 
 Searching on smartphones is currently a terrible user experience. Screens are
