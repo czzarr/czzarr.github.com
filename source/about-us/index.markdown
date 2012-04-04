@@ -28,7 +28,10 @@ and the value of money.
 After working for 1.5 years at a [Parisian startup](http://yseop.com), I decided to make the jump and launch mine, with Charles and Louis.
 I graduated from Ecole Centrale Paris and have an MS in Management Science and Engineering from Stanford University.
 
+<br><br>
 
+
+![Charles Miglietti](http://www.gravatar.com/avatar/b4e6af335a720c62bba0e0d37b61be25 "Charles Miglietti")
 ## [Charles Miglietti](https://twitter.com/#!/charlesmigli) <a href="https://twitter.com/charlesmigli" class="twitter-follow-button" data-show-count="false">Follow @charlesmigli</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
@@ -38,7 +41,10 @@ as well as innovation,I became more and more interested in entrepreneurship.
 After graduating from Ecole Polytechnique, I spent a year as an embedded systems engineer at [Withings](http://withings.com), 
 one of the most promising French startups at the moment. Inspired by this experience, I decided to quit to start my own company.
 
+<br><br>
 
+
+![Louis Chatriot](http://www.gravatar.com/avatar/e47076995bbe79cfdf507d7bbddbe106 "Louis Chatriot")
 ## [Louis Chatriot](https://twitter.com/#!/louisChatriot) <a href="https://twitter.com/louisChatriot" class="twitter-follow-button" data-show-count="false">Follow @louisChatriot</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
