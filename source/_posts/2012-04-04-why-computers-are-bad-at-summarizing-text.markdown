@@ -30,9 +30,7 @@ other text units is likely a keyphrase. Here, "*a* refers to *b*" means
 "*a* and *b* are close within the text". TextRank transforms the text in
 a graph where text units (equivalent to webpages in PageRank) are the
 vertices and there is an edge between two text units when they are close
-to one another (equivalent to hyperlinks in PageRank).  
-TODO explain why it works fairly well but not perfectly either
-
+to one another (equivalent to hyperlinks in PageRank). It works fairly well, its main author was even rewarded by Google for her work.  
 
 
 ## The best: abstract summarizing
