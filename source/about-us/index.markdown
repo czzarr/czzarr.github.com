@@ -13,7 +13,9 @@ good content more easily discoverable through better curation.
 Previously we learned to work together on our first (and only so far) freelance mission for
 [Laurence Parisot](https://twitter.com/#!/laurenceparisot) and the [Medef](http://www.medef.com/medef-corporate.html). 
 
+<br><br>
 
+![Stanislas Marion](http://www.gravatar.com/avatar/087d06c94e96171dc78fe6121e0fb5ba.png "Stanislas Marion")
 ## [Stanislas Marion](https://twitter.com/#!/stanmarion) <a href="https://twitter.com/stanmarion" class="twitter-follow-button" data-show-count="false">Follow @stanmarion</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
