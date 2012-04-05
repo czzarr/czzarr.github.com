@@ -9,7 +9,8 @@ categories: language, processing, computer, summary
 
 As Stanislas explained in [this previous post](http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/ "Information Overload"), we believe we are dealing with too much information to keep up on the Internet. The natural solution is text summarization, and computers can help us there.
 
-// TODO : picture
+[![Summary](http://farm4.staticflickr.com/3376/3558255554_9f9c480132_n.jpg)](http://www.flickr.com/photos/xeeliz/3558255554/sizes/l/in/photostream/)
+*by [Xeeiliz](http://www.flickr.com/photos/xeeliz/ "Author")*  
 
 There are roughly two kinds of summaries: the ones that consist of a few of
 the most important sentences (the keyphrases) extracted from the text, and the ones that
