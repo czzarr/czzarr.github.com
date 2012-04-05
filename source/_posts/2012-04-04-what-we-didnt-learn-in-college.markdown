@@ -40,7 +40,7 @@ achievements visible for everyone in return. They are built to be our showcase a
 we should take advantage of it. We do so many interesting projects in
 school, sometimes state of the art implementations in CS, that get lost
 on our machine. They should be public to catch recruiters' attention on
-our profile and skills. 
+our profile and skills or help us [create our future income streams](http://cdixon.org/2012/02/26/the-internet-is-reshaping-our-economy-from-one-of-huge-corporations-with-lots-of-jobs-to-huge-platforms-with-lots-of-income-streams/).
 
 So at which level can we improve the promotion of such platforms? At the school's level?
 At the professors' level? They should all keep up with the internet economy like they
