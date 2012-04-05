@@ -37,13 +37,18 @@ professors should foster us to leverage these platform to develop our
 skills, build our expertise and gain some fame. Such platforms work this way: they play with
 our ego to encourage us to contribute more and more and make our
 achievements visible for everyone in return. They are built to be our showcase so
-we should take advantage of it. 
+we should take advantage of it. We do so many interesting projects in
+school, sometimes state of the art implementations in CS, that get lost
+on our machine. They should be public to catch recruiters' attention on
+our profile and skills. 
 
-So who is to blame for not teaching us this reality? Schools?
-Professors? They should all keep up with the internet economy like they
-usually keep up with the _real_ economy. I think schools should increase professors' awareness, who
+So at which level can we improve the promotion of such platforms? At the school's level?
+At the professors' level? They should all keep up with the internet economy like they
+usually keep up with the _real_ economy. Schools should increase professors' awareness, who
 are mainly researchers in engineering schools for example, to this
 concern but it's up to the professors to promote personaly the right
-platforms. 
+platforms. Professors do already a great job teaching us their
+knowledge, they should go further and encourage us to capitalize on their
+teaching. 
 
 
