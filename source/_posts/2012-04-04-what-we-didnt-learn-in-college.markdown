@@ -22,21 +22,22 @@ how to use these platforms in school but core skills in your field!"
 
 But that would be missing a point. The education we all receive has one final
 goal: be prepared to get the best job as possible. In our current
-era finding a job doesn't come down to respond to job offers by sending
-cover letters and resume nor spam by email all our contacts in the industry
+era **finding a job doesn't come down to respond to job offers by sending
+cover letters and resume** nor spam by email all our contacts in the industry
 to get an interview.  
+
 We are lucky to live through the emergence and the 
 expansion of specialized platforms which can help us build our personal
-and professional identity. With these platforms we can easily have a
+and professional identity. With these platforms **we can easily have a
 professional visibility, expose our skills so they can be assessed by
-everyone and acquire real experience with real work.  
+everyone and acquire real experience with real work.**  
 
 The very first recommendation we should receive beginning a course in
 a topic is registering on all the platforms related to this topic. The
 professors should foster us to leverage these platform to develop our
 skills, build our expertise and gain some fame. Such platforms work this way: they play with
 our ego to encourage us to contribute more and more and make our
-achievements visible for everyone in return. They are built to be our showcase and
+achievements visible for everyone in return. **They are built to be our showcase** and
 we should take advantage of it. We do so many interesting projects in
 school, sometimes state of the art implementations in CS, that get lost
 on our machine. They should be public to catch recruiters' attention on
@@ -48,7 +49,7 @@ usually keep up with the _real_ economy. Schools should increase professors' awa
 are mainly researchers in engineering schools for example, to this
 concern but it's up to the professors to promote personaly the right
 platforms. Professors do already a great job teaching us their
-knowledge, they should go further and encourage us to capitalize on their
-teaching. 
+knowledge, **they should go further and encourage us to capitalize on their
+teaching**. 
 
 
