@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Role of Computers in Text Summarization"
-date: 2012-04-04 08:30
+date: 2012-04-06 08:30
 author: Louis Chatriot
 comments: true
 categories: language, processing, computer, summary
