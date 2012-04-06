@@ -13,9 +13,8 @@ As Stanislas explained in [this previous post](http://needforair.com/blog/2012/0
 *by [Xeeiliz](http://www.flickr.com/photos/xeeliz/ "Author")*  
 
 There are roughly two kinds of summaries: the ones that consist of a few of
-the most important sentences (the keyphrases) extracted from the text, and the ones that
-are written from scratch without necessarily using the same phrasing
-(called abstract summaries).
+the most important sentences extracted from the text, the keyphrases, and the ones that
+are written from scratch without necessarily using the same phrasing, called abstract summaries.
 
 
 ## Finding the most relevant content: keyphrase extraction
@@ -61,9 +60,7 @@ algorithms if we want to produce quality summaries. Nonetheless, a
 computer really can help a us by providing a keyphrase-based summary,
 so that we spend less time scanning the text for them. In addition, if
 we were able to train algorithms by comparing their output with a human
-summary a lot of times for articles on a certain topic, I think there is
-a lot of potential for improvement. That's something I am working on
-currently.
+summary a lot of times for articles on a certain topic, I think it is possible we see significant improvements.  
 
 
 *Note: some examples were taken from [Stanford's Natural Language
