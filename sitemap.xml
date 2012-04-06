@@ -95,18 +95,18 @@
         <lastmod>2012-04-04T09:04:58+02:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://czzarr.github.com/blog/2012/04/04/why-computers-are-bad-at-summarizing-text/
-        </loc>
-        <lastmod>2012-04-06T10:19:44+02:00</lastmod>
-    </url>
-    <url>
         <loc>http://czzarr.github.com/blog/2012/04/04/what-we-didnt-learn-in-college/</loc>
         <lastmod>2012-04-06T10:19:44+02:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://czzarr.github.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/
+        </loc>
+        <lastmod>2012-04-06T10:22:09+02:00</lastmod>
+    </url>
+    <url>
         <loc>http://czzarr.github.com/</loc>
-        <lastmod>2012-04-06T10:19:44+02:00</lastmod>
+        <lastmod>2012-04-06T10:22:09+02:00</lastmod>
     </url>
     <url>
         <loc>http://czzarr.github.com/about-us/</loc>
@@ -114,6 +114,6 @@
     </url>
     <url>
         <loc>http://czzarr.github.com/blog/archives/</loc>
-        <lastmod>2012-04-06T10:19:44+02:00</lastmod>
+        <lastmod>2012-04-06T10:22:09+02:00</lastmod>
     </url>
 </urlset>

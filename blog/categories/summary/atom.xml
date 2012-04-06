@@ -4,7 +4,7 @@
   <title><![CDATA[Category: summary | Need for Air]]></title>
   <link href="http://czzarr.github.com/blog/categories/summary/atom.xml" rel="self"/>
   <link href="http://czzarr.github.com/"/>
-  <updated>2012-04-06T10:20:11+02:00</updated>
+  <updated>2012-04-06T10:23:40+02:00</updated>
   <id>http://czzarr.github.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Role of Computers in Text Summarization]]></title>
-    <link href="http://czzarr.github.com/blog/2012/04/04/why-computers-are-bad-at-summarizing-text/"/>
-    <updated>2012-04-04T08:30:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/04/04/why-computers-are-bad-at-summarizing-text</id>
+    <link href="http://czzarr.github.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/"/>
+    <updated>2012-04-06T08:30:00+02:00</updated>
+    <id>http://czzarr.github.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text</id>
     <content type="html"><![CDATA[<p>As Stanislas explained in <a href="http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/" title="Information Overload">this previous post</a>, we believe we are dealing with too much information to keep up on the Internet. The natural solution is text summarization, and computers can help us there.</p>
 
 <p><a href="http://www.flickr.com/photos/xeeliz/3558255554/sizes/l/in/photostream/"><img src="http://farm4.staticflickr.com/3376/3558255554_9f9c480132_n.jpg" alt="Summary" /></a>

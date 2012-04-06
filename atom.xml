@@ -4,7 +4,7 @@
   <title><![CDATA[Need for Air]]></title>
   <link href="http://czzarr.github.com/atom.xml" rel="self"/>
   <link href="http://czzarr.github.com/"/>
-  <updated>2012-04-06T10:20:11+02:00</updated>
+  <updated>2012-04-06T10:23:40+02:00</updated>
   <id>http://czzarr.github.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
@@ -14,62 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[What We Didn't Learn In College]]></title>
-    <link href="http://czzarr.github.com/blog/2012/04/04/what-we-didnt-learn-in-college/"/>
-    <updated>2012-04-04T23:38:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/04/04/what-we-didnt-learn-in-college</id>
-    <content type="html"><![CDATA[<p>Albert Wenger is right:
-<a href="http://continuations.com/post/20112755144/students-are-woefully-prepared-for-internet-age-job">we are woefully prepared for internet age job market</a>.
-The three of us graduated in Computer Science in college, following a solid
-engineering cursus. But during the
-numerous courses we took we never heard of <a href="http://github.com/">Github</a> nor <a href="http://stackoverflow.com/">StackOverflow</a>.
-People attending creative and artistic
-formation don&#8217;t hear of <a href="http://www.etsy.com/">Etsy</a> neither.</p>
-
-<p><img src="http://farm8.staticflickr.com/7044/7046351459_53d8ed3283.jpg" alt="Jeff Atwood" /></p>
-
-<p>You could argue: &#8220;What&#8217;s the problem with that? You aren&#8217;t supposed to learn
-how to use these platforms in school but core skills in your field!&#8221;</p>
-
-<p>But that would be missing a point. The education we all receive has one final
-goal: be prepared to get the best job as possible. In our current
-era <strong>finding a job doesn&#8217;t come down to respond to job offers by sending
-cover letters and resume</strong> nor spam by email all our contacts in the industry
-to get an interview.</p>
-
-<p>We are lucky to live through the emergence and the
-expansion of specialized platforms which can help us build our personal
-and professional identity. With these platforms <strong>we can easily have a
-professional visibility, expose our skills so they can be assessed by
-everyone and acquire real experience with real work.</strong></p>
-
-<p>The very first recommendation we should receive beginning a course in
-a topic is registering on all the platforms related to this topic. The
-professors should foster us to leverage these platform to develop our
-skills, build our expertise and gain some fame. Such platforms work this way: they play with
-our ego to encourage us to contribute more and more and make our
-achievements visible for everyone in return. <strong>They are built to be our showcase</strong> and
-we should take advantage of it. We do so many interesting projects in
-school, sometimes state of the art implementations in CS, that get lost
-on our machine. They should be public to catch recruiters&#8217; attention on
-our profile and skills or help us <a href="http://cdixon.org/2012/02/26/the-internet-is-reshaping-our-economy-from-one-of-huge-corporations-with-lots-of-jobs-to-huge-platforms-with-lots-of-income-streams/">create our future income streams</a>.</p>
-
-<p>So at which level can we improve the promotion of such platforms? At the school&#8217;s level?
-At the professors&#8217; level? They should all keep up with the internet economy like they
-usually keep up with the <em>real</em> economy. Schools should increase professors&#8217; awareness, who
-are mainly researchers in engineering schools for example, to this
-concern but it&#8217;s up to the professors to promote personaly the right
-platforms. Professors do already a great job teaching us their
-knowledge, <strong>they should go further and encourage us to capitalize on their
-teaching</strong>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[The Role of Computers in Text Summarization]]></title>
-    <link href="http://czzarr.github.com/blog/2012/04/04/why-computers-are-bad-at-summarizing-text/"/>
-    <updated>2012-04-04T08:30:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/04/04/why-computers-are-bad-at-summarizing-text</id>
+    <link href="http://czzarr.github.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/"/>
+    <updated>2012-04-06T08:30:00+02:00</updated>
+    <id>http://czzarr.github.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text</id>
     <content type="html"><![CDATA[<p>As Stanislas explained in <a href="http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/" title="Information Overload">this previous post</a>, we believe we are dealing with too much information to keep up on the Internet. The natural solution is text summarization, and computers can help us there.</p>
 
 <p><a href="http://www.flickr.com/photos/xeeliz/3558255554/sizes/l/in/photostream/"><img src="http://farm4.staticflickr.com/3376/3558255554_9f9c480132_n.jpg" alt="Summary" /></a>
@@ -133,6 +81,58 @@ summary a lot of times for articles on a certain topic, I think it is possible w
 Processing online class</a>. If you couldn&#8217;t take
 it this quarter, look for it, it is a terrific place to learn about this
 topic</em></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[What We Didn't Learn In College]]></title>
+    <link href="http://czzarr.github.com/blog/2012/04/04/what-we-didnt-learn-in-college/"/>
+    <updated>2012-04-04T23:38:00+02:00</updated>
+    <id>http://czzarr.github.com/blog/2012/04/04/what-we-didnt-learn-in-college</id>
+    <content type="html"><![CDATA[<p>Albert Wenger is right:
+<a href="http://continuations.com/post/20112755144/students-are-woefully-prepared-for-internet-age-job">we are woefully prepared for internet age job market</a>.
+The three of us graduated in Computer Science in college, following a solid
+engineering cursus. But during the
+numerous courses we took we never heard of <a href="http://github.com/">Github</a> nor <a href="http://stackoverflow.com/">StackOverflow</a>.
+People attending creative and artistic
+formation don&#8217;t hear of <a href="http://www.etsy.com/">Etsy</a> neither.</p>
+
+<p><img src="http://farm8.staticflickr.com/7044/7046351459_53d8ed3283.jpg" alt="Jeff Atwood" /></p>
+
+<p>You could argue: &#8220;What&#8217;s the problem with that? You aren&#8217;t supposed to learn
+how to use these platforms in school but core skills in your field!&#8221;</p>
+
+<p>But that would be missing a point. The education we all receive has one final
+goal: be prepared to get the best job as possible. In our current
+era <strong>finding a job doesn&#8217;t come down to respond to job offers by sending
+cover letters and resume</strong> nor spam by email all our contacts in the industry
+to get an interview.</p>
+
+<p>We are lucky to live through the emergence and the
+expansion of specialized platforms which can help us build our personal
+and professional identity. With these platforms <strong>we can easily have a
+professional visibility, expose our skills so they can be assessed by
+everyone and acquire real experience with real work.</strong></p>
+
+<p>The very first recommendation we should receive beginning a course in
+a topic is registering on all the platforms related to this topic. The
+professors should foster us to leverage these platform to develop our
+skills, build our expertise and gain some fame. Such platforms work this way: they play with
+our ego to encourage us to contribute more and more and make our
+achievements visible for everyone in return. <strong>They are built to be our showcase</strong> and
+we should take advantage of it. We do so many interesting projects in
+school, sometimes state of the art implementations in CS, that get lost
+on our machine. They should be public to catch recruiters&#8217; attention on
+our profile and skills or help us <a href="http://cdixon.org/2012/02/26/the-internet-is-reshaping-our-economy-from-one-of-huge-corporations-with-lots-of-jobs-to-huge-platforms-with-lots-of-income-streams/">create our future income streams</a>.</p>
+
+<p>So at which level can we improve the promotion of such platforms? At the school&#8217;s level?
+At the professors&#8217; level? They should all keep up with the internet economy like they
+usually keep up with the <em>real</em> economy. Schools should increase professors&#8217; awareness, who
+are mainly researchers in engineering schools for example, to this
+concern but it&#8217;s up to the professors to promote personaly the right
+platforms. Professors do already a great job teaching us their
+knowledge, <strong>they should go further and encourage us to capitalize on their
+teaching</strong>.</p>
 ]]></content>
   </entry>
   
