@@ -14,7 +14,8 @@ privacy for users. There are three main reasons: protection of
 children, prevention of terrorism and [fight against illegal downloading](http://needforair.com/blog/2012/03/29/sopa-hadopi-future-of-culture/). This has led to very repressive and usually inefficient laws, for example in Australia, in France (Hadopi) and [possibly soon](http://thehill.com/blogs/hillicon-valley/technology/220181-dodd-says-sopa-can-live-again) in the US. I think that a big part of this problem is that a very large portion of the people making these laws understand next to nothing about the Internet, and are thus afraid of it. What can we do about it?
 
 
-// PHOTO
+[![Pirate](http://farm1.staticflickr.com/43/103031916_5c6c0a51af_m.jpg)](http://www.flickr.com/photos/20888197@N00/103031916/)
+*by [sereneonion](http://www.flickr.com/photos/opid/ "Author")*  
 
 
 ## Direct education is not enough
