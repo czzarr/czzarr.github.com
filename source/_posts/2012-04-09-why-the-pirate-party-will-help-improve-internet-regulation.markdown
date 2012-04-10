@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How we Can Educate our Politicians to the Internet"
+title: "Why the Pirate Party Will Help Improve Internet Regulation"
 date: 2012-04-09 10:38
 author: Louis Chatriot
 comments: true
