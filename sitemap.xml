@@ -105,8 +105,14 @@
         <lastmod>2012-04-06T10:22:09+02:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://czzarr.github.com/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation/
+        </loc>
+        <lastmod>2012-04-10T11:08:30+02:00</lastmod>
+    </url>
+    <url>
         <loc>http://czzarr.github.com/</loc>
-        <lastmod>2012-04-06T10:22:09+02:00</lastmod>
+        <lastmod>2012-04-10T11:08:30+02:00</lastmod>
     </url>
     <url>
         <loc>http://czzarr.github.com/about-us/</loc>
@@ -114,6 +120,6 @@
     </url>
     <url>
         <loc>http://czzarr.github.com/blog/archives/</loc>
-        <lastmod>2012-04-06T10:22:09+02:00</lastmod>
+        <lastmod>2012-04-10T11:08:30+02:00</lastmod>
     </url>
 </urlset>
