@@ -1,0 +1,70 @@
+// This File is imported last, and will override other styles in the cascade
+// Add styles here to make changes without digging in too much
+
+@import "_typography.scss";
+
+sup,
+sub {
+  height: 0;
+  line-height: 1;
+  vertical-align: baseline;
+  _vertical-align: bottom;
+  position: relative;
+  font-size: .75em;
+  
+}
+
+sup {
+  bottom: 1ex;
+}
+
+sub {
+  top: .5ex;
+}
+
+h1.entry-title,h2.entry-title,h3.entry-title {
+  >a {
+    text-decoration:none;
+  }
+}
+
+h1 a {
+  color:#333;
+  &:visited {
+    color:#333;
+  }
+  &:hover,&:active {
+    color:#008CD4;
+  }
+}
+
+header hgroup h1 {
+  border-top: 3px solid #008CD4;
+  font-family: CassanetOutline, "proxima nova", sans-serif;
+  color:#008CD4;
+  font-size: 50px;
+}
+
+ul.title {
+  padding-top:0;
+}
+
+span.author {
+  color:#aaa;
+}
+
+div.sharing {
+  margin-top: 0.5em;
+  text-align:left;
+}
+
+aside.sidebar a {
+  color: #333;
+}
+
+p {
+  text-align: justify;
+}
+p.credit {
+  text-align: center;
+}
