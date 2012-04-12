@@ -2,6 +2,7 @@
 layout: post
 title: "The Golden Age Of Community Organizing Platforms"
 date: 2012-04-11 08:58
+author: Charles Miglietti 
 comments: true
 categories: [community, platform, organization, collaboration, social network]
 ---
@@ -12,6 +13,8 @@ your visibility on the internet, but they offer much more.
 They provide appropriate tools that help people to be more productive
 and better organized. They are much more functional than pure social networks 
 and even more valuable as the communities are active.
+
+![Keep the gist](http://cardview.net/wp-content/uploads/2010/04/nation-builder.jpg =x220)
 
 ## Platforms structure communities
 
