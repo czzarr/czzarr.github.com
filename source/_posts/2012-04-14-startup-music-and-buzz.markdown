@@ -38,9 +38,8 @@ effective way by leveraging the current context.
 [![Video](http://www.lalsace.fr/fr/images/A7098988-85DA-4603-8E31-654249FE82BB/ALS_03/capture-d-ecran-du-clip-musical-de-victoire-passage-prends-le-pouvoir-sur-moi-jean-luc-melenchon.jpg =400x)](http://vimeo.com/40084651)
 
 
-Make the buzz gives the impression today to succeed. But how can we be
-less certain? Does a spike in the audience really help to succeed with
-his product? When one realize that [90% of the companies appearing on TC
+Making a buzz gives the impression of success. But how can we be assured it is going to last? Does a spike in the audience really help to succeed with
+one's product? When one realize that [90% of the companies appearing on TC
 are abandoned within 6 months](http://simply.io/blog/2012/03/welcome-to-the-real-world-just-because-youre-on-techcrunch-doesnt-mean-youve-won/) 
 one can question the relevance of the press coverage and the buzz one
 can create to build a durable success. 
