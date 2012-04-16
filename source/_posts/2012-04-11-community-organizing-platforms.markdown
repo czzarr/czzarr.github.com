@@ -21,7 +21,7 @@ and even more valuable as the communities are active.
 We can call such a platform a _community organizing platform_ because
 it allows a community to have a place to gather, discuss and share. It
 provides the global structure the community needs to get organized. 
-Ten years ago the forums laid the foundation but today these platforms
+Ten years ago specialized forums laid the foundation but today these platforms
 achieve what's been initiated.
 
 Using these platforms everyone creates and manages a business card that
@@ -34,17 +34,16 @@ because it can be done very efficiently online.
 
 Pure social networks like Twitter offer ways to 
 organize communities but don't provide the structure
-and tools needed for effective collaboration. They are mainly focus on
+and tools needed for effective collaboration. They are mainly focused on
 sharing.  
 
 While community organizing platforms provide a social layer they
 also offer services geared towards the community itself. This
 combination is what's really valuable. 
 [Nation Builder](http://nationbuilder.com/)
-is the perfect example: it features volunteer organization, donation
+is the perfect example: it features volunteer organization management, donation
 monitoring, website creation... a comprehensive package
-political leaders need to interact with their audience.
-
+political leaders need to interact with their audience.  
 
 ## Active communities are driven by knowledge
 
@@ -58,7 +57,7 @@ important for small communities because the resources they want to access are no
 indexed by search engines.  
 
 As sharing information, working collaboratively and giving feedbacks to peers is key in
-these communities even a very little one
+these communities even a little one
 can be very active.
 There is still lots of
 them to structure out there, lots of people waiting to
