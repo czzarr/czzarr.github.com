@@ -7,7 +7,7 @@ author: Charles Miglietti
 categories: [buzz, startup, press, music] 
 ---
 
-The challenges a startup faces, other creative initiatives face them.
+Various creative initiatives face the same challenges as startups. 
 In its
 [manifesto](http://leanpub.com/manifesto), [Leanpub](http://leanpub.com/) points out the similarities
 between writing a book and launching a startup: _both are risky, creative
