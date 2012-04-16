@@ -13,7 +13,8 @@ view, because of how difficult it is to make a computer compete against
 a stromg human and the ideas researchers used to get closer to that goal.  
 
 
-// PICTURE
+[![Go](http://farm1.staticflickr.com/134/322662164_0260e91add_n.jpg)](http://www.flickr.com/photos/92544159@N00/322662164/)
+*by [oblivionz](http://www.flickr.com/photos/obli/ "Author")*  
 
 
 ## Game of Go: a (very) brief overview
