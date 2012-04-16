@@ -32,7 +32,7 @@ media can be key.
 Recently in France a singer succeeded in creating a buzz
 on the internet, hitting more than 600 000 views on Youtube, with its
 single on a candidate for the presidential elections. In the same vein
-as _I got a crush on Obama_ she drew the media attention in a very
+as [_I got a crush on Obama_](http://www.youtube.com/watch?v=wKsoXHYICqU) she drew the media attention in a very
 effective way by leveraging the current context.  
 
 [![Video](http://www.lalsace.fr/fr/images/A7098988-85DA-4603-8E31-654249FE82BB/ALS_03/capture-d-ecran-du-clip-musical-de-victoire-passage-prends-le-pouvoir-sur-moi-jean-luc-melenchon.jpg =400x)](http://vimeo.com/40084651)
