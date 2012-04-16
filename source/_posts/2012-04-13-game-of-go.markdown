@@ -85,4 +85,6 @@ Today, Go-playing programs are able to compete with professional players on smal
 
 
 *I am a Go player myself, even though not very good! During an
-internship in a Computer Science laboratory, I worked on [MoGo](http://www.lri.fr/~teytaud/mogo.html) for 2 months in 2008.*
+internship in a Computer Science laboratory, I worked on [MoGo](http://www.lri.fr/~teytaud/mogo.html) for 2 months in 2008.  
+Special thanks to [Arpad Rimmel](http://www.linkedin.com/pub/arpad-rimmel/b/9a7/847) for having reviewed this article. He spent 3 years working on Mogo when he was a PhD student.
+*
