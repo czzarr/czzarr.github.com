@@ -66,17 +66,23 @@ multi-armed bandit is calculated so as to avoid trivially stupid moves.
 For the opening of the game, classic starting positions are also
 favored. And the random games are not so random since hey avoid a
 certain moves according to simple patterns. Nonetheless, expert
-knowledge is used scarcely, as the risk of using it too much
-* **Paralellization**
+knowledge is used scarcely as it really hurts the exploration part of
+the algorithm.
+* **Parallelization**: MoGo and the likes can become very good on
+  computer clusters, since the random game part can be run on mutliple
+CPUs. The [speedup factor](http://en.wikipedia.org/wiki/Amdahl's_law) is
+about 8x.
+* **Reinforcement learning**: MoGo learns during the game and the
+  randoms play-outs that some combinations are likely to have a bad
+result, and assigns them a lower probability.  
+
+You can learn more on MoGo [in this article](http://www.pleinsud.u-psud.fr/specialR2008/en/12_GOthique.pdf).  
 
 
+## Strength of computers
+Today, Go-playing programs are able to compete with professional players on small (9x9) boards, but are still very weak on normal-sized boards (19x19). There is still a long way to go!  
 
 
-
-
-
-
-http://www.pleinsud.u-psud.fr/specialR2008/en/12_GOthique.pdf
 
 *I am a Go player myself, even though not very good! During an
 internship in a Computer Science laboratory, I worked on [MoGo](http://www.lri.fr/~teytaud/mogo.html) for 2 months in 2008.*
