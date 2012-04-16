@@ -17,7 +17,7 @@ a stromg human and the ideas researchers used to get closer to that goal.
 
 
 ## Game of Go: a (very) brief overview
-Go is very similar to Chess: it is a strategic game where two players take
+Go is wildly popular in Asia but little known in the Western world. Similar to Chess, it is a strategic game where two players take
 turn placing stones on a board. The two key differences between these
 two are:  
 
@@ -45,21 +45,38 @@ and there are more possibilities at each turn in Go (up to 350 vs 50).
 * **[Lack of a good heuristic](http://en.wikipedia.org/wiki/Evaluation_function)**: Chess programs are able to evaluate quite accurately and quickly whether a given position is better than another one. On the contrary, no good heuristic has been found for Go yet.
 * **Pattern-recognition**: strong Go players rely heavily on recognizing
   the shapes the stones take. There are too many of them for a computer
-to use.
+to try and recognize in a game timeframe.
 
 
-PATTERNS
+## Key ideas behind current Go-playing programs
+This complexity is what makes the study of Go algorithms so interesting.
+A few years ago we saw a spectacular improvement of computers, led by a
+program called [MoGo](http://www.lri.fr/~teytaud/mogo.html). The key
+ideas behind MoGo are:  
+
+* **Position evaluation using random games**: paradoxically, it was
+  found that the best way to evaluate a position is to, from this
+position, play a lot of games were each player put stones at random
+on the board. This position's score is simply the percentage of won
+random games.
+* **Use of [multi-armed bandit](http://en.wikipedia.org/wiki/Multi-armed_bandit) algorithms** to decrease the branching factor (the number of moves the program has to consider at each turn). The goal here is to optimize the trade-off between exploration (trying new moves) and exploitation (further testing of most promising moves to select the best one). The computer begins with a prior probability distribution for every possible move. It picks one according to this distribution, plays a random game from the corresponding position and uses the result to update the probability for this move. It then selects another possible move according to the updated distribution and so on.
+* **Use of a little expert knowledge**: a little expert knowledge has
+  been added to Mogo. For example, the prior distribution used in the
+multi-armed bandit is calculated so as to avoid trivially stupid moves.
+For the opening of the game, classic starting positions are also
+favored. And the random games are not so random since hey avoid a
+certain moves according to simple patterns. Nonetheless, expert
+knowledge is used scarcely, as the risk of using it too much
+* **Paralellization**
 
 
 
-## Tree-search with heuristics (mogo)
 
 
 
 
 
+http://www.pleinsud.u-psud.fr/specialR2008/en/12_GOthique.pdf
 
-
-
-*I am a Go player myself, even though not very good. During an
+*I am a Go player myself, even though not very good! During an
 internship in a Computer Science laboratory, I worked on [MoGo](http://www.lri.fr/~teytaud/mogo.html) for 2 months in 2008.*
