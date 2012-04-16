@@ -43,6 +43,9 @@ less certain? Does a spike in the audience really help to succeed with
 his product? When one realize that [90% of the companies appearing on TC
 are abandoned within 6 months](http://simply.io/blog/2012/03/welcome-to-the-real-world-just-because-youre-on-techcrunch-doesnt-mean-youve-won/) 
 one can question the relevance of the press coverage and the buzz one
-can create to build a durable success. 
+can create to build a durable success. One concern one should have
+instead is building an audience. Successfull startups and creators don't
+rely on a single shot try, they build their success gradually as the same
+time as their audience.
 
 
