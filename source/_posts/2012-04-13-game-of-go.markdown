@@ -79,8 +79,8 @@ result, and assigns them a lower probability.
 You can learn more on MoGo [in this article](http://www.pleinsud.u-psud.fr/specialR2008/en/12_GOthique.pdf).  
 
 
-## Strength of computers
-Today, Go-playing programs are able to compete with professional players on small (9x9) boards, but are still very weak on normal-sized boards (19x19). There is still a long way to go!  
+## Current strength of computers
+Today, Go-playing programs are able to compete with professional players on small (9x9) boards, and with strong amateurs (5d KGS) on normal boards (19x19). This is quite an achievement, but there is still a long way to go before they can face professional players on normal boards!
 
 
 
