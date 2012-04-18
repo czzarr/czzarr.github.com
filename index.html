@@ -9,9 +9,9 @@
   <meta name="author" content="Need for Air">
 
   
-  <meta name="description" content="In the past years, we have seen a lot of developped countries
-governments pushing for more regulation of the Internet, and less
-privacy for users. &hellip;">
+  <meta name="description" content="The game of go is very interesting from an AI programmer&#8217;s point of
+view, because of how difficult it is to make a computer compete against
+a &hellip;">
   
 
 
@@ -83,23 +83,23 @@ privacy for users. &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/04/18/game-of-go/">The Game of Go: a Programmer's Perspective</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/15/startup-music-and-buzz/">Startup, Music and Buzz</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/11/community-organizing-platforms/">The Golden Age Of Community Organizing Platforms</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation/">Why the Pirate Party Will Help Improve Internet Regulation</a>
       </li>
     
       <li class="post">
         <a href="/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/">The Role of Computers in Text Summarization</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/04/04/what-we-didnt-learn-in-college/">What We Didn't Learn In College</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/03/31/siri-or-the-reinvention-of-mobile-search-ux/">Siri or the Reinvention of Mobile Search User Experience</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/03/29/sopa-hadopi-future-of-culture/">SOPA, the entertainment industry and the future of culture</a>
       </li>
     
   </ul>
@@ -136,6 +136,311 @@ privacy for users. &hellip;">
 	    <div id="content">
 	      <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/18/game-of-go/">The Game of Go: A Programmer&#8217;s Perspective</a></h1>
+    
+    
+      <p class="meta">
+        <time datetime="2012-04-18T08:30:00+02:00" pubdate><span class='month'>Apr</span> <span class='day'>18</span> <span class='year'>2012</span></time>
+        | 
+  
+
+<span class="byline author vcard"><span class="fn">Louis Chatriot</span></span>
+
+      </p>
+    
+  </header>
+
+
+
+
+  <div class="entry-content"><p>The game of go is very interesting from an AI programmer&#8217;s point of
+view, because of how difficult it is to make a computer compete against
+a strong human and how researchers approached the problem. Paradoxically, the use of randomly played games has helped computers get much stronger.</p>
+
+<p><a href="http://www.flickr.com/photos/92544159@N00/322662164/"><img src="http://farm1.staticflickr.com/134/322662164_0260e91add_n.jpg" alt="Go" /></a>
+<em>by <a href="http://www.flickr.com/photos/obli/" title="Author">oblivionz</a></em></p>
+
+<h2>Game of Go: a (very) brief overview</h2>
+
+<p>Go is wildly popular in Asia but little known in the Western world. Similar to Chess, it is a strategy game where two players take
+turn placing stones on a board. The key differences between these
+two are:</p>
+
+<ul>
+<li>In Go, the board starts empty, and you add stones at each turn whereas in
+chess you start with an army and try to destroy the other one</li>
+<li>The <a href="http://senseis.xmp.net/?RulesOfGoIntroductory">rules</a> are much simpler in Go than in Chess: in particular there is only one type of stone while Chess uses six different pieces</li>
+</ul>
+
+
+<p>I really encourage you to check it out, you can <a href="http://senseis.xmp.net/?RulesOfGoIntroductory">learn to play here</a> and <a href="http://www.gokgs.com/">play here</a>.</p>
+
+<h2>Compexity, comparison to chess</h2>
+
+<p>Even though the rules are simple, it has proven to be very hard to
+build a good Go-playing program. In fact, while top Chess-playing
+softwares can compete with the best humans (remember how Deep Blue beat
+Gary Kasparov in 1997), even strong amateurs can beat the top Go-playing
+programs. And strong amateurs are much weaker than top pros. There are three main reasons for this:</p>
+
+<ul>
+<li><strong>Game-tree complexity</strong>: there are about <a href="http://en.wikipedia.org/wiki/Shannon_number">10<sup>123</sup> possible games
+in Chess</a>. As for Go,
+<a href="http://en.wikipedia.org/wiki/Go_and_mathematics">estimates vary</a> but
+the <a href="http://www.usgo.org/resources/topten.html">American Go Association reckons there are 10<sup>700</sup> possible
+games</a>. This is because there
+are more turns in a Go game than in a Chess game (200 vs 50 on average),
+and more possibilities at each turn in Go (up to 350 vs 50).</li>
+<li><strong><a href="http://en.wikipedia.org/wiki/Evaluation_function">Lack of a good heuristic</a></strong>: Chess programs are able to evaluate quite accurately and quickly whether a given position is better than another one. On the contrary, no good heuristic has been found for Go yet.</li>
+<li><strong>Pattern-recognition</strong>: strong Go players rely heavily on recognizing
+the shapes the stones take. There are too many of them for a computer
+to try and recognize in a game timeframe, and <a href="http://curiosity.discovery.com/question/humans-better-than-computers">humans are much better than them at this</a>.</li>
+</ul>
+
+
+<h2>Key ideas behind current Go-playing programs</h2>
+
+<p>This complexity is what makes the study of Go algorithms so interesting.
+A few years ago we saw a spectacular improvement, led by a
+program called <a href="http://www.lri.fr/~teytaud/mogo.html">MoGo</a>. The key
+ideas behind MoGo are:</p>
+
+<ul>
+<li><strong>Position evaluation using random games</strong>: paradoxically, it was
+found that the best way to evaluate a position is to play, from this
+position, a lot of games were each player puts stones at random
+on the board. A position&#8217;s score is simply the percentage of won
+random games.</li>
+<li><strong>Use of <a href="http://en.wikipedia.org/wiki/Multi-armed_bandit">multi-armed bandit</a> algorithms</strong> to decrease the branching factor (the number of moves the program has to consider at each turn). The goal here is to optimize the trade-off between exploration (trying new moves) and exploitation (further testing the most promising moves to select the best one). The computer begins with a prior probability distribution for every possible move. It picks one according to this distribution, plays a random game from the corresponding position and uses the result to update the probability for this move. It then selects another possible move according to the updated distribution and so on.</li>
+<li><strong>Use of a little expert knowledge</strong>: the prior distribution used in the
+multi-armed bandit is calculated so as to avoid trivially stupid moves.
+For the opening of the game, classic starting positions are also
+favored. And the random games are not completely random since they avoid
+certain moves according to simple patterns. Nonetheless, expert
+knowledge is used scarcely as it really hurts the exploration part of
+the algorithm.</li>
+<li><strong>Parallelization</strong>: MoGo and the likes can become very good on
+computer clusters, since the random game part can be run on mutliple
+CPUs. The <a href="http://en.wikipedia.org/wiki/Amdahl's_law">speedup factor</a> is
+about 8x.</li>
+<li><strong>Reinforcement learning</strong>: MoGo learns during the game and the
+randoms play-outs that some kind of responses to his opponent&#8217;s moves are likely to have a bad
+result, and assigns them a lower probability.</li>
+</ul>
+
+
+<p>You can learn more on MoGo <a href="http://www.pleinsud.u-psud.fr/specialR2008/en/12_GOthique.pdf">in this article</a>.</p>
+
+<h2>Current strength of computers</h2>
+
+<p>Today, Go-playing programs are able to compete with professional players on small (9x9) boards, and with strong amateurs (5d KGS) on normal boards (19x19). This is quite an achievement, but there is still a long way to go before they can face professional players on normal boards!</p>
+
+<p><em>I am a Go player myself, even though not very good! During an
+internship in a Computer Science laboratory, I worked on <a href="http://www.lri.fr/~teytaud/mogo.html">MoGo</a> for 2 months in 2008.</em><br/>
+<em>Special thanks to <a href="http://www.linkedin.com/pub/arpad-rimmel/b/9a7/847">Arpad Rimmel</a> for having reviewed this article. He spent 3 years working on Mogo when he was a PhD student.</em></p>
+</div>
+  
+  
+        
+          <a href="/blog/2012/04/18/game-of-go/#disqus_thread">Comments</a>
+        
+
+
+
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://czzarr.github.com/index.html" data-via="NeedForAir" data-counturl="http://czzarr.github.com/index.html" >Tweet</a>
+  
+  
+</div>
+
+    
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/15/startup-music-and-buzz/">Startup, Music and Buzz</a></h1>
+    
+    
+      <p class="meta">
+        <time datetime="2012-04-15T11:33:00+02:00" pubdate><span class='month'>Apr</span> <span class='day'>15</span> <span class='year'>2012</span></time>
+        | 
+  
+
+<span class="byline author vcard"><span class="fn">Charles Miglietti</span></span>
+
+      </p>
+    
+  </header>
+
+
+
+
+  <div class="entry-content"><p>Various creative initiatives face the same challenges as startups.
+In its
+<a href="http://leanpub.com/manifesto">manifesto</a>, <a href="http://leanpub.com/">Leanpub</a> points out the similarities
+between writing a book and launching a startup: <em>both are risky, creative
+processes, often undertaken in stealth mode and with hit-driven economics.</em></p>
+
+<p>The same parallel can be drawn with the music industry or more generally
+with independant creative activities. Crowdfunding platforms
+<a href="http://www.mymajorcompany.com/">MyMajorCompany</a> or <a href="http://www.kickstarter.com/">KickStarter</a>
+illustrate the similarities between all these processes.
+Independant singers who are not supported by famous productors bear the risk,
+have to build their <em>product</em> and develop their marketing
+strategy on their own.</p>
+
+<p>Once the beta version of the product is ready to showcase, a single in
+the case of singers, the difficulty is to market it. How can one achieve
+some traction? One option that seems profitable is to place the
+product in a favourable context by attaching it to an event which
+benefits from a good media coverage. Mainstream and new medias alike have such a big impact
+on the crowd that they can drain lots of attention. Leveraging these
+media can be key.</p>
+
+<p>Recently in France a singer succeeded in creating a buzz
+on the internet, hitting more than 600 000 views on Youtube, with its
+single on a candidate for the presidential elections. In the same vein
+as <a href="http://www.youtube.com/watch?v=wKsoXHYICqU"><em>I got a crush on Obama</em></a> she drew the media attention in a very
+effective way by leveraging the current context.</p>
+
+<p><a href="http://vimeo.com/40084651"><img src="http://www.lalsace.fr/fr/images/A7098988-85DA-4603-8E31-654249FE82BB/ALS_03/capture-d-ecran-du-clip-musical-de-victoire-passage-prends-le-pouvoir-sur-moi-jean-luc-melenchon.jpg" width="400" alt="Video" /></a></p>
+
+<p>Making a buzz gives the impression of success. But how can we be assured it is going to last? Does a spike in the audience really help to succeed with
+one&#8217;s product? When one realize that <a href="http://simply.io/blog/2012/03/welcome-to-the-real-world-just-because-youre-on-techcrunch-doesnt-mean-youve-won/">90% of the companies appearing on TC
+are abandoned within 6 months</a>
+one can question the relevance of the press coverage and the buzz one
+can create to build a durable success. Instead, one should be focused
+on building one&#8217;s audience. Successfull startups and creators don&#8217;t
+rely on a single shot try, they build their success gradually at the same
+time as their audience.</p>
+</div>
+  
+  
+        
+          <a href="/blog/2012/04/15/startup-music-and-buzz/#disqus_thread">Comments</a>
+        
+
+
+
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://czzarr.github.com/index.html" data-via="NeedForAir" data-counturl="http://czzarr.github.com/index.html" >Tweet</a>
+  
+  
+</div>
+
+    
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/11/community-organizing-platforms/">The Golden Age of Community Organizing Platforms</a></h1>
+    
+    
+      <p class="meta">
+        <time datetime="2012-04-11T08:58:00+02:00" pubdate><span class='month'>Apr</span> <span class='day'>11</span> <span class='year'>2012</span></time>
+        | 
+  
+
+<span class="byline author vcard"><span class="fn">Charles Miglietti</span></span>
+
+      </p>
+    
+  </header>
+
+
+
+
+  <div class="entry-content"><p>I <a href="http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college/">already wrote</a> about how
+you can leverage some <a href="https://github.com/">social platforms</a> to build
+your visibility on the internet, but they offer much more.
+They provide appropriate tools that help people to be more productive
+and better organized. They are much more functional than pure social networks
+and even more valuable as the communities are active.</p>
+
+<p><img src="http://cardview.net/wp-content/uploads/2010/04/nation-builder.jpg" height="220" alt="Keep the gist" /></p>
+
+<h2>Platforms structure communities</h2>
+
+<p>We can call such a platform a <em>community organizing platform</em> because
+it allows a community to have a place to gather, discuss and share. It
+provides the global structure the community needs to get organized.
+Ten years ago the forums laid the foundation but today these platforms
+achieve what&#8217;s been initiated.</p>
+
+<p>Using these platforms everyone creates and manages a business card that
+is accessible by everyone else.
+People can easily be identified, followed, consulted and appraised. You
+don&#8217;t have to go to as many conferences or events to meet new people
+because it can be done very efficiently online.</p>
+
+<h2>Community organizing platforms offer more than pure social networks</h2>
+
+<p>Pure social networks like Twitter offer ways to
+organize communities but don&#8217;t provide the structure
+and tools needed for effective collaboration. They are mainly focus on
+sharing.</p>
+
+<p>While community organizing platforms provide a social layer they
+also offer services geared towards the community itself. This
+combination is what&#8217;s really valuable.
+<a href="http://nationbuilder.com/">Nation Builder</a>
+is the perfect example: it features volunteer organization, donation
+monitoring, website creation&#8230; a comprehensive package
+political leaders need to interact with their audience.</p>
+
+<h2>Active communities are driven by knowledge</h2>
+
+<p>We can distinguish communities built upon friendship, professional
+activity or common interests. The most active
+are the ones based on a common interest, where knowledge and
+feedback is a valuable resource. In these ones people spend a lot of time
+looking for information. They also create a lot of content in order to
+improve their reputation. Such platforms are even more
+important for small communities because the resources they want to access are not always well
+indexed by search engines.</p>
+
+<p>As sharing information, working collaboratively and giving feedbacks to peers is key in
+these communities even a very little one
+can be very active.
+There is still lots of
+them to structure out there, lots of people waiting to
+share and collaborate with their peers. Who are they? What can we do for
+them?</p>
+</div>
+  
+  
+        
+          <a href="/blog/2012/04/11/community-organizing-platforms/#disqus_thread">Comments</a>
+        
+
+
+
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://czzarr.github.com/index.html" data-via="NeedForAir" data-counturl="http://czzarr.github.com/index.html" >Tweet</a>
+  
+  
+</div>
+
+    
+
+    </article>
   
   
     <article>
@@ -200,342 +505,6 @@ unemployment. This is where I think the <a href="http://en.wikipedia.org/wiki/Pi
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/">The Role of Computers in Text Summarization</a></h1>
-    
-    
-      <p class="meta">
-        <time datetime="2012-04-06T08:30:00+02:00" pubdate><span class='month'>Apr</span> <span class='day'>06</span> <span class='year'>2012</span></time>
-        | 
-  
-
-<span class="byline author vcard"><span class="fn">Louis Chatriot</span></span>
-
-      </p>
-    
-  </header>
-
-
-
-
-  <div class="entry-content"><p>As Stanislas explained in <a href="http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/" title="Information Overload">this previous post</a>, we believe we are dealing with too much information to keep up on the Internet. The natural solution is text summarization, and computers can help us there.</p>
-
-<p><a href="http://www.flickr.com/photos/xeeliz/3558255554/sizes/l/in/photostream/"><img src="http://farm4.staticflickr.com/3376/3558255554_9f9c480132_n.jpg" alt="Summary" /></a>
-<em>by <a href="http://www.flickr.com/photos/xeeliz/" title="Author">Xeeiliz</a></em></p>
-
-<p>There are roughly two kinds of summaries: the ones that consist of a few of
-the most important sentences extracted from the text, the keyphrases, and the ones that
-are written from scratch without necessarily using the same phrasing, called abstract summaries.</p>
-
-<h2>Finding the most relevant content: keyphrase extraction</h2>
-
-<p>The big advantage of keyphrase-based summaries is that there is no risk
-of miscomprehension since they are composed of unrephrased pieces of the
-text. Moreover, computers are able to compute them and get decent
-results. There are two main ways to do it: supervised and unsupervised
-extraction.</p>
-
-<h3>When you know the context: extraction as supervised learning</h3>
-
-<p>One way to perform this task is described by Peter Turney in <a href="http://webdocs.cs.ualberta.ca/~lindek/650/papers/turney.pdf">this paper</a>. He found that using a custom-designed algorithm that incorporates specialized domain knowledge on a text generates yields very good results: 80% of keyphrases are deemed acceptable by human readers. The problem with this approach is that it requires the computer to know the topic beforehand. It is possible to use a prior first step to determine what it is, but this is difficult and the results are terrible if we get it wrong.</p>
-
-<h3>Applicable to any text: unsupervised keyphrase extraction</h3>
-
-<p>This approaches enables us to extract keyphrases from a text without any
-prior knowledge, which is a tremendous improvement upon the previous method. There a several algorithms, and one notable current example is <a href="http://www.summly.com/">Summly</a>. I will explain one of those, named TextRank, to give you a feeling of the kind of techniques used in this field.</p>
-
-<p>The TextRank algorithm was developped by Rada Mihalcea and Paul Tarau in
-<a href="http://acl.ldc.upenn.edu/acl2004/emnlp/pdf/Mihalcea.pdf">this paper</a>. The key idea is that a text
-unit (word or phrase depending on the need) that is close to a lot of other important text units is likely a keyphrase. Using the parallel between the &#8220;close to&#8221; relation and the &#8220;referred to by&#8221; relation of hyperlinks, TextRank uses Google&#8217;s <a href="http://en.wikipedia.org/wiki/PageRank">PageRank</a> to determine which text units are the most important. It works well, its main author was even awarded a $100k grant by Google for her work on keyphrase extraction.</p>
-
-<h2>The best: abstract summarization</h2>
-
-<p>Even though they can be very useful, keyphrase-based summaries are still
-rudimentary compared to abstract summaries, because they are much nicer
-to read, and we are sure no important information was &#8220;left behind&#8221; (i.e a keyphrase was not extracted). Also, keyphrase extraction algorithms still find it hard to
-summarize technical articles.</p>
-
-<p>Abstract summarization is the limit of what computers can do today. The
-main reason for this is that they struggle with the following tasks:</p>
-
-<ul>
-<li><strong>Coreferences understanding</strong>. For example, who does &#8216;he&#8217;
-references in the sentence &#8216;Paul told John he should play squash&#8217;?</li>
-<li><strong>Word sense disambiguation</strong>. In &#8216;I need batteries for
-my mouse&#8217;, are we talking about the animal or the device?</li>
-<li><strong>Sentiment analysis</strong>. Understanding the mood of the writer is often
-key to understanding a text, all the more when there is sarcasm.</li>
-</ul>
-
-
-<h2>Computers can help humans summarize a text</h2>
-
-<p>To sum it up, I believe that humans still cannot be replaced by
-algorithms if we want to produce quality summaries. Nonetheless, a
-computer really can help a us by providing a keyphrase-based summary,
-so that we spend less time scanning the text for them. In addition, if
-we were able to train algorithms by comparing their output with a human
-summary a lot of times for articles on a certain topic, I think it is possible we see significant improvements.</p>
-
-<p><em>Note: some examples were taken from <a href="https://class.coursera.org/nlp/">Stanford&#8217;s Natural Language
-Processing online class</a>. If you couldn&#8217;t take
-it this quarter, look for it, it is a terrific place to learn about this
-topic</em></p>
-</div>
-  
-  
-        
-          <a href="/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/#disqus_thread">Comments</a>
-        
-
-
-
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://czzarr.github.com/index.html" data-via="NeedForAir" data-counturl="http://czzarr.github.com/index.html" >Tweet</a>
-  
-  
-</div>
-
-    
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/04/what-we-didnt-learn-in-college/">What We Didn&#8217;t Learn in College</a></h1>
-    
-    
-      <p class="meta">
-        <time datetime="2012-04-04T23:38:00+02:00" pubdate><span class='month'>Apr</span> <span class='day'>04</span> <span class='year'>2012</span></time>
-        | 
-  
-
-<span class="byline author vcard"><span class="fn">Charles Miglietti</span></span>
-
-      </p>
-    
-  </header>
-
-
-
-
-  <div class="entry-content"><p>Albert Wenger is right:
-<a href="http://continuations.com/post/20112755144/students-are-woefully-prepared-for-internet-age-job">we are woefully prepared for internet age job market</a>.
-The three of us graduated in Computer Science in college, following a solid
-engineering cursus. But during the
-numerous courses we took we never heard of <a href="http://github.com/">Github</a> nor <a href="http://stackoverflow.com/">StackOverflow</a>.
-People attending creative and artistic
-formation don&#8217;t hear of <a href="http://www.etsy.com/">Etsy</a> neither.</p>
-
-<p><img src="http://farm8.staticflickr.com/7044/7046351459_53d8ed3283.jpg" alt="Jeff Atwood" /></p>
-
-<p>You could argue: &#8220;What&#8217;s the problem with that? You aren&#8217;t supposed to learn
-how to use these platforms in school but core skills in your field!&#8221;</p>
-
-<p>But that would be missing a point. The education we all receive has one final
-goal: be prepared to get the best job as possible. In our current
-era <strong>finding a job doesn&#8217;t come down to respond to job offers by sending
-cover letters and resume</strong> nor spam by email all our contacts in the industry
-to get an interview.</p>
-
-<p>We are lucky to live through the emergence and the
-expansion of specialized platforms which can help us build our personal
-and professional identity. With these platforms <strong>we can easily have a
-professional visibility, expose our skills so they can be assessed by
-everyone and acquire real experience with real work.</strong></p>
-
-<p>The very first recommendation we should receive beginning a course in
-a topic is registering on all the platforms related to this topic. The
-professors should foster us to leverage these platform to develop our
-skills, build our expertise and gain some fame. Such platforms work this way: they play with
-our ego to encourage us to contribute more and more and make our
-achievements visible for everyone in return. <strong>They are built to be our showcase</strong> and
-we should take advantage of it. We do so many interesting projects in
-school, sometimes state of the art implementations in CS, that get lost
-on our machine. They should be public to catch recruiters&#8217; attention on
-our profile and skills or help us <a href="http://cdixon.org/2012/02/26/the-internet-is-reshaping-our-economy-from-one-of-huge-corporations-with-lots-of-jobs-to-huge-platforms-with-lots-of-income-streams/">create our future income streams</a>.</p>
-
-<p>So at which level can we improve the promotion of such platforms? At the school&#8217;s level?
-At the professors&#8217; level? They should all keep up with the internet economy like they
-usually keep up with the <em>real</em> economy. Schools should increase professors&#8217; awareness, who
-are mainly researchers in engineering schools for example, to this
-concern but it&#8217;s up to the professors to promote personaly the right
-platforms. Professors do already a great job teaching us their
-knowledge, <strong>they should go further and encourage us to capitalize on their
-teaching</strong>.</p>
-</div>
-  
-  
-        
-          <a href="/blog/2012/04/04/what-we-didnt-learn-in-college/#disqus_thread">Comments</a>
-        
-
-
-
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://czzarr.github.com/index.html" data-via="NeedForAir" data-counturl="http://czzarr.github.com/index.html" >Tweet</a>
-  
-  
-</div>
-
-    
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/03/31/siri-or-the-reinvention-of-mobile-search-ux/">Siri or the Reinvention of Mobile Search User Experience</a></h1>
-    
-    
-      <p class="meta">
-        <time datetime="2012-03-31T17:58:00+02:00" pubdate><span class='month'>Mar</span> <span class='day'>31</span> <span class='year'>2012</span></time>
-        | 
-  
-
-<span class="byline author vcard"><span class="fn">Stanislas Marion</span></span>
-
-      </p>
-    
-  </header>
-
-
-
-
-  <div class="entry-content"><p>Search is a behavior, it is what people do when they want to find
-something and don&#8217;t know exactly what they&#8217;re looking for, or when they
-know what they&#8217;re looking for but don&#8217;t know where to find it.
-But search on computers or on the web has traditionally been either
-intuitive and useless or unintuitive and powerful, as I&#8217;m going to show
-you.
-Even searching on Google used to be <a href="http://www.avc.com/a_vc/2003/10/search.html">hard and
-unintuitive</a>
-for the layperson. But Google improved the UX and it was so
-powerful that people just learned to use it.</p>
-
-<p>Until now
-search was basically equated to Google (a single-entry point to all of
-the resources available on the web), but with the major
-<a href="http://www.codinghorror.com/blog/2012/03/welcome-to-the-post-pc-era.html">shift</a> from computers to mobile devices,
-search UX needs to be reinvented.</p>
-
-<p><a href="http://www.flickr.com/photos/37161567@N04/6751892711/"><img src="http://farm8.staticflickr.com/7143/6751892711_f59c0452e8.jpg" alt="Siri helps Doggy" /></a>
-<em><a href="http://creativecommons.org/%20licenses/by/2.0" title="license">CC license</a> - by <a href="http://www.flickr.com/photos/37161567@N04/" title="Author">Yogesh Mhatre</a></em></p>
-
-<h2>Fact: Mobile Search User Experience Sucks</h2>
-
-<p>Searching on smartphones is currently a terrible user experience. Screens are
-tiny, typos frequent, missclicks incredibly annoying. Search results
-don&#8217;t account well for the fact that smartphones are not simply smaller versions of
-computers. Recently for instance, an <a href="http://itunes.apple.com/bw/app/quickmaps/id506283203?mt=8">iphone app</a> that is a
-simple user interface for frequent
-Google Maps queries received a very positive feedback and was an instant
-success.</p>
-
-<p>That&#8217;s why most search on mobile is done on vertically differentiated
-apps: one searches for places to stay on the Airbnb app, and looks for movies on the IMDB
-app. These apps provide a better search experience, from the query to
-the results &#8220;page&#8221;. The problem with that scheme is when you don&#8217;t know
-the particular app that suits your needs. Unless you follow Techcrunch
-or HackerNews religiously it can get tricky. The beauty of Google and
-other search engines was that they provided a single entry point for web
-content. You didn&#8217;t have to know anything else, and a lot of people
-still google &#8220;facebook&#8221; to reach the facebook website.</p>
-
-<p>But the UX of single entry point search is so bad on mobile that people
-don&#8217;t bother using it. Instead they&#8217;re left with discovering content
-through social media apps which offer a very decent UX for that. But they
-cannot look for something from a single-entry point unless they muster
-enough courage to deal with Google&#8217;s web app, and that&#8217;s too bad.</p>
-
-<h2>Lets Go Back In Time</h2>
-
-<p>When Windows arrived on the market, it represented a major shift in UX.
-Before Windows, people interacted with computers using a command-line
-interface(CLI), otherwise known as the shell. Command-line means that instead
-of clicking around, navigating in your folders and moving files
-visually, you gave a command to the computer and it executed your
-command. The CLI was (and still is) a great UX for search of files in a
-computer. Windows&#8217; graphical user interface, on the other hand, was absolutely terrible at this.</p>
-
-<p>Can you remember when you still had Windows? Looking for a file was
-absurdly hard and difficult, borderline impossible. That&#8217;s why most
-people just used their brain to remember where they put their files on
-their hard drive, and went looking for it by opening folder after
-folder. So Windows was a huge regression in search UX from the days when there was no graphical
-interface.</p>
-
-<p>Windows was arguably more intuitive than the CLI, you didn&#8217;t have to
-learn any commands to use it. All you had to do is click buttons and move your cursor
-around. But as you gained intuitiveness, you lost the power of the CLI.</p>
-
-<p>The reason why I&#8217;m talking about
-all this is we are currently witnessing a similar change of paradigms
-as websites are becoming webapps or even native mobile apps, that cannot
-be cleanly separated into different pages anymore. And again search UX
-is getting the bitter end of the deal.</p>
-
-<p>Apps are more intuitive, there are no more files, no more links, it&#8217;s
-pure visual and intuition heaven such that 2-year olds are comfortable with iPads,
-but powerful search is not part of the experience.</p>
-
-<h2>Enters Siri</h2>
-
-<p>Siri is the new personal assistant that lives in all iPhones 4S. You
-talk to her and she executes your wishes to the best of her abilities.</p>
-
-<p>A lot of people say it&#8217;s a gadget, it&#8217;s not actionable,
-it&#8217;s an Apple marketing ploy to sell you an iPhone 4 at a 20% premium. I
-think however that it&#8217;s much more than that and that these critics are
-missing the elephant in the room. For me, Siri is the new
-command-line interface.</p>
-
-<p>Think about what Siri does. You ask her to set your
-alarm, to give you the weather, to find a restaurant, to look for places, all from a single entry point.
-Basically, it&#8217;s a <strong>vocal recognition enabled command interface</strong>.
-And even though it&#8217;s still rough on the
-edges, I&#8217;m positive it&#8217;s going to become much more powerful in the near
-future. Vocal commands are the ultimate user experience, everybody gets
-it. The sole interface that beat vocal commands would be a mind-reading
-interface.
-So for the first time we have a <strong>search UX that is both intuitive
-and powerful</strong> (or promising to be at least). Siri is abstracting links
-and complicated queries from the end-user. Most people don&#8217;t care about
-links, they just want the data, the resource that the links point to.</p>
-
-<p>Siri is going to bring search back to mobile devices, and make search a
-huge part of the mobile ecosystem once it opens its API to developers.</p>
-</div>
-  
-  
-        
-          <a href="/blog/2012/03/31/siri-or-the-reinvention-of-mobile-search-ux/#disqus_thread">Comments</a>
-        
-
-
-
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://czzarr.github.com/index.html" data-via="NeedForAir" data-counturl="http://czzarr.github.com/index.html" >Tweet</a>
-  
-  
-</div>
-
-    
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -551,23 +520,23 @@ huge part of the mobile ecosystem once it opens its API to developers.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/04/18/game-of-go/">The Game of Go: a Programmer&#8217;s Perspective</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/15/startup-music-and-buzz/">Startup, Music and Buzz</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/11/community-organizing-platforms/">The Golden Age Of Community Organizing Platforms</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation/">Why the Pirate Party Will Help Improve Internet Regulation</a>
       </li>
     
       <li class="post">
         <a href="/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/">The Role of Computers in Text Summarization</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/04/04/what-we-didnt-learn-in-college/">What We Didn&#8217;t Learn In College</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/03/31/siri-or-the-reinvention-of-mobile-search-ux/">Siri or the Reinvention of Mobile Search User Experience</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/03/29/sopa-hadopi-future-of-culture/">SOPA, the entertainment industry and the future of culture</a>
       </li>
     
   </ul>
