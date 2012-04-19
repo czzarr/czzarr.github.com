@@ -35,6 +35,7 @@
 <div class="entry-content">{{ content }}</div>
 {% endif %}
 
-{% unless page.sharing == false %}
-      {% include post/sharing.html %}
-    {% endunless %}
+  {% unless page.sharing == false %}
+    {% include post/sharing.html %}
+  {% endunless %}
+

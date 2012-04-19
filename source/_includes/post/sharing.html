@@ -1,6 +1,10 @@
 <div class="sharing">
   {% if site.twitter_tweet_button %}
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="{{ site.url }}{{ page.url }}" data-via="{{ site.twitter_user }}" data-counturl="{{ site.url }}{{ page.url }}" >Tweet</a>
+    {% if index %}
+    <a href="http://twitter.com/share" class="twitter-share-button" data-text="{{post.title}}" data-url="{{site.url}}{{post.url}}" data-via="{{ site.twitter_user }}" data-counturl="{{ site.url }}{{ post.url }}" >Tweet</a>
+    {% else %}
+      <a href="http://twitter.com/share" class="twitter-share-button" data-url="{{ site.url }}{{ page.url }}" data-via="{{ site.twitter_user }}" data-counturl="{{ site.url }}{{ page.url }}" >Tweet</a>
+    {% endif %}
   {% endif %}
   {% if site.facebook_like %}
     <div class="fb-like" data-send="false" data-width="450"
