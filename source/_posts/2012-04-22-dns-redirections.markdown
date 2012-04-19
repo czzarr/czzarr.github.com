@@ -11,9 +11,11 @@ categories: dns, redirection, zone file
 If you design a website, you will need your own domain name, which means
 you will need to manage your Domain Name System (DNS). While there is nothing very
 complicated here, the info is disseminated on the Internet, so I decided
-to write a "cheat sheet"-like tutorial.  
+to write a "cheat sheet"-like tutorial which will hopefully save you some time!  
 
-// PHOTO
+
+[![Code](http://farm1.staticflickr.com/122/277341190_3f098a08a4_n.jpg)](http://www.flickr.com/photos/49502986585@N01/277341190/)
+*by [Ezu](http://www.flickr.com/photos/ezu/ "Author")*  
 
 
 ## What is the DNS?
