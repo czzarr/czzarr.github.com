@@ -7,8 +7,13 @@
     {% endif %}
     {% unless page.meta == false %}
       <p class="meta">
+    {% if index %}
         <time datetime="{{ post.date | datetime | date_to_xmlschema }}" pubdate>{{ post.date | date: "<span class='month'>%b</span> <span class='day'>%d</span> <span class='year'>%Y</span>"}}</time>
         | {% include post/author.html %}
+    {% else %}
+        <time datetime="{{ page.date }}" pubdate>{{ page.date | date: "<span class='month'>%b</span> <span class='day'>%d</span> <span class='year'>%Y</span>"}}</time>
+        | {% include post/author.html %}
+    {% endif %}
       </p>
     {% endunless %}
   </header>
