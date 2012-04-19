@@ -8,9 +8,9 @@ categories: dns, redirection, zone file
 ---
 
 
-If you design a website, you will need your own domain name, which means
+If you build a website, you will want your own domain name, which means
 you will need to manage your Domain Name System (DNS). While there is nothing very
-complicated here, the info is disseminated on the Internet, so I decided
+complicated here, the info is scattered across the Internet, so I decided
 to write a "cheat sheet"-like tutorial which will hopefully save you some time!  
 
 
@@ -36,9 +36,8 @@ to buy one from a **registrar** (such as [Gandi](https://www.gandi.net/)).
 
 ## How to manage it: the zone file
 Most registrars will let you use Web forwardings, which are simple
-redirections (what happens when a website you're on automatically
-changes the current page). Even though
-simpler, you should avoid those:  
+redirections (what happens when the webpage you are looking at automatically changes to another page). However, you should
+avoid those for the following reasons:
 
 * Simple redirections will replace your domain name by your IP address,
   which is the best way to scare off users
