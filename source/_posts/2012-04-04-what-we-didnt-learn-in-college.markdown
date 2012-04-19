@@ -4,7 +4,7 @@ title: "What We Didn't Learn In College"
 date: 2012-04-04 23:38
 author: Charles Miglietti
 comments: true
-categories: [platform, internet,  job, students, formation]
+categories: [platform, education]
 ---
 
 Albert Wenger is right: 

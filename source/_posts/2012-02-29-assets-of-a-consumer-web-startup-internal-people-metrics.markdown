@@ -4,7 +4,7 @@ title: "[Digest] Assets of a Consumer-Web Startup, Internal People Metrics"
 date: 2012-02-29 12:00
 comments: true
 author: Stanislas Marion
-categories: [digest, assets, metrics, startups, consumerweb]
+categories: [digest, metrics]
 ---
 
 *Digests are summaries of articles posted by entrepreneurs, VCs, and

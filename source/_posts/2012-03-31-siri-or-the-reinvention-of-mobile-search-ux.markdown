@@ -4,7 +4,7 @@ title: "Siri or the Reinvention of Mobile Search User Experience"
 date: 2012-03-31 17:58
 author: Stanislas Marion
 comments: true
-categories: search, ux, mobile, shell
+categories: [search, mobile, Siri, UX]
 ---
 
 Search is a behavior, it is what people do when they want to find

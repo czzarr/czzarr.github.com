@@ -4,7 +4,7 @@ title: "Why the Pirate Party Will Help Improve Internet Regulation"
 date: 2012-04-09 10:38
 author: Louis Chatriot
 comments: true
-categories: politics, internet, education
+categories: [politics, internet, education]
 ---
 
 

@@ -4,7 +4,7 @@ title: "The Game of Go: a Programmer's Perspective"
 date: 2012-04-18 08:30
 author: Louis Chatriot
 comments: true
-categories: game, go, programming, algorithm, monte carlo tree-search
+categories: [ go, algorithmy ]
 ---
 
 

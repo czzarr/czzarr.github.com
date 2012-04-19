@@ -4,7 +4,7 @@ title: "[Digest] BizDev vs SEO - Google+ value"
 date: 2012-03-26 16:59
 author: Charles Miglietti
 comments: true
-categories: [digest, SEO, bizdev, search]
+categories: [digest, SEO, search]
 ---
 
 

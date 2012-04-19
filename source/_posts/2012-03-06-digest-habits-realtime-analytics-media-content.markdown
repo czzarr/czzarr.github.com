@@ -4,7 +4,7 @@ title: "[Digest] Habits, Realtime Analytics, Media Content"
 date: 2012-03-06 12:00
 comments: true
 author: Charles Miglietti
-categories: [digest, analytics, curation, habits, viral, realtime]
+categories: [digest, analytics, curation]
 ---
 
 *Digests are summaries of articles posted by entrepreneurs, VCs, and

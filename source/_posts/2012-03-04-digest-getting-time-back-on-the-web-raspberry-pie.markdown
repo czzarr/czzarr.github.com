@@ -4,7 +4,7 @@ title: "[Digest] Time Dimension on the Web, Raspberry Pi"
 date: 2012-03-04 12:00
 comments: true
 author: Louis Chatriot
-categories: [digest, time, web, rasperrypi]
+categories: [digest, search, rasperrypi]
 ---
 
 *Digests are summaries of articles posted by entrepreneurs, VCs, and

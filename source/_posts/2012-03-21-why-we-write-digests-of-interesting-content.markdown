@@ -4,7 +4,7 @@ title: "Why We Write Digests of Interesting Content"
 date: 2012-03-21 12:00
 comments: true
 author: Stanislas Marion
-categories: [digest, tldr, content, time, memory, sharing]    
+categories: [digest, tldr, content, curation]    
 ---
 
 All three of us read a lot. Blogs, [Hacker News](http://news.ycombinator.com "Hacker News"), links we get through

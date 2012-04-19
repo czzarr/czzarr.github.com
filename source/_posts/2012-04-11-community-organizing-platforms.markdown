@@ -4,7 +4,7 @@ title: "The Golden Age Of Community Organizing Platforms"
 date: 2012-04-11 08:58
 author: Charles Miglietti 
 comments: true
-categories: [community, platform, organization, collaboration, social network]
+categories: [tldr, community, platform, management, collaboration]
 ---
 
 I [already wrote](http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college/) about how 

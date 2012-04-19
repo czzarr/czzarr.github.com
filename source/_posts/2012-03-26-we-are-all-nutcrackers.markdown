@@ -4,7 +4,7 @@ title: "We Are All Nutcrackers"
 date: 2012-03-26 18:20
 author: Charles Miglietti
 comments: true
-categories: [summary, tldr, article, curation] 
+categories: [summary, tldr, curation] 
 ---
 
 *In a nutshell...* Have you never been looking for this expression 

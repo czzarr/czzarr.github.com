@@ -4,7 +4,7 @@ title: "The Role of Computers in Text Summarization"
 date: 2012-04-06 08:30
 author: Louis Chatriot
 comments: true
-categories: language, processing, computer, summary
+categories: [tldr, NLP, algorithmy,  summary]
 ---
 
 As Stanislas explained in [this previous post](http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/ "Information Overload"), we believe we are dealing with too much information to keep up on the Internet. The natural solution is text summarization, and computers can help us there.

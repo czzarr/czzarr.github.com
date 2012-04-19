@@ -4,7 +4,7 @@ title: "How to Keep Up With the Information Overload"
 date: 2012-03-09 12:00
 comments: true
 author: Stanislas Marion
-categories: [information, news, time, twitter]
+categories: [information, news, curation, tldr]
 ---
 
 Facebook notifications, Twitter feeds, RSS feeds, emails, news

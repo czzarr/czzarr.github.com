@@ -4,7 +4,7 @@ title: "[Digest] Lies from Losers, Web/Mobile Integration, Community Feedback"
 date: 2012-03-01 12:00
 comments: true
 author: Charles Miglietti
-categories: [digest, management, startups, community, feedback, mobile]
+categories: [digest, community, feedback, mobile]
 ---
 
 *Digests are summaries of articles posted by entrepreneurs, VCs, and

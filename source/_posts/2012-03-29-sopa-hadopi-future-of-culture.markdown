@@ -4,7 +4,7 @@ title: "SOPA, the entertainment industry and the future of culture"
 date: 2012-03-29 08:24
 comments: true
 author: Louis Chatriot
-categories: [sopa, copyright, music, movies, culture]
+categories: [sopa, culture]
 ---
 
 The entertainment industry is busy trying to make the US adopt the SOPA

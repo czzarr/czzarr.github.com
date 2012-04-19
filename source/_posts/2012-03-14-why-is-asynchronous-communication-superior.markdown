@@ -4,7 +4,7 @@ title: "Why Is Asynchronous Communication Superior?"
 date: 2012-03-14 12:00
 comments: true
 author: Charles Miglietti
-categories: [productivity, workflow, communication, chat]
+categories: [productivity, workflow, communication]
 ---
 
 In my [last article](http://needforair.com/why-you-shouldnt-use-synchronous-communicatio-70441 "last article") 

@@ -4,7 +4,7 @@ title: "What Will Your Last Holidays Photos Become?"
 date: 2012-03-19 12:00
 comments: true
 author: Charles Miglietti
-categories: [storage, persistence, memory]    
+categories: [question, future]    
 ---
 
 Yesterday was my wife's grand father funeral. Those moments are intense

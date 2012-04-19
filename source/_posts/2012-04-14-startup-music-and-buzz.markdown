@@ -4,7 +4,7 @@ title: "Startup, Music and Buzz"
 date: 2012-04-15 11:33
 comments: true
 author: Charles Miglietti
-categories: [buzz, startup, press, music] 
+categories: [buzz, startup] 
 ---
 
 Various creative initiatives face the same challenges as startups. 

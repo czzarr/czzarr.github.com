@@ -4,7 +4,7 @@ title: "Great Article on Improving the Discoverability of Good Content"
 date: 2012-03-17 18:01
 author: Stanislas Marion
 comments: true
-categories: [link, discoverability, content]
+categories: [curation]
 ---
 
 [What could you do if you were Google and had their databases?](http://www.jacquesmattheij.com/What+you+could+do+if+you+were+google+and+had+their+databases)
