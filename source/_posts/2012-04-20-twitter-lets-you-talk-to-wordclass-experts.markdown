@@ -19,6 +19,9 @@ away from me and doesn't know anything about me. This was not the first
 time I've been amazed by the power of Twitter, so I decided to blog about
 it.
 
+[![Twitter Mosaic](http://farm4.staticflickr.com/3393/3428525318_0729579705_n.jpg)](http://www.flickr.com/photos/brajeshwar/3428525318/in/photostream)
+*[CC license](http://creativecommons.org/licenses/by-nc-sa/2.0 "license") - by [Brajeshwar](http://www.flickr.com/photos/brajeshwar/ "Author")*
+
 ## 140 characters Enable Improbable Conversations
 
 That length constraint compels people to get straight to the point.
