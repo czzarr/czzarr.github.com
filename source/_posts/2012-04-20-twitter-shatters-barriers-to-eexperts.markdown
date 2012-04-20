@@ -52,7 +52,7 @@ for the expert to become friend with the person he is talking to.
 When you try to email or talk on the phone to an expert, you always want to be super apologetic,
 respectful and you don't really focus on the content of the
 conversation you're trying to have but instead you focus on the
-asymmetry of the relationship and that makes you uncomfortable. Twitter make all these concerns vanish.
+asymmetry of the relationship and that makes you uncomfortable. Twitter makes all these concerns vanish.
 
 I love Twitter for these opportunities.
 
