@@ -12,7 +12,7 @@ Singer](http://twitter.com/#!/rjs) of [37 Signals](http://37signals.com)
 fame. Ryan is a world-class expert in product design and had just posted an [article](http://feltpresence.com/articles/16-managing-product-development-by-integrating-around-concerns)
 on his excellent [blog](http://feltpresence.com/). The thing is I am a
 nobody in product design or in the tech scene in general. I'm not saying
-I'm dumb or uninteresting, just that nobody knows me. And yet I was
+I'm dumb or anything, just that nobody knows me. And yet I was
 still able to have a great and stimulating conversation with an expert
 who's email inbox is presumably very full, lives thousands of kilometers
 away from me and doesn't know anything about me. This was not the first
