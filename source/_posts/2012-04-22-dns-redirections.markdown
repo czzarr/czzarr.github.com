@@ -4,7 +4,7 @@ title: "Tutorial: Domain Name System for Beginners"
 date: 2012-04-22 08:30
 author: Louis Chatriot
 comments: true
-categories: dns, redirection, zone file
+categories: [tutorial, internet]
 ---
 
 
