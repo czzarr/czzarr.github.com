@@ -26,7 +26,7 @@ There is no fluff. No awkward openings, no pompous endings, no walls of
 text. People expect direct questions and answers and wouldn't have it any other
 way.
 
-This magicly enables you to talk to some people you would never have sent an
+This magically enables you to talk to some people you would never have sent an
 email to. And busy people that don't know you at all, that might be
 thought leaders or experts whereas you are a nobody, will answer you if
 you ask an interesting question. Because the constraint also works for
