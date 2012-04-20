@@ -1,10 +1,10 @@
-kin---
+---
 layout: post
 title: "Twitter Lets You Talk to World-Class Experts"
 date: 2012-04-05 04:35
 author: Stanislas Marion
 comments: true
-categories: twitter, social networks, interests, content discovery
+categories: [twitter, social networks, interests, content discovery]
 ---
 
 The other day I had a conversation on Twitter with [Ryan
