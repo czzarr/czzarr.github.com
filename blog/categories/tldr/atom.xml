@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: tldr | Need for Air]]></title>
-  <link href="http://czzarr.github.com/blog/categories/tldr/atom.xml" rel="self"/>
-  <link href="http://czzarr.github.com/"/>
-  <updated>2012-04-04T02:01:21+02:00</updated>
-  <id>http://czzarr.github.com/</id>
+  <link href="http://needforair.com/blog/categories/tldr/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-04-20T20:04:54+02:00</updated>
+  <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
     
@@ -14,10 +14,145 @@
 
   
   <entry>
+    <title type="html"><![CDATA[The Golden Age Of Community Organizing Platforms]]></title>
+    <link href="http://needforair.com/blog/2012/04/11/community-organizing-platforms/"/>
+    <updated>2012-04-11T08:58:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/11/community-organizing-platforms</id>
+    <content type="html"><![CDATA[<p>I <a href="http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college/">already wrote</a> about how
+you can leverage some <a href="https://github.com/">social platforms</a> to build
+your visibility on the internet, but they offer much more.
+They provide appropriate tools that help people to be more productive
+and better organized. They are much more functional than pure social networks
+and even more valuable as the communities are active.</p>
+
+<p><img src="http://cardview.net/wp-content/uploads/2010/04/nation-builder.jpg" height="220" alt="Keep the gist" /></p>
+
+<h2>Platforms structure communities</h2>
+
+<p>We can call such a platform a <em>community organizing platform</em> because
+it allows a community to have a place to gather, discuss and share. It
+provides the global structure the community needs to get organized.
+Ten years ago the forums laid the foundation but today these platforms
+achieve what's been initiated.</p>
+
+<p>Using these platforms everyone creates and manages a business card that
+is accessible by everyone else.
+People can easily be identified, followed, consulted and appraised. You
+don't have to go to as many conferences or events to meet new people
+because it can be done very efficiently online.</p>
+
+<h2>Community organizing platforms offer more than pure social networks</h2>
+
+<p>Pure social networks like Twitter offer ways to
+organize communities but don't provide the structure
+and tools needed for effective collaboration. They are mainly focus on
+sharing.</p>
+
+<p>While community organizing platforms provide a social layer they
+also offer services geared towards the community itself. This
+combination is what's really valuable.
+<a href="http://nationbuilder.com/">Nation Builder</a>
+is the perfect example: it features volunteer organization, donation
+monitoring, website creation... a comprehensive package
+political leaders need to interact with their audience.</p>
+
+<h2>Active communities are driven by knowledge</h2>
+
+<p>We can distinguish communities built upon friendship, professional
+activity or common interests. The most active
+are the ones based on a common interest, where knowledge and
+feedback is a valuable resource. In these ones people spend a lot of time
+looking for information. They also create a lot of content in order to
+improve their reputation. Such platforms are even more
+important for small communities because the resources they want to access are not always well
+indexed by search engines.</p>
+
+<p>As sharing information, working collaboratively and giving feedbacks to peers is key in
+these communities even a very little one
+can be very active.
+There is still lots of
+them to structure out there, lots of people waiting to
+share and collaborate with their peers. Who are they? What can we do for
+them?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Role of Computers in Text Summarization]]></title>
+    <link href="http://needforair.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/"/>
+    <updated>2012-04-06T08:30:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text</id>
+    <content type="html"><![CDATA[<p>As Stanislas explained in <a href="http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/" title="Information Overload">this previous post</a>, we believe we are dealing with too much information to keep up on the Internet. The natural solution is text summarization, and computers can help us there.</p>
+
+<p><a href="http://www.flickr.com/photos/xeeliz/3558255554/sizes/l/in/photostream/"><img src="http://farm4.staticflickr.com/3376/3558255554_9f9c480132_n.jpg" alt="Summary" /></a>
+<em>by <a href="http://www.flickr.com/photos/xeeliz/" title="Author">Xeeiliz</a></em></p>
+
+<p>There are roughly two kinds of summaries: the ones that consist of a few of
+the most important sentences extracted from the text, the keyphrases, and the ones that
+are written from scratch without necessarily using the same phrasing, called abstract summaries.</p>
+
+<h2>Finding the most relevant content: keyphrase extraction</h2>
+
+<p>The big advantage of keyphrase-based summaries is that there is no risk
+of miscomprehension since they are composed of unrephrased pieces of the
+text. Moreover, computers are able to compute them and get decent
+results. There are two main ways to do it: supervised and unsupervised
+extraction.</p>
+
+<h3>When you know the context: extraction as supervised learning</h3>
+
+<p>One way to perform this task is described by Peter Turney in <a href="http://webdocs.cs.ualberta.ca/~lindek/650/papers/turney.pdf">this paper</a>. He found that using a custom-designed algorithm that incorporates specialized domain knowledge on a text generates yields very good results: 80% of keyphrases are deemed acceptable by human readers. The problem with this approach is that it requires the computer to know the topic beforehand. It is possible to use a prior first step to determine what it is, but this is difficult and the results are terrible if we get it wrong.</p>
+
+<h3>Applicable to any text: unsupervised keyphrase extraction</h3>
+
+<p>This approaches enables us to extract keyphrases from a text without any
+prior knowledge, which is a tremendous improvement upon the previous method. There a several algorithms, and one notable current example is <a href="http://www.summly.com/">Summly</a>. I will explain one of those, named TextRank, to give you a feeling of the kind of techniques used in this field.</p>
+
+<p>The TextRank algorithm was developped by Rada Mihalcea and Paul Tarau in
+<a href="http://acl.ldc.upenn.edu/acl2004/emnlp/pdf/Mihalcea.pdf">this paper</a>. The key idea is that a text
+unit (word or phrase depending on the need) that is close to a lot of other important text units is likely a keyphrase. Using the parallel between the "close to" relation and the "referred to by" relation of hyperlinks, TextRank uses Google's <a href="http://en.wikipedia.org/wiki/PageRank">PageRank</a> to determine which text units are the most important. It works well, its main author was even awarded a $100k grant by Google for her work on keyphrase extraction.</p>
+
+<h2>The best: abstract summarization</h2>
+
+<p>Even though they can be very useful, keyphrase-based summaries are still
+rudimentary compared to abstract summaries, because they are much nicer
+to read, and we are sure no important information was "left behind" (i.e a keyphrase was not extracted). Also, keyphrase extraction algorithms still find it hard to
+summarize technical articles.</p>
+
+<p>Abstract summarization is the limit of what computers can do today. The
+main reason for this is that they struggle with the following tasks:</p>
+
+<ul>
+<li><strong>Coreferences understanding</strong>. For example, who does 'he'
+references in the sentence 'Paul told John he should play squash'?</li>
+<li><strong>Word sense disambiguation</strong>. In 'I need batteries for
+my mouse', are we talking about the animal or the device?</li>
+<li><strong>Sentiment analysis</strong>. Understanding the mood of the writer is often
+key to understanding a text, all the more when there is sarcasm.</li>
+</ul>
+
+
+<h2>Computers can help humans summarize a text</h2>
+
+<p>To sum it up, I believe that humans still cannot be replaced by
+algorithms if we want to produce quality summaries. Nonetheless, a
+computer really can help a us by providing a keyphrase-based summary,
+so that we spend less time scanning the text for them. In addition, if
+we were able to train algorithms by comparing their output with a human
+summary a lot of times for articles on a certain topic, I think it is possible we see significant improvements.</p>
+
+<p><em>Note: some examples were taken from <a href="https://class.coursera.org/nlp/">Stanford's Natural Language
+Processing online class</a>. If you couldn't take
+it this quarter, look for it, it is a terrific place to learn about this
+topic</em></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[We Are All Nutcrackers]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/26/we-are-all-nutcrackers/"/>
+    <link href="http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers/"/>
     <updated>2012-03-26T18:20:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/26/we-are-all-nutcrackers</id>
+    <id>http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers</id>
     <content type="html"><![CDATA[<p><em>In a nutshell...</em> Have you never been looking for this expression
 while reading an article? The fact is that we are all fond of digested
 information. With Internet and social medias the quantity of information
@@ -65,9 +200,9 @@ get hooked and then you want to know more about it.</p>
   
   <entry>
     <title type="html"><![CDATA[Why We Write Digests of Interesting Content]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/21/why-we-write-digests-of-interesting-content/"/>
+    <link href="http://needforair.com/blog/2012/03/21/why-we-write-digests-of-interesting-content/"/>
     <updated>2012-03-21T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/21/why-we-write-digests-of-interesting-content</id>
+    <id>http://needforair.com/blog/2012/03/21/why-we-write-digests-of-interesting-content</id>
     <content type="html"><![CDATA[<p>All three of us read a lot. Blogs, <a href="http://news.ycombinator.com" title="Hacker News">Hacker News</a>, links we get through
 Twitter, etc. Browsing dozens of articles a week to stay informed is great but do we get the most out of it? <strong>Do we
 actually memorize the gist of all that content we are reading?</strong> Spending
@@ -128,6 +263,84 @@ email, you can be sure there is a much higher chance that she reads the
 digest and eventually clicks the link, intrigued. And you'll be
 able to have a conversation about it. That is sharing. Sending naked links is not sharing,
 it's spamming.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to Keep Up With the Information Overload]]></title>
+    <link href="http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/"/>
+    <updated>2012-03-09T12:00:00+01:00</updated>
+    <id>http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload</id>
+    <content type="html"><![CDATA[<p>Facebook notifications, Twitter feeds, RSS feeds, emails, news
+aggregators and now so much
+more. We are constantly hit by new information, throughout the day, and
+the night. There are so many things we want to read or watch.
+The fact that the Web is a strictly <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">RESTful</a> application (or should I say
+<a href="http://blog.steveklabnik.com/posts/2012-02-13-an-api-ontology">Hypermedia</a>) doesn't help because one link usually leads to more links. I'm sure
+you've already experienced having more than 20 tabs open in your browser
+and thinking "<em>God, when am I going to read all of this?</em>" but instead
+of starting reading you scan the links of the page in front of you and
+just open more tabs. And this was only made worse by tools such as
+<a href="http://instapaper.com" title="Instapaper">Instapaper</a> that make you feel good
+about saving stuff for later, even if you know deep inside you'll never
+come back to it.</p>
+
+<p><a href="http://www.flickr.com/photos/martinofranchi/2925760927/"><img src="http://farm4.staticflickr.com/3244/2925760927_a9db10926e_m.jpg" alt="Information overload" /></a></p>
+
+<h2>Current solutions</h2>
+
+<p>It's extremely hard to keep up with all that information, and you
+basically have 3 options at the moment:</p>
+
+<h4>Let loose</h4>
+
+<p>Accept that you can't follow it all and if something is really important
+it will come back to you one way or another so that missing it the first
+time is not a big deal.
+I personnally don't like this solution because it means giving up
+control on what I read and learn, and it basically amounts to a random
+filter with some bias towards the most important news that isn't always
+the most interesting.</p>
+
+<h4>Algorithmic filters</h4>
+
+<p>Use tools such as <a href="http://news.me" title="News.me">News.me</a> or <a href="http://focus.io" title="Focus.io">Focus.io</a> that
+use machine learning techniques to serve you the stories you might be
+interested in the most. However, again, not knowing how these algorithms
+work exactly, I fear I am going to lose the serendipity of scanning
+myself all the input and selecting the hidden little gem that would be
+considered as noise by these algorithms. Again, I hate losing control. I
+do think these are better solutions than just letting loose.</p>
+
+<h4>Reducing the input</h4>
+
+<p>This for me is the best alternative. Following sort of a <em>less is more</em> convention,
+I am looking to reduce the number of sources rather than increasing it,
+keeping only the outstanding ones. I am constantly reevaluating the
+quality of the twitter accounts and bloggers I follow in order to remove
+those that either tweet too much  or whose content quality has suffered.
+I am very rarely looking for new people to follow, and when I try
+someone new it is always an experiment, never set in stone. I'd actually
+like it if an algorithm could do that for me, again, not knowing the
+inner workings of the services that offer news recommendation is too
+bad. I'm willing to bet none of them though is going to unfollow someone
+on twitter for you, or experiment with a new follower, based on the
+quality of the links provided in the tweets. Same for RSS feeds.</p>
+
+<h2>We need a new tool to find good content</h2>
+
+<p>Basically none of today's tools are good at finding good news and
+information. You can use a combination of tools (such as <a href="http://quora.com" title="Quora">Quora</a> and <a href="http://stackexchange.com" title="StackEchange">StackExchange</a> but it is more
+difficult than one tool and is conducive to a lot of noise. Plus we are
+missing a linking tool between content of the same nature and topics,
+that would transcend time. There are services like <a href="http://delicious.com" title="Delicious">Delicious</a> that you
+can browse by searching for tags, but it is not powerful enough in the
+way it presents the information. There are still too many links and not
+enough clues as to which are interesting and which are not.</p>
+
+<p>But don't worry, we're working on it ;)</p>
+
+<p>Photo credit: <a href="http://www.flickr.com/photos/martinofranchi/">Martino</a></p>
 ]]></content>
   </entry>
   

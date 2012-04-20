@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: education | Need for Air]]></title>
-  <link href="http://czzarr.github.com/blog/categories/education/atom.xml" rel="self"/>
-  <link href="http://czzarr.github.com/"/>
-  <updated>2012-04-04T02:01:21+02:00</updated>
-  <id>http://czzarr.github.com/</id>
+  <link href="http://needforair.com/blog/categories/education/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-04-20T20:04:54+02:00</updated>
+  <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
     
@@ -14,10 +14,91 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Why the Pirate Party Will Help Improve Internet Regulation]]></title>
+    <link href="http://needforair.com/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation/"/>
+    <updated>2012-04-09T10:38:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation</id>
+    <content type="html"><![CDATA[<p>In the past years, we have seen a lot of developped countries
+governments pushing for more regulation of the Internet, and less
+privacy for users. There are three main reasons: protection of
+children, prevention of terrorism and <a href="http://needforair.com/blog/2012/03/29/sopa-hadopi-future-of-culture/">fight against illegal downloading</a>. This has led to very repressive and usually inefficient laws, for example in Australia, in France (Hadopi) and <a href="http://thehill.com/blogs/hillicon-valley/technology/220181-dodd-says-sopa-can-live-again">possibly soon</a> in the US. I think that a big part of this problem is that a very large portion of the people making these laws understand next to nothing about the Internet, and are thus afraid of it. What can we do about it?</p>
+
+<p><a href="http://www.flickr.com/photos/20888197@N00/103031916/"><img src="http://farm1.staticflickr.com/43/103031916_5c6c0a51af_m.jpg" alt="Pirate" /></a>
+<em>by <a href="http://www.flickr.com/photos/opid/" title="Author">sereneonion</a></em></p>
+
+<h2>Direct education is not enough</h2>
+
+<p>Direct education is the most natural answer. Initiatives like Google's
+<a href="http://www.20thingsilearned.com/en-US">20 things I learned about browsers and the Web</a> for example, aim at explaining very simply the basics to beginners. More focused initiatives like the <a href="http://www.eg8forum.com/en/">electronic G8 forum</a>, which was held last year in Paris are interesting too. But unfortunately, none of these will make a real impact as long as politicians have so little interest for this world. What we really need is to make them <strong>want</strong> to learn about the Internet.</p>
+
+<h2>The Pirate Party can play a significant role</h2>
+
+<p>What politicians really care about is of course to get (re)elected. And
+since they are busy people, they only tackle the subjects they feel are the
+most importants for voters, which are nowadays the economic crisis and
+unemployment. This is where I think the <a href="http://en.wikipedia.org/wiki/Pirate_Party">Pirate Party</a> has a huge role to play. Even though they are still a fringe party today, they <a href="http://www.nytimes.com/2011/09/20/world/europe/in-berlin-pirates-win-8-9-percent-of-vote-in-regional-races.html">have had some electoral success</a> and have shown the political world that voters do care about Internet-related issues. If they continue to be successful, I am pretty sure that mainstream politicians, who hold the real power, will want to understand the Internet better, leading to a more fruitful public debate.</p>
+
+<p>It will surely take some time, but I think <strong>it will happen</strong>, because it already happened in the past: 30 years ago, neither voters nor politicians cared about the environment, and the Green parties were regarded the same way the Pirate party is today. Now, ecology is a significant political topic in many European countries. The Internet is next.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[What We Didn't Learn In College]]></title>
+    <link href="http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college/"/>
+    <updated>2012-04-04T23:38:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college</id>
+    <content type="html"><![CDATA[<p>Albert Wenger is right:
+<a href="http://continuations.com/post/20112755144/students-are-woefully-prepared-for-internet-age-job">we are woefully prepared for internet age job market</a>.
+The three of us graduated in Computer Science in college, following a solid
+engineering cursus. But during the
+numerous courses we took we never heard of <a href="http://github.com/">Github</a> nor <a href="http://stackoverflow.com/">StackOverflow</a>.
+People attending creative and artistic
+formation don't hear of <a href="http://www.etsy.com/">Etsy</a> neither.</p>
+
+<p><img src="http://farm8.staticflickr.com/7044/7046351459_53d8ed3283.jpg" alt="Jeff Atwood" /></p>
+
+<p>You could argue: "What's the problem with that? You aren't supposed to learn
+how to use these platforms in school but core skills in your field!"</p>
+
+<p>But that would be missing a point. The education we all receive has one final
+goal: be prepared to get the best job as possible. In our current
+era <strong>finding a job doesn't come down to respond to job offers by sending
+cover letters and resume</strong> nor spam by email all our contacts in the industry
+to get an interview.</p>
+
+<p>We are lucky to live through the emergence and the
+expansion of specialized platforms which can help us build our personal
+and professional identity. With these platforms <strong>we can easily have a
+professional visibility, expose our skills so they can be assessed by
+everyone and acquire real experience with real work.</strong></p>
+
+<p>The very first recommendation we should receive beginning a course in
+a topic is registering on all the platforms related to this topic. The
+professors should foster us to leverage these platform to develop our
+skills, build our expertise and gain some fame. Such platforms work this way: they play with
+our ego to encourage us to contribute more and more and make our
+achievements visible for everyone in return. <strong>They are built to be our showcase</strong> and
+we should take advantage of it. We do so many interesting projects in
+school, sometimes state of the art implementations in CS, that get lost
+on our machine. They should be public to catch recruiters' attention on
+our profile and skills or help us <a href="http://cdixon.org/2012/02/26/the-internet-is-reshaping-our-economy-from-one-of-huge-corporations-with-lots-of-jobs-to-huge-platforms-with-lots-of-income-streams/">create our future income streams</a>.</p>
+
+<p>So at which level can we improve the promotion of such platforms? At the school's level?
+At the professors' level? They should all keep up with the internet economy like they
+usually keep up with the <em>real</em> economy. Schools should increase professors' awareness, who
+are mainly researchers in engineering schools for example, to this
+concern but it's up to the professors to promote personaly the right
+platforms. Professors do already a great job teaching us their
+knowledge, <strong>they should go further and encourage us to capitalize on their
+teaching</strong>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Why so Many French are Not Entrepreneurs]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs/"/>
+    <link href="http://needforair.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs/"/>
     <updated>2012-03-16T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs</id>
+    <id>http://needforair.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs</id>
     <content type="html"><![CDATA[<p><em>France's higher education trains world-class engineers, but is home to very few successful start-ups. Having studied engineering in France and then at Stanford University, I will try to explain this apparent paradox.</em></p>
 
 <p><a href="http://www.flickr.com/photos/billselak/2417001179/"><img src="http://farm3.staticflickr.com/2168/2417001179_d5ce2d9362_m.jpg" alt="Test taking" /></a>

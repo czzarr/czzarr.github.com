@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: workflow | Need for Air]]></title>
-  <link href="http://czzarr.github.com/blog/categories/workflow/atom.xml" rel="self"/>
-  <link href="http://czzarr.github.com/"/>
-  <updated>2012-04-04T02:01:21+02:00</updated>
-  <id>http://czzarr.github.com/</id>
+  <link href="http://needforair.com/blog/categories/workflow/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-04-20T20:04:54+02:00</updated>
+  <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Why Is Asynchronous Communication Superior?]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/14/why-is-asynchronous-communication-superior/"/>
+    <link href="http://needforair.com/blog/2012/03/14/why-is-asynchronous-communication-superior/"/>
     <updated>2012-03-14T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/14/why-is-asynchronous-communication-superior</id>
+    <id>http://needforair.com/blog/2012/03/14/why-is-asynchronous-communication-superior</id>
     <content type="html"><![CDATA[<p>In my <a href="http://needforair.com/why-you-shouldnt-use-synchronous-communicatio-70441" title="last article">last article</a>
 I detailed why synchronous communication is not
 appropriate for work: it leads to interruptions, involves moving or
@@ -75,9 +75,9 @@ if you work at the same place.</p>
   
   <entry>
     <title type="html"><![CDATA[Why You Shouldn't Use Synchronous Communication At Work]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/13/why-you-shouldnt-use-synchronous-communication-at-work/"/>
+    <link href="http://needforair.com/blog/2012/03/13/why-you-shouldnt-use-synchronous-communication-at-work/"/>
     <updated>2012-03-13T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/13/why-you-shouldnt-use-synchronous-communication-at-work</id>
+    <id>http://needforair.com/blog/2012/03/13/why-you-shouldnt-use-synchronous-communication-at-work</id>
     <content type="html"><![CDATA[<p>In a recent <a href="http://www.forbes.com/sites/bruceupbin/2011/12/13/five-new-management-metrics-you-need-to-know/" title="Article">post</a>,
 James Slavet (Greylock Partners) describes metrics we should consider to
 be more productive. The top one is called Flow State Percentage and
@@ -149,9 +149,9 @@ for your team.</p>
   
   <entry>
     <title type="html"><![CDATA[Makers Don't Work With Deadlines]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/12/makers-dont-work-with-deadlines/"/>
+    <link href="http://needforair.com/blog/2012/03/12/makers-dont-work-with-deadlines/"/>
     <updated>2012-03-12T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/12/makers-dont-work-with-deadlines</id>
+    <id>http://needforair.com/blog/2012/03/12/makers-dont-work-with-deadlines</id>
     <content type="html"><![CDATA[<p>A maker is someone who likes to make stuff, to build things. It can be
 an artist, a craftsman, an architect, a designer. But it can also be a
 software developer. I'm talking about good developers. Those that take
