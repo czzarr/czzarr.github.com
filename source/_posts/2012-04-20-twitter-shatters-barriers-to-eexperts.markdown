@@ -41,7 +41,7 @@ these people don't know me at all.
 ## No Social Pressure or Awkwardness
 
 The Twitter feed moves so swiftly that conversations are extremely
-ephemeral. And that is I think key to enabling these kind of improbable
+ephemeral. I think this is key to enabling these kind of improbable
 conversations. The fact that it moves so quickly reduces the social
 pressure: few people will see it, it will not mark your Twitter profile
 for a long time, and nobody will assume that the two people conversing
