@@ -1,6 +1,6 @@
 kin---
 layout: post
-title: "Twitter Lets Me Talk to World-Class Experts"
+title: "Twitter Lets You Talk to World-Class Experts"
 date: 2012-04-05 04:35
 author: Stanislas Marion
 comments: true
