@@ -28,7 +28,7 @@ way.
 
 This magically enables you to talk to some people you would never have sent an
 email to. And busy people that don't know you at all, that might be
-thought leaders or experts whereas you are a nobody, will answer you if
+thought leaders or experts, will answer you if
 you ask an interesting question. Because the constraint also works for
 the response: they don't have to send you a long well thought-out answer,
 they don't need to get context to answer, they can just type 140
