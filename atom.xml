@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Need for Air]]></title>
-  <link href="http://czzarr.github.com/atom.xml" rel="self"/>
-  <link href="http://czzarr.github.com/"/>
-  <updated>2012-04-18T10:51:14+02:00</updated>
-  <id>http://czzarr.github.com/</id>
+  <link href="http://needforair.com/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-04-23T09:30:22+02:00</updated>
+  <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
     
@@ -14,10 +14,176 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Tutorial: Domain Name System for Beginners]]></title>
+    <link href="http://needforair.com/blog/2012/04/22/dns-redirections/"/>
+    <updated>2012-04-22T08:30:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/22/dns-redirections</id>
+    <content type="html"><![CDATA[<p>If you build a website, you will want your own domain name, which means
+you will need to manage your Domain Name System (DNS). While there is nothing very
+complicated here, the info is scattered across the Internet, so I decided
+to write a &#8220;cheat sheet&#8221;-like tutorial which will hopefully save you some time!</p>
+
+<p><a href="http://www.flickr.com/photos/49502986585@N01/277341190/"><img src="http://farm1.staticflickr.com/122/277341190_3f098a08a4_n.jpg" alt="Code" /></a>
+<em>by <a href="http://www.flickr.com/photos/ezu/" title="Author">Ezu</a></em></p>
+
+<h2>What is the DNS?</h2>
+
+<p>The DNS is a system that helps your computer translate human-readable <strong>domain names</strong>
+into computer-usable <strong>IP addresses</strong> (4 numbers between 0 and 255
+identifying a server).</p>
+
+<p>A domain name must have two parts, separated by a dot: the <strong>actual domain</strong> (e.g. <em>google</em>) and the
+<strong>top-level domain</strong> (e.g. <em>com</em>). In this example, the domain name is
+<em>google.com</em>. Optionally, you can also use different <strong>subdomains</strong>, so
+that users typing <em>subdomain1.domain.tld</em> and <em>subdomain2.domain.tld</em>
+arrive on two different pages. The well-known <em>www</em> is a subdomain of
+<em>google.com</em> in the address <em>www.google.com</em>.</p>
+
+<p>To use your own custom domain name, you need
+to buy one from a <strong>registrar</strong> (such as <a href="https://www.gandi.net/">Gandi</a>).</p>
+
+<h2>How to manage it: the zone file</h2>
+
+<p>Most registrars will let you use Web forwardings, which are simple
+redirections (what happens when the webpage you are looking at automatically changes to another page). However, you should
+avoid those for the following reasons:</p>
+
+<ul>
+<li>Simple redirections will replace your domain name by your IP address,
+which is the best way to scare off users</li>
+<li>Masked redirections will not scare off users, but they will give you a
+very poor search-engine rating</li>
+</ul>
+
+
+<p>You will need to use the <strong>zone file</strong>. It is a simple text file
+describing the structure of your DNS zone (usually your domain) to the global DNS
+(i.e. the world). Let&#8217;s take a look at a sample zone file (the zone file on
+Gandi for our blog <a href="http://needforair.com">needforair.com</a>.</p>
+
+<p>These are the DNS rules for our domain <code>needforair.com</code>:</p>
+
+<pre><code>@ 3600 IN A 184.106.20.102
+www 3600 IN CNAME needforair.com.
+wik 3600 IN CNAME fr.wikipedia.org.
+</code></pre>
+
+<p>You usually also find lines similar to the following in a zone file.
+They manage the email server your registrar provides you, and shouldn&#8217;t
+touch them:</p>
+
+<pre><code>@ 3600 IN MX 10 spool.mail.gandi.net.
+@ 3600 IN MX 50 fb.mail.gandi.net.
+smtp 3600 IN CNAME relay.mail.gandi.net.
+webmail 3600 IN CNAME agent.mail.gandi.net.
+pop 3600 IN CNAME access.mail.gandi.net.
+imap 3600 IN CNAME access.mail.gandi.net.
+</code></pre>
+
+<p>The most important points here are:</p>
+
+<ul>
+<li>Each line corresponds to one rule (a record)</li>
+<li>The <code>@</code> character represents your bare domain (needforair.com in our example) as opposed
+to subdomains such as <code>test.needforair.com</code> or <code>www.needforair.com</code></li>
+<li>An <code>A</code> record points to an IP address, usually your server. In our example, <code>@ 3600 IN A 184.106.20.102</code>
+indicates that a user typing &#8216;needforair.com&#8217; in his address bar will request content from the IP address 184.106.20.102.
+The <code>3600</code> number is the <a href="http://en.wikipedia.org/wiki/Time_to_live#DNS_records">Time To Live (TTL)</a> of the record,
+the time (in seconds) during which a nameserver will cache the record and not ask the authoritative server (Gandi here)
+if queried again</li>
+<li>A <code>CNAME</code> record points to any domain or subdomain, either in your zone or outside.
+In our example, <code>www 3600 IN CNAME needforair.com.</code> means that a user typing <code>www.needforair.com</code> will request content
+from the same IP address as needforair.com (that&#8217;s not the case by default). You can of course use a CNAME to any other
+domain, in our example <code>wik 3600 IN CNAME fr.wikipedia.org.</code> which will make users typing &#8220;wik.needforair.com&#8221; in their
+address bar go to the French version of Wikipedia instead (don&#8217;t try it
+we removed it!)</li>
+<li><strong>Don&#8217;t forget the period (&#8216;.&#8217;) at the end of your CNAMEs !!!</strong> For example, use &#8220;needforair.com.&#8221;, and NOT &#8220;needforair.com&#8221;.
+If you forget the period, the record simply won&#8217;t work, and you will
+spend an awful lot of time to figure out why</li>
+</ul>
+
+
+<p>There are lots of other types of rules, but this should be enough to set up your DNS.</p>
+
+<p>Last note: keep in mind that <strong>changes to the zone file take some time</strong>,
+usually a few hours, to propagate through the Internet. So don&#8217;t make a
+mistake or they will take some time to spot and correct!</p>
+
+<h2>Discover more</h2>
+
+<ul>
+<li><a href="http://continuations.com/post/16405180072/tech-tuesday-dns">A great primer on DNS for the non-technical</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Zone_file">Wikipedia&#8217;s article on the Zone file</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Domain_Name_System">Wikipedia&#8217;s article on the DNS</a>.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Twitter Lets You Talk to World-Class Experts]]></title>
+    <link href="http://needforair.com/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/"/>
+    <updated>2012-04-20T04:35:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts</id>
+    <content type="html"><![CDATA[<p>The other day I had a conversation on Twitter with <a href="http://twitter.com/#!/rjs">Ryan
+Singer</a> of <a href="http://37signals.com">37 Signals</a>
+fame. Ryan is a world-class expert in product design and had just posted an <a href="http://feltpresence.com/articles/16-managing-product-development-by-integrating-around-concerns">article</a>
+on his excellent <a href="http://feltpresence.com/">blog</a>. The thing is I am a
+nobody in product design or in the tech scene in general. I&#8217;m not saying
+I&#8217;m dumb or anything, just that nobody knows me. And yet I was
+still able to have a great and stimulating conversation with an expert
+who&#8217;s email inbox is presumably very full, lives thousands of kilometers
+away from me and doesn&#8217;t know anything about me. This was not the first
+time I&#8217;ve been amazed by the power of Twitter, so I decided to blog about
+it.</p>
+
+<p><a href="http://www.flickr.com/photos/brajeshwar/3428525318/in/photostream"><img src="http://farm4.staticflickr.com/3393/3428525318_0729579705_n.jpg" alt="Twitter Mosaic" /></a>
+<em><a href="http://creativecommons.org/licenses/by-nc-sa/2.0" title="license">CC license</a> - by <a href="http://www.flickr.com/photos/brajeshwar/" title="Author">Brajeshwar</a></em></p>
+
+<h2>140 characters Enable Improbable Conversations</h2>
+
+<p>That length constraint compels people to get straight to the point.
+There is no fluff. No awkward openings, no pompous endings, no walls of
+text. People expect direct questions and answers and wouldn&#8217;t have it any other
+way.</p>
+
+<p>This magically enables you to talk to some people you would never have sent an
+email to. And busy people that don&#8217;t know you at all, that might be
+thought leaders or experts, will answer you if
+you ask an interesting question. Because the constraint also works for
+the response: they don&#8217;t have to send you a long well thought-out answer,
+they don&#8217;t need to get context to answer, they can just type 140
+characters.</p>
+
+<p>I have asked questions to succesful entrepreneurs, or VCs, and almost
+always gotten a quick answer. This is incredibly cool and powerful. And
+these people don&#8217;t know me at all.</p>
+
+<h2>No Social Pressure or Awkwardness</h2>
+
+<p>The Twitter feed moves so swiftly that conversations are extremely
+ephemeral. I think this is key to enabling these kinds of improbable
+conversations. The fact that it moves so quickly reduces the social
+pressure: few people will see it, it will not mark your Twitter profile
+for a long time, and nobody will assume that the two people conversing
+are great friends or anything. Twitter enables conversations in a
+vacuum, without having to build up a relationship. There is no pressure
+for the expert to become friend with the person he is talking to.</p>
+
+<p>When you try to email or talk on the phone to an expert, you always want to be super apologetic,
+respectful and you don&#8217;t really focus on the content of the
+conversation you&#8217;re trying to have but instead you focus on the
+asymmetry of the relationship and that makes you uncomfortable. Twitter makes all these concerns vanish.</p>
+
+<p>I love Twitter for these opportunities.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[The Game of Go: a Programmer's Perspective]]></title>
-    <link href="http://czzarr.github.com/blog/2012/04/18/game-of-go/"/>
+    <link href="http://needforair.com/blog/2012/04/18/game-of-go/"/>
     <updated>2012-04-18T08:30:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/04/18/game-of-go</id>
+    <id>http://needforair.com/blog/2012/04/18/game-of-go</id>
     <content type="html"><![CDATA[<p>The game of go is very interesting from an AI programmer&#8217;s point of
 view, because of how difficult it is to make a computer compete against
 a strong human and how researchers approached the problem. Paradoxically, the use of randomly played games has helped computers get much stronger.</p>
@@ -108,9 +274,9 @@ internship in a Computer Science laboratory, I worked on <a href="http://www.lri
   
   <entry>
     <title type="html"><![CDATA[Startup, Music and Buzz]]></title>
-    <link href="http://czzarr.github.com/blog/2012/04/15/startup-music-and-buzz/"/>
+    <link href="http://needforair.com/blog/2012/04/15/startup-music-and-buzz/"/>
     <updated>2012-04-15T11:33:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/04/15/startup-music-and-buzz</id>
+    <id>http://needforair.com/blog/2012/04/15/startup-music-and-buzz</id>
     <content type="html"><![CDATA[<p>Various creative initiatives face the same challenges as startups.
 In its
 <a href="http://leanpub.com/manifesto">manifesto</a>, <a href="http://leanpub.com/">Leanpub</a> points out the similarities
@@ -154,9 +320,9 @@ time as their audience.</p>
   
   <entry>
     <title type="html"><![CDATA[The Golden Age Of Community Organizing Platforms]]></title>
-    <link href="http://czzarr.github.com/blog/2012/04/11/community-organizing-platforms/"/>
+    <link href="http://needforair.com/blog/2012/04/11/community-organizing-platforms/"/>
     <updated>2012-04-11T08:58:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/04/11/community-organizing-platforms</id>
+    <id>http://needforair.com/blog/2012/04/11/community-organizing-platforms</id>
     <content type="html"><![CDATA[<p>I <a href="http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college/">already wrote</a> about how
 you can leverage some <a href="https://github.com/">social platforms</a> to build
 your visibility on the internet, but they offer much more.
@@ -218,9 +384,9 @@ them?</p>
   
   <entry>
     <title type="html"><![CDATA[Why the Pirate Party Will Help Improve Internet Regulation]]></title>
-    <link href="http://czzarr.github.com/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation/"/>
+    <link href="http://needforair.com/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation/"/>
     <updated>2012-04-09T10:38:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation</id>
+    <id>http://needforair.com/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation</id>
     <content type="html"><![CDATA[<p>In the past years, we have seen a lot of developped countries
 governments pushing for more regulation of the Internet, and less
 privacy for users. There are three main reasons: protection of
@@ -247,9 +413,9 @@ unemployment. This is where I think the <a href="http://en.wikipedia.org/wiki/Pi
   
   <entry>
     <title type="html"><![CDATA[The Role of Computers in Text Summarization]]></title>
-    <link href="http://czzarr.github.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/"/>
+    <link href="http://needforair.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/"/>
     <updated>2012-04-06T08:30:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text</id>
+    <id>http://needforair.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text</id>
     <content type="html"><![CDATA[<p>As Stanislas explained in <a href="http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/" title="Information Overload">this previous post</a>, we believe we are dealing with too much information to keep up on the Internet. The natural solution is text summarization, and computers can help us there.</p>
 
 <p><a href="http://www.flickr.com/photos/xeeliz/3558255554/sizes/l/in/photostream/"><img src="http://farm4.staticflickr.com/3376/3558255554_9f9c480132_n.jpg" alt="Summary" /></a>
@@ -318,9 +484,9 @@ topic</em></p>
   
   <entry>
     <title type="html"><![CDATA[What We Didn't Learn In College]]></title>
-    <link href="http://czzarr.github.com/blog/2012/04/04/what-we-didnt-learn-in-college/"/>
+    <link href="http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college/"/>
     <updated>2012-04-04T23:38:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/04/04/what-we-didnt-learn-in-college</id>
+    <id>http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college</id>
     <content type="html"><![CDATA[<p>Albert Wenger is right:
 <a href="http://continuations.com/post/20112755144/students-are-woefully-prepared-for-internet-age-job">we are woefully prepared for internet age job market</a>.
 The three of us graduated in Computer Science in college, following a solid
@@ -370,9 +536,9 @@ teaching</strong>.</p>
   
   <entry>
     <title type="html"><![CDATA[Siri or the Reinvention of Mobile Search User Experience]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/31/siri-or-the-reinvention-of-mobile-search-ux/"/>
+    <link href="http://needforair.com/blog/2012/03/31/siri-or-the-reinvention-of-mobile-search-ux/"/>
     <updated>2012-03-31T17:58:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/31/siri-or-the-reinvention-of-mobile-search-ux</id>
+    <id>http://needforair.com/blog/2012/03/31/siri-or-the-reinvention-of-mobile-search-ux</id>
     <content type="html"><![CDATA[<p>Search is a behavior, it is what people do when they want to find
 something and don&#8217;t know exactly what they&#8217;re looking for, or when they
 know what they&#8217;re looking for but don&#8217;t know where to find it.
@@ -391,7 +557,7 @@ the resources available on the web), but with the major
 search UX needs to be reinvented.</p>
 
 <p><a href="http://www.flickr.com/photos/37161567@N04/6751892711/"><img src="http://farm8.staticflickr.com/7143/6751892711_f59c0452e8.jpg" alt="Siri helps Doggy" /></a>
-<em><a href="http://creativecommons.org/%20licenses/by/2.0" title="license">CC license</a> - by <a href="http://www.flickr.com/photos/37161567@N04/" title="Author">Yogesh Mhatre</a></em></p>
+<em><a href="http://creativecommons.org/licenses/by/2.0" title="license">CC license</a> - by <a href="http://www.flickr.com/photos/37161567@N04/" title="Author">Yogesh Mhatre</a></em></p>
 
 <h2>Fact: Mobile Search User Experience Sucks</h2>
 
@@ -481,9 +647,9 @@ huge part of the mobile ecosystem once it opens its API to developers.</p>
   
   <entry>
     <title type="html"><![CDATA[SOPA, the entertainment industry and the future of culture]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/29/sopa-hadopi-future-of-culture/"/>
+    <link href="http://needforair.com/blog/2012/03/29/sopa-hadopi-future-of-culture/"/>
     <updated>2012-03-29T08:24:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/29/sopa-hadopi-future-of-culture</id>
+    <id>http://needforair.com/blog/2012/03/29/sopa-hadopi-future-of-culture</id>
     <content type="html"><![CDATA[<p>The entertainment industry is busy trying to make the US adopt the SOPA
 law which is considered dangerous for the Internet by <a href="http://www.guardian.co.uk/technology/2012/jan/18/sopa-wikipedia-blackout-google-reddit" title="many">many</a>. This brings two questions:</p>
 
@@ -530,9 +696,9 @@ are alternative revenue streams for artists and labels that cannot be copied nor
   
   <entry>
     <title type="html"><![CDATA[We Are All Nutcrackers]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/26/we-are-all-nutcrackers/"/>
+    <link href="http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers/"/>
     <updated>2012-03-26T18:20:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/26/we-are-all-nutcrackers</id>
+    <id>http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers</id>
     <content type="html"><![CDATA[<p><em>In a nutshell&#8230;</em> Have you never been looking for this expression
 while reading an article? The fact is that we are all fond of digested
 information. With Internet and social medias the quantity of information
@@ -580,9 +746,9 @@ get hooked and then you want to know more about it.</p>
   
   <entry>
     <title type="html"><![CDATA[[Digest] BizDev vs SEO - Google+ value]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/26/digest-bizdev-new-seo-google-plus-value/"/>
+    <link href="http://needforair.com/blog/2012/03/26/digest-bizdev-new-seo-google-plus-value/"/>
     <updated>2012-03-26T16:59:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/26/digest-bizdev-new-seo-google-plus-value</id>
+    <id>http://needforair.com/blog/2012/03/26/digest-bizdev-new-seo-google-plus-value</id>
     <content type="html"><![CDATA[<p><em>Digests are summaries of articles posted by entrepreneurs, VCs, and
 other people who write about startups and technology in general, curated
 by yours truly. The goal is to make them shorter to read by extracting the most relevant
@@ -653,9 +819,9 @@ asap</em></p>
   
   <entry>
     <title type="html"><![CDATA[Why We Write Digests of Interesting Content]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/21/why-we-write-digests-of-interesting-content/"/>
+    <link href="http://needforair.com/blog/2012/03/21/why-we-write-digests-of-interesting-content/"/>
     <updated>2012-03-21T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/21/why-we-write-digests-of-interesting-content</id>
+    <id>http://needforair.com/blog/2012/03/21/why-we-write-digests-of-interesting-content</id>
     <content type="html"><![CDATA[<p>All three of us read a lot. Blogs, <a href="http://news.ycombinator.com" title="Hacker News">Hacker News</a>, links we get through
 Twitter, etc. Browsing dozens of articles a week to stay informed is great but do we get the most out of it? <strong>Do we
 actually memorize the gist of all that content we are reading?</strong> Spending
@@ -721,9 +887,9 @@ it&#8217;s spamming.</p>
   
   <entry>
     <title type="html"><![CDATA[What Will Your Last Holidays Photos Become?]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/19/what-will-your-last-holiday-photos-become/"/>
+    <link href="http://needforair.com/blog/2012/03/19/what-will-your-last-holiday-photos-become/"/>
     <updated>2012-03-19T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/19/what-will-your-last-holiday-photos-become</id>
+    <id>http://needforair.com/blog/2012/03/19/what-will-your-last-holiday-photos-become</id>
     <content type="html"><![CDATA[<p>Yesterday was my wife&#8217;s grand father funeral. Those moments are intense
 family time where everybody gathers together and tells all the anecdotes they
 have. The best place to dig into the past is the attic. That&#8217;s where my
@@ -758,9 +924,9 @@ that will allow our grandchildren to dive into our memories?</p>
   
   <entry>
     <title type="html"><![CDATA[Great Article on Improving the Discoverability of Good Content]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/17/great-article-on-improving-the-discoverability-of-good-content/"/>
+    <link href="http://needforair.com/blog/2012/03/17/great-article-on-improving-the-discoverability-of-good-content/"/>
     <updated>2012-03-17T18:01:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/17/great-article-on-improving-the-discoverability-of-good-content</id>
+    <id>http://needforair.com/blog/2012/03/17/great-article-on-improving-the-discoverability-of-good-content</id>
     <content type="html"><![CDATA[<p><a href="http://www.jacquesmattheij.com/What+you+could+do+if+you+were+google+and+had+their+databases">What could you do if you were Google and had their databases?</a>
 by <a href="https://twitter.com/#!/jmattheij">@jmattheij</a></p>
 
@@ -772,9 +938,9 @@ free!</p>
   
   <entry>
     <title type="html"><![CDATA[Why so Many French are Not Entrepreneurs]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs/"/>
+    <link href="http://needforair.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs/"/>
     <updated>2012-03-16T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs</id>
+    <id>http://needforair.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs</id>
     <content type="html"><![CDATA[<p><em>France&#8217;s higher education trains world-class engineers, but is home to very few successful start-ups. Having studied engineering in France and then at Stanford University, I will try to explain this apparent paradox.</em></p>
 
 <p><a href="http://www.flickr.com/photos/billselak/2417001179/"><img src="http://farm3.staticflickr.com/2168/2417001179_d5ce2d9362_m.jpg" alt="Test taking" /></a>
@@ -834,9 +1000,9 @@ risk-adverse investors, and more ambitious ideas.</p>
   
   <entry>
     <title type="html"><![CDATA[Why Is Asynchronous Communication Superior?]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/14/why-is-asynchronous-communication-superior/"/>
+    <link href="http://needforair.com/blog/2012/03/14/why-is-asynchronous-communication-superior/"/>
     <updated>2012-03-14T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/14/why-is-asynchronous-communication-superior</id>
+    <id>http://needforair.com/blog/2012/03/14/why-is-asynchronous-communication-superior</id>
     <content type="html"><![CDATA[<p>In my <a href="http://needforair.com/why-you-shouldnt-use-synchronous-communicatio-70441" title="last article">last article</a>
 I detailed why synchronous communication is not
 appropriate for work: it leads to interruptions, involves moving or
@@ -894,9 +1060,9 @@ if you work at the same place.</p>
   
   <entry>
     <title type="html"><![CDATA[Why You Shouldn't Use Synchronous Communication At Work]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/13/why-you-shouldnt-use-synchronous-communication-at-work/"/>
+    <link href="http://needforair.com/blog/2012/03/13/why-you-shouldnt-use-synchronous-communication-at-work/"/>
     <updated>2012-03-13T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/13/why-you-shouldnt-use-synchronous-communication-at-work</id>
+    <id>http://needforair.com/blog/2012/03/13/why-you-shouldnt-use-synchronous-communication-at-work</id>
     <content type="html"><![CDATA[<p>In a recent <a href="http://www.forbes.com/sites/bruceupbin/2011/12/13/five-new-management-metrics-you-need-to-know/" title="Article">post</a>,
 James Slavet (Greylock Partners) describes metrics we should consider to
 be more productive. The top one is called Flow State Percentage and
@@ -968,9 +1134,9 @@ for your team.</p>
   
   <entry>
     <title type="html"><![CDATA[Makers Don't Work With Deadlines]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/12/makers-dont-work-with-deadlines/"/>
+    <link href="http://needforair.com/blog/2012/03/12/makers-dont-work-with-deadlines/"/>
     <updated>2012-03-12T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/12/makers-dont-work-with-deadlines</id>
+    <id>http://needforair.com/blog/2012/03/12/makers-dont-work-with-deadlines</id>
     <content type="html"><![CDATA[<p>A maker is someone who likes to make stuff, to build things. It can be
 an artist, a craftsman, an architect, a designer. But it can also be a
 software developer. I&#8217;m talking about good developers. Those that take
@@ -1022,9 +1188,9 @@ are the most productive, let them.</p>
   
   <entry>
     <title type="html"><![CDATA[How to Keep Up With the Information Overload]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/"/>
+    <link href="http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/"/>
     <updated>2012-03-09T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload</id>
+    <id>http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload</id>
     <content type="html"><![CDATA[<p>Facebook notifications, Twitter feeds, RSS feeds, emails, news
 aggregators and now so much
 more. We are constantly hit by new information, throughout the day, and
@@ -1095,121 +1261,6 @@ enough clues as to which are interesting and which are not.</p>
 <p>But don&#8217;t worry, we&#8217;re working on it ;)</p>
 
 <p>Photo credit: <a href="http://www.flickr.com/photos/martinofranchi/">Martino</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[Digest] Habits, Realtime Analytics, Media Content]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/06/digest-habits-realtime-analytics-media-content/"/>
-    <updated>2012-03-06T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/06/digest-habits-realtime-analytics-media-content</id>
-    <content type="html"><![CDATA[<p><em>Digests are summaries of articles posted by entrepreneurs, VCs, and
-other people who write about startups and technology in general, curated
-by yours truly. The goal is to make them shorter to read by extracting the most relevant
-information from our point of view and to encourage you to go read the
-complete post should you find the topic interesting.</em></p>
-
-<h3><a href="http://www.nirandfar.com/2012/02/habits-are-new-viral-why-startups-must.html" title="Source">Habits Are The New Viral: Why Startups Must Be Behavior Experts</a></h3>
-
-<p><em>by <a href="https://twitter.com/#!/nireyal">@nireyal</a> - Feb 26, 2012</em></p>
-
-<p><em>Nir Eyal describes the importance of habits besides virality for the
-success of products in the Curated Web</em></p>
-
-<ul>
-<li>Habits are what matters. Web businesses success increasingly depends on the strength of their users&#8217; habitual behavior</li>
-<li>Web 1.0 companies measured success by pageviews and CPM, whereas new (social) companies proved  to be valuable because they were habit-forming (hot triggers, variable rewards, regular check-in&#8230;)</li>
-<li>At the dawn of the Curated Web, companies must build habit creation into their products and business models. Not only are users inundated by distractions, but acquiring users is also harder than ever before</li>
-<li>Companies which successfully create user habits can build huge enterprises, even without viral growth (Evernote, Amazon)</li>
-<li>The more the user engages with a Curated Web company, the more data the company has to tailor and improve the user&rsquo;s experience. This self-improving feedback loop has the potential to be more useful &ndash; and more addictive &mdash; than anything we&rsquo;ve seen before</li>
-</ul>
-
-
-<h3><a href="http://techcrunch.com/2012/02/26/facebook-insights-real-time/" title="Source">Facebook To Speed Up Biz Analytics Tool Insights To Report In Real-Time</a></h3>
-
-<p><em>by <a href="https://twitter.com/#!/joshconstine">@JoshConstine</a> - Feb 26, 2012</em></p>
-
-<p><em>Josh Constine reports the move of Facebook Analytics Tool Insights to
-Real Time and describes all the possibilities it will enable</em></p>
-
-<ul>
-<li>Page performance data in (near) real-time rather than on average 48 hour delay could enable businesses to reach higher ROIs</li>
-<li>Immediate &ldquo;people talking about this&rdquo; data could give marketers a sense of a post&rsquo;s virality, and indicate if they should modify the content or the apps they link to</li>
-<li>&ldquo;Insights API give Page owners an opportunity to see how their Page actually lives and breathes&rdquo;.&rdquo; It&rsquo;s up to us as tool developers to turn that data into something awesome and present it in relevant actionable analytics.&rdquo;</li>
-</ul>
-
-
-<h3><a href="http://techcrunch.com/2012/02/25/print-is-dead-long-live-print/" title="Source">Print is Dead! Long Live Print?</a></h3>
-
-<p><em>by <a href="https://twitter.com/#!/jordankurzweil">@JordanKurzweil</a> - Feb 25, 2012</em></p>
-
-<p><em>Jordan Kurzweil describes the context of &ldquo;digital magazination&rdquo; of content. He states some recommendations to straighten up print business. At the heart of his reflexion is personalized and curated content</em></p>
-
-<ul>
-<li>PRINT IS DEAD. revenue, subscriptions and circulation are declining</li>
-<li>What can Old Print do to survive? Stop rearranging the deck chairs on the Titanic, grow a pair, and change your business model:
-
-<ul>
-<li>Accept this evolution (aging and fragmentation of audience, concurrency from other digital media &#8230;) and embrace it</li>
-<li>Start thinking like startups: use some of your profits to incubate new ideas (e.g. Washington post personalized headlines)</li>
-<li>Rethink your organization : everyone should be a doer, contributing 100 percent of her/his work hours to making things</li>
-<li>Stop thinking that technology serves content: they are now one and the same, each working with the other to delight and engage your users</li>
-<li>Update web platforms</li>
-<li>Use data to inform your editorial and product decisions</li>
-<li>Break down the wall between editors, writers and readers</li>
-<li>Consider your content as a currency, not the end-all be-all but a means to an end</li>
-</ul>
-</li>
-</ul>
-
-
-<p><em>If you would like your article not to be summarized on this blog,
-please contact us and we&#8217;ll take it down
-asap</em></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Stop Procrastinating, Start Scripting]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/05/stop-procrastinating-start-scripting/"/>
-    <updated>2012-03-05T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/05/stop-procrastinating-start-scripting</id>
-    <content type="html"><![CDATA[<p>When working on a project we always face repetitive tasks. But we shouldn&#8217;t have to spend as much time on those tasks as we usually do. We love
-to think: &#8221;<em>I just have to do it once and I won&#8217;t have to do it again</em>&#8221; But we never have to do it only once, be it for the current project or
-the next one.</p>
-
-<p><img src="http://farm2.staticflickr.com/1073/1352003098_1681416c2d_m.jpg" title="Keyboard" alt="Illustration" /></p>
-
-<p><strong>Automate by scripting</strong><br/>
-Task repetition can be solved in a painless way: scripting. When you don&#8217;t automate repetitive work you waste time. We should always see mechanical tasks as potential scripts. It&#8217;s only
-because we tend to procrastinate and we don&#8217;t face this reality that we
-postpone the moment we start scripting.</p>
-
-<p><strong>Save your time</strong><br/>
-I think scripting is a very important activity, above
-all because it makes us save a lot of time. The inputs changed? No problem, just
-rerun the script and you&#8217;re done.</p>
-
-<p><strong>Ship a product</strong><br/>
-I love scripting because a script is something concrete and useful. By writing our custom
-script we <em>&#8220;scratch our own itch&#8221;</em>, we solve our own problem with our
-own technical skills, which always provides an immense satisfaction. Coding a script is like shipping a
-small product!</p>
-
-<p>In addition, it helps us develop and extend our programming
-skills. It improves our knowledge of the scripting language and it makes us
-discover API wrappers.</p>
-
-<p><strong>Do it right</strong><br/>
-When working in a team, scripting is even more useful. It&#8217;s
-more than likely that our teamates will have to do later whar we are doing now. On top of that, scripting for a team forces us
-to write good quality code because our users are our teammates. They
-won&#8217;t be as indulgent as we are regarding our work, we don&#8217;t want them
-to think that we are poor coders, so we do it right.</p>
-
-<p><strong>Improve creativity and productivity</strong><br/>
-The next time you think &#8220;it would be so nice to automate this work&#8221;, spend some time to look for a scripting solution ! The more you script the better you will become at it. So take some time thinking about what you are doing, you will see
-how it improves your creativity and your productivity.</p>
 ]]></content>
   </entry>
   

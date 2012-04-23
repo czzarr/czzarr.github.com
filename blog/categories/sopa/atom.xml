@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: sopa | Need for Air]]></title>
-  <link href="http://czzarr.github.com/blog/categories/sopa/atom.xml" rel="self"/>
-  <link href="http://czzarr.github.com/"/>
-  <updated>2012-04-18T10:51:14+02:00</updated>
-  <id>http://czzarr.github.com/</id>
+  <link href="http://needforair.com/blog/categories/sopa/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-04-23T09:30:22+02:00</updated>
+  <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[SOPA, the entertainment industry and the future of culture]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/29/sopa-hadopi-future-of-culture/"/>
+    <link href="http://needforair.com/blog/2012/03/29/sopa-hadopi-future-of-culture/"/>
     <updated>2012-03-29T08:24:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/29/sopa-hadopi-future-of-culture</id>
+    <id>http://needforair.com/blog/2012/03/29/sopa-hadopi-future-of-culture</id>
     <content type="html"><![CDATA[<p>The entertainment industry is busy trying to make the US adopt the SOPA
 law which is considered dangerous for the Internet by <a href="http://www.guardian.co.uk/technology/2012/jan/18/sopa-wikipedia-blackout-google-reddit" title="many">many</a>. This brings two questions:</p>
 

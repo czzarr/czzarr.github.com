@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: curation | Need for Air]]></title>
-  <link href="http://czzarr.github.com/blog/categories/curation/atom.xml" rel="self"/>
-  <link href="http://czzarr.github.com/"/>
-  <updated>2012-04-18T10:51:14+02:00</updated>
-  <id>http://czzarr.github.com/</id>
+  <link href="http://needforair.com/blog/categories/curation/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-04-23T09:30:22+02:00</updated>
+  <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[We Are All Nutcrackers]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/26/we-are-all-nutcrackers/"/>
+    <link href="http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers/"/>
     <updated>2012-03-26T18:20:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/26/we-are-all-nutcrackers</id>
+    <id>http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers</id>
     <content type="html"><![CDATA[<p><em>In a nutshell...</em> Have you never been looking for this expression
 while reading an article? The fact is that we are all fond of digested
 information. With Internet and social medias the quantity of information
@@ -64,10 +64,170 @@ get hooked and then you want to know more about it.</p>
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[Why We Write Digests of Interesting Content]]></title>
+    <link href="http://needforair.com/blog/2012/03/21/why-we-write-digests-of-interesting-content/"/>
+    <updated>2012-03-21T12:00:00+01:00</updated>
+    <id>http://needforair.com/blog/2012/03/21/why-we-write-digests-of-interesting-content</id>
+    <content type="html"><![CDATA[<p>All three of us read a lot. Blogs, <a href="http://news.ycombinator.com" title="Hacker News">Hacker News</a>, links we get through
+Twitter, etc. Browsing dozens of articles a week to stay informed is great but do we get the most out of it? <strong>Do we
+actually memorize the gist of all that content we are reading?</strong> Spending
+so much time reading would be a huge waste if it wasn't consolidated in
+some fashion. That's why we decided to write summaries of the best
+articles we find.</p>
+
+<p><a href="http://www.flickr.com/photos/60546721@N00/102673733/"><img src="http://farm1.staticflickr.com/42/102673733_39cbb51495_n.jpg" alt="Keep the gist" /></a>
+<em><a href="http://creativecommons.org/licenses/by/2.0" title="license">CC license</a> - by <a href="http://www.flickr.com/photos/60546721@N00">aroid</a></em></p>
+
+<h2>It forces you to really understand what the article is about</h2>
+
+<p>My Math and Physics professors would always say that the best way to learn
+was to get to the point where you are able to
+<strong>recap the course materials in writing</strong> (theroems, proofs, case studies).</p>
+
+<p>In order to select the most critical parts of an article you need to
+really read through the whole article and pick up the signal that you
+want to remember. This means you should understand thoroughly what the
+article is about and the author's reasoning. Why she spent time on some
+subject and not on others.</p>
+
+<p>When writing up a summary, be it by mere copy/pasting or rephrasing, you put yourself
+in an active cognitive process. You are not simply consuming
+anymore, you are disecting and structuring information. Not only will
+your memory be more deeply impressed than if you just read but it will
+be more structured and organized.</p>
+
+<h2>You can go back to it later</h2>
+
+<p>Bookmarking is currently the only way of organizing and keeping up with the content that you
+loved and that you would want to be able to find again later and share
+to others via tools such as <a href="http://delicious.com" title="Delicious">Delicious</a>,
+or <a href="http://pinboard.in" title="Pinboard">Pinboard</a>.
+However you still need to reread the whole article once you go back to
+it, which can be a waste of time in some cases. <a href="http://evernote.com" title="Evernote">Evernote</a> is better in that regard as
+you make save notes on any topic.</p>
+
+<p><strong>If you had summaries for each of your bookmarks</strong>, you could go back to
+that content and filter it in a much more effective fashion, deciding
+whether or not you want to delve into the whole article or not. It is
+something between the title and the article that is missing to help you
+filter through your bookmarks and consume your content.</p>
+
+<p>We keep all of our digests in an organized way so that they are easily
+searchable and consumable.</p>
+
+<h2>Sharing becomes easier</h2>
+
+<p>Digests also make it easier to share content. Ever tried to send a link
+to someone, and never got any feedback? Chances are they
+are receiving hundreds of links per day, by email, facebook, twitter, etc.
+You're asking that person for too much work. She doesn't have enough time
+to read yet another whole article without knowing it's high quality content.</p>
+
+<p><strong>If you include a short digest</strong> of the article or video or podcast in your
+email, you can be sure there is a much higher chance that she reads the
+digest and eventually clicks the link, intrigued. And you'll be
+able to have a conversation about it. That is sharing. Sending naked links is not sharing,
+it's spamming.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Great Article on Improving the Discoverability of Good Content]]></title>
+    <link href="http://needforair.com/blog/2012/03/17/great-article-on-improving-the-discoverability-of-good-content/"/>
+    <updated>2012-03-17T18:01:00+01:00</updated>
+    <id>http://needforair.com/blog/2012/03/17/great-article-on-improving-the-discoverability-of-good-content</id>
+    <content type="html"><![CDATA[<p><a href="http://www.jacquesmattheij.com/What+you+could+do+if+you+were+google+and+had+their+databases">What could you do if you were Google and had their databases?</a>
+by <a href="https://twitter.com/#!/jmattheij">@jmattheij</a></p>
+
+<p>Jacques Mattheij explains his point of view on how Google+ is making its
+user base work collaboratively towards better Google search results, for
+free!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to Keep Up With the Information Overload]]></title>
+    <link href="http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/"/>
+    <updated>2012-03-09T12:00:00+01:00</updated>
+    <id>http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload</id>
+    <content type="html"><![CDATA[<p>Facebook notifications, Twitter feeds, RSS feeds, emails, news
+aggregators and now so much
+more. We are constantly hit by new information, throughout the day, and
+the night. There are so many things we want to read or watch.
+The fact that the Web is a strictly <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">RESTful</a> application (or should I say
+<a href="http://blog.steveklabnik.com/posts/2012-02-13-an-api-ontology">Hypermedia</a>) doesn't help because one link usually leads to more links. I'm sure
+you've already experienced having more than 20 tabs open in your browser
+and thinking "<em>God, when am I going to read all of this?</em>" but instead
+of starting reading you scan the links of the page in front of you and
+just open more tabs. And this was only made worse by tools such as
+<a href="http://instapaper.com" title="Instapaper">Instapaper</a> that make you feel good
+about saving stuff for later, even if you know deep inside you'll never
+come back to it.</p>
+
+<p><a href="http://www.flickr.com/photos/martinofranchi/2925760927/"><img src="http://farm4.staticflickr.com/3244/2925760927_a9db10926e_m.jpg" alt="Information overload" /></a></p>
+
+<h2>Current solutions</h2>
+
+<p>It's extremely hard to keep up with all that information, and you
+basically have 3 options at the moment:</p>
+
+<h4>Let loose</h4>
+
+<p>Accept that you can't follow it all and if something is really important
+it will come back to you one way or another so that missing it the first
+time is not a big deal.
+I personnally don't like this solution because it means giving up
+control on what I read and learn, and it basically amounts to a random
+filter with some bias towards the most important news that isn't always
+the most interesting.</p>
+
+<h4>Algorithmic filters</h4>
+
+<p>Use tools such as <a href="http://news.me" title="News.me">News.me</a> or <a href="http://focus.io" title="Focus.io">Focus.io</a> that
+use machine learning techniques to serve you the stories you might be
+interested in the most. However, again, not knowing how these algorithms
+work exactly, I fear I am going to lose the serendipity of scanning
+myself all the input and selecting the hidden little gem that would be
+considered as noise by these algorithms. Again, I hate losing control. I
+do think these are better solutions than just letting loose.</p>
+
+<h4>Reducing the input</h4>
+
+<p>This for me is the best alternative. Following sort of a <em>less is more</em> convention,
+I am looking to reduce the number of sources rather than increasing it,
+keeping only the outstanding ones. I am constantly reevaluating the
+quality of the twitter accounts and bloggers I follow in order to remove
+those that either tweet too much  or whose content quality has suffered.
+I am very rarely looking for new people to follow, and when I try
+someone new it is always an experiment, never set in stone. I'd actually
+like it if an algorithm could do that for me, again, not knowing the
+inner workings of the services that offer news recommendation is too
+bad. I'm willing to bet none of them though is going to unfollow someone
+on twitter for you, or experiment with a new follower, based on the
+quality of the links provided in the tweets. Same for RSS feeds.</p>
+
+<h2>We need a new tool to find good content</h2>
+
+<p>Basically none of today's tools are good at finding good news and
+information. You can use a combination of tools (such as <a href="http://quora.com" title="Quora">Quora</a> and <a href="http://stackexchange.com" title="StackEchange">StackExchange</a> but it is more
+difficult than one tool and is conducive to a lot of noise. Plus we are
+missing a linking tool between content of the same nature and topics,
+that would transcend time. There are services like <a href="http://delicious.com" title="Delicious">Delicious</a> that you
+can browse by searching for tags, but it is not powerful enough in the
+way it presents the information. There are still too many links and not
+enough clues as to which are interesting and which are not.</p>
+
+<p>But don't worry, we're working on it ;)</p>
+
+<p>Photo credit: <a href="http://www.flickr.com/photos/martinofranchi/">Martino</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[[Digest] Habits, Realtime Analytics, Media Content]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/06/digest-habits-realtime-analytics-media-content/"/>
+    <link href="http://needforair.com/blog/2012/03/06/digest-habits-realtime-analytics-media-content/"/>
     <updated>2012-03-06T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/06/digest-habits-realtime-analytics-media-content</id>
+    <id>http://needforair.com/blog/2012/03/06/digest-habits-realtime-analytics-media-content</id>
     <content type="html"><![CDATA[<p><em>Digests are summaries of articles posted by entrepreneurs, VCs, and
 other people who write about startups and technology in general, curated
 by yours truly. The goal is to make them shorter to read by extracting the most relevant

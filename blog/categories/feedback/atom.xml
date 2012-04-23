@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: feedback | Need for Air]]></title>
-  <link href="http://czzarr.github.com/blog/categories/feedback/atom.xml" rel="self"/>
-  <link href="http://czzarr.github.com/"/>
-  <updated>2012-04-18T10:51:14+02:00</updated>
-  <id>http://czzarr.github.com/</id>
+  <link href="http://needforair.com/blog/categories/feedback/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-04-23T09:30:22+02:00</updated>
+  <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[Digest] Lies from Losers, Web/Mobile Integration, Community Feedback]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/01/digest-lies-from-losers-web-mobile-integration-community-feedback/"/>
+    <link href="http://needforair.com/blog/2012/03/01/digest-lies-from-losers-web-mobile-integration-community-feedback/"/>
     <updated>2012-03-01T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/01/digest-lies-from-losers-web-mobile-integration-community-feedback</id>
+    <id>http://needforair.com/blog/2012/03/01/digest-lies-from-losers-web-mobile-integration-community-feedback</id>
     <content type="html"><![CDATA[<p><em>Digests are summaries of articles posted by entrepreneurs, VCs, and
 other people who write about startups and technology in general, curated
 by yours truly. The goal is to make them shorter to read by extracting the most relevant

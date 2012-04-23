@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: management | Need for Air]]></title>
-  <link href="http://czzarr.github.com/blog/categories/management/atom.xml" rel="self"/>
-  <link href="http://czzarr.github.com/"/>
-  <updated>2012-04-18T10:51:14+02:00</updated>
-  <id>http://czzarr.github.com/</id>
+  <link href="http://needforair.com/blog/categories/management/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-04-23T09:30:22+02:00</updated>
+  <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
     
@@ -14,10 +14,74 @@
 
   
   <entry>
+    <title type="html"><![CDATA[The Golden Age Of Community Organizing Platforms]]></title>
+    <link href="http://needforair.com/blog/2012/04/11/community-organizing-platforms/"/>
+    <updated>2012-04-11T08:58:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/11/community-organizing-platforms</id>
+    <content type="html"><![CDATA[<p>I <a href="http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college/">already wrote</a> about how
+you can leverage some <a href="https://github.com/">social platforms</a> to build
+your visibility on the internet, but they offer much more.
+They provide appropriate tools that help people to be more productive
+and better organized. They are much more functional than pure social networks
+and even more valuable as the communities are active.</p>
+
+<p><img src="http://cardview.net/wp-content/uploads/2010/04/nation-builder.jpg" height="220" alt="Keep the gist" /></p>
+
+<h2>Platforms structure communities</h2>
+
+<p>We can call such a platform a <em>community organizing platform</em> because
+it allows a community to have a place to gather, discuss and share. It
+provides the global structure the community needs to get organized.
+Ten years ago the forums laid the foundation but today these platforms
+achieve what's been initiated.</p>
+
+<p>Using these platforms everyone creates and manages a business card that
+is accessible by everyone else.
+People can easily be identified, followed, consulted and appraised. You
+don't have to go to as many conferences or events to meet new people
+because it can be done very efficiently online.</p>
+
+<h2>Community organizing platforms offer more than pure social networks</h2>
+
+<p>Pure social networks like Twitter offer ways to
+organize communities but don't provide the structure
+and tools needed for effective collaboration. They are mainly focus on
+sharing.</p>
+
+<p>While community organizing platforms provide a social layer they
+also offer services geared towards the community itself. This
+combination is what's really valuable.
+<a href="http://nationbuilder.com/">Nation Builder</a>
+is the perfect example: it features volunteer organization, donation
+monitoring, website creation... a comprehensive package
+political leaders need to interact with their audience.</p>
+
+<h2>Active communities are driven by knowledge</h2>
+
+<p>We can distinguish communities built upon friendship, professional
+activity or common interests. The most active
+are the ones based on a common interest, where knowledge and
+feedback is a valuable resource. In these ones people spend a lot of time
+looking for information. They also create a lot of content in order to
+improve their reputation. Such platforms are even more
+important for small communities because the resources they want to access are not always well
+indexed by search engines.</p>
+
+<p>As sharing information, working collaboratively and giving feedbacks to peers is key in
+these communities even a very little one
+can be very active.
+There is still lots of
+them to structure out there, lots of people waiting to
+share and collaborate with their peers. Who are they? What can we do for
+them?</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Makers Don't Work With Deadlines]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/12/makers-dont-work-with-deadlines/"/>
+    <link href="http://needforair.com/blog/2012/03/12/makers-dont-work-with-deadlines/"/>
     <updated>2012-03-12T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/12/makers-dont-work-with-deadlines</id>
+    <id>http://needforair.com/blog/2012/03/12/makers-dont-work-with-deadlines</id>
     <content type="html"><![CDATA[<p>A maker is someone who likes to make stuff, to build things. It can be
 an artist, a craftsman, an architect, a designer. But it can also be a
 software developer. I'm talking about good developers. Those that take
@@ -64,135 +128,6 @@ it is useless. They are makers, they will work becauses they like what
 they do and they love building things. There is no need to tell them to
 do it. And if they want to work from 3pm to 3am because that's when they
 are the most productive, let them.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[Digest] Lies from Losers, Web/Mobile Integration, Community Feedback]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/01/digest-lies-from-losers-web-mobile-integration-community-feedback/"/>
-    <updated>2012-03-01T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/01/digest-lies-from-losers-web-mobile-integration-community-feedback</id>
-    <content type="html"><![CDATA[<p><em>Digests are summaries of articles posted by entrepreneurs, VCs, and
-other people who write about startups and technology in general, curated
-by yours truly. The goal is to make them shorter to read by extracting the most relevant
-information from our point of view and to encourage you to go read the
-complete post should you find the topic interesting.</em></p>
-
-<h3><a href="http://bhorowitz.com/2012/02/29/lies-that-losers-tell/" title="Source">Lies that Losers Tell</a></h3>
-
-<p><em>by <a href="https://twitter.com/#!/bhorowitz">@bhorowitz</a> - Feb 29, 2012</em></p>
-
-<p><em>Ben Horowitz describes the false explanations CEOs and employees find a
-posteriori to justify their failure and why they do that. Stop burrying
-your head in the sand.</em></p>
-
-<ul>
-<li><strong>Familiar lies</strong>
-
-<ul>
-<li>“<em>She left, but we were going to fire her, or give her a bad performance review</em>” : Instead of justifying the departure of your employees giving false excuses, ask yourself why you couldn't keep them.</li>
-<li>“<em>We would have won, but the other guys gave the deal away</em>” : Validate this claim with the actual customer instead of believing the Sales Rep who doesn't want to take the blame.</li>
-<li>"<em>Just because we missed the intermediate milestones doesn’t mean we won’t hit our product schedule</em>" : When the facts don’t align with the good news, a clever manager will find the narrative to make everybody feel better... until the next meeting.</li>
-<li>“<em>We have a very high churn rate, but as soon as we turn on email marketing to our user base, people will come back</em>” : The reason that people leave our service and don’t come back is that we have not been sending them enough spam ?</li>
-</ul>
-</li>
-<li><strong>Why are the CEOs/employees lying ?</strong>
-
-<ul>
-<li>Andy Grove explains that humans, particularly those who build things, only listen to leading indicators of good news and tend to justify bad news with false excuses.</li>
-<li>Lying CEOs regularly take action on the positive indicator and look for alternative explanations on the negative indicator.</li>
-<li>CEOs are not lying to investors, they are lying to themselves.</li>
-</ul>
-</li>
-</ul>
-
-
-<h3><a href="http://www.bothsidesofthetable.com/2012/01/28/web-second-mobile-first/" title="Source">Web Second, Mobile First</a></h3>
-
-<p><em>by <a href="https://twitter.com/intent/user?screen_name=msuster">@msuster</a> - Jan 28, 2012</em></p>
-
-<p><em>Mark Suster reacts to Fred Wilson's blog post <a href="http://www.avc.com/a_vc/2010/09/mobile-first-web-second.html" title="AVC blog post">Mobile First, Web Second</a> reminding startups not to forget the Web</em></p>
-
-<ul>
-<li><strong>For 1.5 year people forgot Web Second and just thought Mobile First</strong>
-
-<ul>
-<li>It's important not give up on the power of the tethered web, of large screen real estate, of a keyboard.</li>
-<li>What's even more important is to have a strategy that matches
-customers wants and not developers whims.</li>
-</ul>
-</li>
-<li><strong>Mobile has clearly critical attributes</strong>
-
-<ul>
-<li>They are personal, location aware, occupy a lot of people's leisure
-time.</li>
-<li>They are one touch away from buying and represent the "<em>bottom
-end of the sales funnel</em>"</li>
-<li>The limited real estate forces less choice and offers more focus on
-the content.</li>
-</ul>
-</li>
-<li><strong>But products have to be integrated</strong>
-
-<ul>
-<li>Many things cannot be done on a mobile</li>
-<li>Mobile should serve a different experience, a different usecase of the service.</li>
-<li>The web product can offer complementary services that make the
-product even more attractive.</li>
-</ul>
-</li>
-<li><strong>Leverage the web to :</strong>
-
-<ul>
-<li>Create a differentiated product vs your mobile-only competitors.</li>
-<li>Enable content creation and curation to make mobile consumption a better experience.</li>
-<li>Organize and make the most of the content created by the mobile</li>
-<li>Build features that make using native-phones apps pointless.</li>
-</ul>
-</li>
-<li><strong>Tablets come third</strong>
-
-<ul>
-<li>Extension to mobile strategy (larger real estate make content
-  discovery different, increase the features possible...)</li>
-</ul>
-</li>
-</ul>
-
-
-<h3><a href="http://www.codinghorror.com/blog/2012/02/listen-to-your-community-but-dont-let-them-tell-you-what-to-do.html" title="Source">Listen to Your Community, But Don't Let Them Tell You What to Do</a></h3>
-
-<p><em>by <a href="https://twitter.com/#!/codinghorror">@codinghorror</a> - Feb 3, 2012</em></p>
-
-<p><em>Jeff Atwoods talks about the need to organize your community feedback
-to take the most out of it</em></p>
-
-<ul>
-<li><strong>Having a meta place to discuss the product is important</strong>
-
-<ul>
-<li>Meta participation is the source of all meaningful leadership and governance in a community, so it is cultivated and monitored closely.</li>
-<li>Meta is for people who care so deeply about their community that they're willing to go one step further, to come together and spend even more of their time deciding how to maintain and govern it.</li>
-</ul>
-</li>
-<li><strong>How to leverage this meta place ?</strong>
-
-<ul>
-<li>Animate the place : listen, respond</li>
-<li>Sort between feedback and feature requests</li>
-<li>Know how to extract core information and underlying needs from feature requests</li>
-<li>Know to sort between useless and awesome feedback, 10% of the feedback is useful and can be gems</li>
-<li>Don't hesitate to be honest explaining the choices the company did
-about the features the product offers.</li>
-</ul>
-</li>
-</ul>
-
-
-<p><em>If you would like your article not to be summarized on this blog,
-please contact us and we'll take it down
-asap</em></p>
 ]]></content>
   </entry>
   

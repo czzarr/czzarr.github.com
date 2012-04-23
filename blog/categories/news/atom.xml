@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: news | Need for Air]]></title>
-  <link href="http://czzarr.github.com/blog/categories/news/atom.xml" rel="self"/>
-  <link href="http://czzarr.github.com/"/>
-  <updated>2012-04-18T10:51:14+02:00</updated>
-  <id>http://czzarr.github.com/</id>
+  <link href="http://needforair.com/blog/categories/news/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-04-23T09:30:22+02:00</updated>
+  <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[How to Keep Up With the Information Overload]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/"/>
+    <link href="http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/"/>
     <updated>2012-03-09T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload</id>
+    <id>http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload</id>
     <content type="html"><![CDATA[<p>Facebook notifications, Twitter feeds, RSS feeds, emails, news
 aggregators and now so much
 more. We are constantly hit by new information, throughout the day, and

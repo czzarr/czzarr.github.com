@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: platform | Need for Air]]></title>
-  <link href="http://czzarr.github.com/blog/categories/platform/atom.xml" rel="self"/>
-  <link href="http://czzarr.github.com/"/>
-  <updated>2012-04-18T10:51:14+02:00</updated>
-  <id>http://czzarr.github.com/</id>
+  <link href="http://needforair.com/blog/categories/platform/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-04-23T09:30:22+02:00</updated>
+  <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Golden Age Of Community Organizing Platforms]]></title>
-    <link href="http://czzarr.github.com/blog/2012/04/11/community-organizing-platforms/"/>
+    <link href="http://needforair.com/blog/2012/04/11/community-organizing-platforms/"/>
     <updated>2012-04-11T08:58:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/04/11/community-organizing-platforms</id>
+    <id>http://needforair.com/blog/2012/04/11/community-organizing-platforms</id>
     <content type="html"><![CDATA[<p>I <a href="http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college/">already wrote</a> about how
 you can leverage some <a href="https://github.com/">social platforms</a> to build
 your visibility on the internet, but they offer much more.
@@ -79,9 +79,9 @@ them?</p>
   
   <entry>
     <title type="html"><![CDATA[What We Didn't Learn In College]]></title>
-    <link href="http://czzarr.github.com/blog/2012/04/04/what-we-didnt-learn-in-college/"/>
+    <link href="http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college/"/>
     <updated>2012-04-04T23:38:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/04/04/what-we-didnt-learn-in-college</id>
+    <id>http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college</id>
     <content type="html"><![CDATA[<p>Albert Wenger is right:
 <a href="http://continuations.com/post/20112755144/students-are-woefully-prepared-for-internet-age-job">we are woefully prepared for internet age job market</a>.
 The three of us graduated in Computer Science in college, following a solid
