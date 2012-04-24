@@ -13,19 +13,24 @@ good content more easily discoverable through better curation.
 Previously we learned to work together on our first (and only so far) freelance mission for
 [Laurence Parisot](https://twitter.com/#!/laurenceparisot) and the [Medef](http://www.medef.com/medef-corporate.html). 
 
+<a href="https://twitter.com/NeedForAir" class="twitter-follow-button" data-show-count="false">Follow @NeedForAir</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
 <br><br>
 
 ![Stanislas Marion](http://www.gravatar.com/avatar/087d06c94e96171dc78fe6121e0fb5ba.png "Stanislas Marion")
 ## [Stanislas Marion](https://twitter.com/#!/stanmarion) <a href="https://twitter.com/stanmarion" class="twitter-follow-button" data-show-count="false">Follow @stanmarion</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-I am an avid learner and I like to get really good at what I'm doing. 
-I went from Legos to video games to PHP to chess to math to online poker and back to computer science.
-Successfully playing online poker professionally at middle to high stakes taught me a
+I've been meaning to start a company for a long time. I quit my job
+without a firm idea nor a cofounder. It didn't take long to find both.
+In the past I successfully played online poker at middle to high stakes, which taught me a
 lot about risk-taking, long-term focus and short term swings, adapting
 and the value of money.
 
-After working for 1.5 years at a [Parisian startup](http://yseop.com), I decided to make the jump and launch mine, with Charles and Louis.
+I worked for 1.5 years at a [Parisian startup](http://yseop.com), where
+I learned a ton about small team dynamics and problems.
 I graduated from Ecole Centrale Paris and have an MS in Management Science and Engineering from Stanford University.
 
 <br><br>
