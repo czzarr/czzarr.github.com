@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: rasperrypi | Need for Air]]></title>
-  <link href="http://czzarr.github.com/blog/categories/rasperrypi/atom.xml" rel="self"/>
-  <link href="http://czzarr.github.com/"/>
-  <updated>2012-03-28T20:54:01+02:00</updated>
-  <id>http://czzarr.github.com/</id>
+  <link href="http://needforair.com/blog/categories/rasperrypi/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-04-25T15:33:55+02:00</updated>
+  <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[Digest] Time Dimension on the Web, Raspberry Pi]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/04/digest-getting-time-back-on-the-web-raspberry-pie/"/>
+    <link href="http://needforair.com/blog/2012/03/04/digest-getting-time-back-on-the-web-raspberry-pie/"/>
     <updated>2012-03-04T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/04/digest-getting-time-back-on-the-web-raspberry-pie</id>
+    <id>http://needforair.com/blog/2012/03/04/digest-getting-time-back-on-the-web-raspberry-pie</id>
     <content type="html"><![CDATA[<p><em>Digests are summaries of articles posted by entrepreneurs, VCs, and
 other people who write about startups and technology in general, curated
 by yours truly. The goal is to make them shorter to read by extracting the most relevant

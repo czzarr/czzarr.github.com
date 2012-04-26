@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Need for Air]]></title>
-  <link href="http://czzarr.github.com/atom.xml" rel="self"/>
-  <link href="http://czzarr.github.com/"/>
-  <updated>2012-03-28T20:54:01+02:00</updated>
-  <id>http://czzarr.github.com/</id>
+  <link href="http://needforair.com/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-04-25T15:33:55+02:00</updated>
+  <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
     
@@ -14,10 +14,741 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Tutorial: Domain Name System for Beginners]]></title>
+    <link href="http://needforair.com/blog/2012/04/22/dns-redirections/"/>
+    <updated>2012-04-22T08:30:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/22/dns-redirections</id>
+    <content type="html"><![CDATA[<p>If you build a website, you will want your own domain name, which means
+you will need to manage your Domain Name System (DNS). While there is nothing very
+complicated here, the info is scattered across the Internet, so I decided
+to write a &#8220;cheat sheet&#8221;-like tutorial which will hopefully save you some time!</p>
+
+<p><a href="http://www.flickr.com/photos/49502986585@N01/277341190/"><img src="http://farm1.staticflickr.com/122/277341190_3f098a08a4_n.jpg" alt="Code" /></a>
+<em>by <a href="http://www.flickr.com/photos/ezu/" title="Author">Ezu</a></em></p>
+
+<h2>What is the DNS?</h2>
+
+<p>The DNS is a system that helps your computer translate human-readable <strong>domain names</strong>
+into computer-usable <strong>IP addresses</strong> (4 numbers between 0 and 255
+identifying a server).</p>
+
+<p>A domain name must have two parts, separated by a dot: the <strong>actual domain</strong> (e.g. <em>google</em>) and the
+<strong>top-level domain</strong> (e.g. <em>com</em>). In this example, the domain name is
+<em>google.com</em>. Optionally, you can also use different <strong>subdomains</strong>, so
+that users typing <em>subdomain1.domain.tld</em> and <em>subdomain2.domain.tld</em>
+arrive on two different pages. The well-known <em>www</em> is a subdomain of
+<em>google.com</em> in the address <em>www.google.com</em>.</p>
+
+<p>To use your own custom domain name, you need
+to buy one from a <strong>registrar</strong> (such as <a href="https://www.gandi.net/">Gandi</a>).</p>
+
+<h2>How to manage it: the zone file</h2>
+
+<p>Most registrars will let you use Web forwardings, which are simple
+redirections (what happens when the webpage you are looking at automatically changes to another page). However, you should
+avoid those for the following reasons:</p>
+
+<ul>
+<li>Simple redirections will replace your domain name by your IP address,
+which is the best way to scare off users</li>
+<li>Masked redirections will not scare off users, but they will give you a
+very poor search-engine rating</li>
+</ul>
+
+
+<p>You will need to use the <strong>zone file</strong>. It is a simple text file
+describing the structure of your DNS zone (usually your domain) to the global DNS
+(i.e. the world). Let&#8217;s take a look at a sample zone file (the zone file on
+Gandi for our blog <a href="http://needforair.com">needforair.com</a>.</p>
+
+<p>These are the DNS rules for our domain <code>needforair.com</code>:</p>
+
+<pre><code>@ 3600 IN A 184.106.20.102
+www 3600 IN CNAME needforair.com.
+wik 3600 IN CNAME fr.wikipedia.org.
+</code></pre>
+
+<p>You usually also find lines similar to the following in a zone file.
+They manage the email server your registrar provides you, and shouldn&#8217;t
+touch them:</p>
+
+<pre><code>@ 3600 IN MX 10 spool.mail.gandi.net.
+@ 3600 IN MX 50 fb.mail.gandi.net.
+smtp 3600 IN CNAME relay.mail.gandi.net.
+webmail 3600 IN CNAME agent.mail.gandi.net.
+pop 3600 IN CNAME access.mail.gandi.net.
+imap 3600 IN CNAME access.mail.gandi.net.
+</code></pre>
+
+<p>The most important points here are:</p>
+
+<ul>
+<li>Each line corresponds to one rule (a record)</li>
+<li>The <code>@</code> character represents your bare domain (needforair.com in our example) as opposed
+to subdomains such as <code>test.needforair.com</code> or <code>www.needforair.com</code></li>
+<li>An <code>A</code> record points to an IP address, usually your server. In our example, <code>@ 3600 IN A 184.106.20.102</code>
+indicates that a user typing &#8216;needforair.com&#8217; in his address bar will request content from the IP address 184.106.20.102.
+The <code>3600</code> number is the <a href="http://en.wikipedia.org/wiki/Time_to_live#DNS_records">Time To Live (TTL)</a> of the record,
+the time (in seconds) during which a nameserver will cache the record and not ask the authoritative server (Gandi here)
+if queried again</li>
+<li>A <code>CNAME</code> record points to any domain or subdomain, either in your zone or outside.
+In our example, <code>www 3600 IN CNAME needforair.com.</code> means that a user typing <code>www.needforair.com</code> will request content
+from the same IP address as needforair.com (that&#8217;s not the case by default). You can of course use a CNAME to any other
+domain, in our example <code>wik 3600 IN CNAME fr.wikipedia.org.</code> which will make users typing &#8220;wik.needforair.com&#8221; in their
+address bar go to the French version of Wikipedia instead (don&#8217;t try it
+we removed it!)</li>
+<li><strong>Don&#8217;t forget the period (&#8216;.&#8217;) at the end of your CNAMEs !!!</strong> For example, use &#8220;needforair.com.&#8221;, and NOT &#8220;needforair.com&#8221;.
+If you forget the period, the record simply won&#8217;t work, and you will
+spend an awful lot of time to figure out why</li>
+</ul>
+
+
+<p>There are lots of other types of rules, but this should be enough to set up your DNS.</p>
+
+<p>Last note: keep in mind that <strong>changes to the zone file take some time</strong>,
+usually a few hours, to propagate through the Internet. So don&#8217;t make a
+mistake or they will take some time to spot and correct!</p>
+
+<h2>Discover more</h2>
+
+<ul>
+<li><a href="http://continuations.com/post/16405180072/tech-tuesday-dns">A great primer on DNS for the non-technical</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Zone_file">Wikipedia&#8217;s article on the Zone file</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Domain_Name_System">Wikipedia&#8217;s article on the DNS</a>.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Twitter Lets You Talk to World-Class Experts]]></title>
+    <link href="http://needforair.com/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/"/>
+    <updated>2012-04-20T04:35:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts</id>
+    <content type="html"><![CDATA[<p>The other day I had a conversation on Twitter with <a href="http://twitter.com/#!/rjs">Ryan
+Singer</a> of <a href="http://37signals.com">37 Signals</a>
+fame. Ryan is a world-class expert in product design and had just posted an <a href="http://feltpresence.com/articles/16-managing-product-development-by-integrating-around-concerns">article</a>
+on his excellent <a href="http://feltpresence.com/">blog</a>. The thing is I am a
+nobody in product design or in the tech scene in general. I&#8217;m not saying
+I&#8217;m dumb or anything, just that nobody knows me. And yet I was
+still able to have a great and stimulating conversation with an expert
+who&#8217;s email inbox is presumably very full, lives thousands of kilometers
+away from me and doesn&#8217;t know anything about me. This was not the first
+time I&#8217;ve been amazed by the power of Twitter, so I decided to blog about
+it.</p>
+
+<p><a href="http://www.flickr.com/photos/brajeshwar/3428525318/in/photostream"><img src="http://farm4.staticflickr.com/3393/3428525318_0729579705_n.jpg" alt="Twitter Mosaic" /></a>
+<em><a href="http://creativecommons.org/licenses/by-nc-sa/2.0" title="license">CC license</a> - by <a href="http://www.flickr.com/photos/brajeshwar/" title="Author">Brajeshwar</a></em></p>
+
+<h2>140 characters Enable Improbable Conversations</h2>
+
+<p>That length constraint compels people to get straight to the point.
+There is no fluff. No awkward openings, no pompous endings, no walls of
+text. People expect direct questions and answers and wouldn&#8217;t have it any other
+way.</p>
+
+<p>This magically enables you to talk to some people you would never have sent an
+email to. And busy people that don&#8217;t know you at all, that might be
+thought leaders or experts, will answer you if
+you ask an interesting question. Because the constraint also works for
+the response: they don&#8217;t have to send you a long well thought-out answer,
+they don&#8217;t need to get context to answer, they can just type 140
+characters.</p>
+
+<p>I have asked questions to succesful entrepreneurs, or VCs, and almost
+always gotten a quick answer. This is incredibly cool and powerful. And
+these people don&#8217;t know me at all.</p>
+
+<h2>No Social Pressure or Awkwardness</h2>
+
+<p>The Twitter feed moves so swiftly that conversations are extremely
+ephemeral. I think this is key to enabling these kinds of improbable
+conversations. The fact that it moves so quickly reduces the social
+pressure: few people will see it, it will not mark your Twitter profile
+for a long time, and nobody will assume that the two people conversing
+are great friends or anything. Twitter enables conversations in a
+vacuum, without having to build up a relationship. There is no pressure
+for the expert to become friend with the person he is talking to.</p>
+
+<p>When you try to email or talk on the phone to an expert, you always want to be super apologetic,
+respectful and you don&#8217;t really focus on the content of the
+conversation you&#8217;re trying to have but instead you focus on the
+asymmetry of the relationship and that makes you uncomfortable. Twitter makes all these concerns vanish.</p>
+
+<p>I love Twitter for these opportunities.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Game of Go: a Programmer's Perspective]]></title>
+    <link href="http://needforair.com/blog/2012/04/18/game-of-go/"/>
+    <updated>2012-04-18T08:30:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/18/game-of-go</id>
+    <content type="html"><![CDATA[<p>The game of go is very interesting from an AI programmer&#8217;s point of
+view, because of how difficult it is to make a computer compete against
+a strong human and how researchers approached the problem. Paradoxically, the use of randomly played games has helped computers get much stronger.</p>
+
+<p><a href="http://www.flickr.com/photos/92544159@N00/322662164/"><img src="http://farm1.staticflickr.com/134/322662164_0260e91add_n.jpg" alt="Go" /></a>
+<em>by <a href="http://www.flickr.com/photos/obli/" title="Author">oblivionz</a></em></p>
+
+<h2>Game of Go: a (very) brief overview</h2>
+
+<p>Go is wildly popular in Asia but little known in the Western world. Similar to Chess, it is a strategy game where two players take
+turn placing stones on a board. The key differences between these
+two are:</p>
+
+<ul>
+<li>In Go, the board starts empty, and you add stones at each turn whereas in
+chess you start with an army and try to destroy the other one</li>
+<li>The <a href="http://senseis.xmp.net/?RulesOfGoIntroductory">rules</a> are much simpler in Go than in Chess: in particular there is only one type of stone while Chess uses six different pieces</li>
+</ul>
+
+
+<p>I really encourage you to check it out, you can <a href="http://senseis.xmp.net/?RulesOfGoIntroductory">learn to play here</a> and <a href="http://www.gokgs.com/">play here</a>.</p>
+
+<h2>Compexity, comparison to chess</h2>
+
+<p>Even though the rules are simple, it has proven to be very hard to
+build a good Go-playing program. In fact, while top Chess-playing
+softwares can compete with the best humans (remember how Deep Blue beat
+Gary Kasparov in 1997), even strong amateurs can beat the top Go-playing
+programs. And strong amateurs are much weaker than top pros. There are three main reasons for this:</p>
+
+<ul>
+<li><strong>Game-tree complexity</strong>: there are about <a href="http://en.wikipedia.org/wiki/Shannon_number">10<sup>123</sup> possible games
+in Chess</a>. As for Go,
+<a href="http://en.wikipedia.org/wiki/Go_and_mathematics">estimates vary</a> but
+the <a href="http://www.usgo.org/resources/topten.html">American Go Association reckons there are 10<sup>700</sup> possible
+games</a>. This is because there
+are more turns in a Go game than in a Chess game (200 vs 50 on average),
+and more possibilities at each turn in Go (up to 350 vs 50).</li>
+<li><strong><a href="http://en.wikipedia.org/wiki/Evaluation_function">Lack of a good heuristic</a></strong>: Chess programs are able to evaluate quite accurately and quickly whether a given position is better than another one. On the contrary, no good heuristic has been found for Go yet.</li>
+<li><strong>Pattern-recognition</strong>: strong Go players rely heavily on recognizing
+the shapes the stones take. There are too many of them for a computer
+to try and recognize in a game timeframe, and <a href="http://curiosity.discovery.com/question/humans-better-than-computers">humans are much better than them at this</a>.</li>
+</ul>
+
+
+<h2>Key ideas behind current Go-playing programs</h2>
+
+<p>This complexity is what makes the study of Go algorithms so interesting.
+A few years ago we saw a spectacular improvement, led by a
+program called <a href="http://www.lri.fr/~teytaud/mogo.html">MoGo</a>. The key
+ideas behind MoGo are:</p>
+
+<ul>
+<li><strong>Position evaluation using random games</strong>: paradoxically, it was
+found that the best way to evaluate a position is to play, from this
+position, a lot of games were each player puts stones at random
+on the board. A position&#8217;s score is simply the percentage of won
+random games.</li>
+<li><strong>Use of <a href="http://en.wikipedia.org/wiki/Multi-armed_bandit">multi-armed bandit</a> algorithms</strong> to decrease the branching factor (the number of moves the program has to consider at each turn). The goal here is to optimize the trade-off between exploration (trying new moves) and exploitation (further testing the most promising moves to select the best one). The computer begins with a prior probability distribution for every possible move. It picks one according to this distribution, plays a random game from the corresponding position and uses the result to update the probability for this move. It then selects another possible move according to the updated distribution and so on.</li>
+<li><strong>Use of a little expert knowledge</strong>: the prior distribution used in the
+multi-armed bandit is calculated so as to avoid trivially stupid moves.
+For the opening of the game, classic starting positions are also
+favored. And the random games are not completely random since they avoid
+certain moves according to simple patterns. Nonetheless, expert
+knowledge is used scarcely as it really hurts the exploration part of
+the algorithm.</li>
+<li><strong>Parallelization</strong>: MoGo and the likes can become very good on
+computer clusters, since the random game part can be run on mutliple
+CPUs. The <a href="http://en.wikipedia.org/wiki/Amdahl's_law">speedup factor</a> is
+about 8x.</li>
+<li><strong>Reinforcement learning</strong>: MoGo learns during the game and the
+randoms play-outs that some kind of responses to his opponent&#8217;s moves are likely to have a bad
+result, and assigns them a lower probability.</li>
+</ul>
+
+
+<p>You can learn more on MoGo <a href="http://www.pleinsud.u-psud.fr/specialR2008/en/12_GOthique.pdf">in this article</a>.</p>
+
+<h2>Current strength of computers</h2>
+
+<p>Today, Go-playing programs are able to compete with professional players on small (9x9) boards, and with strong amateurs (5d KGS) on normal boards (19x19). This is quite an achievement, but there is still a long way to go before they can face professional players on normal boards!</p>
+
+<p><em>I am a Go player myself, even though not very good! During an
+internship in a Computer Science laboratory, I worked on <a href="http://www.lri.fr/~teytaud/mogo.html">MoGo</a> for 2 months in 2008.</em><br/>
+<em>Special thanks to <a href="http://www.linkedin.com/pub/arpad-rimmel/b/9a7/847">Arpad Rimmel</a> for having reviewed this article. He spent 3 years working on Mogo when he was a PhD student.</em></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Startup, Music and Buzz]]></title>
+    <link href="http://needforair.com/blog/2012/04/15/startup-music-and-buzz/"/>
+    <updated>2012-04-15T11:33:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/15/startup-music-and-buzz</id>
+    <content type="html"><![CDATA[<p>Various creative initiatives face the same challenges as startups.
+In its
+<a href="http://leanpub.com/manifesto">manifesto</a>, <a href="http://leanpub.com/">Leanpub</a> points out the similarities
+between writing a book and launching a startup: <em>both are risky, creative
+processes, often undertaken in stealth mode and with hit-driven economics.</em></p>
+
+<p>The same parallel can be drawn with the music industry or more generally
+with independant creative activities. Crowdfunding platforms
+<a href="http://www.mymajorcompany.com/">MyMajorCompany</a> or <a href="http://www.kickstarter.com/">KickStarter</a>
+illustrate the similarities between all these processes.
+Independant singers who are not supported by famous productors bear the risk,
+have to build their <em>product</em> and develop their marketing
+strategy on their own.</p>
+
+<p>Once the beta version of the product is ready to showcase, a single in
+the case of singers, the difficulty is to market it. How can one achieve
+some traction? One option that seems profitable is to place the
+product in a favourable context by attaching it to an event which
+benefits from a good media coverage. Mainstream and new medias alike have such a big impact
+on the crowd that they can drain lots of attention. Leveraging these
+media can be key.</p>
+
+<p>Recently in France a singer succeeded in creating a buzz
+on the internet, hitting more than 600 000 views on Youtube, with its
+single on a candidate for the presidential elections. In the same vein
+as <a href="http://www.youtube.com/watch?v=wKsoXHYICqU"><em>I got a crush on Obama</em></a> she drew the media attention in a very
+effective way by leveraging the current context.</p>
+
+<p><a href="http://vimeo.com/40084651"><img src="http://www.lalsace.fr/fr/images/A7098988-85DA-4603-8E31-654249FE82BB/ALS_03/capture-d-ecran-du-clip-musical-de-victoire-passage-prends-le-pouvoir-sur-moi-jean-luc-melenchon.jpg" width="400" alt="Video" /></a></p>
+
+<p>Making a buzz gives the impression of success. But how can we be assured it is going to last? Does a spike in the audience really help to succeed with
+one&#8217;s product? When one realize that <a href="http://simply.io/blog/2012/03/welcome-to-the-real-world-just-because-youre-on-techcrunch-doesnt-mean-youve-won/">90% of the companies appearing on TC
+are abandoned within 6 months</a>
+one can question the relevance of the press coverage and the buzz one
+can create to build a durable success. Instead, one should be focused
+on building one&#8217;s audience. Successfull startups and creators don&#8217;t
+rely on a single shot try, they build their success gradually at the same
+time as their audience.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Golden Age Of Community Organizing Platforms]]></title>
+    <link href="http://needforair.com/blog/2012/04/11/community-organizing-platforms/"/>
+    <updated>2012-04-11T08:58:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/11/community-organizing-platforms</id>
+    <content type="html"><![CDATA[<p>I <a href="http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college/">already wrote</a> about how
+you can leverage some <a href="https://github.com/">social platforms</a> to build
+your visibility on the internet, but they offer much more.
+They provide appropriate tools that help people to be more productive
+and better organized. They are much more functional than pure social networks
+and even more valuable as the communities are active.</p>
+
+<p><img src="http://cardview.net/wp-content/uploads/2010/04/nation-builder.jpg" height="220" alt="Keep the gist" /></p>
+
+<h2>Platforms structure communities</h2>
+
+<p>We can call such a platform a <em>community organizing platform</em> because
+it allows a community to have a place to gather, discuss and share. It
+provides the global structure the community needs to get organized.
+Ten years ago the forums laid the foundation but today these platforms
+achieve what&#8217;s been initiated.</p>
+
+<p>Using these platforms everyone creates and manages a business card that
+is accessible by everyone else.
+People can easily be identified, followed, consulted and appraised. You
+don&#8217;t have to go to as many conferences or events to meet new people
+because it can be done very efficiently online.</p>
+
+<h2>Community organizing platforms offer more than pure social networks</h2>
+
+<p>Pure social networks like Twitter offer ways to
+organize communities but don&#8217;t provide the structure
+and tools needed for effective collaboration. They are mainly focus on
+sharing.</p>
+
+<p>While community organizing platforms provide a social layer they
+also offer services geared towards the community itself. This
+combination is what&#8217;s really valuable.
+<a href="http://nationbuilder.com/">Nation Builder</a>
+is the perfect example: it features volunteer organization, donation
+monitoring, website creation&#8230; a comprehensive package
+political leaders need to interact with their audience.</p>
+
+<h2>Active communities are driven by knowledge</h2>
+
+<p>We can distinguish communities built upon friendship, professional
+activity or common interests. The most active
+are the ones based on a common interest, where knowledge and
+feedback is a valuable resource. In these ones people spend a lot of time
+looking for information. They also create a lot of content in order to
+improve their reputation. Such platforms are even more
+important for small communities because the resources they want to access are not always well
+indexed by search engines.</p>
+
+<p>As sharing information, working collaboratively and giving feedbacks to peers is key in
+these communities even a very little one
+can be very active.
+There is still lots of
+them to structure out there, lots of people waiting to
+share and collaborate with their peers. Who are they? What can we do for
+them?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Why the Pirate Party Will Help Improve Internet Regulation]]></title>
+    <link href="http://needforair.com/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation/"/>
+    <updated>2012-04-09T10:38:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation</id>
+    <content type="html"><![CDATA[<p>In the past years, we have seen a lot of developped countries
+governments pushing for more regulation of the Internet, and less
+privacy for users. There are three main reasons: protection of
+children, prevention of terrorism and <a href="http://needforair.com/blog/2012/03/29/sopa-hadopi-future-of-culture/">fight against illegal downloading</a>. This has led to very repressive and usually inefficient laws, for example in Australia, in France (Hadopi) and <a href="http://thehill.com/blogs/hillicon-valley/technology/220181-dodd-says-sopa-can-live-again">possibly soon</a> in the US. I think that a big part of this problem is that a very large portion of the people making these laws understand next to nothing about the Internet, and are thus afraid of it. What can we do about it?</p>
+
+<p><a href="http://www.flickr.com/photos/20888197@N00/103031916/"><img src="http://farm1.staticflickr.com/43/103031916_5c6c0a51af_m.jpg" alt="Pirate" /></a>
+<em>by <a href="http://www.flickr.com/photos/opid/" title="Author">sereneonion</a></em></p>
+
+<h2>Direct education is not enough</h2>
+
+<p>Direct education is the most natural answer. Initiatives like Google&#8217;s
+<a href="http://www.20thingsilearned.com/en-US">20 things I learned about browsers and the Web</a> for example, aim at explaining very simply the basics to beginners. More focused initiatives like the <a href="http://www.eg8forum.com/en/">electronic G8 forum</a>, which was held last year in Paris are interesting too. But unfortunately, none of these will make a real impact as long as politicians have so little interest for this world. What we really need is to make them <strong>want</strong> to learn about the Internet.</p>
+
+<h2>The Pirate Party can play a significant role</h2>
+
+<p>What politicians really care about is of course to get (re)elected. And
+since they are busy people, they only tackle the subjects they feel are the
+most importants for voters, which are nowadays the economic crisis and
+unemployment. This is where I think the <a href="http://en.wikipedia.org/wiki/Pirate_Party">Pirate Party</a> has a huge role to play. Even though they are still a fringe party today, they <a href="http://www.nytimes.com/2011/09/20/world/europe/in-berlin-pirates-win-8-9-percent-of-vote-in-regional-races.html">have had some electoral success</a> and have shown the political world that voters do care about Internet-related issues. If they continue to be successful, I am pretty sure that mainstream politicians, who hold the real power, will want to understand the Internet better, leading to a more fruitful public debate.</p>
+
+<p>It will surely take some time, but I think <strong>it will happen</strong>, because it already happened in the past: 30 years ago, neither voters nor politicians cared about the environment, and the Green parties were regarded the same way the Pirate party is today. Now, ecology is a significant political topic in many European countries. The Internet is next.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Role of Computers in Text Summarization]]></title>
+    <link href="http://needforair.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/"/>
+    <updated>2012-04-06T08:30:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text</id>
+    <content type="html"><![CDATA[<p>As Stanislas explained in <a href="http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/" title="Information Overload">this previous post</a>, we believe we are dealing with too much information to keep up on the Internet. The natural solution is text summarization, and computers can help us there.</p>
+
+<p><a href="http://www.flickr.com/photos/xeeliz/3558255554/sizes/l/in/photostream/"><img src="http://farm4.staticflickr.com/3376/3558255554_9f9c480132_n.jpg" alt="Summary" /></a>
+<em>by <a href="http://www.flickr.com/photos/xeeliz/" title="Author">Xeeiliz</a></em></p>
+
+<p>There are roughly two kinds of summaries: the ones that consist of a few of
+the most important sentences extracted from the text, the keyphrases, and the ones that
+are written from scratch without necessarily using the same phrasing, called abstract summaries.</p>
+
+<h2>Finding the most relevant content: keyphrase extraction</h2>
+
+<p>The big advantage of keyphrase-based summaries is that there is no risk
+of miscomprehension since they are composed of unrephrased pieces of the
+text. Moreover, computers are able to compute them and get decent
+results. There are two main ways to do it: supervised and unsupervised
+extraction.</p>
+
+<h3>When you know the context: extraction as supervised learning</h3>
+
+<p>One way to perform this task is described by Peter Turney in <a href="http://webdocs.cs.ualberta.ca/~lindek/650/papers/turney.pdf">this paper</a>. He found that using a custom-designed algorithm that incorporates specialized domain knowledge on a text generates yields very good results: 80% of keyphrases are deemed acceptable by human readers. The problem with this approach is that it requires the computer to know the topic beforehand. It is possible to use a prior first step to determine what it is, but this is difficult and the results are terrible if we get it wrong.</p>
+
+<h3>Applicable to any text: unsupervised keyphrase extraction</h3>
+
+<p>This approaches enables us to extract keyphrases from a text without any
+prior knowledge, which is a tremendous improvement upon the previous method. There a several algorithms, and one notable current example is <a href="http://www.summly.com/">Summly</a>. I will explain one of those, named TextRank, to give you a feeling of the kind of techniques used in this field.</p>
+
+<p>The TextRank algorithm was developped by Rada Mihalcea and Paul Tarau in
+<a href="http://acl.ldc.upenn.edu/acl2004/emnlp/pdf/Mihalcea.pdf">this paper</a>. The key idea is that a text
+unit (word or phrase depending on the need) that is close to a lot of other important text units is likely a keyphrase. Using the parallel between the &#8220;close to&#8221; relation and the &#8220;referred to by&#8221; relation of hyperlinks, TextRank uses Google&#8217;s <a href="http://en.wikipedia.org/wiki/PageRank">PageRank</a> to determine which text units are the most important. It works well, its main author was even awarded a $100k grant by Google for her work on keyphrase extraction.</p>
+
+<h2>The best: abstract summarization</h2>
+
+<p>Even though they can be very useful, keyphrase-based summaries are still
+rudimentary compared to abstract summaries, because they are much nicer
+to read, and we are sure no important information was &#8220;left behind&#8221; (i.e a keyphrase was not extracted). Also, keyphrase extraction algorithms still find it hard to
+summarize technical articles.</p>
+
+<p>Abstract summarization is the limit of what computers can do today. The
+main reason for this is that they struggle with the following tasks:</p>
+
+<ul>
+<li><strong>Coreferences understanding</strong>. For example, who does &#8216;he&#8217;
+references in the sentence &#8216;Paul told John he should play squash&#8217;?</li>
+<li><strong>Word sense disambiguation</strong>. In &#8216;I need batteries for
+my mouse&#8217;, are we talking about the animal or the device?</li>
+<li><strong>Sentiment analysis</strong>. Understanding the mood of the writer is often
+key to understanding a text, all the more when there is sarcasm.</li>
+</ul>
+
+
+<h2>Computers can help humans summarize a text</h2>
+
+<p>To sum it up, I believe that humans still cannot be replaced by
+algorithms if we want to produce quality summaries. Nonetheless, a
+computer really can help a us by providing a keyphrase-based summary,
+so that we spend less time scanning the text for them. In addition, if
+we were able to train algorithms by comparing their output with a human
+summary a lot of times for articles on a certain topic, I think it is possible we see significant improvements.</p>
+
+<p><em>Note: some examples were taken from <a href="https://class.coursera.org/nlp/">Stanford&#8217;s Natural Language
+Processing online class</a>. If you couldn&#8217;t take
+it this quarter, look for it, it is a terrific place to learn about this
+topic</em></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[What We Didn't Learn In College]]></title>
+    <link href="http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college/"/>
+    <updated>2012-04-04T23:38:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college</id>
+    <content type="html"><![CDATA[<p>Albert Wenger is right:
+<a href="http://continuations.com/post/20112755144/students-are-woefully-prepared-for-internet-age-job">we are woefully prepared for internet age job market</a>.
+The three of us graduated in Computer Science in college, following a solid
+engineering cursus. But during the
+numerous courses we took we never heard of <a href="http://github.com/">Github</a> nor <a href="http://stackoverflow.com/">StackOverflow</a>.
+People attending creative and artistic
+formation don&#8217;t hear of <a href="http://www.etsy.com/">Etsy</a> neither.</p>
+
+<p><img src="http://farm8.staticflickr.com/7044/7046351459_53d8ed3283.jpg" alt="Jeff Atwood" /></p>
+
+<p>You could argue: &#8220;What&#8217;s the problem with that? You aren&#8217;t supposed to learn
+how to use these platforms in school but core skills in your field!&#8221;</p>
+
+<p>But that would be missing a point. The education we all receive has one final
+goal: be prepared to get the best job as possible. In our current
+era <strong>finding a job doesn&#8217;t come down to respond to job offers by sending
+cover letters and resume</strong> nor spam by email all our contacts in the industry
+to get an interview.</p>
+
+<p>We are lucky to live through the emergence and the
+expansion of specialized platforms which can help us build our personal
+and professional identity. With these platforms <strong>we can easily have a
+professional visibility, expose our skills so they can be assessed by
+everyone and acquire real experience with real work.</strong></p>
+
+<p>The very first recommendation we should receive beginning a course in
+a topic is registering on all the platforms related to this topic. The
+professors should foster us to leverage these platform to develop our
+skills, build our expertise and gain some fame. Such platforms work this way: they play with
+our ego to encourage us to contribute more and more and make our
+achievements visible for everyone in return. <strong>They are built to be our showcase</strong> and
+we should take advantage of it. We do so many interesting projects in
+school, sometimes state of the art implementations in CS, that get lost
+on our machine. They should be public to catch recruiters&#8217; attention on
+our profile and skills or help us <a href="http://cdixon.org/2012/02/26/the-internet-is-reshaping-our-economy-from-one-of-huge-corporations-with-lots-of-jobs-to-huge-platforms-with-lots-of-income-streams/">create our future income streams</a>.</p>
+
+<p>So at which level can we improve the promotion of such platforms? At the school&#8217;s level?
+At the professors&#8217; level? They should all keep up with the internet economy like they
+usually keep up with the <em>real</em> economy. Schools should increase professors&#8217; awareness, who
+are mainly researchers in engineering schools for example, to this
+concern but it&#8217;s up to the professors to promote personaly the right
+platforms. Professors do already a great job teaching us their
+knowledge, <strong>they should go further and encourage us to capitalize on their
+teaching</strong>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Siri or the Reinvention of Mobile Search User Experience]]></title>
+    <link href="http://needforair.com/blog/2012/03/31/siri-or-the-reinvention-of-mobile-search-ux/"/>
+    <updated>2012-03-31T17:58:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/03/31/siri-or-the-reinvention-of-mobile-search-ux</id>
+    <content type="html"><![CDATA[<p>Search is a behavior, it is what people do when they want to find
+something and don&#8217;t know exactly what they&#8217;re looking for, or when they
+know what they&#8217;re looking for but don&#8217;t know where to find it.
+But search on computers or on the web has traditionally been either
+intuitive and useless or unintuitive and powerful, as I&#8217;m going to show
+you.
+Even searching on Google used to be <a href="http://www.avc.com/a_vc/2003/10/search.html">hard and
+unintuitive</a>
+for the layperson. But Google improved the UX and it was so
+powerful that people just learned to use it.</p>
+
+<p>Until now
+search was basically equated to Google (a single-entry point to all of
+the resources available on the web), but with the major
+<a href="http://www.codinghorror.com/blog/2012/03/welcome-to-the-post-pc-era.html">shift</a> from computers to mobile devices,
+search UX needs to be reinvented.</p>
+
+<p><a href="http://www.flickr.com/photos/37161567@N04/6751892711/"><img src="http://farm8.staticflickr.com/7143/6751892711_f59c0452e8.jpg" alt="Siri helps Doggy" /></a>
+<em><a href="http://creativecommons.org/licenses/by/2.0" title="license">CC license</a> - by <a href="http://www.flickr.com/photos/37161567@N04/" title="Author">Yogesh Mhatre</a></em></p>
+
+<h2>Fact: Mobile Search User Experience Sucks</h2>
+
+<p>Searching on smartphones is currently a terrible user experience. Screens are
+tiny, typos frequent, missclicks incredibly annoying. Search results
+don&#8217;t account well for the fact that smartphones are not simply smaller versions of
+computers. Recently for instance, an <a href="http://itunes.apple.com/bw/app/quickmaps/id506283203?mt=8">iphone app</a> that is a
+simple user interface for frequent
+Google Maps queries received a very positive feedback and was an instant
+success.</p>
+
+<p>That&#8217;s why most search on mobile is done on vertically differentiated
+apps: one searches for places to stay on the Airbnb app, and looks for movies on the IMDB
+app. These apps provide a better search experience, from the query to
+the results &#8220;page&#8221;. The problem with that scheme is when you don&#8217;t know
+the particular app that suits your needs. Unless you follow Techcrunch
+or HackerNews religiously it can get tricky. The beauty of Google and
+other search engines was that they provided a single entry point for web
+content. You didn&#8217;t have to know anything else, and a lot of people
+still google &#8220;facebook&#8221; to reach the facebook website.</p>
+
+<p>But the UX of single entry point search is so bad on mobile that people
+don&#8217;t bother using it. Instead they&#8217;re left with discovering content
+through social media apps which offer a very decent UX for that. But they
+cannot look for something from a single-entry point unless they muster
+enough courage to deal with Google&#8217;s web app, and that&#8217;s too bad.</p>
+
+<h2>Lets Go Back In Time</h2>
+
+<p>When Windows arrived on the market, it represented a major shift in UX.
+Before Windows, people interacted with computers using a command-line
+interface(CLI), otherwise known as the shell. Command-line means that instead
+of clicking around, navigating in your folders and moving files
+visually, you gave a command to the computer and it executed your
+command. The CLI was (and still is) a great UX for search of files in a
+computer. Windows&#8217; graphical user interface, on the other hand, was absolutely terrible at this.</p>
+
+<p>Can you remember when you still had Windows? Looking for a file was
+absurdly hard and difficult, borderline impossible. That&#8217;s why most
+people just used their brain to remember where they put their files on
+their hard drive, and went looking for it by opening folder after
+folder. So Windows was a huge regression in search UX from the days when there was no graphical
+interface.</p>
+
+<p>Windows was arguably more intuitive than the CLI, you didn&#8217;t have to
+learn any commands to use it. All you had to do is click buttons and move your cursor
+around. But as you gained intuitiveness, you lost the power of the CLI.</p>
+
+<p>The reason why I&#8217;m talking about
+all this is we are currently witnessing a similar change of paradigms
+as websites are becoming webapps or even native mobile apps, that cannot
+be cleanly separated into different pages anymore. And again search UX
+is getting the bitter end of the deal.</p>
+
+<p>Apps are more intuitive, there are no more files, no more links, it&#8217;s
+pure visual and intuition heaven such that 2-year olds are comfortable with iPads,
+but powerful search is not part of the experience.</p>
+
+<h2>Enters Siri</h2>
+
+<p>Siri is the new personal assistant that lives in all iPhones 4S. You
+talk to her and she executes your wishes to the best of her abilities.</p>
+
+<p>A lot of people say it&#8217;s a gadget, it&#8217;s not actionable,
+it&#8217;s an Apple marketing ploy to sell you an iPhone 4 at a 20% premium. I
+think however that it&#8217;s much more than that and that these critics are
+missing the elephant in the room. For me, Siri is the new
+command-line interface.</p>
+
+<p>Think about what Siri does. You ask her to set your
+alarm, to give you the weather, to find a restaurant, to look for places, all from a single entry point.
+Basically, it&#8217;s a <strong>vocal recognition enabled command interface</strong>.
+And even though it&#8217;s still rough on the
+edges, I&#8217;m positive it&#8217;s going to become much more powerful in the near
+future. Vocal commands are the ultimate user experience, everybody gets
+it. The sole interface that beat vocal commands would be a mind-reading
+interface.
+So for the first time we have a <strong>search UX that is both intuitive
+and powerful</strong> (or promising to be at least). Siri is abstracting links
+and complicated queries from the end-user. Most people don&#8217;t care about
+links, they just want the data, the resource that the links point to.</p>
+
+<p>Siri is going to bring search back to mobile devices, and make search a
+huge part of the mobile ecosystem once it opens its API to developers.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SOPA, the entertainment industry and the future of culture]]></title>
+    <link href="http://needforair.com/blog/2012/03/29/sopa-hadopi-future-of-culture/"/>
+    <updated>2012-03-29T08:24:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/03/29/sopa-hadopi-future-of-culture</id>
+    <content type="html"><![CDATA[<p>The entertainment industry is busy trying to make the US adopt the SOPA
+law which is considered dangerous for the Internet by <a href="http://www.guardian.co.uk/technology/2012/jan/18/sopa-wikipedia-blackout-google-reddit" title="many">many</a>. This brings two questions:</p>
+
+<ul>
+<li>What can the future model for accessing culture look like? Will today&#8217;s
+giants be part of it?</li>
+<li>How can we ensure that laws are made by people with sufficient
+knowledge of the field they try to regulate?</li>
+</ul>
+
+
+<p>I give my consumer and tech enthusiast point of view on the first question in this post and I will tackle the second one in a few days.</p>
+
+<p><a href="http://www.flickr.com/photos/27539822@N05/3697785107/"><img src="http://farm3.staticflickr.com/2608/3697785107_579dac8a0f_n.jpg" alt="Concert" /></a>
+<em>by <a href="http://www.christianholmer.com/" title="Author">Christian Holmer</a></em></p>
+
+<h2>How the Internet disrupted the entertainment industry&#8217;s business model</h2>
+
+<p>The major movie and music producers (Hollywood, Sony, Universal to name a few) engage in the <a href="http://musicfacts2.wordpress.com/2010/06/25/15-analysis-of-the-cost-structure/">following activities</a>: content production (recording in the case of music), royalties payments to artists and copyrights holders,  marketing and promotion, purchase, manufacturing, warehousing and distribution. The first four can be referred to as &#8220;creating the content and making it known&#8221;, and the Internet didn&#8217;t have much impact on them.</p>
+
+<p>On the contrary, the last four (&#8220;bringing the content to consumers&#8221;), have been completely disrupted by the arrival of the Internet, which brings these costs close to zero. In my opinion, the major labels have failed to accept this fact, which is why they took such a long time to open downloading services. And even then, the online prices have not gone down by as much as they could. They may have every right to tell consumers that they always have the option not to get music/videos, but I think that&#8217;s not a <a href="http://www.marco.org/2012/02/25/right-vs-pragmatic" title="pragmatic">pragmatic approach</a>. I want to listen to music and watch movies, but I don&#8217;t like to pay for CDs that are DRM-locked, or for a zone 1 DVD that only works in 2 countries and begins with an <a href="http://www.youtube.com/watch?v=OWPfcEOr2Yg" title="Bender piracy warning">&#8220;illegal downloading is ripping out a beating human heart&#8221; ad</a>. In fact, I don&#8217;t even want to have to drive to the nearest Virgin Megastore to get the latest season of Game of Thrones. <em>What I want is to be able to get access to music and videos freely from my home</em>.</p>
+
+<h2>People still want to pay for what they love</h2>
+
+<p>Does that mean that labels and artists are doomed to be left destitute as we all get their work for free? I really don&#8217;t think so. People (myself included) <em>want</em> to pay for what they love. For example, you can look at <a href="http://flattr.com/" title="Flattr">Flattr</a>. Or you can consider the fact that <a href="http://www.wired.com/listening_post/2007/10/estimates-radio/" title="Radiohead">Radiohead made between $6M and $10M from a
+&#8220;pay-what-you-want&#8221; downloadable album</a>.</p>
+
+<p>But what I love is music, movies, tv series. In a word, <em>culture</em>. Now that I&#8217;ve seen how easy it is to access it on the Internet, I want the paying offer to be at least as good as the free one: a large choice, fast downloads and unlimited access from anywhere. I am sick of DVDs rendered unreadable due to copy-protection (happened again last week), and music I can&#8217;t copy however I wish.</p>
+
+<h2>How labels and artists can get paid</h2>
+
+<p>In my opinion, a <em>global subscription model</em>, much like Spotify&#8217;s, would be a very nice solution. I estimate the number of Internet subscriptions in North America to be 80M (it was <a href="http://www.internetworldstats.com/am/us.htm">70M in the US alone in 2009</a>). The <a href="http://grabstats.com/statmain.asp?StatID=74">music industry made a total of $26.5B in the same region in 2011</a>, which corresponds to about $28 per subscribtion and per month. I share one subscription with my girlfriend whom I live with, so that means I would have to pay $14 per month for unlimited and legal music. I would do that gladly!</p>
+
+<p>The exchanges could be
+monitored so that the most downloaded artists receive more money than
+the others. This redistribution system could also be tweaked in favor of smaller, unknown artists to support discovery.</p>
+
+<p>The above only concerns personal content consumption. <em>There
+are alternative revenue streams for artists and labels that cannot be copied nor downloaded</em>: concerts, movie theatres, goodies and so on. For example, <a href="http://grabstats.com/statmain.asp?StatID=73">the total 2011 revenue for live music in North America is $10.3B</a>. It seems to be enough to sustain music creation, doesn&#8217;t it?</p>
+
+<p><a href="http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers/">In a nutshell</a>, I think that major labels still have a role to play, but should focus on content creation and marketing, where their true value addition resides. I fear that if they continue to try to keep the old business model in place, they will be replaced by more suited players.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[We Are All Nutcrackers]]></title>
+    <link href="http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers/"/>
+    <updated>2012-03-26T18:20:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers</id>
+    <content type="html"><![CDATA[<p><em>In a nutshell&#8230;</em> Have you never been looking for this expression
+while reading an article? The fact is that we are all fond of digested
+information. With Internet and social medias the quantity of information
+one has access to has become huge; we are coping with an
+<a href="http://needforair.com/information-overload-and-how-to-keep-up-with-5849" title="Overload">information overload problem</a>.
+We can potentially be aware of everything that is going on everywhere, instantaneously
+and regarding any topic. <strong>In this context, the demand for digested
+information is growing tremendously.</strong><br/>
+Recently, many startups have been leveraging that fondness to
+succeed. <a href="http://www.fanbridge.com/" title="Fanbridge">Franbridge</a> with its
+<a href="http://www.fanbridge.com/blog/introducing-social-digest" title="Social Digest">Social digest</a>
+will soon reach <a href="http://pandodaily.com/2012/03/21/as-it-turns-out-fanbridges-most-exciting-product-is-boring-old-email/">10 millions subscribers</a>!<br/>
+Why people do love and value digested information so much?</p>
+
+<p><a href="http://freshcode.co/post/Nameservers-in-a-Nutshell-Fresh-Insights-7.aspx"><img src="http://freshcode.co/image.axd?picture=2011%2f7%2fnutshell.jpg" width="220" alt="Nutshell" /></a>
+<em>by <a href="http://freshcode.co/" title="Author">FreshCode</a></em></p>
+
+<h2>Digested information is our natural representation of information</h2>
+
+<p>We all love digested information because it makes the information easy
+to grasp.
+It is very popular because it replicates the mental
+process we do when reading. We look for headlines, bold text, headers,
+we scan the text to form our overall picture of the content. Digested
+information gathers all those clues and eases this process.<br/>
+Part of this cognitive process is the memorisation. Digested information
+makes memorisation more accessible. Remember those cheatsheets you
+religiously wrote down for your exam preparation in college? Reading the digest of an
+article has the same effect. When building our personal knowledge
+database we store those keywords, key sentences. Digested information is
+the natural form of information our brain manipulates when it internally
+classifies, archives, queries our memory.</p>
+
+<h2>Digested information piques reader&#8217;s curiosity</h2>
+
+<p>While reading we like it when the content arouses our curiosity. I would even say
+that we expect an article to <em>catch</em> us. Digested information provides
+the gist that drives us to the dive in the details. It avoids the wall of text effect and
+stimulates our willingness to dig further into subject. It&#8217;s like reading gossips! You
+get hooked and then you want to know more about it.</p>
+
+<p>Digested information is a very valuable resource and its era should come soon.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[[Digest] BizDev vs SEO - Google+ value]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/26/digest-bizdev-new-seo-google-plus-value/"/>
+    <link href="http://needforair.com/blog/2012/03/26/digest-bizdev-new-seo-google-plus-value/"/>
     <updated>2012-03-26T16:59:00+02:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/26/digest-bizdev-new-seo-google-plus-value</id>
+    <id>http://needforair.com/blog/2012/03/26/digest-bizdev-new-seo-google-plus-value</id>
     <content type="html"><![CDATA[<p><em>Digests are summaries of articles posted by entrepreneurs, VCs, and
 other people who write about startups and technology in general, curated
 by yours truly. The goal is to make them shorter to read by extracting the most relevant
@@ -88,9 +819,9 @@ asap</em></p>
   
   <entry>
     <title type="html"><![CDATA[Why We Write Digests of Interesting Content]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/21/why-we-write-digests-of-interesting-content/"/>
+    <link href="http://needforair.com/blog/2012/03/21/why-we-write-digests-of-interesting-content/"/>
     <updated>2012-03-21T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/21/why-we-write-digests-of-interesting-content</id>
+    <id>http://needforair.com/blog/2012/03/21/why-we-write-digests-of-interesting-content</id>
     <content type="html"><![CDATA[<p>All three of us read a lot. Blogs, <a href="http://news.ycombinator.com" title="Hacker News">Hacker News</a>, links we get through
 Twitter, etc. Browsing dozens of articles a week to stay informed is great but do we get the most out of it? <strong>Do we
 actually memorize the gist of all that content we are reading?</strong> Spending
@@ -156,9 +887,9 @@ it&#8217;s spamming.</p>
   
   <entry>
     <title type="html"><![CDATA[What Will Your Last Holidays Photos Become?]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/19/what-will-your-last-holiday-photos-become/"/>
+    <link href="http://needforair.com/blog/2012/03/19/what-will-your-last-holiday-photos-become/"/>
     <updated>2012-03-19T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/19/what-will-your-last-holiday-photos-become</id>
+    <id>http://needforair.com/blog/2012/03/19/what-will-your-last-holiday-photos-become</id>
     <content type="html"><![CDATA[<p>Yesterday was my wife&#8217;s grand father funeral. Those moments are intense
 family time where everybody gathers together and tells all the anecdotes they
 have. The best place to dig into the past is the attic. That&#8217;s where my
@@ -193,9 +924,9 @@ that will allow our grandchildren to dive into our memories?</p>
   
   <entry>
     <title type="html"><![CDATA[Great Article on Improving the Discoverability of Good Content]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/17/great-article-on-improving-the-discoverability-of-good-content/"/>
+    <link href="http://needforair.com/blog/2012/03/17/great-article-on-improving-the-discoverability-of-good-content/"/>
     <updated>2012-03-17T18:01:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/17/great-article-on-improving-the-discoverability-of-good-content</id>
+    <id>http://needforair.com/blog/2012/03/17/great-article-on-improving-the-discoverability-of-good-content</id>
     <content type="html"><![CDATA[<p><a href="http://www.jacquesmattheij.com/What+you+could+do+if+you+were+google+and+had+their+databases">What could you do if you were Google and had their databases?</a>
 by <a href="https://twitter.com/#!/jmattheij">@jmattheij</a></p>
 
@@ -207,9 +938,9 @@ free!</p>
   
   <entry>
     <title type="html"><![CDATA[Why so Many French are Not Entrepreneurs]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs/"/>
+    <link href="http://needforair.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs/"/>
     <updated>2012-03-16T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs</id>
+    <id>http://needforair.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs</id>
     <content type="html"><![CDATA[<p><em>France&#8217;s higher education trains world-class engineers, but is home to very few successful start-ups. Having studied engineering in France and then at Stanford University, I will try to explain this apparent paradox.</em></p>
 
 <p><a href="http://www.flickr.com/photos/billselak/2417001179/"><img src="http://farm3.staticflickr.com/2168/2417001179_d5ce2d9362_m.jpg" alt="Test taking" /></a>
@@ -269,9 +1000,9 @@ risk-adverse investors, and more ambitious ideas.</p>
   
   <entry>
     <title type="html"><![CDATA[Why Is Asynchronous Communication Superior?]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/14/why-is-asynchronous-communication-superior/"/>
+    <link href="http://needforair.com/blog/2012/03/14/why-is-asynchronous-communication-superior/"/>
     <updated>2012-03-14T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/14/why-is-asynchronous-communication-superior</id>
+    <id>http://needforair.com/blog/2012/03/14/why-is-asynchronous-communication-superior</id>
     <content type="html"><![CDATA[<p>In my <a href="http://needforair.com/why-you-shouldnt-use-synchronous-communicatio-70441" title="last article">last article</a>
 I detailed why synchronous communication is not
 appropriate for work: it leads to interruptions, involves moving or
@@ -329,9 +1060,9 @@ if you work at the same place.</p>
   
   <entry>
     <title type="html"><![CDATA[Why You Shouldn't Use Synchronous Communication At Work]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/13/why-you-shouldnt-use-synchronous-communication-at-work/"/>
+    <link href="http://needforair.com/blog/2012/03/13/why-you-shouldnt-use-synchronous-communication-at-work/"/>
     <updated>2012-03-13T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/13/why-you-shouldnt-use-synchronous-communication-at-work</id>
+    <id>http://needforair.com/blog/2012/03/13/why-you-shouldnt-use-synchronous-communication-at-work</id>
     <content type="html"><![CDATA[<p>In a recent <a href="http://www.forbes.com/sites/bruceupbin/2011/12/13/five-new-management-metrics-you-need-to-know/" title="Article">post</a>,
 James Slavet (Greylock Partners) describes metrics we should consider to
 be more productive. The top one is called Flow State Percentage and
@@ -403,9 +1134,9 @@ for your team.</p>
   
   <entry>
     <title type="html"><![CDATA[Makers Don't Work With Deadlines]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/12/makers-dont-work-with-deadlines/"/>
+    <link href="http://needforair.com/blog/2012/03/12/makers-dont-work-with-deadlines/"/>
     <updated>2012-03-12T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/12/makers-dont-work-with-deadlines</id>
+    <id>http://needforair.com/blog/2012/03/12/makers-dont-work-with-deadlines</id>
     <content type="html"><![CDATA[<p>A maker is someone who likes to make stuff, to build things. It can be
 an artist, a craftsman, an architect, a designer. But it can also be a
 software developer. I&#8217;m talking about good developers. Those that take
@@ -457,9 +1188,9 @@ are the most productive, let them.</p>
   
   <entry>
     <title type="html"><![CDATA[How to Keep Up With the Information Overload]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/"/>
+    <link href="http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/"/>
     <updated>2012-03-09T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload</id>
+    <id>http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload</id>
     <content type="html"><![CDATA[<p>Facebook notifications, Twitter feeds, RSS feeds, emails, news
 aggregators and now so much
 more. We are constantly hit by new information, throughout the day, and
@@ -530,446 +1261,6 @@ enough clues as to which are interesting and which are not.</p>
 <p>But don&#8217;t worry, we&#8217;re working on it ;)</p>
 
 <p>Photo credit: <a href="http://www.flickr.com/photos/martinofranchi/">Martino</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[Digest] Habits, Realtime Analytics, Media Content]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/06/digest-habits-realtime-analytics-media-content/"/>
-    <updated>2012-03-06T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/06/digest-habits-realtime-analytics-media-content</id>
-    <content type="html"><![CDATA[<p><em>Digests are summaries of articles posted by entrepreneurs, VCs, and
-other people who write about startups and technology in general, curated
-by yours truly. The goal is to make them shorter to read by extracting the most relevant
-information from our point of view and to encourage you to go read the
-complete post should you find the topic interesting.</em></p>
-
-<h3><a href="http://www.nirandfar.com/2012/02/habits-are-new-viral-why-startups-must.html" title="Source">Habits Are The New Viral: Why Startups Must Be Behavior Experts</a></h3>
-
-<p><em>by <a href="https://twitter.com/#!/nireyal">@nireyal</a> - Feb 26, 2012</em></p>
-
-<p><em>Nir Eyal describes the importance of habits besides virality for the
-success of products in the Curated Web</em></p>
-
-<ul>
-<li>Habits are what matters. Web businesses success increasingly depends on the strength of their users&#8217; habitual behavior</li>
-<li>Web 1.0 companies measured success by pageviews and CPM, whereas new (social) companies proved  to be valuable because they were habit-forming (hot triggers, variable rewards, regular check-in&#8230;)</li>
-<li>At the dawn of the Curated Web, companies must build habit creation into their products and business models. Not only are users inundated by distractions, but acquiring users is also harder than ever before</li>
-<li>Companies which successfully create user habits can build huge enterprises, even without viral growth (Evernote, Amazon)</li>
-<li>The more the user engages with a Curated Web company, the more data the company has to tailor and improve the user&rsquo;s experience. This self-improving feedback loop has the potential to be more useful &ndash; and more addictive &mdash; than anything we&rsquo;ve seen before</li>
-</ul>
-
-
-<h3><a href="http://techcrunch.com/2012/02/26/facebook-insights-real-time/" title="Source">Facebook To Speed Up Biz Analytics Tool Insights To Report In Real-Time</a></h3>
-
-<p><em>by <a href="https://twitter.com/#!/joshconstine">@JoshConstine</a> - Feb 26, 2012</em></p>
-
-<p><em>Josh Constine reports the move of Facebook Analytics Tool Insights to
-Real Time and describes all the possibilities it will enable</em></p>
-
-<ul>
-<li>Page performance data in (near) real-time rather than on average 48 hour delay could enable businesses to reach higher ROIs</li>
-<li>Immediate &ldquo;people talking about this&rdquo; data could give marketers a sense of a post&rsquo;s virality, and indicate if they should modify the content or the apps they link to</li>
-<li>&ldquo;Insights API give Page owners an opportunity to see how their Page actually lives and breathes&rdquo;.&rdquo; It&rsquo;s up to us as tool developers to turn that data into something awesome and present it in relevant actionable analytics.&rdquo;</li>
-</ul>
-
-
-<h3><a href="http://techcrunch.com/2012/02/25/print-is-dead-long-live-print/" title="Source">Print is Dead! Long Live Print?</a></h3>
-
-<p><em>by <a href="https://twitter.com/#!/jordankurzweil">@JordanKurzweil</a> - Feb 25, 2012</em></p>
-
-<p><em>Jordan Kurzweil describes the context of &ldquo;digital magazination&rdquo; of content. He states some recommendations to straighten up print business. At the heart of his reflexion is personalized and curated content</em></p>
-
-<ul>
-<li>PRINT IS DEAD. revenue, subscriptions and circulation are declining</li>
-<li>What can Old Print do to survive? Stop rearranging the deck chairs on the Titanic, grow a pair, and change your business model:
-
-<ul>
-<li>Accept this evolution (aging and fragmentation of audience, concurrency from other digital media &#8230;) and embrace it</li>
-<li>Start thinking like startups: use some of your profits to incubate new ideas (e.g. Washington post personalized headlines)</li>
-<li>Rethink your organization : everyone should be a doer, contributing 100 percent of her/his work hours to making things</li>
-<li>Stop thinking that technology serves content: they are now one and the same, each working with the other to delight and engage your users</li>
-<li>Update web platforms</li>
-<li>Use data to inform your editorial and product decisions</li>
-<li>Break down the wall between editors, writers and readers</li>
-<li>Consider your content as a currency, not the end-all be-all but a means to an end</li>
-</ul>
-</li>
-</ul>
-
-
-<p><em>If you would like your article not to be summarized on this blog,
-please contact us and we&#8217;ll take it down
-asap</em></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Stop Procrastinating, Start Scripting]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/05/stop-procrastinating-start-scripting/"/>
-    <updated>2012-03-05T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/05/stop-procrastinating-start-scripting</id>
-    <content type="html"><![CDATA[<p>When working on a project we always face repetitive tasks. But we shouldn&#8217;t have to spend as much time on those tasks as we usually do. We love
-to think: &#8221;<em>I just have to do it once and I won&#8217;t have to do it again</em>&#8221; But we never have to do it only once, be it for the current project or
-the next one.</p>
-
-<p><img src="http://farm2.staticflickr.com/1073/1352003098_1681416c2d_m.jpg" title="Keyboard" alt="Illustration" /></p>
-
-<p><strong>Automate by scripting</strong><br/>
-Task repetition can be solved in a painless way: scripting. When you don&#8217;t automate repetitive work you waste time. We should always see mechanical tasks as potential scripts. It&#8217;s only
-because we tend to procrastinate and we don&#8217;t face this reality that we
-postpone the moment we start scripting.</p>
-
-<p><strong>Save your time</strong><br/>
-I think scripting is a very important activity, above
-all because it makes us save a lot of time. The inputs changed? No problem, just
-rerun the script and you&#8217;re done.</p>
-
-<p><strong>Ship a product</strong><br/>
-I love scripting because a script is something concrete and useful. By writing our custom
-script we <em>&#8220;scratch our own itch&#8221;</em>, we solve our own problem with our
-own technical skills, which always provides an immense satisfaction. Coding a script is like shipping a
-small product!</p>
-
-<p>In addition, it helps us develop and extend our programming
-skills. It improves our knowledge of the scripting language and it makes us
-discover API wrappers.</p>
-
-<p><strong>Do it right</strong><br/>
-When working in a team, scripting is even more useful. It&#8217;s
-more than likely that our teamates will have to do later whar we are doing now. On top of that, scripting for a team forces us
-to write good quality code because our users are our teammates. They
-won&#8217;t be as indulgent as we are regarding our work, we don&#8217;t want them
-to think that we are poor coders, so we do it right.</p>
-
-<p><strong>Improve creativity and productivity</strong><br/>
-The next time you think &#8220;it would be so nice to automate this work&#8221;, spend some time to look for a scripting solution ! The more you script the better you will become at it. So take some time thinking about what you are doing, you will see
-how it improves your creativity and your productivity.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[Digest] Time Dimension on the Web, Raspberry Pi]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/04/digest-getting-time-back-on-the-web-raspberry-pie/"/>
-    <updated>2012-03-04T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/04/digest-getting-time-back-on-the-web-raspberry-pie</id>
-    <content type="html"><![CDATA[<p><em>Digests are summaries of articles posted by entrepreneurs, VCs, and
-other people who write about startups and technology in general, curated
-by yours truly. The goal is to make them shorter to read by extracting the most relevant
-information from our point of view and to encourage you to go read the
-complete post should you find the topic interesting.</em></p>
-
-<h3><a href="http://continuations.com/post/18605081084/bringing-time-back-to-the-web-or-the-struggle-for" title="Source">Bringing Time Back to the Web (Or: The Struggle for Depth)</a></h3>
-
-<p><em>by <a href="https://twitter.com/#!/albertwenger">Albert Wenger</a> - February 29, 2012</em></p>
-
-<ul>
-<li>There is so much new content on the Web every day that one can barely
-keep up with it</li>
-<li>It is becoming ever harder to delve into the past, a problem
-aggravated by Google&#8217;s recent tilt of their search algorithm towards
-recency</li>
-<li>We need to surface time explicitly. For example, imagine a version of
-Techmeme where you can see the historical precedents of any post, or a
-search engine that allows you to &#8220;scroll&#8221; into the past of any result</li>
-</ul>
-
-
-<h3><a href="http://www.huffingtonpost.com/2012/02/29/raspberry-pi_n_1310441.html" title="Source">Raspberry Pi Mini Computer Served Up For $35</a></h3>
-
-<p><em>by <a href="http://www.huffingtonpost.com/courteney-palis">Courteney Palis, Huffington Post</a> - February 29, 2012</em></p>
-
-<p><em>Palis describes the $35-a-piece Raspberry PI micro-computer and the
-implications for the teaching of computer science</em></p>
-
-<ul>
-<li><p><strong>The Raspberry Pi device</strong></p>
-
-<ul>
-<li>A complete computer for $35</li>
-<li>Credit-card sized</li>
-<li>&#8220;Last-decade&#8221; hardware (700 Mhz processor, 256 MB RAM) that&#8217;s still
-enough to run Linux, code, browse the internet and even play games such
-as Quake 3 !</li>
-</ul>
-</li>
-<li><p><strong>What this means</strong></p>
-
-<ul>
-<li>Programming can be learned by almost anyone</li>
-<li>People in poor areas, children in poor schools get access to technology</li>
-<li>Like the Kinect, the Raspberry Pi will enable hackers to build ever
-more impressive prototypes. The possibilities are endless</li>
-</ul>
-</li>
-</ul>
-
-
-<h3><a href="http://www.avc.com/a_vc/2012/03/raspberry-pi.html" title="Source">Fred Wilson on the Raspberry Pi</a></h3>
-
-<p><em>by <a href="https://twitter.com/#!/fredwilson">@fredwilson</a> - March 1, 2012</em></p>
-
-<p><em>Fred Wilson explains why he thinks the Raspberry Pi is a game changer</em></p>
-
-<ul>
-<li>Hardware that&#8217;s currently expensive (phones and especially tablets)
-is going to be cheaper and cheaper. We will see sub $100 tablets in 3 to
-5 years</li>
-<li>The Raspberry Pi&#8217;s goal is, according to the developper, to entice
-children to learn to code. But all markets that can be end-to-end
-digital, not just education, will be disrupted</li>
-</ul>
-
-
-<p><em>If you would like your article not to be summarized on this blog,
-please contact us and we&#8217;ll take it down
-asap</em></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[Digest] Lies from Losers, Web/Mobile Integration, Community Feedback]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/01/digest-lies-from-losers-web-mobile-integration-community-feedback/"/>
-    <updated>2012-03-01T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/01/digest-lies-from-losers-web-mobile-integration-community-feedback</id>
-    <content type="html"><![CDATA[<p><em>Digests are summaries of articles posted by entrepreneurs, VCs, and
-other people who write about startups and technology in general, curated
-by yours truly. The goal is to make them shorter to read by extracting the most relevant
-information from our point of view and to encourage you to go read the
-complete post should you find the topic interesting.</em></p>
-
-<h3><a href="http://bhorowitz.com/2012/02/29/lies-that-losers-tell/" title="Source">Lies that Losers Tell</a></h3>
-
-<p><em>by <a href="https://twitter.com/#!/bhorowitz">@bhorowitz</a> - Feb 29, 2012</em></p>
-
-<p><em>Ben Horowitz describes the false explanations CEOs and employees find a
-posteriori to justify their failure and why they do that. Stop burrying
-your head in the sand.</em></p>
-
-<ul>
-<li><strong>Familiar lies</strong>
-
-<ul>
-<li>“<em>She left, but we were going to fire her, or give her a bad performance review</em>” : Instead of justifying the departure of your employees giving false excuses, ask yourself why you couldn&#8217;t keep them.</li>
-<li>“<em>We would have won, but the other guys gave the deal away</em>” : Validate this claim with the actual customer instead of believing the Sales Rep who doesn&#8217;t want to take the blame.</li>
-<li>&#8220;<em>Just because we missed the intermediate milestones doesn’t mean we won’t hit our product schedule</em>&#8221; : When the facts don’t align with the good news, a clever manager will find the narrative to make everybody feel better&#8230; until the next meeting.</li>
-<li>“<em>We have a very high churn rate, but as soon as we turn on email marketing to our user base, people will come back</em>” : The reason that people leave our service and don’t come back is that we have not been sending them enough spam ?</li>
-</ul>
-</li>
-<li><strong>Why are the CEOs/employees lying ?</strong>
-
-<ul>
-<li>Andy Grove explains that humans, particularly those who build things, only listen to leading indicators of good news and tend to justify bad news with false excuses.</li>
-<li>Lying CEOs regularly take action on the positive indicator and look for alternative explanations on the negative indicator.</li>
-<li>CEOs are not lying to investors, they are lying to themselves.</li>
-</ul>
-</li>
-</ul>
-
-
-<h3><a href="http://www.bothsidesofthetable.com/2012/01/28/web-second-mobile-first/" title="Source">Web Second, Mobile First</a></h3>
-
-<p><em>by <a href="https://twitter.com/intent/user?screen_name=msuster">@msuster</a> - Jan 28, 2012</em></p>
-
-<p><em>Mark Suster reacts to Fred Wilson&#8217;s blog post <a href="http://www.avc.com/a_vc/2010/09/mobile-first-web-second.html" title="AVC blog post">Mobile First, Web Second</a> reminding startups not to forget the Web</em></p>
-
-<ul>
-<li><strong>For 1.5 year people forgot Web Second and just thought Mobile First</strong>
-
-<ul>
-<li>It&#8217;s important not give up on the power of the tethered web, of large screen real estate, of a keyboard.</li>
-<li>What&#8217;s even more important is to have a strategy that matches
-customers wants and not developers whims.</li>
-</ul>
-</li>
-<li><strong>Mobile has clearly critical attributes</strong>
-
-<ul>
-<li>They are personal, location aware, occupy a lot of people&#8217;s leisure
-time.</li>
-<li>They are one touch away from buying and represent the &#8221;<em>bottom
-end of the sales funnel</em>&#8221;</li>
-<li>The limited real estate forces less choice and offers more focus on
-the content.</li>
-</ul>
-</li>
-<li><strong>But products have to be integrated</strong>
-
-<ul>
-<li>Many things cannot be done on a mobile</li>
-<li>Mobile should serve a different experience, a different usecase of the service.</li>
-<li>The web product can offer complementary services that make the
-product even more attractive.</li>
-</ul>
-</li>
-<li><strong>Leverage the web to :</strong>
-
-<ul>
-<li>Create a differentiated product vs your mobile-only competitors.</li>
-<li>Enable content creation and curation to make mobile consumption a better experience.</li>
-<li>Organize and make the most of the content created by the mobile</li>
-<li>Build features that make using native-phones apps pointless.</li>
-</ul>
-</li>
-<li><strong>Tablets come third</strong>
-
-<ul>
-<li>Extension to mobile strategy (larger real estate make content
-  discovery different, increase the features possible&#8230;)</li>
-</ul>
-</li>
-</ul>
-
-
-<h3><a href="http://www.codinghorror.com/blog/2012/02/listen-to-your-community-but-dont-let-them-tell-you-what-to-do.html" title="Source">Listen to Your Community, But Don&#8217;t Let Them Tell You What to Do</a></h3>
-
-<p><em>by <a href="https://twitter.com/#!/codinghorror">@codinghorror</a> - Feb 3, 2012</em></p>
-
-<p><em>Jeff Atwoods talks about the need to organize your community feedback
-to take the most out of it</em></p>
-
-<ul>
-<li><strong>Having a meta place to discuss the product is important</strong>
-
-<ul>
-<li>Meta participation is the source of all meaningful leadership and governance in a community, so it is cultivated and monitored closely.</li>
-<li>Meta is for people who care so deeply about their community that they&#8217;re willing to go one step further, to come together and spend even more of their time deciding how to maintain and govern it.</li>
-</ul>
-</li>
-<li><strong>How to leverage this meta place ?</strong>
-
-<ul>
-<li>Animate the place : listen, respond</li>
-<li>Sort between feedback and feature requests</li>
-<li>Know how to extract core information and underlying needs from feature requests</li>
-<li>Know to sort between useless and awesome feedback, 10% of the feedback is useful and can be gems</li>
-<li>Don&#8217;t hesitate to be honest explaining the choices the company did
-about the features the product offers.</li>
-</ul>
-</li>
-</ul>
-
-
-<p><em>If you would like your article not to be summarized on this blog,
-please contact us and we&#8217;ll take it down
-asap</em></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[Digest] Assets of a Consumer-Web Startup, Internal People Metrics]]></title>
-    <link href="http://czzarr.github.com/blog/2012/02/29/assets-of-a-consumer-web-startup-internal-people-metrics/"/>
-    <updated>2012-02-29T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/02/29/assets-of-a-consumer-web-startup-internal-people-metrics</id>
-    <content type="html"><![CDATA[<p><em>Digests are summaries of articles posted by entrepreneurs, VCs, and
-other people who write about startups and technology in general, curated
-by yours truly. The goal is to make them shorter to read by extracting the most relevant
-information from our point of view and to encourage you to go read the
-complete post should you find the topic interesting.</em></p>
-
-<h3><a href="http://mporat.tumblr.com/post/16753414806/what-asset-are-you-building" title="Source">What assets are you building ?</a></h3>
-
-<p><em>by <a href="https://twitter.com/#!/mporat">@mporat</a> - Jan 30, 2012</em></p>
-
-<p>If you are building a consumer internet startup, you need to think about the assets that you are building and how these fit with your scaling and fundraising strategies.</p>
-
-<ul>
-<li><strong>Number of users</strong>
-
-<ul>
-<li>Most difficult to execute and scale because the lifetime value of a user is typically very low</li>
-<li>Needs low customer acquisition cost, high retention, high conversion, tremendous growth, a lot of financing runway until the sheer number of users can generate huge revenues via advertising or traffic generation</li>
-</ul>
-</li>
-<li><strong>High lifetime value</strong>
-
-<ul>
-<li>No need for a lot of users, because you make a lot of money of them.</li>
-<li>Rarely needs mass financing because they are cash cows</li>
-<li>Can invest heavily in marketing</li>
-</ul>
-</li>
-<li><strong>Massive data</strong>
-
-<ul>
-<li>Sometimes (twitter,instagram) the data inputted by the users is more important than the users</li>
-<li>Free services to the user in order to leverage the data at scale</li>
-<li>Usually requires a lot of financing until monetization is effective</li>
-</ul>
-</li>
-<li><strong>A great platform</strong>
-
-<ul>
-<li>Monetization comes from 3rd parties (think facebook/zynga)</li>
-<li>Main asset is user engagement with your platform</li>
-<li>Need to build the platform as well as the first services on top of it</li>
-<li>Needs a lot of financing</li>
-</ul>
-</li>
-</ul>
-
-
-<h3><a href="http://www.forbes.com/sites/bruceupbin/2011/12/13/five-new-management-metrics-you-need-to-know/2/" title="Source">Five New Management Metrics You Need To Know</a></h3>
-
-<p><em>by <a href="https://twitter.com/#!/jslavet">@jslavet</a> - Dec 13, 2011</em></p>
-
-<p>Here is a list of 5 very important metrics that never appear in annual
-reports. Most companies measure outputs but not inputs or throughput.</p>
-
-<ul>
-<li><strong>Flow State Percentage</strong>
-
-<ul>
-<li>Interruptions move us out of flow state which is the state that
-enables the most productivity.</li>
-<li>It takes seconds to get out of but can
-take very long to get back in.</li>
-<li>Measure how uninterrupted your
-programmers are.</li>
-</ul>
-</li>
-<li><strong>The Anxiety-Boredom Continuum</strong>
-
-<ul>
-<li>People want to be challenged, but not to the point that they break
-down.</li>
-<li>On the other hand, people will leave if they are bored.</li>
-<li>Check in often with your employees to make sure you are striking the
-right balance</li>
-</ul>
-</li>
-<li><strong>Meeting Promoter Score</strong>
-
-<ul>
-<li>Meetings are very expensive and rarely productive</li>
-<li>At the end of each meeting, ask each participant to rate it and
-suggest improvements</li>
-<li>Usually requires a lot of financing until monetization is effective</li>
-</ul>
-</li>
-<li><strong>Compound weekly learning rate</strong>
-
-<ul>
-<li>The ability to learn is like compounding interest on an investment</li>
-<li>Ask your team: how did you get 1% better this week?</li>
-<li>Did you learn something valuable from our customers?</li>
-<li>Did you make a change to the product that drove better results?</li>
-</ul>
-</li>
-<li><strong>Positive Feedback ratio</strong>
-
-<ul>
-<li>Catch people doing good things and tell them</li>
-<li>This way when you provide feedback on areas to improve, they will
-really listen</li>
-</ul>
-</li>
-</ul>
-
-
-<p><em>If you would like your article not to be summarized on this blog,
-please contact us and we&#8217;ll take it down
-asap</em></p>
 ]]></content>
   </entry>
   

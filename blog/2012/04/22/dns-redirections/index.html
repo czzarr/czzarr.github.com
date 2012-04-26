@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial: Domain Name System for Beginners - Need for Air</title>
+  <meta name="author" content="Need for Air">
+
+  
+  <meta name="description" content="If you build a website, you will want your own domain name, which means
+you will need to manage your Domain Name System (DNS). While there is nothing &hellip;">
+  
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://needforair.com/blog/2012/04/22/dns-redirections">
+  <link href="/favicon.ico" rel="icon">
+  <script type="text/javascript" src="http://use.typekit.com/zcp2xbp.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>  
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/NeedForAir" rel="alternate" title="Need for Air" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts 
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-29357304-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+<body   >
+
+	<div class="container">
+
+		<div class="four columns">
+  			<nav role="navigation"><ul class="title">
+</ul>
+<ul class="main-navigation">
+
+  <li class="other"><a href="/">Blog</a></li>
+  <li class="other"><a href="/about-us">About Us</a></li>
+  <li class="other"><a href="/blog/archives">Archives</a></li>
+</ul>
+
+<ul class="subscription" data-subscription="rss">
+  <li class="other"><a href="http://feeds.feedburner.com/NeedForAir" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+
+
+
+</nav>
+        <aside class="sidebar">
+          
+            <section>
+  <h1 class="tweets">Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/04/22/dns-redirections/">Tutorial: Domain Name System for Beginners</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/">Twitter Lets You Talk to World-Class Experts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/18/game-of-go/">The Game of Go: a Programmer's Perspective</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/15/startup-music-and-buzz/">Startup, Music and Buzz</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/11/community-organizing-platforms/">The Golden Age Of Community Organizing Platforms</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section id="twitter">
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/NeedForAir" class="twitter-follow-button" data-show-count="false">Follow @NeedForAir</a>
+  
+</section>
+
+<section>
+  <h1 class="tweets">Tag Cloud</h1>
+    <span id="tag-cloud"><a href='/blog/categories/algorithmy' style='font-size: 120.0%'>Algorithmy</a> <a href='/blog/categories/analytics' style='font-size: 110.0%'>Analytics</a> <a href='/blog/categories/buzz' style='font-size: 110.0%'>Buzz</a> <a href='/blog/categories/collaboration' style='font-size: 110.0%'>Collaboration</a> <a href='/blog/categories/communication' style='font-size: 120.0%'>Communication</a> <a href='/blog/categories/community' style='font-size: 120.0%'>Community</a> <a href='/blog/categories/content' style='font-size: 110.0%'>Content</a> <a href='/blog/categories/content-discovery' style='font-size: 110.0%'>Content discovery</a> <a href='/blog/categories/culture' style='font-size: 110.0%'>Culture</a> <a href='/blog/categories/curation' style='font-size: 150.0%'>Curation</a> <a href='/blog/categories/digest' style='font-size: 160.0%'>Digest</a> <a href='/blog/categories/education' style='font-size: 130.0%'>Education</a> <a href='/blog/categories/entrepreneurship' style='font-size: 110.0%'>Entrepreneurship</a> <a href='/blog/categories/feedback' style='font-size: 110.0%'>Feedback</a> <a href='/blog/categories/france' style='font-size: 110.0%'>France</a> <a href='/blog/categories/future' style='font-size: 110.0%'>Future</a> <a href='/blog/categories/go' style='font-size: 110.0%'>Go</a> <a href='/blog/categories/information' style='font-size: 110.0%'>Information</a> <a href='/blog/categories/interests' style='font-size: 110.0%'>Interests</a> <a href='/blog/categories/internet' style='font-size: 120.0%'>Internet</a> <a href='/blog/categories/management' style='font-size: 120.0%'>Management</a> <a href='/blog/categories/metrics' style='font-size: 110.0%'>Metrics</a> <a href='/blog/categories/mobile' style='font-size: 120.0%'>Mobile</a> <a href='/blog/categories/news' style='font-size: 110.0%'>News</a> <a href='/blog/categories/nlp' style='font-size: 110.0%'>Nlp</a> <a href='/blog/categories/platform' style='font-size: 120.0%'>Platform</a> <a href='/blog/categories/politics' style='font-size: 110.0%'>Politics</a> <a href='/blog/categories/productivity' style='font-size: 140.0%'>Productivity</a> <a href='/blog/categories/question' style='font-size: 110.0%'>Question</a> <a href='/blog/categories/rasperrypi' style='font-size: 110.0%'>Rasperrypi</a> <a href='/blog/categories/scripting' style='font-size: 110.0%'>Scripting</a> <a href='/blog/categories/search' style='font-size: 130.0%'>Search</a> <a href='/blog/categories/seo' style='font-size: 110.0%'>Seo</a> <a href='/blog/categories/siri' style='font-size: 110.0%'>Siri</a> <a href='/blog/categories/social-networks' style='font-size: 110.0%'>Social networks</a> <a href='/blog/categories/sopa' style='font-size: 110.0%'>Sopa</a> <a href='/blog/categories/startup' style='font-size: 110.0%'>Startup</a> <a href='/blog/categories/summary' style='font-size: 120.0%'>Summary</a> <a href='/blog/categories/tldr' style='font-size: 150.0%'>Tldr</a> <a href='/blog/categories/tutorial' style='font-size: 110.0%'>Tutorial</a> <a href='/blog/categories/twitter' style='font-size: 110.0%'>Twitter</a> <a href='/blog/categories/ux' style='font-size: 110.0%'>Ux</a> <a href='/blog/categories/workflow' style='font-size: 130.0%'>Workflow</a> </span>
+</section>
+
+          
+
+
+
+        </aside>    
+  	</div>
+    
+    
+
+  	<div id="main" class="twelve columns">
+	    <div id="content">
+	      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Tutorial: Domain Name System for Beginners</h1>
+    
+    
+      <p class="meta">
+    
+        <time datetime="2012-04-22 08:30:00 +0200" pubdate><span class='month'>Apr</span> <span class='day'>22</span> <span class='year'>2012</span></time>
+        | 
+  
+
+<span class="byline author vcard"><span class="fn">Louis Chatriot</span></span>
+
+    
+      </p>
+    
+  </header>
+
+
+
+
+<div class="entry-content"><p>If you build a website, you will want your own domain name, which means
+you will need to manage your Domain Name System (DNS). While there is nothing very
+complicated here, the info is scattered across the Internet, so I decided
+to write a &#8220;cheat sheet&#8221;-like tutorial which will hopefully save you some time!</p>
+
+<p><a href="http://www.flickr.com/photos/49502986585@N01/277341190/"><img src="http://farm1.staticflickr.com/122/277341190_3f098a08a4_n.jpg" alt="Code" /></a>
+<em>by <a href="http://www.flickr.com/photos/ezu/" title="Author">Ezu</a></em></p>
+
+<h2>What is the DNS?</h2>
+
+<p>The DNS is a system that helps your computer translate human-readable <strong>domain names</strong>
+into computer-usable <strong>IP addresses</strong> (4 numbers between 0 and 255
+identifying a server).</p>
+
+<p>A domain name must have two parts, separated by a dot: the <strong>actual domain</strong> (e.g. <em>google</em>) and the
+<strong>top-level domain</strong> (e.g. <em>com</em>). In this example, the domain name is
+<em>google.com</em>. Optionally, you can also use different <strong>subdomains</strong>, so
+that users typing <em>subdomain1.domain.tld</em> and <em>subdomain2.domain.tld</em>
+arrive on two different pages. The well-known <em>www</em> is a subdomain of
+<em>google.com</em> in the address <em>www.google.com</em>.</p>
+
+<p>To use your own custom domain name, you need
+to buy one from a <strong>registrar</strong> (such as <a href="https://www.gandi.net/">Gandi</a>).</p>
+
+<h2>How to manage it: the zone file</h2>
+
+<p>Most registrars will let you use Web forwardings, which are simple
+redirections (what happens when the webpage you are looking at automatically changes to another page). However, you should
+avoid those for the following reasons:</p>
+
+<ul>
+<li>Simple redirections will replace your domain name by your IP address,
+which is the best way to scare off users</li>
+<li>Masked redirections will not scare off users, but they will give you a
+very poor search-engine rating</li>
+</ul>
+
+
+<p>You will need to use the <strong>zone file</strong>. It is a simple text file
+describing the structure of your DNS zone (usually your domain) to the global DNS
+(i.e. the world). Let&#8217;s take a look at a sample zone file (the zone file on
+Gandi for our blog <a href="http://needforair.com">needforair.com</a>.</p>
+
+<p>These are the DNS rules for our domain <code>needforair.com</code>:</p>
+
+<pre><code>@ 3600 IN A 184.106.20.102
+www 3600 IN CNAME needforair.com.
+wik 3600 IN CNAME fr.wikipedia.org.
+</code></pre>
+
+<p>You usually also find lines similar to the following in a zone file.
+They manage the email server your registrar provides you, and shouldn&#8217;t
+touch them:</p>
+
+<pre><code>@ 3600 IN MX 10 spool.mail.gandi.net.
+@ 3600 IN MX 50 fb.mail.gandi.net.
+smtp 3600 IN CNAME relay.mail.gandi.net.
+webmail 3600 IN CNAME agent.mail.gandi.net.
+pop 3600 IN CNAME access.mail.gandi.net.
+imap 3600 IN CNAME access.mail.gandi.net.
+</code></pre>
+
+<p>The most important points here are:</p>
+
+<ul>
+<li>Each line corresponds to one rule (a record)</li>
+<li>The <code>@</code> character represents your bare domain (needforair.com in our example) as opposed
+to subdomains such as <code>test.needforair.com</code> or <code>www.needforair.com</code></li>
+<li>An <code>A</code> record points to an IP address, usually your server. In our example, <code>@ 3600 IN A 184.106.20.102</code>
+indicates that a user typing &#8216;needforair.com&#8217; in his address bar will request content from the IP address 184.106.20.102.
+The <code>3600</code> number is the <a href="http://en.wikipedia.org/wiki/Time_to_live#DNS_records">Time To Live (TTL)</a> of the record,
+the time (in seconds) during which a nameserver will cache the record and not ask the authoritative server (Gandi here)
+if queried again</li>
+<li>A <code>CNAME</code> record points to any domain or subdomain, either in your zone or outside.
+In our example, <code>www 3600 IN CNAME needforair.com.</code> means that a user typing <code>www.needforair.com</code> will request content
+from the same IP address as needforair.com (that&#8217;s not the case by default). You can of course use a CNAME to any other
+domain, in our example <code>wik 3600 IN CNAME fr.wikipedia.org.</code> which will make users typing &#8220;wik.needforair.com&#8221; in their
+address bar go to the French version of Wikipedia instead (don&#8217;t try it
+we removed it!)</li>
+<li><strong>Don&#8217;t forget the period (&#8216;.&#8217;) at the end of your CNAMEs !!!</strong> For example, use &#8220;needforair.com.&#8221;, and NOT &#8220;needforair.com&#8221;.
+If you forget the period, the record simply won&#8217;t work, and you will
+spend an awful lot of time to figure out why</li>
+</ul>
+
+
+<p>There are lots of other types of rules, but this should be enough to set up your DNS.</p>
+
+<p>Last note: keep in mind that <strong>changes to the zone file take some time</strong>,
+usually a few hours, to propagate through the Internet. So don&#8217;t make a
+mistake or they will take some time to spot and correct!</p>
+
+<h2>Discover more</h2>
+
+<ul>
+<li><a href="http://continuations.com/post/16405180072/tech-tuesday-dns">A great primer on DNS for the non-technical</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Zone_file">Wikipedia&#8217;s article on the Zone file</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Domain_Name_System">Wikipedia&#8217;s article on the DNS</a>.</li>
+</ul>
+
+</div>
+
+
+  
+    <div class="sharing">
+  
+    
+      <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://needforair.com/blog/2012/04/22/dns-redirections/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/04/22/dns-redirections/" >Tweet</a>
+    
+  
+  
+</div>
+
+  
+
+
+  <footer>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/" title="Previous Post: Twitter Lets You Talk to World-Class Experts">&laquo; Previous post</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1 class="comments">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+	    </div>
+  	</div>
+  
+  <footer role="contentinfo"  class="sixteen columns"><center>
+<p class="credit">
+  <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />
+   <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Need for Air</span> by.
+   <a xmlns:cc="http://creativecommons.org/ns#" href="http://needforair.com" property="cc:attributionName" rel="cc:attributionURL">Need for Air</a> is licensed under a
+   <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.<br>
+   <span class="credit">Contributors include <a href="http://twitter.com/#!/stanmarion">Stanislas Marion</a>, <a href="http://twitter.com/#!/charlesmigli">Charles Miglietti</a> and <a href="http://twitter.com/#!/louisChatriot">Louis Chatriot</a></span><br>
+   <span class="credit">Powered by <a href="http://github.com">GitHub</a>, <a href="https://github.com/imathis/octopress">Octopress</a>, &amp; <a href="https://github.com/dhgamache/Skeleton">Skeleton</a></span>.<br>
+   <span class="credit">Thanks to <a href="http://ryandeussing.com">Ryan Deussing</a> for the theme.</span>
+</p>
+</center>
+
+</footer>
+  
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'needforair';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://needforair.com/blog/2012/04/22/dns-redirections/';
+        var disqus_url = 'http://needforair.com/blog/2012/04/22/dns-redirections/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+
+<script>
+  jQuery.noConflict()('li.other').hover (
+    function () {
+    jQuery.noConflict()(this).toggleClass("current-menu-item")
+  });
+</script>
+
+</body>
+</html>
+
+
+	</div> <!-- container -->

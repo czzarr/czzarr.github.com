@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: France | Need for Air]]></title>
-  <link href="http://czzarr.github.com/blog/categories/france/atom.xml" rel="self"/>
-  <link href="http://czzarr.github.com/"/>
-  <updated>2012-03-28T20:54:01+02:00</updated>
-  <id>http://czzarr.github.com/</id>
+  <link href="http://needforair.com/blog/categories/france/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-04-25T15:33:55+02:00</updated>
+  <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Why so Many French are Not Entrepreneurs]]></title>
-    <link href="http://czzarr.github.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs/"/>
+    <link href="http://needforair.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs/"/>
     <updated>2012-03-16T12:00:00+01:00</updated>
-    <id>http://czzarr.github.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs</id>
+    <id>http://needforair.com/blog/2012/03/16/why-so-many-french-are-not-entrepreneurs</id>
     <content type="html"><![CDATA[<p><em>France's higher education trains world-class engineers, but is home to very few successful start-ups. Having studied engineering in France and then at Stanford University, I will try to explain this apparent paradox.</em></p>
 
 <p><a href="http://www.flickr.com/photos/billselak/2417001179/"><img src="http://farm3.staticflickr.com/2168/2417001179_d5ce2d9362_m.jpg" alt="Test taking" /></a>

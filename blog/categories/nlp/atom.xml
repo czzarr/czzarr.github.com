@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: NLP | Need for Air]]></title>
+  <link href="http://needforair.com/blog/categories/nlp/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-04-25T15:33:55+02:00</updated>
+  <id>http://needforair.com/</id>
+  <author>
+    <name><![CDATA[Need for Air]]></name>
+    
+  </author>
+  <generator uri="http://ryandeussing.com/">Ryan Deussing</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[The Role of Computers in Text Summarization]]></title>
+    <link href="http://needforair.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/"/>
+    <updated>2012-04-06T08:30:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text</id>
+    <content type="html"><![CDATA[<p>As Stanislas explained in <a href="http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/" title="Information Overload">this previous post</a>, we believe we are dealing with too much information to keep up on the Internet. The natural solution is text summarization, and computers can help us there.</p>
+
+<p><a href="http://www.flickr.com/photos/xeeliz/3558255554/sizes/l/in/photostream/"><img src="http://farm4.staticflickr.com/3376/3558255554_9f9c480132_n.jpg" alt="Summary" /></a>
+<em>by <a href="http://www.flickr.com/photos/xeeliz/" title="Author">Xeeiliz</a></em></p>
+
+<p>There are roughly two kinds of summaries: the ones that consist of a few of
+the most important sentences extracted from the text, the keyphrases, and the ones that
+are written from scratch without necessarily using the same phrasing, called abstract summaries.</p>
+
+<h2>Finding the most relevant content: keyphrase extraction</h2>
+
+<p>The big advantage of keyphrase-based summaries is that there is no risk
+of miscomprehension since they are composed of unrephrased pieces of the
+text. Moreover, computers are able to compute them and get decent
+results. There are two main ways to do it: supervised and unsupervised
+extraction.</p>
+
+<h3>When you know the context: extraction as supervised learning</h3>
+
+<p>One way to perform this task is described by Peter Turney in <a href="http://webdocs.cs.ualberta.ca/~lindek/650/papers/turney.pdf">this paper</a>. He found that using a custom-designed algorithm that incorporates specialized domain knowledge on a text generates yields very good results: 80% of keyphrases are deemed acceptable by human readers. The problem with this approach is that it requires the computer to know the topic beforehand. It is possible to use a prior first step to determine what it is, but this is difficult and the results are terrible if we get it wrong.</p>
+
+<h3>Applicable to any text: unsupervised keyphrase extraction</h3>
+
+<p>This approaches enables us to extract keyphrases from a text without any
+prior knowledge, which is a tremendous improvement upon the previous method. There a several algorithms, and one notable current example is <a href="http://www.summly.com/">Summly</a>. I will explain one of those, named TextRank, to give you a feeling of the kind of techniques used in this field.</p>
+
+<p>The TextRank algorithm was developped by Rada Mihalcea and Paul Tarau in
+<a href="http://acl.ldc.upenn.edu/acl2004/emnlp/pdf/Mihalcea.pdf">this paper</a>. The key idea is that a text
+unit (word or phrase depending on the need) that is close to a lot of other important text units is likely a keyphrase. Using the parallel between the "close to" relation and the "referred to by" relation of hyperlinks, TextRank uses Google's <a href="http://en.wikipedia.org/wiki/PageRank">PageRank</a> to determine which text units are the most important. It works well, its main author was even awarded a $100k grant by Google for her work on keyphrase extraction.</p>
+
+<h2>The best: abstract summarization</h2>
+
+<p>Even though they can be very useful, keyphrase-based summaries are still
+rudimentary compared to abstract summaries, because they are much nicer
+to read, and we are sure no important information was "left behind" (i.e a keyphrase was not extracted). Also, keyphrase extraction algorithms still find it hard to
+summarize technical articles.</p>
+
+<p>Abstract summarization is the limit of what computers can do today. The
+main reason for this is that they struggle with the following tasks:</p>
+
+<ul>
+<li><strong>Coreferences understanding</strong>. For example, who does 'he'
+references in the sentence 'Paul told John he should play squash'?</li>
+<li><strong>Word sense disambiguation</strong>. In 'I need batteries for
+my mouse', are we talking about the animal or the device?</li>
+<li><strong>Sentiment analysis</strong>. Understanding the mood of the writer is often
+key to understanding a text, all the more when there is sarcasm.</li>
+</ul>
+
+
+<h2>Computers can help humans summarize a text</h2>
+
+<p>To sum it up, I believe that humans still cannot be replaced by
+algorithms if we want to produce quality summaries. Nonetheless, a
+computer really can help a us by providing a keyphrase-based summary,
+so that we spend less time scanning the text for them. In addition, if
+we were able to train algorithms by comparing their output with a human
+summary a lot of times for articles on a certain topic, I think it is possible we see significant improvements.</p>
+
+<p><em>Note: some examples were taken from <a href="https://class.coursera.org/nlp/">Stanford's Natural Language
+Processing online class</a>. If you couldn't take
+it this quarter, look for it, it is a terrific place to learn about this
+topic</em></p>
+]]></content>
+  </entry>
+  
+</feed>
