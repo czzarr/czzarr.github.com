@@ -3,6 +3,7 @@ layout: post
 title: "Capitalize on What You Read"
 date: 2012-04-27 14:27
 comments: true
+author: Stanislas Marion
 categories: [brain, summary, memory, capitalize] 
 ---
 
