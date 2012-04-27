@@ -18,6 +18,9 @@ think a more interesting question: how do you build upon what you read?
 How do you effectively turn information into knowledge? The secret lies in
 having an active attitude towards remembering things, and not just passively consume content.
 
+[![Siri helps Doggy](http://farm4.staticflickr.com/3061/2641415853_325ea48e8e_n.jpg)](http://www.flickr.com/photos/42625902@N00/2641415853/)
+*[CC license](http://creativecommons.org/licenses/by/2.0 "license") - by [Shishberg](http://www.flickr.com/photos/42625902@N00/ "Author")*
+
 ## Write it Down
 
 Writing things down has a number of wonderful consequences. 
