@@ -19,13 +19,11 @@
         </aside>    
   	</div>
     
-    {% unless page.url contains '/blog/' %}
 
     <header class="twelve columns" role="banner">
     {% include header.html %}
     </header>
 
-    {% endunless %}
 
   	<div id="main" class="twelve columns">
 	    <div id="content">
@@ -36,6 +34,14 @@
   <footer role="contentinfo"  class="sixteen columns">{% include footer.html %}</footer>
   
   {% include after_footer.html %}
+
+  <script >
+    $("header")
+    .css('cursor', 'pointer')
+    .click( function () {
+      window.location = "/";
+    });
+  </script>
 
 <script>
   jQuery.noConflict()('li.other').hover (
