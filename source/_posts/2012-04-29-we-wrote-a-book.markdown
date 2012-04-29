@@ -116,4 +116,5 @@ is now paying off big time. At first this was just an internal effort, but judgi
 we understood that many people could benefit from our research, and
 so we decided to write this book.
 
-
+## [Get it Now](http://leanpub.com/startupflow)
+Also available on the [Amazon Kindle Store](http://www.amazon.com/dp/B007XR9FX6)
