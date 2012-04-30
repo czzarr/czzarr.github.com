@@ -48,10 +48,19 @@ I graduated from Ecole Centrale Paris and have an MS in Management Science and E
 ## [Charles Miglietti](https://twitter.com/#!/charlesmigli) <a href="https://twitter.com/charlesmigli" class="twitter-follow-button" data-show-count="false">Follow @charlesmigli</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-I do what I love and I'm always on the lookout for a good challenge. Being passionate about computer science and math,
-as well as innovation,I became more and more interested in entrepreneurship.
 
-After graduating from Ecole Polytechnique, I spent a year as an embedded systems engineer at [Withings](http://withings.com), 
-one of the most promising French startups at the moment. Inspired by this experience, I decided to quit to start my own company.
+
+I have recently graduated in CS. I chose CS and Maths because that's
+here where the added value is in college for me. It gives you the power
+to create and innovate. I love being self driven by my motivation and my
+ideas. I am a passionate reader who loves to think up, build new things.  
+
+My credo is to capitalize as much as possible on my everyday work and I
+am sure I'm not the only one. I'm a huge fan of collaborative
+initiatives and I truly think they are still rare and not mainstream. In
+my attempt to build synergies I think there are still individual efforts
+that are repeated by hundreds, thousands of people and that can be handled
+collaboratively. I am really convinced that we can build new efficient solutions that
+take advantage of the Internet as a network layer to organize the power of the crowd.
 
 
