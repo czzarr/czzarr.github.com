@@ -15,7 +15,7 @@ Worldwide Catch Tournament. 6 participants from the 6 continents
 on earth confront one another for the title of Master Catcher on Earth.
 The tournament proceeds in 6 rounds. At each round each participant
 meets the 7 others challengers. Leaderboard's computation is easy: 1 point
-for one victory. As you may know there is no draw in Catch.  
+for 1 victory. As you may know there is no draw in Catch.  
 
 3 months before the end of the Tournament here's the leaderboard and the
 remaining matches.
