@@ -1,19 +1,18 @@
 ---
 layout: post
-title: "who-are-still-in-the-race"
+title: "Who Are Still in the Race"
 date: 2012-04-27 15:12
 comments: true
 categories: 
 ---
 
-*This is the first post of a serie of brainteasers. Principle is simple: 
-A little of wording and a question. Answer goes in the comments.
-Quickiest good one win the prize. The difficulty will adapt according to the answers. Have
+*This is an advanced brainteaser which requires some algorithmic knowledge. Principle is simple: 
+A little of wording and a question. Answer goes in the comments. Have
 fun.*
 
 
-2140' Worldwide Catch Tournament. 6 participants from the 6 continents
-on earth (WTF!) confront one another for the title of Master Catcher on Earth.
+Worldwide Catch Tournament. 6 participants from the 6 continents
+on earth confront one another for the title of Master Catcher on Earth.
 The tournament proceeds in 6 rounds. At each round each participant
 meets the 7 others challengers. Leaderboard's computation is easy: 1 point
 for one victory. As you may know there is no draw in Catch.  
@@ -22,17 +21,23 @@ for one victory. As you may know there is no draw in Catch.
 remaining matches.
 
 
-| Participants | Score | | Louis | Stan | Charles | Bea| Bruno | Kilian|
-|---------|-----|-----|-----|----|----|----|----|----|
-| Louis the Butcher| 15|    |    | 3  | 2  | 4  | 2  | 4 |
-| Stan the Killer| 14 |     |3   |    | 2  | 4  | 2  | 4 |
-| Charles the CapsLocker |  |3   | 3  |    | 4  | 2  | 4 | 
-| Bea the Tonifier | 12|    |3   | 3  | 2  |    | 2  | 4 |
-| Bruno the Captain| 11 |   |3   | 3  | 2  | 4  |    | 4 |
-| Kilian the Petit-Pois|8|  |3   | 3  | 2  | 4  | 2  |   |
+| Participants | Score | - | Louis | Stan | Charles | Olivier| Bruno | Kilian|
+|:-------------|------|-----|-----|-------|-------|-------|-------|-------|
+| Louis the Butcher       | 11 |   |    | 3  | 3  | 2  | 2  | 3 
+| Stan the Dawg           | 10 |   |3   |    | 4  | 3  | 3  | 2 
+| Charles the CapsLocker  | 6  |   |3   | 4  |    | 4  | 3  | 2  
+| Olivier the Magicien    | 7  |   |2   | 3  | 4  |    | 3  | 3 
+| Bruno the Captain       | 8  |   |2   | 3  | 3  | 3  |    | 3 
+| Kilian the Petit-Pois   |5   |   |3   | 2  | 2  | 3  | 3  |    
 
-Who can still pretend to be Master Catche on Earth ?
+ -   
+  
+Who can still pretend to be Master Catcher on Earth ?
 
+As you can easily find a solution by hand it'll be nice if you could
+propose a scalable algorithmic solution to this problem (what if you had +100
+participants?).
 
+Hint: <span class="hint" style="color:white;"> Use a flow network </span>
 
 
