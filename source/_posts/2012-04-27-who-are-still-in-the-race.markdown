@@ -26,7 +26,7 @@ remaining matches.
 | Louis the Butcher       | 11 |   |    | 3  | 3  | 2  | 2  | 3 
 | Stan the Dawg           | 10 |   |3   |    | 4  | 3  | 3  | 2 
 | Charles the CapsLocker  | 6  |   |3   | 4  |    | 4  | 3  | 2  
-| Olivier the Magicien    | 7  |   |2   | 3  | 4  |    | 3  | 3 
+| Olivier the Magician    | 7  |   |2   | 3  | 4  |    | 3  | 3 
 | Bruno the Captain       | 8  |   |2   | 3  | 3  | 3  |    | 3 
 | Kilian the Petit-Pois   |5   |   |3   | 2  | 2  | 3  | 3  |    
 
