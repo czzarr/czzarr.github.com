@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Who Are Still in the Race"
+title: "Who's Still in the Race?"
 date: 2012-04-27 15:12
 comments: true
 categories: 
@@ -11,14 +11,13 @@ A little of wording and a question. Answer goes in the comments. Have
 fun.*
 
 
-Worldwide Catch Tournament. 6 participants from the 6 continents
+Worldwide Catch Tournament. 1 contestant from each continent
 on earth confront one another for the title of Master Catcher on Earth.
 The tournament proceeds in 6 rounds. At each round each participant
-meets the 7 others challengers. Leaderboard's computation is easy: 1 point
-for 1 victory. As you may know there is no draw in Catch.  
+meets the 7 others challengers. Scoring is easy: 1 point/victory. As you may know there is no draw in Catch.  
 
-3 months before the end of the Tournament here's the leaderboard and the
-remaining matches.
+3 months before the end of the Tournament here's the scoreboard and the
+number of remaining matches between the contestants.
 
 
 | Participants | Score | - | Louis | Stan | Charles | Olivier| Bruno | Kilian|
