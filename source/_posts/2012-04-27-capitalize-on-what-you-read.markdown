@@ -68,7 +68,8 @@ effort and I can see now that practice makes perfect.
 
 Where does that all fit with memorizing and building knowledge? The goal is to 
 apply the methods of musicians to the practice of building knowledge. In that
-case, practicing means a few things:
+case, practicing means a few things:  
+
 * Write an interesting bit of knowledge down in different ways, targetting varied audiences (yourself, your family,
   friends, colleagues, etc.)
 * Talk about it to people who have a varying level of understanding of
