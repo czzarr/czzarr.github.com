@@ -29,7 +29,7 @@ number of remaining matches between the contestants.
 | Bruno the Captain       | 8  |   |2   | 3  | 3  | 3  |    | 3 
 | Kilian the Petit-Pois   |5   |   |3   | 2  | 2  | 3  | 3  |    
 
- -   
+   
   
 Who can still pretend to be Master Catcher on Earth ?
 
