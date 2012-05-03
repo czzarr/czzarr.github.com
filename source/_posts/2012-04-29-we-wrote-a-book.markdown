@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "We Wrote a Book!"
-date: 2012-04-29 17:17
+date: 2012-05-03 12:17
 comments: true
 categories: [book, startup flow]
 ---
@@ -116,5 +116,5 @@ is now paying off big time. At first this was just an internal effort, but judgi
 we understood that many people could benefit from our research, and
 so we decided to write this book.
 
-## [Get it Now](http://leanpub.com/startupflow)
-Also available on the [Amazon Kindle Store](http://www.amazon.com/dp/B007XR9FX6)
+<a href="http://leanpub.com/startupflow" style="padding:25px;background:#008CD4;display:block;width:150px;font-size:32px;font-family:CassanetBold, Helvetica Neue, Helvetica,border-radius:5px;color:white;border-radius:5px;">Get it Now</a>
+  Also available on the [Amazon Kindle Store](http://www.amazon.com/dp/B007XR9FX6)
