@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: book | Need for Air]]></title>
+  <link href="http://needforair.com/blog/categories/book/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-05-03T12:35:26+02:00</updated>
+  <id>http://needforair.com/</id>
+  <author>
+    <name><![CDATA[Need for Air]]></name>
+    
+  </author>
+  <generator uri="http://ryandeussing.com/">Ryan Deussing</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[We Wrote a Book!]]></title>
+    <link href="http://needforair.com/blog/2012/05/03/we-wrote-a-book/"/>
+    <updated>2012-05-03T12:17:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/05/03/we-wrote-a-book</id>
+    <content type="html"><![CDATA[<p>After two months of effort, our book is finally out. The collaborative
+writing process is extremely interesting in itself and will be the topic
+of subsequent blog posts. For now, we're happy to introduce <a href="http://leanpub.com/startupflow">Startup
+Flow</a>, a guide to getting set up as a
+small team starting to work on a new venture. It adresses questions
+about <strong>how to communicate</strong> - especially when <strong>working remotely</strong>, <strong>how to
+share knowledge</strong> and <strong>how to collaborate on a code base</strong>.</p>
+
+<p>Here are some answers to some
+questions you might have:</p>
+
+<h2>Who Is this Book For?</h2>
+
+<p>If you are a <strong>small team beginning a technical entrepreneurial project</strong>
+and you are struggling to organize your workflow, especially if some of you are
+working remotely, this book is for you. It was written with both business people and developers
+in mind as they'll need to use common tools, however there are some more <em>technical</em> chapters
+which are marked as such so that business people can skip them.</p>
+
+<h2>Why You Need this Book</h2>
+
+<p>You need it because <strong>it will save you a ton of time and
+make your workdays much more pleasant</strong>.
+Indeed, when you start working on a startup you quickly realize that you are
+going to need some tools to organize your workflow. Especially if you
+have cofounders, you will find yourself meeting too often, repeating yourself,
+having a hard time following what everyone is doing, and this will be
+very frustrating for all of you.</p>
+
+<p>In order to fix these problems, <strong>you'll need to choose your tools and design an efficient workflow</strong> through trial and error. <strong>That
+takes a lot of time</strong>, given how many tools there are and how hard it is to
+discriminate between them without actually trying them. <strong>We already went through that process,
+and we compiled our findings</strong> in this book so that you can skip that part and start getting things done with
+ great tools that will boost your productivity. Moreover, reading this book will help understand your core needs, even those you aren't aware of yet.</p>
+
+<h2>What Is in this Book?</h2>
+
+<p>This book is a collection of the <strong>opinionated choices</strong> we made.
+We focused on what we think are the most important components of a
+startup workflow:</p>
+
+<ul>
+<li>Communication</li>
+<li>Knowledge sharing and reuse</li>
+<li>Codebase management</li>
+</ul>
+
+
+<p>With these 3 themes in mind, we offer a selection of tools, one tool
+for one problem. The tools that we promote are the ones that we use
+extensively everyday and that we chose after weeks of iteration.
+Furthermore, they work very well together. We will describe these
+<strong>synergies</strong> at the end of the book, so that you can take full advantage
+of this work environment.</p>
+
+<h3>Communication</h3>
+
+<p>Communication between teammates is a hard problem. It is necessary yet
+so complicated to get right. A large portion of communication should be
+asynchronous, enabling you to avoid useless interruptions that hurt your
+and your teammates'
+productivity. You also need to use different channels dedicated to different
+use cases.</p>
+
+<h3>Knowledge Sharing and Reuse</h3>
+
+<p>All the knowledge that one finds interesting and usable should be
+findable by the other teammates, without him having to send a link by
+email or Skype every time. If knowledge is not shared or not reusable,
+it's worthless and you will lose a lot of time. This is especially true for
+Eric Ries' <a href="http://www.startuplessonslearned.com/2009/04/validated-learning-about-customers.html">validated learning</a>,
+on which the whole team should be constantly focused.</p>
+
+<h3>Codebase Management</h3>
+
+<p>In a technical startup, coding is a vital activity. The developers need to
+be able to code effectively on their own, but also to collaborate
+seamlessly.
+They need to be able to review one another's code to ensure overall quality.
+Teams that don't do that will hit a wall.</p>
+
+<p>If you do all these 3 things right, your team will be so efficient it will be
+able to build the next Instagram in a week. No kidding!</p>
+
+<h2>What this Book is Not</h2>
+
+<p>This book is <strong>not</strong> a collection of tutorials. We will not guide you through the
+process of installing and using everything in details. Instead we point you to quality
+external resources.</p>
+
+<p>It also doesn't pretend to be the <em>be-all, end-all</em> guide on team
+workflow for every case imaginable. However we feel it is the absolute
+best for small teams working on a tech project, especially if the team
+doesn't have an office yet.</p>
+
+<p>And, finally, it is not a startup guide. We won't give you any advice as
+to how to get your business off the ground, we're not qualified for
+that! If that's what you're looking for, we recommend Eric Ries' <a href="http://www.amazon.com/The-Lean-Startup-Entrepreneurs-Continuous/dp/0307887898/ref=sr_1_1?ie=UTF8&amp;qid=1334839735&amp;sr=8-1"><em>The Lean Startup</em></a>, a must-read in our opinion.</p>
+
+<h2>Why We Wrote this Book</h2>
+
+<p>As we started working on ideas and on our startup, we faced the problem we
+cited earlier. Our lack of organization was holding us back. So we spent
+two weeks researching and trying different tools. After a
+few iterations we finally reached a very efficient workflow and this investment
+is now paying off big time. At first this was just an internal effort, but judging from the
+<a href="http://www.quora.com/Project-Management/Which-is-the-best-project-mangement-time-mangement-tool-and-why">questions</a>
+<a href="http://www.quora.com/What-is-the-best-way-for-a-startup-distributed-team-to-handle-document-management">you</a>
+<a href="http://www.quora.com/Which-Project-Management-tools-are-most-useful-for-a-small-startup">can</a>
+<a href="http://www.quora.com/What-are-the-best-productivity-tools-for-entrepreneurs">find</a> on <a href="http://quora.com">Quora</a>,
+we understood that many people could benefit from our research, and
+so we decided to write this book.</p>
+
+<p><a href="http://leanpub.com/startupflow" style="padding:25px;background:#008CD4;display:block;width:150px;font-size:32px;font-family:CassanetBold, Helvetica Neue, Helvetica,border-radius:5px;color:white;border-radius:5px;">Get it Now</a>
+  Also available on the <a href="http://www.amazon.com/dp/B007XR9FX6">Amazon Kindle Store</a></p>
+]]></content>
+  </entry>
+  
+</feed>
