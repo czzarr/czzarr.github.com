@@ -7,10 +7,6 @@ sharing: true
 footer: true
 ---
 
-## We Wrote a Book!
-While we began working on our startup, we spent quite some time researching the most 
-efficient workflow and tools. As we wanted to write our findings down, we decided it 
-was best to use the ebook format so that anyone can read them.  
 
 
 [![Startup Flow](http://titlepages.leanpub.com/startupflow/bookpage?1335536785)](http://leanpub.com/startupflow)
@@ -22,7 +18,11 @@ So you've got that big idea, and hopefully even one or more cofounders and you'r
 ## I Want to Buy it! Where Can I Find It?
 
 * We recommend you but it from [Leanpub](http://leanpub.com/startupflow) where
-it is available as a PDF, MOBI and ePUB. Plus, you will receive any new edition 
-of this book for free!
+it is available as a PDF, MOBI and ePUB. Plus, you will receive any updates for free!
 * You can also find it on the [Amazon Kindle Store](http://www.amazon.com/dp/B007XR9FX6)
-* It will very soon be on the iBookstore
+* It will be available very soon on the iBookstore
+
+## Why We Wrote It
+While we began working on our startup, we spent quite some time researching the most 
+efficient workflow and tools. As we wanted to write our findings down, we decided it 
+was best to use the ebook format so that anyone could read them.  
