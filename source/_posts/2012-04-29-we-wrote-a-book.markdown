@@ -14,6 +14,8 @@ small team starting to work on a new venture. It adresses questions
 about **how to communicate** - especially when **working remotely**, **how to
 share knowledge** and **how to collaborate on a code base**.
 
+[![Startup Flow](http://titlepages.leanpub.com/startupflow/bookpage?1335536785)](http://leanpub.com/startupflow)
+
 Here are some answers to some
 questions you might have:
 
