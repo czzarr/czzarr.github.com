@@ -10,7 +10,7 @@ After two months of effort, our book is finally out. The collaborative
 writing process is extremely interesting in itself and will be the topic
 of subsequent blog posts. For now, we're happy to introduce [Startup
 Flow](http://leanpub.com/startupflow), a guide to getting set up as a
-small team starting to work on a new venture. It adresses questions
+small team starting to work on a new venture. It addresses questions
 about **how to communicate** - especially when **working remotely**, **how to
 share knowledge** and **how to collaborate on a code base**.
 
