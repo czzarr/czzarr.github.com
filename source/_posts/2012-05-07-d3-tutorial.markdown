@@ -9,3 +9,25 @@ categories: [d3, animated graphs, tutorial]
 
  bla bla bla
 
+    <script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
+    <script type="text/javascript">
+      // Suppose there is currently one div with id "graphContainer" in the DOM
+      // We append a 900x600 empty SVG container in the div
+    var chart = d3.select("#d3TutoGraphContainer").append("svg").attr("width", "600").attr("height", "600");
+
+    // There is no rectangle on which we can bind data in the SVG container
+    // All the data will thus be bound in the enter
+    var rects = chart.selectAll('rect').data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
+    .enter().append('rect')                           // Add a rectangle for each data in the enter
+    .attr("stroke", "none").attr("fill", "steelblue") // All rectangles are blue with no borders
+    .attr("x", 0)
+    .attr("y", function(d, i) {return 25 * i; } )
+    .attr("width", function(d) {return 20 * d; } )
+    .attr("height", "20");
+
+    rects.on('click', function() {
+        // Wait 1s, then increase rectangles size with a 2s transition
+        rects.transition().duration(2000).delay(200)
+        .attr("width", function(d) {return 500 * Math.random(); } ) });
+
+    </script>
