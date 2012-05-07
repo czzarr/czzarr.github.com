@@ -69,7 +69,7 @@ reads almost like a sentence, for example the first line would be "select the di
 
 
 ## Selecting elements
-This is the core of D3 : selecting elements of the DOM, and doing stuff with them. 
+This is the core of D3: selecting elements of the DOM, and doing stuff with them. 
 D3 uses CSS3 selectors, also used by jQuery. You can select nodes by tag name, css class or id.  
 `d3.select(selector)` selects the first node matching _selector_ and returns a d3 object 
 containing this node on which you can apply any d3 function.  
@@ -82,7 +82,7 @@ object containing these nodes on which you can apply any d3 function. So in our 
 var chart = d3.select("#d3TutoGraphContainer");
 {% endcodeblock %}
 
-You can also apply select to an existing selection, to select among the children 
+You can also apply `select` to an existing selection, to select among the children 
 of the existing selection. This is usually useful to ensure that all d3 manipulations 
 will take place in a container div (here it is 'd3TutoGraphContainer'). In our example:  
 
