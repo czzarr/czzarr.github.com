@@ -41,5 +41,6 @@ documenting myself but I can't always make it with theses long articles. They ar
 the web interesting to browse, they bring a lot of value but their entry
 barrier is too high but they don't fit for every reading time. We could
 really lower the barrier to these articles, make them more digestible by 
-summarizing their gist.
+summarizing their gist. Scientific researchers do it with the abstract
+they add to their publications, why couldn't every writer do it?
 
