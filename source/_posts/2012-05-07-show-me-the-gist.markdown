@@ -24,10 +24,11 @@ First I don't like pagination on news website. I have the
 impression being on Google looking for something and having to go to
 page 4 to find something interesting. Length because this article was not the only one
 I planned to read. My time is not extensible, there is still work
-waiting for me to be done and I can't spend my time being a 
-[passive reader](http://needforair.com/blog/2012/04/27/capitalize-on-what-you-read/).
+waiting for me to be done. As I don't want to be a 
+[passive reader](http://needforair.com/blog/2012/04/27/capitalize-on-what-you-read/) a long article
+requires a lot of time to deal with.
 
-I told myself _Ok, I'm not comfortable with this article but I will
+I told myself _Ok, this article is quite long but I will
 force myself to go till the end because that's something really
 intriguing_. That's how it began. I read the first page without
 skipping a line then began the second page. But I couldn't do it.
