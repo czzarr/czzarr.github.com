@@ -90,38 +90,33 @@ will take place in a container div (here it is 'd3TutoGraphContainer'). In our e
 
 
 ## Inserting in and removing from the DOM
-d3 provides functions for inserting in and removing from the DOM. As usual, these functions apply to d3 selections.  
-**Note :** you may ask why use these functions when we can use jQuery. The answer is simple : even though you could do it, d3's DOM manipulation functions are designed to work with other d3 function, so you can use method chaining. It is thus easier to use d3 and only d3 to build a data-driven document.  
+d3 provides functions for inserting in and removing from the DOM. 
+As usual, these functions apply to d3 selections.  
+**Note :** you may ask why use these functions when we can use jQuery for example. 
+The answer is simple : even though you could do it, d3's DOM manipulation functions are 
+designed to work with other d3 function, so you can use method chaining. It is 
+thus easier to use d3 and only d3 to build a data-driven document.  
 
 ### Inserting in the DOM
-`selection.append(name)` appends an element of the specified _name_ as the last child of each element of _selection_.
-```javascript
-// Select all the divs in the document, lets say there are 2 divs, so the DOM looks like this :
-// <div></div>  <div></div>
-var divs = d3.selectAll("div");
+`selection.append(tag)` appends an element of the specified _tag_ as the last child 
+of each element of _selection_. In our example:  
 
-// Append a "p" element to every div. The DOM looks like this :
-// <div><p></p></div>  <div><p></p></div>
-divs.append("p");
+    var chart = d3.select("#d3TutoGraphContainer").append("svg");  // Appends a <svg></svg> element inside
+                                                                   // the d3TutoGraphContainer div (selection
+                                                                   // has only one element)
+    
+    var rects = chart.selectAll('rect')
+                     .data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
+                     .enter().append('rect')                    // Inserts on rectangle for each piece of data
+                                                                // in the enter() selection (more explanations
+                                                                // in the data binding paragraph)
 
-// Append a "a" element to every div, and a "img" element to every "a". The DOM looks like this :
-// <div><p></p><a><img></img></a></div>  <div><p></p><a><img></img></a></div>
-divs.append("a").append("img");
-```
-There is another way to insert elements in the DOM : before an existing element instead of at the end. This is useful when you use SVG in particular, as the elements appear in the order they have in the DOM. That means that if you append a SVG rectangle to the chart container, it will be on top of all elements, masking them, something you may not want. In these cases, we use `selection.insert(name, before)` which inserts, as a child of every element in _selection_, an element of type _name_ before the first element selectable by the CSS selector _before_ (read that again !). So we can modify our previous example like this :
-```javascript
-// Select all the divs in the document, lets say there are 2 divs, so the DOM looks like this :
-// <div></div>  <div></div>
-var divs = d3.selectAll("div");
+There is another way to insert elements in the DOM: `selection.insert(name, before)` 
+which inserts, as a child of every element in _selection_, an element of type _name_ 
+before the first element selectable by the CSS selector _before_. This is useful to
+control which SVG elements appear on top of the others (the last one in the page is on top).
 
-// Append a "p" element to every div. The DOM looks like this :
-// <div><p></p></div>  <div><p></p></div>
-divs.append("p");
 
-// Insert a "a" element to every div before the first "p", and append a "img" element to every "a"
-// The DOM looks like this : <div><a><img></img></a><p></p></div>  <div><a><img></img></a><p></p></div>
-divs.insert("a", "p").append("img");
-```
 ### Removing from the DOM
 Removing all the elements from a selection is done with the `d3.remove()` function, like this : `selection.remove()`. This is often used with the `exit()` function, covered in the "Binding data" section below.
 
