@@ -156,12 +156,13 @@ We can modify any attribute of an element, CSS classes, properties, text and eve
 ### Modifying attributes : d3.attr
 Calling `selection.attr(attribute, value)` modifies (and creates if it doesn't exist) 
 the attribute _attribute_ to give it the value _value_ for every element of _selection_. 
-_value_ can be a function of data and index, as in our example:  
+_value_ can be a function of data and element index, as in our example:  
 
     var rects = chart.selectAll('rect').data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
                      .enter().append('rect')                           // Add a rectangle for each data in the enter
                      
                      .attr("stroke", "none").attr("fill", "steelblue") // All rectangles are blue with no borders
+                     
                      .attr("x", 0)                                     // All rectangles are 0px from the left of
                                                                        // the container
                                                                        
@@ -184,22 +185,40 @@ to learn how to modify classes with `d3.classed`, properties with `d3.property` 
 
 
 ## Transitions
-The last, and maybe the most impressive piece of d3 I will explain is transitions. As we saw in the previous section, d3 enables us to modify any attribute instantly. It can also transition number attributes (e.g. position in pixels, width etc) from their old to their new value smoothly, using the `transition()`, `duration()` and `delay()` functions. You apply this function to any selection and then apply the new attributes, as in this example (based on the barchart from the previous section) :
-```javascript
-// Wait 1s, then increase rectangles size with a 2s transition
-rects.transition().duration(2000).delay(1000)
-       attr("width", function(d) {return 25 * d; } );
-```
-Cool, isn't it ? The use of `delay()` is optional, as you can imagine. The `transition()` can smoothly transition number attributes, so for example it won't work with strings such as colors "steelblue" and "red". However, d3 being as smart as it is, it can understand when a string contains numbers, and smoothly transition the number parts of the string. So you can get a "rainbow transition" if you use colors such as "#555555" and "#aa5599" (modify the bar chart example to see how it works).
+The last, and maybe the most impressive piece of d3 is the transitions engine. 
+As we saw in the previous section, d3 enables us to modify any attribute instantly. 
+It can also transition number attributes (e.g. position in pixels, width etc) 
+from their old to their new value smoothly, using the `transition()`, `duration()` 
+and `delay()` functions. You apply this function to any selection and then apply 
+the new attributes, which will be transitioned. In our example, we transition the width 
+of the bars to animate the graph:  
+
+    // If we didn't use transitions, the graph would change immediately
+    rects.data(newData)
+         .attr("width", function(d) {return 500 * Math.random(); } ) });
+
+    // Simply adding using d3.transition() between new data binding and attribute modification
+    // and the change becomes graceful
+    rects.data(newData)
+         .transition().duration(2000).delay(200)
+         .attr("width", function(d) {return 500 * Math.random(); } ) });
+
+Cool, isn't it ? The use of `delay()` is optional, as you can imagine. The `transition()` can only 
+transition number attributes, so for example it won't work with strings such as 
+colors "steelblue" and "red". However, d3 being as smart as it is, it can understand when a 
+string contains numbers, and smoothly transition the number parts of the string. 
+So you can get a "rainbow transition" if you use colors such as "#555555" and "#aa5599" 
+
+
 ### Advanced transitions
-What I explained are just the default, basic transition engine, which works very well. You may need to customize your transition interpolation function, tween or easing function (for example if you want to make SVG paths move). This is not basic stuff anymore so it will not be covered here, I may write another tutorial for this !
+What I explained are just the default, basic transition engine, which works very well. 
+You may need to customize your transition interpolation function, tween or easing function. 
+For example, I did that to animate a line chart (which is a SVG path). 
+
 
 ## Conclusion
-With this tutorial, you should know more than enough to create awesome custom graphs or data visualizations. Don't hesitate to refer to the complete reference on the [d3 website](http://mbostock.github.com/d3/) for more information.
-
-
-
-
-
+With this tutorial, you should know more than enough to create awesome custom 
+graphs or data visualizations. Don't hesitate to refer to the complete reference 
+on the [d3 website](http://mbostock.github.com/d3/) for more!
 
 
