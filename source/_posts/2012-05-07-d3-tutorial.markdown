@@ -48,7 +48,7 @@ data binding and data-driven DOM manipulation, which is arguably the
 boring -even though not the easiest- part, and lets you focus on content creation.  
 
 So **why** use a low-level framework to draw graphs when so many integrative chart 
-libraries exist out there (highcharts, google charts ...) ? Precisely because 
+libraries exist out there ([Highcharts](http://www.highcharts.com/) , [Google Chart Tools](https://developers.google.com/chart/)  ...)? Precisely because 
 it is **low-level**. That means you have to put in more effort upfront, but in 
 return you gain **total control of your data visualization**, you are more flexible, 
 and you can freely use the full power of existing technologies (CSS3, HTML5, SVG ...) 
