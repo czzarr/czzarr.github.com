@@ -118,23 +118,44 @@ control which SVG elements appear on top of the others (the last one in the page
 
 
 ### Removing from the DOM
-Removing all the elements from a selection is done with the `d3.remove()` function, like this : `selection.remove()`. This is often used with the `exit()` function, covered in the "Binding data" section below.
+Removing all the elements from a selection is done with the `d3.remove()` function, 
+like this : `selection.remove()`. This is often used with the `exit()` function, also covered in 
+the "Binding data" section below.  
+
 
 ## Binding data
-Binding data is the core of d3. The `d3.data` function binds data to the selection to which it was applied, and returns a selection, called the _update_ selection, which consists of all the elements from the old selection to which we could bind data.
-```javascript
-// Select all SVG rectangles in the DOM in the selection bars
-var bars = d3.selectAll('rect');
+Binding data is the core of d3. The `d3.data` function binds data to the selection 
+to which it was applied, and returns a selection, called the _update_ selection, 
+which consists of all the elements from the old selection to which we could bind data. 
+At this point, the display doesn't change, only the data is affected. In our example:  
 
-// Bind the new data to the bars
-bars.data([4, 6, 8, 99]);
+    var rects = chart.selectAll('rect')
+                     .data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20]);   // If 'chart' already contained 10 rectangles
+                                                                 // this data would be bound to them: 1 to the first
+                                                                 // 4 to the second and so on.
 
-// Bind another set of data, in a more concise way
-d3.selectAll('rect').data([1, 2, 4, 8]);
-```
 
-This is simple if the data that was bound had the same size as the selection since we have a one-to-one mapping. If this is not the case, there are two possibilities :  
-###  The new data size is smaller than the selection size
+This is simple if the data that was bound had the same size as the selection 
+since we have a one-to-one mapping. That's often not the case, for example in our tutorial 
+the data has 10 elements and the selection zero.  
+
+### The new data size is bigger than the selection size: d3.enter()
+In that case, the _update_ selection has the same size as the original selection, but we still have some data left over. This data is put in the _enter_ selection, which is also pointed by the _update_ selection.
+
+    // Select all divs in the DOM, let's say we have 2 divs
+    var divs = d3.selectAll('div');
+
+    // Bind the new data to the divs, bars now contain the _update_ selection, which has size 2
+    divs.data([0, 0, 4, 2]);
+
+    // For each piece of data not bound to a current div, add a new div containing some text to the DOM
+    divs.enter().append('div').text("Some text");
+
+    // Or, in a more concise way
+    d3.selectAll('div').data([0, 0, 4, 2]).enter().append('div').text('Some text');
+
+
+###  The new data size is smaller than the selection size: d3.exit()
 For example we have selected 6 divs and now we bind [0, 0, 4, 2] which has length 4. Only the first 4 divs will be updated and placed in the _update_ selection, the other 2 will be placed in the _exit_ selection, which is pointed to by the _update_ selection.
 ```javascript
 // Select all divs in the DOM, let's say we have 6 divs
@@ -150,21 +171,7 @@ divs.exit().remove();
 d3.selectAll('div').data([0, 0, 4, 2]).exit().remove();
 ```
 
-### The new data size is bigger than the selection size
-In that case, the _update_ selection has the same size as the original selection, but we still have some data left over. This data is put in the _enter_ selection, which is also pointed by the _update_ selection.
-```javascript
-// Select all divs in the DOM, let's say we have 2 divs
-var divs = d3.selectAll('div');
 
-// Bind the new data to the divs, bars now contain the _update_ selection, which has size 2
-divs.data([0, 0, 4, 2]);
-
-// For each piece of data not bound to a current div, add a new div containing some text to the DOM
-divs.enter().append('div').text("Some text");
-
-// Or, in a more concise way
-d3.selectAll('div').data([0, 0, 4, 2]).enter().append('div').text('Some text');
-```
 
 ### Using _enter_ and _exit_ on the same selection
 If the _enter()_ or _exit()_ selections are empty, any operation on them will have no effect. This is useful to know when you don't know whether the new data is bigger or smaller than the old data. Here is an example :
