@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Show Me the Gist"
-date: 2012-05-01 10:29
+date: 2012-05-07 10:29
 author: Charles Miglietti
 comments: true
 categories: [summary, article]
@@ -13,6 +13,7 @@ The other day on Hacker News I came across this
 all news about collaborative experiences on the web excites me, 
 the title was linkbaity: the article looked interesting to me.
 
+![Abstract](http://farm8.staticflickr.com/7094/7151646789_12625e7615.jpg =350x)
 
 The first thing I do when I come to a new page is to check the length of
 the article. _How long will it take me to read this article?_ This one
