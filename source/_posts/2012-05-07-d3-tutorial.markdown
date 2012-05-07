@@ -64,7 +64,7 @@ Now let's take a look at the code for the chart:
 
 The first thing you should notice is that d3 uses method chaining. Every d3 function 
 returns a d3 object on which you can apply another d3 function. This makes for code that 
-reads almost like a sentence, for example the first line would be "select the div with if 
+reads almost like a sentence, for example the first line would be "select the div with id 
 'd3TutoGraphContainer' and create a SVG element with width 600 and height 300".  
 
 
