@@ -84,7 +84,7 @@ var chart = d3.select("#d3TutoGraphContainer");
 
 You can also apply `select` to an existing selection, to select among the children 
 of the existing selection. This is usually useful to ensure that all d3 manipulations 
-will take place in a container div ('d3TutoGraphContainer' in our example). In our example:  
+will take place in a container div ('d3TutoGraphContainer' in our example).  
 
 {% codeblock lang:javascript %}
 // Select all SVG rectangles children of this div
