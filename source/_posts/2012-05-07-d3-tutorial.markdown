@@ -244,7 +244,7 @@ For example, I did that to animate a line chart (which is a SVG path).
 
 ## Conclusion
 With this tutorial, you should know more than enough to create awesome custom 
-graphs or data visualizations. Don't hesitate to refer to the complete reference 
-on the [d3 website](http://mbostock.github.com/d3/) for more!
+graphs or data visualizations. Since you have total control, you can even create this kind
+of [crazy animations](http://bl.ocks.org/1256572)!
 
 
