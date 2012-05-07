@@ -46,16 +46,22 @@ drawing charts, **it is not a visualization library**, it just handles
 data binding and data-driven DOM manipulation, which is arguably the 
 boring -event though not the easiest!- part, and lets you focus on content creation.  
 
-So **why** use a low-level framework to draw graphs when so many integrative libraries exist out there (highcharts, google charts ...) ? Precisely because it is **low-level**. That means you have to put in more effort upfront, but in return you gain **total control of your data visualization**, you are more flexible, and you can freely use the full power of existing technologies (CSS3, HTML5, SVG ...) to visualize data however you want (as a graph or otherwise).  
+So **why** use a low-level framework to draw graphs when so many integrative chart 
+libraries exist out there (highcharts, google charts ...) ? Precisely because 
+it is **low-level**. That means you have to put in more effort upfront, but in 
+return you gain **total control of your data visualization**, you are more flexible, 
+and you can freely use the full power of existing technologies (CSS3, HTML5, SVG ...) 
+to visualize data however you want (as a graph or otherwise).  
+
+This example uses SVG. It's not a problem if you are not used to it, as it is very 
+straightforward, but you may still want to check [the MDN tutorial on SVG](https://developer.mozilla.org/en/SVG). 
+Now let's take a look at the code for the chart:
+
 
 {% gist 2601663 %}
 
 
 
-**Notes :**  
-1) Many examples use SVG, as this is the most practical way to draw graphs. This is only a d3 tutorial, so please check SVG tutorials if you want to understand it (hint : it is VERY easy !).  
-2) As we will see, d3 uses method chaining, which is possible since all d3 functions return the selection to which they were applied, e.g. `selection.firstD3Function().secondD3Function() ...`. More on this later on.  
-3) This is by no means a d3 reference, rather it is an introductory d3 tutorial that explains how to work with d3 and the most useful functions. For the complete reference, visit the [d3 website](http://mbostock.github.com/d3/)
 
 ## Selecting data
 This is the core of D3 : selecting elements of the DOM, and doing stuff with them. D3 selectors are similar to Jquery's as they use the selector format defined by W3C, and widely used in CSS. You can select nodes by tag name, css class or id.  
