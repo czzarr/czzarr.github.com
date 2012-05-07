@@ -44,7 +44,7 @@ framework that allows you to easily bind data to elements of the
 DOM and manipulate them**. Even though d3's most frequent use is for 
 drawing charts, **it is not a visualization library**, it just handles 
 data binding and data-driven DOM manipulation, which is arguably the 
-boring -event though not the easiest!- part, and lets you focus on content creation.  
+boring -even though not the easiest- part, and lets you focus on content creation.  
 
 So **why** use a low-level framework to draw graphs when so many integrative chart 
 libraries exist out there (highcharts, google charts ...) ? Precisely because 
@@ -61,32 +61,32 @@ Now let's take a look at the code for the chart:
 {% gist 2601663 %}
 
 
+The first thing you should notice is that d3 uses method chaining. Every d3 function 
+returns a d3 object on which you can apply another d3 function. This makes for code that 
+reads almost like a sentence, for example the first line would be "select the div with if 
+'d3TutoGraphContainer' and create a SVG element with width 600 and height 300".  
 
 
 ## Selecting data
-This is the core of D3 : selecting elements of the DOM, and doing stuff with them. D3 selectors are similar to Jquery's as they use the selector format defined by W3C, and widely used in CSS. You can select nodes by tag name, css class or id.  
-`d3.select(selector)` selects the first node matching _selector_ and returns a d3 object containing this node on which you can apply any d3 function
-`d3.selectAll(selector)` selects all nodes matching _selector_ and returns a d3 object containing these nodes on which you can apply any d3 function  
+This is the core of D3 : selecting elements of the DOM, and doing stuff with them. 
+D3 uses CSS3 selectors, also used by jQuery. You can select nodes by tag name, css class or id.  
+`d3.select(selector)` selects the first node matching _selector_ and returns a d3 object 
+containing this node on which you can apply any d3 function.  
+`d3.selectAll(selector)` selects all nodes matching _selector_ and returns a d3 
+object containing these nodes on which you can apply any d3 function. So in our example:  
 
-    d3.select("#someId");                 // Select the element with id "someId"
-    d3.selectAll("div");                  // Select all div nodes
-    d3.selectAll(".someClass")            // Select all elements with class "someClass"
+    var chart = d3.select("#d3TutoGraphContainer");   // Select the element with id 'd3TutoGraphContainer'
+                                                      // and store it in the variable 'chart'
 
+You can also apply select to an existing selection, to select among the children 
+of the existing selection. This is usually useful to ensure that all d3 manipulations 
+will take place in a container div (here it is 'd3TutoGraphContainer'). In our example:  
 
-Note : if your are going to use a selection that has fixed length (for example if you create a bar chart with a fixed number of bars), you should use a variable to store your selection so as to avoid having to call select or selectAll again. For example :
-```javascript
-var chart = d3.select('#chartContainer');     
-chart.[any d3 function here];
-```
+    var rects = chart.selectAll("rect");   // Select all SVG rectangles children of this div
+                                           // At this point this selection is empty but all inserted
+                                           // rectangles will populate it so that we can reference
+                                           // it later in the 'click' callback
 
-You can also apply select to an existing selection, to select among the children of the existing selection. This is usually useful to define a container div for an SVG chart, and make sure all d3 manipulations apply to this graph and nothing else.
-```javascript
-// chart consists of only one element, the div with id "chartContainer"
-var chart = d3.select('#chartContainer');
-
-// Select all SVG rectangles children of this div
-var chartBars = chart.selectAll("rect");
-```
 
 ## Inserting in and removing from the DOM
 d3 provides functions for inserting in and removing from the DOM. As usual, these functions apply to d3 selections.  
