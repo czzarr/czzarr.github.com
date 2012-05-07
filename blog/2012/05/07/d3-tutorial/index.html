@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Introduction to d3: Build an Animated Graph in 12 Lines of Code - Need for Air</title>
+  <meta name="author" content="Need for Air">
+
+  
+  <meta name="description" content="Before anything else, let&#8217;s take a look at we&#8217;re gonna build.
+Click on any bar of this chart -you can do it multiple times- to see what &hellip;">
+  
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://needforair.com/blog/2012/05/07/d3-tutorial">
+  <link href="/favicon.png" rel="icon">
+  <script type="text/javascript" src="http://use.typekit.com/zcp2xbp.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>  
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/NeedForAir" rel="alternate" title="Need for Air" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts 
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-29357304-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+<body   >
+
+	<div class="container">
+
+		<div class="four columns">
+  			<nav role="navigation"><ul class="title">
+</ul>
+<ul class="main-navigation">
+
+  <li class="other"><a href="/">Blog</a></li>
+  <li class="other"><a href="/about-us">About Us</a></li>
+  <li class="other"><a href="/blog/archives">Archives</a></li>
+  <li class="other"><a href="/our-book">Our Book</a></li>
+</ul>
+
+<ul class="subscription" data-subscription="rss email">
+  <li class="other"><a href="http://feeds.feedburner.com/NeedForAir"
+    rel="subscribe-rss" title="subscribe via RSS">Subscribe by RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=NeedForAir" rel="subscribe-email"
+      title="subscribe via email">Subscribe by Email</a></li>
+  
+</ul>
+  
+
+
+
+</nav>
+        <aside class="sidebar">
+          
+            <section>
+  <h1 class="tweets">Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/07/d3-tutorial/">Introduction to d3: Build an Animated Graph in 12 Lines of Code</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/03/we-wrote-a-book/">We Wrote a Book!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/27/capitalize-on-what-you-read/">Capitalize on What You Read</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/22/dns-redirections/">Tutorial: Domain Name System for Beginners</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/">Twitter Lets You Talk to World-Class Experts</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section id="twitter">
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/NeedForAir" class="twitter-follow-button" data-show-count="false">Follow @NeedForAir</a>
+  
+</section>
+
+<section>
+  <h1 class="tweets">Read our Book</h1>
+  <a href="http://leanpub.com/startupflow"><img
+    src="http://titlepages.leanpub.com/startupflow/small?1335536785"
+    alt="Startup Flow"></a>
+</section>
+
+          
+
+
+
+        </aside>    
+  	</div>
+    
+
+    <header class="twelve columns" role="banner">
+    
+<hgroup>
+  <h1>Need for Air</h1>
+  
+    <h2>Solving the Information Overload Problem</h2>
+  
+</hgroup>
+
+    </header>
+
+
+  	<div id="main" class="twelve columns">
+	    <div id="content">
+	      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Introduction to D3: Build an Animated Graph in 12 Lines of Code</h1>
+    
+    
+      <p class="meta">
+    
+        <time datetime="2012-05-07 12:17:00 +0200" pubdate><span class='month'>May</span> <span class='day'>07</span> <span class='year'>2012</span></time>
+        | 
+  
+
+<span class="byline author vcard"><span class="fn">Need for Air</span></span>
+
+    
+      </p>
+    
+  </header>
+
+
+
+
+<div class="entry-content"><p>Before anything else, let&#8217;s take a look at we&#8217;re gonna build.
+Click on any bar of this chart -you can do it multiple times- to see what happens!</p>
+
+<div id='d3TutoGraphContainer'></div>
+
+
+<script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
+
+
+<script type="text/javascript">
+// Suppose there is currently one div with id "graphContainer" in the DOM
+// We append a 900x600 empty SVG container in the div
+var chart = d3.select("#d3TutoGraphContainer").append("svg").attr("width", "600").attr("height", "290");
+
+// There is no rectangle on which we can bind data in the SVG container
+// All the data will thus be bound in the enter
+var rects = chart.selectAll('rect').data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
+.enter().append('rect')                           // Add a rectangle for each data in the enter
+.attr("stroke", "none").attr("fill", "steelblue") // All rectangles are blue with no borders
+.attr("x", 0)
+.attr("y", function(d, i) {return 25 * i; } )
+.attr("width", function(d) {return 20 * d; } )
+.attr("height", "20");
+
+rects.on('click', function() {
+// Wait 1s, then increase rectangles size with a 2s transition
+rects.transition().duration(2000).delay(200)
+.attr("width", function(d) {return 500 * Math.random(); } ) });
+</script>
+
+
+<p>Pretty neat, huh? You can see the gist of a standalone working HTML
+<a href="https://gist.github.com/2601571">here</a>. We&#8217;re going to go through the
+javascript part which consists of 12 lines of javascript (comments and
+blank lines excluded of course), on top of the <a href="http://d3js.org/">d3 library</a>.
+d3 (for <strong>d</strong>ata <strong>d</strong>riven <strong>d</strong>ocument) is a <strong>low-level javascript
+framework that allows you to easily bind data to elements of the
+DOM and manipulate them</strong>. Even though d3&#8217;s most frequent use is for
+drawing charts, <strong>it is not a visualization library</strong>, it just handles
+data binding and data-driven DOM manipulation, which is arguably the
+boring -event though not the easiest!- part, and lets you focus on content creation.</p>
+
+<p>So <strong>why</strong> use a low-level framework to draw graphs when so many integrative chart
+libraries exist out there (highcharts, google charts &#8230;) ? Precisely because
+it is <strong>low-level</strong>. That means you have to put in more effort upfront, but in
+return you gain <strong>total control of your data visualization</strong>, you are more flexible,
+and you can freely use the full power of existing technologies (CSS3, HTML5, SVG &#8230;)
+to visualize data however you want (as a graph or otherwise).</p>
+
+<p>This example uses SVG. It&#8217;s not a problem if you are not used to it, as it is very
+straightforward, but you may still want to check <a href="https://developer.mozilla.org/en/SVG">the MDN tutorial on SVG</a>.
+Now let&#8217;s take a look at the code for the chart:</p>
+
+<div><script src='https://gist.github.com/2601663.js?file='></script>
+<noscript><pre><code>// Suppose there is currently one div with id &quot;d3TutoGraphContainer&quot; in the DOM
+// We append a 600x300 empty SVG container in the div
+var chart = d3.select(&quot;#d3TutoGraphContainer&quot;).append(&quot;svg&quot;).attr(&quot;width&quot;, &quot;600&quot;).attr(&quot;height&quot;, &quot;300&quot;);
+
+// There is no rectangle on which we can bind data in the SVG container
+// All the data will thus be bound in the enter
+var rects = chart.selectAll('rect').data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
+                 .enter().append('rect')                           // Add a rectangle for each data in the enter
+                 .attr(&quot;stroke&quot;, &quot;none&quot;).attr(&quot;fill&quot;, &quot;steelblue&quot;) // All rectangles are blue with no borders
+                 .attr(&quot;x&quot;, 0)
+                 .attr(&quot;y&quot;, function(d, i) { return 25 * i; } )
+                 .attr(&quot;width&quot;, function(d) { return 20 * d; } )
+                 .attr(&quot;height&quot;, &quot;20&quot;);
+
+rects.on('click', function() {
+                    rects.transition().duration(2000).delay(200)
+                         .attr(&quot;width&quot;, function(d) { return 500 * Math.random(); } )
+                  });</code></pre></noscript></div>
+
+
+<h2>Selecting data</h2>
+
+<p>This is the core of D3 : selecting elements of the DOM, and doing stuff with them. D3 selectors are similar to Jquery&#8217;s as they use the selector format defined by W3C, and widely used in CSS. You can select nodes by tag name, css class or id.<br/>
+<code>d3.select(selector)</code> selects the first node matching <em>selector</em> and returns a d3 object containing this node on which you can apply any d3 function
+<code>d3.selectAll(selector)</code> selects all nodes matching <em>selector</em> and returns a d3 object containing these nodes on which you can apply any d3 function</p>
+
+<pre><code>d3.select("#someId");                 // Select the element with id "someId"
+d3.selectAll("div");                  // Select all div nodes
+d3.selectAll(".someClass")            // Select all elements with class "someClass"
+</code></pre>
+
+<p>Note : if your are going to use a selection that has fixed length (for example if you create a bar chart with a fixed number of bars), you should use a variable to store your selection so as to avoid having to call select or selectAll again. For example :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">chart</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">&#39;#chartContainer&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nx">chart</span><span class="p">.[</span><span class="nx">any</span> <span class="nx">d3</span> <span class="kd">function</span> <span class="nx">here</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can also apply select to an existing selection, to select among the children of the existing selection. This is usually useful to define a container div for an SVG chart, and make sure all d3 manipulations apply to this graph and nothing else.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// chart consists of only one element, the div with id &quot;chartContainer&quot;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">chart</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">&#39;#chartContainer&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Select all SVG rectangles children of this div</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">chartBars</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">&quot;rect&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Inserting in and removing from the DOM</h2>
+
+<p>d3 provides functions for inserting in and removing from the DOM. As usual, these functions apply to d3 selections.<br/>
+<strong>Note :</strong> you may ask why use these functions when we can use jQuery. The answer is simple : even though you could do it, d3&#8217;s DOM manipulation functions are designed to work with other d3 function, so you can use method chaining. It is thus easier to use d3 and only d3 to build a data-driven document.</p>
+
+<h3>Inserting in the DOM</h3>
+
+<p><code>selection.append(name)</code> appends an element of the specified <em>name</em> as the last child of each element of <em>selection</em>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Select all the divs in the document, lets say there are 2 divs, so the DOM looks like this :</span>
+</span><span class='line'><span class="c1">// &lt;div&gt;&lt;/div&gt;  &lt;div&gt;&lt;/div&gt;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">divs</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Append a &quot;p&quot; element to every div. The DOM looks like this :</span>
+</span><span class='line'><span class="c1">// &lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;  &lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;</span>
+</span><span class='line'><span class="nx">divs</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Append a &quot;a&quot; element to every div, and a &quot;img&quot; element to every &quot;a&quot;. The DOM looks like this :</span>
+</span><span class='line'><span class="c1">// &lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;a&gt;&lt;img&gt;&lt;/img&gt;&lt;/a&gt;&lt;/div&gt;  &lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;a&gt;&lt;img&gt;&lt;/img&gt;&lt;/a&gt;&lt;/div&gt;</span>
+</span><span class='line'><span class="nx">divs</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There is another way to insert elements in the DOM : before an existing element instead of at the end. This is useful when you use SVG in particular, as the elements appear in the order they have in the DOM. That means that if you append a SVG rectangle to the chart container, it will be on top of all elements, masking them, something you may not want. In these cases, we use <code>selection.insert(name, before)</code> which inserts, as a child of every element in <em>selection</em>, an element of type <em>name</em> before the first element selectable by the CSS selector <em>before</em> (read that again !). So we can modify our previous example like this :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Select all the divs in the document, lets say there are 2 divs, so the DOM looks like this :</span>
+</span><span class='line'><span class="c1">// &lt;div&gt;&lt;/div&gt;  &lt;div&gt;&lt;/div&gt;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">divs</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Append a &quot;p&quot; element to every div. The DOM looks like this :</span>
+</span><span class='line'><span class="c1">// &lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;  &lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;</span>
+</span><span class='line'><span class="nx">divs</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Insert a &quot;a&quot; element to every div before the first &quot;p&quot;, and append a &quot;img&quot; element to every &quot;a&quot;</span>
+</span><span class='line'><span class="c1">// The DOM looks like this : &lt;div&gt;&lt;a&gt;&lt;img&gt;&lt;/img&gt;&lt;/a&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;  &lt;div&gt;&lt;a&gt;&lt;img&gt;&lt;/img&gt;&lt;/a&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;</span>
+</span><span class='line'><span class="nx">divs</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Removing from the DOM</h3>
+
+<p>Removing all the elements from a selection is done with the <code>d3.remove()</code> function, like this : <code>selection.remove()</code>. This is often used with the <code>exit()</code> function, covered in the &#8220;Binding data&#8221; section below.</p>
+
+<h2>Binding data</h2>
+
+<p>Binding data is the core of d3. The <code>d3.data</code> function binds data to the selection to which it was applied, and returns a selection, called the <em>update</em> selection, which consists of all the elements from the old selection to which we could bind data.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Select all SVG rectangles in the DOM in the selection bars</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">bars</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Bind the new data to the bars</span>
+</span><span class='line'><span class="nx">bars</span><span class="p">.</span><span class="nx">data</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">99</span><span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Bind another set of data, in a more concise way</span>
+</span><span class='line'><span class="nx">d3</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">).</span><span class="nx">data</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is simple if the data that was bound had the same size as the selection since we have a one-to-one mapping. If this is not the case, there are two possibilities :</p>
+
+<h3>The new data size is smaller than the selection size</h3>
+
+<p>For example we have selected 6 divs and now we bind [0, 0, 4, 2] which has length 4. Only the first 4 divs will be updated and placed in the <em>update</em> selection, the other 2 will be placed in the <em>exit</em> selection, which is pointed to by the <em>update</em> selection.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Select all divs in the DOM, let&#39;s say we have 6 divs</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">divs</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Bind the new data to the divs, divs now contain the _update_ selection </span>
+</span><span class='line'><span class="nx">divs</span><span class="p">.</span><span class="nx">data</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Remove the now-unused divs from the DOM using d3.remove()</span>
+</span><span class='line'><span class="nx">divs</span><span class="p">.</span><span class="nx">exit</span><span class="p">().</span><span class="nx">remove</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Or, in a more concise way</span>
+</span><span class='line'><span class="nx">d3</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">data</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]).</span><span class="nx">exit</span><span class="p">().</span><span class="nx">remove</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>The new data size is bigger than the selection size</h3>
+
+<p>In that case, the <em>update</em> selection has the same size as the original selection, but we still have some data left over. This data is put in the <em>enter</em> selection, which is also pointed by the <em>update</em> selection.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Select all divs in the DOM, let&#39;s say we have 2 divs</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">divs</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Bind the new data to the divs, bars now contain the _update_ selection, which has size 2</span>
+</span><span class='line'><span class="nx">divs</span><span class="p">.</span><span class="nx">data</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// For each piece of data not bound to a current div, add a new div containing some text to the DOM</span>
+</span><span class='line'><span class="nx">divs</span><span class="p">.</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Some text&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Or, in a more concise way</span>
+</span><span class='line'><span class="nx">d3</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">data</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]).</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Some text&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Using <em>enter</em> and <em>exit</em> on the same selection</h3>
+
+<p>If the <em>enter()</em> or <em>exit()</em> selections are empty, any operation on them will have no effect. This is useful to know when you don&#8217;t know whether the new data is bigger or smaller than the old data. Here is an example :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Select all divs in the DOM, and bind some new data, whose size is unknown</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">divs</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="nx">newData</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">divs</span><span class="p">.</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Some text&quot;</span><span class="p">);</span>     <span class="c1">// No effect if the new data is smaller than the original data</span>
+</span><span class='line'><span class="nx">divs</span><span class="p">.</span><span class="nx">exit</span><span class="p">().</span><span class="nx">remove</span><span class="p">();</span>                             <span class="c1">// No effect if the new data is bigger than the original data</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Filtering a selection</h2>
+
+<p>The <code>d3.filter</code> function, as its name implies, filters a selection and returns the new, trimmed selection. The criteria are defined as a function that is called on every element of the selection and the new selection will only contain the elements for which this function returned true.<br/>
+This function, or <em>selector</em>, takes two parameters : the data (usually called <em>d</em>) and its index (usually called <em>i</em>) in the bound data.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Select all divs in the DOM, let&#39;s say we have 5 divs to which we bind [1 ,4, 5, 6, 24]</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">divs</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">data</span><span class="p">([</span><span class="mi">1</span> <span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">6</span><span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Our criteria. Can also be defined directly as an anonymous function passed as an argument to filter</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">theFilter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="p">(</span><span class="nx">d</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="p">)</span> <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Select only the divs whose bound data is an even number</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">evenDataDivs</span> <span class="o">=</span> <span class="nx">divs</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">theFilter</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>The last line of code is very important,</strong> as this approach will be used by a lot of other functions, notably those modifying the DOM. Here is how it works : the variable <em>divs</em> contains a d3 selection of 5 &#8220;div&#8221; elements. The first &#8220;div&#8221; has the data 1 bound to it, the second &#8220;div&#8221; has the data 4 bound to it, the third the data 5 and so on. When we call <code>d3.filter</code> on <em>divs</em>, it creates an empty selection, then looks at the first element (the &#8220;div&#8221; number 0) and calls <code>theFilter(1, 0)</code>, which returns <em>false</em>, so this first element is not added to <em>evenDataDivs</em>. It then looks at the second element (the &#8220;div&#8221; number 1) and calls <code>theFilter(4, 1)</code>, which returns <em>true</em>, so the second div is added to <em>evenDataDivs</em>. The third element is not added (<code>theFilter(5, 2)</code> returns <em>false</em>), the fourth and fifth are added (<code>theFilter(24, 3)</code> and <code>theFilter(6, 4)</code> both return <em>true</em>). <strong>Make sure you really understand this part as it is the core of d3&#8217;s DOM manipulation, as we will see in the next section.</strong></p>
+
+<p>Also, you can see that we didn&#8217;t need the &#8220;index&#8221; information (the <em>i</em> argument of <code>theFilter</code> in our example). In that case, d3 allows you to define a one-parameter function, in our case it would be <code>function(d) {return (d % 2 == 0); }</code>.</p>
+
+<h2>Modifying the DOM according to the data</h2>
+
+<p>Now it&#8217;s time to use d3 for what it was designed : manipulate the DOM using the data. We can modify any attribute of an element, CSS classes, properties, text and even inner HTML.</p>
+
+<h3>Modifying attributes : d3.attr</h3>
+
+<p>Calling <code>selection.attr(attribute, value)</code> modifies (and creates if it doesn&#8217;t exist) the attribute <em>attribute</em> to give it the value <em>value</em> for every element of <em>selection</em>. <em>value</em> can be a function of data and index of the same kind as the one used in the &#8220;filters&#8221; section. For example, we can simply create an horizontal bar chart like this <strong>(I encourage you to copy-paste this example and play with it)</strong> :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Suppose there is currently one div with id &quot;graphContainer&quot; in the DOM</span>
+</span><span class='line'><span class="c1">// We append a 900x600 empty SVG container in the div</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">chart</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;#graphContainer&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;svg&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="s2">&quot;900&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s2">&quot;600&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// There is no rectangle on which we can bind data in the SVG container</span>
+</span><span class='line'><span class="c1">// All the data will thus be bound in the enter</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">rects</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">).</span><span class="nx">data</span><span class="p">([</span><span class="mi">1</span> <span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">24</span><span class="p">])</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">)</span>                           <span class="c1">// Add a rectangle for each data in the enter</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;stroke&quot;</span><span class="p">,</span> <span class="s2">&quot;none&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="s2">&quot;steelblue&quot;</span><span class="p">)</span> <span class="c1">// All rectangles are blue with no borders</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="mi">25</span> <span class="o">*</span> <span class="nx">i</span><span class="p">;</span> <span class="p">}</span> <span class="p">)</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="mi">20</span> <span class="o">*</span> <span class="nx">d</span><span class="p">;</span> <span class="p">}</span> <span class="p">)</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s2">&quot;20&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we can see how easy it was to create a graph : only 7 lines of code ! As I said at the beginning, all the boring stuff is taken care of by d3, we only have to write the lines that create the content. Now we can modify this barchart very easily, like this :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Change rectangle colors to red and increase their size</span>
+</span><span class='line'><span class="nx">rects</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="mi">25</span> <span class="o">*</span> <span class="nx">d</span><span class="p">;</span> <span class="p">}</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As the data is still bound to the &#8220;rect&#8221; elements, we don&#8217;t have to re-bind it. And since the selection was stored in the rects vqriqble, we don&#8217;t have to use <code>selectAll('rect')</code>.</p>
+
+<h3>Other modifications</h3>
+
+<p>As this is not a reference, I won&#8217;t show all functions that modify elements. You can look into the d3 reference on their <a href="http://mbostock.github.com/d3/">website</a> to learn how to modify classes with <code>d3.classed</code>, properties with <code>d3.property</code> and style with <code>d3.style</code>.</p>
+
+<h2>Transitions</h2>
+
+<p>The last, and maybe the most impressive piece of d3 I will explain is transitions. As we saw in the previous section, d3 enables us to modify any attribute instantly. It can also transition number attributes (e.g. position in pixels, width etc) from their old to their new value smoothly, using the <code>transition()</code>, <code>duration()</code> and <code>delay()</code> functions. You apply this function to any selection and then apply the new attributes, as in this example (based on the barchart from the previous section) :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Wait 1s, then increase rectangles size with a 2s transition</span>
+</span><span class='line'><span class="nx">rects</span><span class="p">.</span><span class="nx">transition</span><span class="p">().</span><span class="nx">duration</span><span class="p">(</span><span class="mi">2000</span><span class="p">).</span><span class="nx">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</span><span class='line'>       <span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="mi">25</span> <span class="o">*</span> <span class="nx">d</span><span class="p">;</span> <span class="p">}</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Cool, isn&#8217;t it ? The use of <code>delay()</code> is optional, as you can imagine. The <code>transition()</code> can smoothly transition number attributes, so for example it won&#8217;t work with strings such as colors &#8220;steelblue&#8221; and &#8220;red&#8221;. However, d3 being as smart as it is, it can understand when a string contains numbers, and smoothly transition the number parts of the string. So you can get a &#8220;rainbow transition&#8221; if you use colors such as &#8220;#555555&#8221; and &#8220;#aa5599&#8221; (modify the bar chart example to see how it works).</p>
+
+<h3>Advanced transitions</h3>
+
+<p>What I explained are just the default, basic transition engine, which works very well. You may need to customize your transition interpolation function, tween or easing function (for example if you want to make SVG paths move). This is not basic stuff anymore so it will not be covered here, I may write another tutorial for this !</p>
+
+<h2>Conclusion</h2>
+
+<p>With this tutorial, you should know more than enough to create awesome custom graphs or data visualizations. Don&#8217;t hesitate to refer to the complete reference on the <a href="http://mbostock.github.com/d3/">d3 website</a> for more information.</p>
+</div>
+
+
+  
+    <div class="sharing">
+  
+    
+      <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://needforair.com/blog/2012/05/07/d3-tutorial/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/05/07/d3-tutorial/" >Tweet</a>
+    
+  
+  
+</div>
+
+  
+
+
+  <footer>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/03/we-wrote-a-book/" title="Previous Post: We Wrote a Book!">&laquo; Previous post</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1 class="comments">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+	    </div>
+  	</div>
+  
+  <footer role="contentinfo"  class="sixteen columns"><center>
+<p class="credit">
+  <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />
+   <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Need for Air</span> by.
+   <a xmlns:cc="http://creativecommons.org/ns#" href="http://needforair.com" property="cc:attributionName" rel="cc:attributionURL">Need for Air</a> is licensed under a
+   <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.<br>
+   <span class="credit">Contributors include <a href="http://twitter.com/#!/stanmarion">Stanislas Marion</a>, <a href="http://twitter.com/#!/charlesmigli">Charles Miglietti</a> and <a href="http://twitter.com/#!/louisChatriot">Louis Chatriot</a></span><br>
+   <span class="credit">Powered by <a href="http://github.com">GitHub</a>, <a href="https://github.com/imathis/octopress">Octopress</a>, &amp; <a href="https://github.com/dhgamache/Skeleton">Skeleton</a></span>.<br>
+   <span class="credit">Thanks to <a href="http://ryandeussing.com">Ryan Deussing</a> for the theme.</span>
+</p>
+</center>
+
+</footer>
+  
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'needforair';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://needforair.com/blog/2012/05/07/d3-tutorial/';
+        var disqus_url = 'http://needforair.com/blog/2012/05/07/d3-tutorial/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+
+  <script >
+    $("header")
+    .css('cursor', 'pointer')
+    .click( function () {
+      window.location = "/";
+    });
+  </script>
+
+<script>
+  jQuery.noConflict()('li.other').hover (
+    function () {
+    jQuery.noConflict()(this).toggleClass("current-menu-item")
+  });
+</script>
+
+</body>
+</html>
+
+
+	</div> <!-- container -->
