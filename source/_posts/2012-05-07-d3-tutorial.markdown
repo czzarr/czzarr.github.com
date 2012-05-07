@@ -68,7 +68,7 @@ reads almost like a sentence, for example the first line would be "select the di
 'd3TutoGraphContainer' and create a SVG element with width 600 and height 300".  
 
 
-## Selecting data
+## Selecting elements
 This is the core of D3 : selecting elements of the DOM, and doing stuff with them. 
 D3 uses CSS3 selectors, also used by jQuery. You can select nodes by tag name, css class or id.  
 `d3.select(selector)` selects the first node matching _selector_ and returns a d3 object 
@@ -125,8 +125,18 @@ the "Binding data" section below.
 
 ## Binding data
 Binding data is the core of d3. The `d3.data` function binds data to the selection 
-to which it was applied, and returns a selection, called the _update_ selection, 
-which consists of all the elements from the old selection to which we could bind data. 
+to which it was applied, and returns three selections:  
+
+* The *update* selection: all the DOM elements from the selection to which we could bind data
+* The *enter* selection: the 'surplus' (if any) data for which there was no DOM element
+* The *exit* selection: all the 'surplus' (if any) DOM elements for which there was no data
+
+Of course, at least one of the *enter* and the *exit* has to be empty, both are if we the data 
+has the same size as the selection. In our example:  
+
+
+called the _update_ selection, 
+which . 
 At this point, the display doesn't change, only the data is affected. In our example:  
 
     var rects = chart.selectAll('rect')
