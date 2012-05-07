@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Behind Opinion polls"
+title: "Go Behind Opinion polls: Fundamentals and Reliability"
 date: 2012-05-10 20:12
 comments: true
 author: Charles Miglietti
@@ -11,7 +11,7 @@ We are in an election time in France. Everyday news is rythmed by
 polls. _Nicolas Sarkozy is falling from 2% in today's poll from IPSOS_,
 _Francois Hollande slipped below 33% after the crisis_ etc... Everybody
 seems to give a lot of credit to these polls forgeting most of the time
-that they are just statistical estimations of the reality. But what is their realibility ?  
+that they are just statistical estimations of the reality. But what is their realibility?  
 
 ## Organizing the Opinion Poll
 
@@ -115,7 +115,7 @@ which gives us the estimates which minimize the above function
 
 We just justified the use of the empirical mean as an estimate of the true
 mean given a set of observations using [maximum a posteriori
-estimation](http://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation)
+estimation](http://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation).
 
 
 ## Reliability
