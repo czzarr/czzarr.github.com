@@ -76,17 +76,23 @@ containing this node on which you can apply any d3 function.
 `d3.selectAll(selector)` selects all nodes matching _selector_ and returns a d3 
 object containing these nodes on which you can apply any d3 function. So in our example:  
 
-    var chart = d3.select("#d3TutoGraphContainer");   // Select the element with id 'd3TutoGraphContainer'
-                                                      // and store it in the variable 'chart'
+{% codeblock lang:javascript %}
+// Select the element with id 'd3TutoGraphContainer'
+// and store it in the variable 'chart'
+var chart = d3.select("#d3TutoGraphContainer");
+{% endcodeblock %}
 
 You can also apply select to an existing selection, to select among the children 
 of the existing selection. This is usually useful to ensure that all d3 manipulations 
 will take place in a container div (here it is 'd3TutoGraphContainer'). In our example:  
 
-    var rects = chart.selectAll("rect");   // Select all SVG rectangles children of this div
-                                           // At this point this selection is empty but all inserted
-                                           // rectangles will populate it so that we can reference
-                                           // it later in the 'click' callback
+{% codeblock lang:javascript %}
+// Select all SVG rectangles children of this div
+// At this point this selection is empty but all inserted
+// rectangles will populate it so that we can reference
+// it later in the 'click' callback
+var rects = chart.selectAll("rect");
+{% endcodeblock %}
 
 
 ## Inserting in and removing from the DOM
@@ -101,15 +107,19 @@ thus easier to use d3 and only d3 to build a data-driven document.
 `selection.append(tag)` appends an element of the specified _tag_ as the last child 
 of each element of _selection_. In our example:  
 
-    var chart = d3.select("#d3TutoGraphContainer").append("svg");  // Appends a <svg></svg> element inside
-                                                                   // the d3TutoGraphContainer div (selection
-                                                                   // has only one element)
+{% codeblock lang:javascript %}
+// Appends a <svg></svg> element inside
+// the d3TutoGraphContainer div (selection
+// has only one element)
+var chart = d3.select("#d3TutoGraphContainer").append("svg"); 
     
-    var rects = chart.selectAll('rect')
-                     .data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
-                     .enter().append('rect');                   // Inserts on rectangle for each piece of data
-                                                                // in the enter() selection (more explanations
-                                                                // in the data binding paragraph)
+// Inserts on rectangle for each piece of data
+// in the enter() selection (more explanations
+// in the data binding paragraph)
+var rects = chart.selectAll('rect')
+                 .data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
+                 .enter().append('rect');
+{% endcodeblock %}
 
 There is another way to insert elements in the DOM: `selection.insert(name, before)` 
 which inserts, as a child of every element in _selection_, an element of type _name_ 
@@ -134,15 +144,22 @@ to which it was applied, and returns three selections:
 Of course, at least one of the *enter* and the *exit* has to be empty, both are if the data 
 has the same size as the selection. In our example we use `d3.data()` twice:  
 
-    // #1
-    var rects = chart.selectAll('rect')
-                     .data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])    // The update will be empty as the selection
-                     .enter().doSomething();                     // is empty, the enter will contain all 10
-                                                                 // elements
+{% codeblock lang:javascript %}
+// #1: use of the enter selection
+// The update will be empty as the selection
+// is empty, the enter will contain all 10
+// elements
+var rects = chart.selectAll('rect')
+                 .data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])    
+                 .enter().doSomething();                     
 
-    // #2
-    rects.data(newData)     // At this point, rects contains the 10 rectangles, and newData contains
-         .doSomething();    // 10 elements, so the update contains all elements, the enter and the exit are empty
+// #2: use of the update selection
+// At this point, rects contains the 10 rectangles, and newData contains
+// 10 elements, so the update contains all elements, the enter and the
+// exit are empty
+rects.data(newData)     
+     .doSomething();    
+{% endcodeblock %}
 
 `d3.data()` directly returns the *update* so you can immediately do something on it (that's our #2). 
 If you want to work on the *enter* or the *exit* you need to call `d3.enter()` or `d3.exit()` on 
@@ -158,25 +175,32 @@ Calling `selection.attr(attribute, value)` modifies (and creates if it doesn't e
 the attribute _attribute_ to give it the value _value_ for every element of _selection_. 
 _value_ can be a function of data and element index, as in our example:  
 
-    var rects = chart.selectAll('rect').data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
-                     .enter().append('rect')                           // Add a rectangle for each data in the enter
-                     
-                     .attr("stroke", "none").attr("fill", "steelblue") // All rectangles are blue with no borders
-                     
-                     .attr("x", 0)                                     // All rectangles are 0px from the left of
-                                                                       // the container
-                                                                       
-                     .attr("y", function(d, i) { return 25 * i; } )    // First rectangle (i = 0) is 0px from the
-                                                                       // top of the container, second onf (i = 1)
-                                                                       // is 25px from the top and so on
-                     
-                     .attr("width", function(d) { return 20 * d; } )   // Rectangles' width is 20 times the bound data
-                                                                       // The first one is 20px wide, the second
-                                                                       // one 80px and so on
-                                                                       
-                     .attr("height", "20");
+{% codeblock lang:javascript %}
+var rects = chart.selectAll('rect').data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
 
-
+                 // Add a rectangle for each data in the enter
+                 .enter().append('rect')                           
+                     
+                 // All rectangles are blue with no borders
+                 .attr("stroke", "none").attr("fill", "steelblue") 
+                     
+                 // All rectangles are 0px from the left of
+                 // the container
+                 .attr("x", 0)                                     
+                                                                   
+                                                                       
+                 // First rectangle (i = 0) is 0px from the
+                 // top of the container, second onf (i = 1)
+                 // is 25px from the top and so on
+                 .attr("y", function(d, i) { return 25 * i; } ) 
+                     
+                 // Rectangles' width is 20 times the bound data
+                 // The first one is 20px wide, the second
+                 // one 80px and so on
+                 .attr("width", function(d) { return 20 * d; } ) 
+                                                                       
+                 .attr("height", "20");
+{% endcodeblock %}
 
 ### Other modifications
 As this is not a reference, I won't show all functions that modify elements. 
@@ -193,15 +217,17 @@ and `delay()` functions. You apply this function to any selection and then apply
 the new attributes, which will be transitioned. In our example, we transition the width 
 of the bars to animate the graph:  
 
-    // If we didn't use transitions, the graph would change immediately
-    rects.data(newData)
-         .attr("width", function(d) {return 500 * Math.random(); } ) });
+{% codeblock lang:javascript %}
+// If we didn't use transitions, the graph would change immediately
+rects.data(newData)
+     .attr("width", function(d) {return 500 * Math.random(); } ) });
 
-    // Simply adding using d3.transition() between new data binding and attribute modification
-    // and the change becomes graceful
-    rects.data(newData)
-         .transition().duration(2000).delay(200)
-         .attr("width", function(d) {return 500 * Math.random(); } ) });
+// Simply adding using d3.transition() between new data binding and
+// attribute modification and the change becomes graceful
+rects.data(newData)
+     .transition().duration(2000).delay(200)
+     .attr("width", function(d) {return 500 * Math.random(); } ) });
+{% endcodeblock %}
 
 Cool, isn't it ? The use of `delay()` is optional, as you can imagine. The `transition()` can only 
 transition number attributes, so for example it won't work with strings such as 
