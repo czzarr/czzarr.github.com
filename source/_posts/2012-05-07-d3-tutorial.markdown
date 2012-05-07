@@ -7,7 +7,8 @@ categories: [d3, animated graphs, tutorial]
 ---
 
 
-Before anything else, let's take a look at we're gonna build. 
+The goal of this tutorial is to explain d3 by using the example of a simple 
+animated bar chart. Before anything else, let's take a look at it. 
 Click on any bar of this chart -you can do it multiple times- to see what happens!  
 
 
