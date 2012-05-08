@@ -22,7 +22,7 @@ expensive.
 
 They choose a [representative sample](http://en.wikipedia.org/wiki/Sampling_(statistics\)) 
 of the population and ask them for whom they plan to vote. The responses
-of the polled people are assumed [independant](http://en.wikipedia.org/wiki/Independence_(probability_theory\)).
+ are assumed [independant](http://en.wikipedia.org/wiki/Independence_(probability_theory\)).
 
 Once collected, how do we build an estimate of the votes and what is the
 precision of this estimate? 
