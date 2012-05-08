@@ -48,7 +48,7 @@ who can choose between _k_ candidates. We define the variable
 </div>
 
 which is equal to _1_ if person _i_ votes for candidate
-_j_ and _0_ else.
+_j_ and _0_ if not.
 
 The real vote intentions we want
 to estimate are noted :
