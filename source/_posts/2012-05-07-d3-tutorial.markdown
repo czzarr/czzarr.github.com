@@ -193,8 +193,8 @@ var rects = chart.selectAll('rect').data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
                  // Add a rectangle for each data in the enter
                  .enter().append('rect')                           
                      
-                 // All rectangles are blue with no borders
-                 .attr("stroke", "none").attr("fill", "steelblue") 
+                 // All rectangles are steelblue with no borders
+                 .attr("stroke", "none").attr("fill", "rgb(70, 130, 180)")
                      
                  // All rectangles are 0px from the left of
                  // the container
@@ -232,13 +232,15 @@ of the bars to animate the graph:
 {% codeblock lang:javascript %}
 // If we didn't use transitions, the graph would change immediately
 rects.data(newData)
-     .attr("width", function(d) {return 20 * d; } ) });
+     .attr("width", function(d) {return 20 * d; } )
+     .attr("fill", newColor);
 
 // Simply adding using d3.transition() between new data binding and
 // attribute modification and the change becomes graceful
 rects.data(newData)
      .transition().duration(2000).delay(200)
-     .attr("width", function(d) {return 20 * d; } ) });
+     .attr("width", function(d) {return 20 * d; } )
+     .attr("fill", newColor);
 {% endcodeblock %}
 
 Cool, isn't it ? The use of `delay()` is optional, as you can imagine. The `transition()` can only 
