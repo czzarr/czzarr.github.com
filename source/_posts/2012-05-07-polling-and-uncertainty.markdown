@@ -131,7 +131,7 @@ depends on the statistical fluctuations of the estimate around the true
 value.
 
 
-The [central limit theorem](http://en.wikipedia.org/wiki/Central_limit_theorem) indicates us that 
+The [central limit theorem](http://en.wikipedia.org/wiki/Central_limit_theorem) tells us that 
 the random variables (_m_ is the true mean and _sigma_ the variance): 
 <div markdown="0">
 \[ \frac{\hat{\pi_j} -nm}{\sigma \sqrt{n}} \] 
