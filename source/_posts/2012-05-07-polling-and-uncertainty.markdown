@@ -24,7 +24,7 @@ They choose a [representative sample](http://en.wikipedia.org/wiki/Sampling_(sta
 of the population and ask them for whom they plan to vote. The responses
  are assumed [independant](http://en.wikipedia.org/wiki/Independence_(probability_theory\)).
 
-Once collected, how do we build an estimate of the votes and what is the
+Once collected, how do we use them build an estimate of the votes and what is the
 precision of this estimate? 
 
 The _natural and logical_ estimate is to take the 
