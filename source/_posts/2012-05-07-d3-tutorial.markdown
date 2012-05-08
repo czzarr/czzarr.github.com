@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introduction to d3: Build an Animated Graph in 15 Lines of Code"
+title: "Introduction to d3: Build an Animated Graph in 19 Lines of Code"
 date: 2012-05-07 12:17
 comments: true
 categories: [d3, animated graphs, tutorial]
@@ -15,30 +15,42 @@ Click on any bar of this chart -you can do it multiple times- to see what happen
 <div id='d3TutoGraphContainer'></div>
 <script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
 <script type="text/javascript">
-// Suppose there is currently one div with id "graphContainer" in the DOM
-// We append a 900x600 empty SVG container in the div
-var chart = d3.select("#d3TutoGraphContainer").append("svg").attr("width", "600").attr("height", "290");
+// Suppose there is currently one div with id "d3TutoGraphContainer" in the DOM
+// We append a 600x300 empty SVG container in the div
+var chart = d3.select("#d3TutoGraphContainer").append("svg").attr("width", "600").attr("height", "300");
 
-// There is no rectangle on which we can bind data in the SVG container
-// All the data will thus be bound in the enter
+// Create the bar chart which consists of ten SVG rectangles, one for each piece of data
 var rects = chart.selectAll('rect').data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
-.enter().append('rect')                           // Add a rectangle for each data in the enter
-.attr("stroke", "none").attr("fill", "steelblue") // All rectangles are blue with no borders
-.attr("x", 0)
-.attr("y", function(d, i) {return 25 * i; } )
-.attr("width", function(d) {return 20 * d; } )
-.attr("height", "20");
+                 .enter().append('rect')
+                 .attr("stroke", "none").attr("fill", "rgb(7, 130, 180)")
+                 .attr("x", 0)
+                 .attr("y", function(d, i) { return 25 * i; } )
+                 .attr("width", function(d) { return 20 * d; } )
+                 .attr("height", "20");
 
+// Transition on click managed by jQuery
 rects.on('click', function() {
-// Wait 1s, then increase rectangles size with a 2s transition
-rects.transition().duration(2000).delay(200)
-.attr("width", function(d) {return 500 * Math.random(); } ) });
+    // Generate randomly a data set with 10 elements
+    var newData = [];
+    for (var i=0; i<10; i+=1) { newData.push(Math.floor(24 * Math.random())); }
+
+    // Generate a random color
+    var newColor = 'rgb(' + Math.floor(255 * Math.random()) +
+                     ', ' + Math.floor(255 * Math.random()) +
+                     ', ' + Math.floor(255 * Math.random()) + ')';
+
+    rects.data(newData)
+         .transition().duration(2000).delay(200)
+         .attr("width", function(d) { return d * 20; } )
+         .attr("fill", newColor);
+  });
 </script>
+
 
 
 Pretty neat, huh? You can see the gist of a standalone working HTML
 [here](https://gist.github.com/2601571). We're going to go through the
-javascript part which consists of 15 lines of javascript (comments and
+javascript part which consists of 19 lines of javascript (comments and
 blank lines excluded of course), on top of the [d3 library](http://d3js.org/). 
 d3 (for **d**ata **d**riven **d**ocument) is a **low-level javascript 
 framework that allows you to easily bind data to elements of the 
@@ -220,13 +232,13 @@ of the bars to animate the graph:
 {% codeblock lang:javascript %}
 // If we didn't use transitions, the graph would change immediately
 rects.data(newData)
-     .attr("width", function(d) {return 500 * Math.random(); } ) });
+     .attr("width", function(d) {return 20 * d; } ) });
 
 // Simply adding using d3.transition() between new data binding and
 // attribute modification and the change becomes graceful
 rects.data(newData)
      .transition().duration(2000).delay(200)
-     .attr("width", function(d) {return 500 * Math.random(); } ) });
+     .attr("width", function(d) {return 20 * d; } ) });
 {% endcodeblock %}
 
 Cool, isn't it ? The use of `delay()` is optional, as you can imagine. The `transition()` can only 
