@@ -30,7 +30,7 @@ precision of this estimate?
 The _natural and logical_ estimate is to take the 
 [sample mean](http://en.wikipedia.org/wiki/Sample_mean) as an estimator. How do we
 justify such an estimate and what is its precision? We'll see that what
-sounds common sense has strong mathematics justification.
+sounds like common sense has a strong mathematical justification.
 
 
 ## Building the Estimate
