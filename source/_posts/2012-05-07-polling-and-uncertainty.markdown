@@ -184,10 +184,10 @@ opinion poll realized on 1020 people which gives _33%_ as an estimation
 for the vote intention for one candidate there is _95%_ of chance that the
 true vote intention is between _30%_ and _36%_.
 
-This quick reminder on opinion polls should remind us that opinion polls
-can be quite far for the reality. And there is one variable that I
+This quick refresher on opinion polls should remind us that opinion polls
+can be quite far from reality. And there is one variable that I
 didn't take into account: there are people who don't dare
-the name the true candidate they plan to vote for. This is especially
+to name the true candidate they plan to vote for. This is especially
 true for extremist votes and explains [why we can experience such a
 discrepancy between the estimations and the true results of one
 election](http://www.guardian.co.uk/world/2012/apr/22/marine-le-pen-french-election).
