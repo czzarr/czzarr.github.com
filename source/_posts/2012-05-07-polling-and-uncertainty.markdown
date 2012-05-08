@@ -120,8 +120,8 @@ estimation](http://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation).
 
 ## Reliability
 
-Given the estimator, which level of trust can we give it? How near is
-the estimated value of the true one. The [law of large numbers](http://en.wikipedia.org/wiki/Law_of_large_numbers) 
+Given the estimator, which level of trust can we give it? How close is
+are the estimated and true values. The [law of large numbers](http://en.wikipedia.org/wiki/Law_of_large_numbers) 
 tells us that when the size of the sample goes to infinity the estimated
 value tends to the true value. But in reality there is not an infinity
 of people who get polled. Usually just a few thousands are. From one
