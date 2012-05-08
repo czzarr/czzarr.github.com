@@ -167,10 +167,10 @@ the update (that's our #1).
 
 
 ## Modifying the DOM according to the data
-Now it's time to use d3 for what it was designed : manipulate the DOM using the data. 
+Now it's time to use d3 for what it was designed: manipulating the DOM using the data. 
 We can modify any attribute of an element, CSS classes, properties, text and even inner HTML.
 
-### Modifying attributes : d3.attr
+### Modifying attributes: d3.attr
 Calling `selection.attr(attribute, value)` modifies (and creates if it doesn't exist) 
 the attribute _attribute_ to give it the value _value_ for every element of _selection_. 
 _value_ can be a function of data and element index, as in our example:  
