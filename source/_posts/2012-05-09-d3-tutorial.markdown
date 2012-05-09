@@ -244,11 +244,11 @@ rects.data(newData)
      .attr("fill", newColor);
 {% endcodeblock %}
 
-Cool, isn't it ? The use of `delay()` is optional, as you can imagine. The `transition()` can only 
-transition number attributes, so for example it can't work with color strings such as 
-"steelblue" and "red". However, d3 being as smart as it is, it can understand when a 
-string contains numbers, and smoothly transition the number parts of the string. 
-That's why you see a rainbow transition in the example at the top of this article.  
+Cool, isn't it ? The use of `delay()` is optional, as you can imagine. The `transition()` function can 
+transition number attributes, but can also understand when a 
+string contains numbers, and smoothly transition the number parts of the string -that's how I
+built the rainbow transition in the example at the top of this article. It also understands some specific
+types of strings, for example colors (i.e. it can transition from 'steelblue' to 'red'). Visit the [d3.js website](http://d3js.org/) for more on this!    
 
 
 ### Advanced transitions
