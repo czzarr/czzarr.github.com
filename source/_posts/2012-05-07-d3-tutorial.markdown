@@ -259,6 +259,9 @@ For example, I did that to animate a line chart (which is a SVG path).
 ## Conclusion
 With this tutorial, you should know more than enough to create awesome custom 
 graphs or data visualizations. Since you have total control, you can even create this kind
-of [crazy animations](http://bl.ocks.org/1256572)!
+of [crazy animations](http://bl.ocks.org/1256572)!  
+
+Also, it is the only way I found to build smooth animated graphs on the iPad, other libraries such 
+as Highcharts were too slow.
 
 
