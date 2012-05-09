@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introduction to d3: Build an Animated Graph in 19 Lines of Code"
-date: 2012-05-07 12:17
+date: 2012-05-09 12:05
 comments: true
 categories: [d3, animated graphs, tutorial]
 ---
