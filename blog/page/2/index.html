@@ -9,9 +9,8 @@
   <meta name="author" content="Need for Air">
 
   
-  <meta name="description" content="The game of go is very interesting from an AI programmer&#8217;s point of
-view, because of how difficult it is to make a computer compete against
-a &hellip;">
+  <meta name="description" content="If you build a website, you will want your own domain name, which means
+you will need to manage your Domain Name System (DNS). While there is nothing &hellip;">
   
 
 
@@ -88,6 +87,14 @@ a &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/05/09/d3-tutorial/">Introduction to d3: Build an Animated Graph in 19 Lines of Code</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/07/show-me-the-gist/">Show Me the Gist</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/05/03/we-wrote-a-book/">We Wrote a Book!</a>
       </li>
     
@@ -97,14 +104,6 @@ a &hellip;">
     
       <li class="post">
         <a href="/blog/2012/04/22/dns-redirections/">Tutorial: Domain Name System for Beginners</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/">Twitter Lets You Talk to World-Class Experts</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/04/18/game-of-go/">The Game of Go: a Programmer's Perspective</a>
       </li>
     
   </ul>
@@ -148,6 +147,250 @@ a &hellip;">
 	    <div id="content">
 	      <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/22/dns-redirections/">Tutorial: Domain Name System for Beginners</a></h1>
+    
+    
+      <p class="meta">
+    
+        <time datetime="2012-04-22T08:30:00+02:00" pubdate><span class='month'>Apr</span> <span class='day'>22</span> <span class='year'>2012</span></time>
+        | 
+  
+
+<span class="byline author vcard"><span class="fn">Louis Chatriot</span></span>
+
+    
+      </p>
+    
+  </header>
+
+
+
+
+  <div class="entry-content"><p>If you build a website, you will want your own domain name, which means
+you will need to manage your Domain Name System (DNS). While there is nothing very
+complicated here, the info is scattered across the Internet, so I decided
+to write a &#8220;cheat sheet&#8221;-like tutorial which will hopefully save you some time!</p>
+
+<p><a href="http://www.flickr.com/photos/49502986585@N01/277341190/"><img src="http://farm1.staticflickr.com/122/277341190_3f098a08a4_n.jpg" alt="Code" /></a>
+<em>by <a href="http://www.flickr.com/photos/ezu/" title="Author">Ezu</a></em></p>
+
+<h2>What is the DNS?</h2>
+
+<p>The DNS is a system that helps your computer translate human-readable <strong>domain names</strong>
+into computer-usable <strong>IP addresses</strong> (4 numbers between 0 and 255
+identifying a server).</p>
+
+<p>A domain name must have two parts, separated by a dot: the <strong>actual domain</strong> (e.g. <em>google</em>) and the
+<strong>top-level domain</strong> (e.g. <em>com</em>). In this example, the domain name is
+<em>google.com</em>. Optionally, you can also use different <strong>subdomains</strong>, so
+that users typing <em>subdomain1.domain.tld</em> and <em>subdomain2.domain.tld</em>
+arrive on two different pages. The well-known <em>www</em> is a subdomain of
+<em>google.com</em> in the address <em>www.google.com</em>.</p>
+
+<p>To use your own custom domain name, you need
+to buy one from a <strong>registrar</strong> (such as <a href="https://www.gandi.net/">Gandi</a>).</p>
+
+<h2>How to manage it: the zone file</h2>
+
+<p>Most registrars will let you use Web forwardings, which are simple
+redirections (what happens when the webpage you are looking at automatically changes to another page). However, you should
+avoid those for the following reasons:</p>
+
+<ul>
+<li>Simple redirections will replace your domain name by your IP address,
+which is the best way to scare off users</li>
+<li>Masked redirections will not scare off users, but they will give you a
+very poor search-engine rating</li>
+</ul>
+
+
+<p>You will need to use the <strong>zone file</strong>. It is a simple text file
+describing the structure of your DNS zone (usually your domain) to the global DNS
+(i.e. the world). Let&#8217;s take a look at a sample zone file (the zone file on
+Gandi for our blog <a href="http://needforair.com">needforair.com</a>.</p>
+
+<p>These are the DNS rules for our domain <code>needforair.com</code>:</p>
+
+<pre><code>@ 3600 IN A 184.106.20.102
+www 3600 IN CNAME needforair.com.
+wik 3600 IN CNAME fr.wikipedia.org.
+</code></pre>
+
+<p>You usually also find lines similar to the following in a zone file.
+They manage the email server your registrar provides you, and shouldn&#8217;t
+touch them:</p>
+
+<pre><code>@ 3600 IN MX 10 spool.mail.gandi.net.
+@ 3600 IN MX 50 fb.mail.gandi.net.
+smtp 3600 IN CNAME relay.mail.gandi.net.
+webmail 3600 IN CNAME agent.mail.gandi.net.
+pop 3600 IN CNAME access.mail.gandi.net.
+imap 3600 IN CNAME access.mail.gandi.net.
+</code></pre>
+
+<p>The most important points here are:</p>
+
+<ul>
+<li>Each line corresponds to one rule (a record)</li>
+<li>The <code>@</code> character represents your bare domain (needforair.com in our example) as opposed
+to subdomains such as <code>test.needforair.com</code> or <code>www.needforair.com</code></li>
+<li>An <code>A</code> record points to an IP address, usually your server. In our example, <code>@ 3600 IN A 184.106.20.102</code>
+indicates that a user typing &#8216;needforair.com&#8217; in his address bar will request content from the IP address 184.106.20.102.
+The <code>3600</code> number is the <a href="http://en.wikipedia.org/wiki/Time_to_live#DNS_records">Time To Live (TTL)</a> of the record,
+the time (in seconds) during which a nameserver will cache the record and not ask the authoritative server (Gandi here)
+if queried again</li>
+<li>A <code>CNAME</code> record points to any domain or subdomain, either in your zone or outside.
+In our example, <code>www 3600 IN CNAME needforair.com.</code> means that a user typing <code>www.needforair.com</code> will request content
+from the same IP address as needforair.com (that&#8217;s not the case by default). You can of course use a CNAME to any other
+domain, in our example <code>wik 3600 IN CNAME fr.wikipedia.org.</code> which will make users typing &#8220;wik.needforair.com&#8221; in their
+address bar go to the French version of Wikipedia instead (don&#8217;t try it
+we removed it!)</li>
+<li><strong>Don&#8217;t forget the period (&#8216;.&#8217;) at the end of your CNAMEs !!!</strong> For example, use &#8220;needforair.com.&#8221;, and NOT &#8220;needforair.com&#8221;.
+If you forget the period, the record simply won&#8217;t work, and you will
+spend an awful lot of time to figure out why</li>
+</ul>
+
+
+<p>There are lots of other types of rules, but this should be enough to set up your DNS.</p>
+
+<p>Last note: keep in mind that <strong>changes to the zone file take some time</strong>,
+usually a few hours, to propagate through the Internet. So don&#8217;t make a
+mistake or they will take some time to spot and correct!</p>
+
+<h2>Discover more</h2>
+
+<ul>
+<li><a href="http://continuations.com/post/16405180072/tech-tuesday-dns">A great primer on DNS for the non-technical</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Zone_file">Wikipedia&#8217;s article on the Zone file</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Domain_Name_System">Wikipedia&#8217;s article on the DNS</a>.</li>
+</ul>
+
+</div>
+  
+  
+        
+          <a href="/blog/2012/04/22/dns-redirections/#disqus_thread">Comments</a>
+        
+
+
+  
+    <div class="sharing">
+  
+    
+    <a href="http://twitter.com/share" class="twitter-share-button" data-text="Tutorial: Domain Name System for Beginners" data-url="http://needforair.com/blog/2012/04/22/dns-redirections/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/04/22/dns-redirections/" >Tweet</a>
+    
+  
+  
+</div>
+
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/">Twitter Lets You Talk to World-Class Experts</a></h1>
+    
+    
+      <p class="meta">
+    
+        <time datetime="2012-04-20T04:35:00+02:00" pubdate><span class='month'>Apr</span> <span class='day'>20</span> <span class='year'>2012</span></time>
+        | 
+  
+
+<span class="byline author vcard"><span class="fn">Stanislas Marion</span></span>
+
+    
+      </p>
+    
+  </header>
+
+
+
+
+  <div class="entry-content"><p>The other day I had a conversation on Twitter with <a href="http://twitter.com/#!/rjs">Ryan
+Singer</a> of <a href="http://37signals.com">37 Signals</a>
+fame. Ryan is a world-class expert in product design and had just posted an <a href="http://feltpresence.com/articles/16-managing-product-development-by-integrating-around-concerns">article</a>
+on his excellent <a href="http://feltpresence.com/">blog</a>. The thing is I am a
+nobody in product design or in the tech scene in general. I&#8217;m not saying
+I&#8217;m dumb or anything, just that nobody knows me. And yet I was
+still able to have a great and stimulating conversation with an expert
+who&#8217;s email inbox is presumably very full, lives thousands of kilometers
+away from me and doesn&#8217;t know anything about me. This was not the first
+time I&#8217;ve been amazed by the power of Twitter, so I decided to blog about
+it.</p>
+
+<p><a href="http://www.flickr.com/photos/brajeshwar/3428525318/in/photostream"><img src="http://farm4.staticflickr.com/3393/3428525318_0729579705_n.jpg" alt="Twitter Mosaic" /></a>
+<em><a href="http://creativecommons.org/licenses/by-nc-sa/2.0" title="license">CC license</a> - by <a href="http://www.flickr.com/photos/brajeshwar/" title="Author">Brajeshwar</a></em></p>
+
+<h2>140 characters Enable Improbable Conversations</h2>
+
+<p>That length constraint compels people to get straight to the point.
+There is no fluff. No awkward openings, no pompous endings, no walls of
+text. People expect direct questions and answers and wouldn&#8217;t have it any other
+way.</p>
+
+<p>This magically enables you to talk to some people you would never have sent an
+email to. And busy people that don&#8217;t know you at all, that might be
+thought leaders or experts, will answer you if
+you ask an interesting question. Because the constraint also works for
+the response: they don&#8217;t have to send you a long well thought-out answer,
+they don&#8217;t need to get context to answer, they can just type 140
+characters.</p>
+
+<p>I have asked questions to succesful entrepreneurs, or VCs, and almost
+always gotten a quick answer. This is incredibly cool and powerful. And
+these people don&#8217;t know me at all.</p>
+
+<h2>No Social Pressure or Awkwardness</h2>
+
+<p>The Twitter feed moves so swiftly that conversations are extremely
+ephemeral. I think this is key to enabling these kinds of improbable
+conversations. The fact that it moves so quickly reduces the social
+pressure: few people will see it, it will not mark your Twitter profile
+for a long time, and nobody will assume that the two people conversing
+are great friends or anything. Twitter enables conversations in a
+vacuum, without having to build up a relationship. There is no pressure
+for the expert to become friend with the person he is talking to.</p>
+
+<p>When you try to email or talk on the phone to an expert, you always want to be super apologetic,
+respectful and you don&#8217;t really focus on the content of the
+conversation you&#8217;re trying to have but instead you focus on the
+asymmetry of the relationship and that makes you uncomfortable. Twitter makes all these concerns vanish.</p>
+
+<p>I love Twitter for these opportunities.</p>
+</div>
+  
+  
+        
+          <a href="/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/#disqus_thread">Comments</a>
+        
+
+
+  
+    <div class="sharing">
+  
+    
+    <a href="http://twitter.com/share" class="twitter-share-button" data-text="Twitter Lets You Talk to World-Class Experts" data-url="http://needforair.com/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/" >Tweet</a>
+    
+  
+  
+</div>
+
+  
+
+
+    </article>
   
   
     <article>
@@ -366,177 +609,6 @@ time as their audience.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/11/community-organizing-platforms/">The Golden Age of Community Organizing Platforms</a></h1>
-    
-    
-      <p class="meta">
-    
-        <time datetime="2012-04-11T08:58:00+02:00" pubdate><span class='month'>Apr</span> <span class='day'>11</span> <span class='year'>2012</span></time>
-        | 
-  
-
-<span class="byline author vcard"><span class="fn">Charles Miglietti</span></span>
-
-    
-      </p>
-    
-  </header>
-
-
-
-
-  <div class="entry-content"><p>I <a href="http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college/">already wrote</a> about how
-you can leverage some <a href="https://github.com/">social platforms</a> to build
-your visibility on the internet, but they offer much more.
-They provide appropriate tools that help people to be more productive
-and better organized. They are much more functional than pure social networks
-and even more valuable as the communities are active.</p>
-
-<p><img src="http://cardview.net/wp-content/uploads/2010/04/nation-builder.jpg" height="220" alt="Keep the gist" /></p>
-
-<h2>Platforms structure communities</h2>
-
-<p>We can call such a platform a <em>community organizing platform</em> because
-it allows a community to have a place to gather, discuss and share. It
-provides the global structure the community needs to get organized.
-Ten years ago the forums laid the foundation but today these platforms
-achieve what&#8217;s been initiated.</p>
-
-<p>Using these platforms everyone creates and manages a business card that
-is accessible by everyone else.
-People can easily be identified, followed, consulted and appraised. You
-don&#8217;t have to go to as many conferences or events to meet new people
-because it can be done very efficiently online.</p>
-
-<h2>Community organizing platforms offer more than pure social networks</h2>
-
-<p>Pure social networks like Twitter offer ways to
-organize communities but don&#8217;t provide the structure
-and tools needed for effective collaboration. They are mainly focus on
-sharing.</p>
-
-<p>While community organizing platforms provide a social layer they
-also offer services geared towards the community itself. This
-combination is what&#8217;s really valuable.
-<a href="http://nationbuilder.com/">Nation Builder</a>
-is the perfect example: it features volunteer organization, donation
-monitoring, website creation&#8230; a comprehensive package
-political leaders need to interact with their audience.</p>
-
-<h2>Active communities are driven by knowledge</h2>
-
-<p>We can distinguish communities built upon friendship, professional
-activity or common interests. The most active
-are the ones based on a common interest, where knowledge and
-feedback is a valuable resource. In these ones people spend a lot of time
-looking for information. They also create a lot of content in order to
-improve their reputation. Such platforms are even more
-important for small communities because the resources they want to access are not always well
-indexed by search engines.</p>
-
-<p>As sharing information, working collaboratively and giving feedbacks to peers is key in
-these communities even a very little one
-can be very active.
-There is still lots of
-them to structure out there, lots of people waiting to
-share and collaborate with their peers. Who are they? What can we do for
-them?</p>
-</div>
-  
-  
-        
-          <a href="/blog/2012/04/11/community-organizing-platforms/#disqus_thread">Comments</a>
-        
-
-
-  
-    <div class="sharing">
-  
-    
-    <a href="http://twitter.com/share" class="twitter-share-button" data-text="The Golden Age Of Community Organizing Platforms" data-url="http://needforair.com/blog/2012/04/11/community-organizing-platforms/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/04/11/community-organizing-platforms/" >Tweet</a>
-    
-  
-  
-</div>
-
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation/">Why the Pirate Party Will Help Improve Internet Regulation</a></h1>
-    
-    
-      <p class="meta">
-    
-        <time datetime="2012-04-09T10:38:00+02:00" pubdate><span class='month'>Apr</span> <span class='day'>09</span> <span class='year'>2012</span></time>
-        | 
-  
-
-<span class="byline author vcard"><span class="fn">Louis Chatriot</span></span>
-
-    
-      </p>
-    
-  </header>
-
-
-
-
-  <div class="entry-content"><p>In the past years, we have seen a lot of developped countries
-governments pushing for more regulation of the Internet, and less
-privacy for users. There are three main reasons: protection of
-children, prevention of terrorism and <a href="http://needforair.com/blog/2012/03/29/sopa-hadopi-future-of-culture/">fight against illegal downloading</a>. This has led to very repressive and usually inefficient laws, for example in Australia, in France (Hadopi) and <a href="http://thehill.com/blogs/hillicon-valley/technology/220181-dodd-says-sopa-can-live-again">possibly soon</a> in the US. I think that a big part of this problem is that a very large portion of the people making these laws understand next to nothing about the Internet, and are thus afraid of it. What can we do about it?</p>
-
-<p><a href="http://www.flickr.com/photos/20888197@N00/103031916/"><img src="http://farm1.staticflickr.com/43/103031916_5c6c0a51af_m.jpg" alt="Pirate" /></a>
-<em>by <a href="http://www.flickr.com/photos/opid/" title="Author">sereneonion</a></em></p>
-
-<h2>Direct education is not enough</h2>
-
-<p>Direct education is the most natural answer. Initiatives like Google&#8217;s
-<a href="http://www.20thingsilearned.com/en-US">20 things I learned about browsers and the Web</a> for example, aim at explaining very simply the basics to beginners. More focused initiatives like the <a href="http://www.eg8forum.com/en/">electronic G8 forum</a>, which was held last year in Paris are interesting too. But unfortunately, none of these will make a real impact as long as politicians have so little interest for this world. What we really need is to make them <strong>want</strong> to learn about the Internet.</p>
-
-<h2>The Pirate Party can play a significant role</h2>
-
-<p>What politicians really care about is of course to get (re)elected. And
-since they are busy people, they only tackle the subjects they feel are the
-most importants for voters, which are nowadays the economic crisis and
-unemployment. This is where I think the <a href="http://en.wikipedia.org/wiki/Pirate_Party">Pirate Party</a> has a huge role to play. Even though they are still a fringe party today, they <a href="http://www.nytimes.com/2011/09/20/world/europe/in-berlin-pirates-win-8-9-percent-of-vote-in-regional-races.html">have had some electoral success</a> and have shown the political world that voters do care about Internet-related issues. If they continue to be successful, I am pretty sure that mainstream politicians, who hold the real power, will want to understand the Internet better, leading to a more fruitful public debate.</p>
-
-<p>It will surely take some time, but I think <strong>it will happen</strong>, because it already happened in the past: 30 years ago, neither voters nor politicians cared about the environment, and the Green parties were regarded the same way the Pirate party is today. Now, ecology is a significant political topic in many European countries. The Internet is next.</p>
-</div>
-  
-  
-        
-          <a href="/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation/#disqus_thread">Comments</a>
-        
-
-
-  
-    <div class="sharing">
-  
-    
-    <a href="http://twitter.com/share" class="twitter-share-button" data-text="Why the Pirate Party Will Help Improve Internet Regulation" data-url="http://needforair.com/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation/" >Tweet</a>
-    
-  
-  
-</div>
-
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -554,6 +626,14 @@ unemployment. This is where I think the <a href="http://en.wikipedia.org/wiki/Pi
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/05/09/d3-tutorial/">Introduction to d3: Build an Animated Graph in 19 Lines of Code</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/07/show-me-the-gist/">Show Me the Gist</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/05/03/we-wrote-a-book/">We Wrote a Book!</a>
       </li>
     
@@ -563,14 +643,6 @@ unemployment. This is where I think the <a href="http://en.wikipedia.org/wiki/Pi
     
       <li class="post">
         <a href="/blog/2012/04/22/dns-redirections/">Tutorial: Domain Name System for Beginners</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/">Twitter Lets You Talk to World-Class Experts</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/04/18/game-of-go/">The Game of Go: a Programmer&#8217;s Perspective</a>
       </li>
     
   </ul>

@@ -9,9 +9,8 @@
   <meta name="author" content="Need for Air">
 
   
-  <meta name="description" content="After two months of effort, our book is finally out. The collaborative
-writing process is extremely interesting in itself and will be the topic
-of &hellip;">
+  <meta name="description" content="The goal of this tutorial is to give an introduction to d3.js by using the example of a simple
+animated bar chart. Before anything else, let&#8217;s &hellip;">
   
 
 
@@ -88,6 +87,14 @@ of &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/05/09/d3-tutorial/">Introduction to d3: Build an Animated Graph in 19 Lines of Code</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/07/show-me-the-gist/">Show Me the Gist</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/05/03/we-wrote-a-book/">We Wrote a Book!</a>
       </li>
     
@@ -97,14 +104,6 @@ of &hellip;">
     
       <li class="post">
         <a href="/blog/2012/04/22/dns-redirections/">Tutorial: Domain Name System for Beginners</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/">Twitter Lets You Talk to World-Class Experts</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/04/18/game-of-go/">The Game of Go: a Programmer's Perspective</a>
       </li>
     
   </ul>
@@ -148,6 +147,487 @@ of &hellip;">
 	    <div id="content">
 	      <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/09/d3-tutorial/">Introduction to D3: Build an Animated Graph in 19 Lines of Code</a></h1>
+    
+    
+      <p class="meta">
+    
+        <time datetime="2012-05-09T12:05:00+02:00" pubdate><span class='month'>May</span> <span class='day'>09</span> <span class='year'>2012</span></time>
+        | 
+  
+
+<span class="byline author vcard"><span class="fn">Need for Air</span></span>
+
+    
+      </p>
+    
+  </header>
+
+
+
+
+  <div class="entry-content"><p>The goal of this tutorial is to give an introduction to <a href="http://d3js.org/">d3.js</a> by using the example of a simple
+animated bar chart. Before anything else, let&#8217;s take a look at it.
+Click on any bar of this chart -you can do it multiple times- to see what happens!</p>
+
+<div id='d3TutoGraphContainer'></div>
+
+
+<script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
+
+
+<script type="text/javascript">
+// Suppose there is currently one div with id "d3TutoGraphContainer" in the DOM
+// We append a 600x300 empty SVG container in the div
+var chart = d3.select("#d3TutoGraphContainer").append("svg").attr("width", "600").attr("height", "300");
+
+// Create the bar chart which consists of ten SVG rectangles, one for each piece of data
+var rects = chart.selectAll('rect').data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
+                 .enter().append('rect')
+                 .attr("stroke", "none").attr("fill", "rgb(7, 130, 180)")
+                 .attr("x", 0)
+                 .attr("y", function(d, i) { return 25 * i; } )
+                 .attr("width", function(d) { return 20 * d; } )
+                 .attr("height", "20");
+
+// Transition on click managed by jQuery
+rects.on('click', function() {
+    // Generate randomly a data set with 10 elements
+    var newData = [];
+    for (var i=0; i<10; i+=1) { newData.push(Math.floor(24 * Math.random())); }
+
+    // Generate a random color
+    var newColor = 'rgb(' + Math.floor(255 * Math.random()) +
+                     ', ' + Math.floor(255 * Math.random()) +
+                     ', ' + Math.floor(255 * Math.random()) + ')';
+
+    rects.data(newData)
+         .transition().duration(2000).delay(200)
+         .attr("width", function(d) { return d * 20; } )
+         .attr("fill", newColor);
+  });
+</script>
+
+
+<p>Pretty neat, huh? You can see the gist of a standalone working HTML
+<a href="https://gist.github.com/2601571">here</a>. We&#8217;re going to go through the
+javascript part which consists of 19 lines of javascript (comments and
+blank lines excluded of course), on top of the <a href="http://d3js.org/">d3 library</a>.
+d3 (for <strong>d</strong>ata <strong>d</strong>riven <strong>d</strong>ocument) is a <strong>low-level javascript
+framework that allows you to easily bind data to elements of the
+DOM and manipulate them</strong>. Even though d3&#8217;s most frequent use is for
+drawing charts, <strong>it is not a visualization library</strong>, it just handles
+data binding and data-driven DOM manipulation, which is arguably the
+boring -even though not the easiest- part, and lets you focus on content creation.</p>
+
+<p>So <strong>why</strong> use a low-level framework to draw graphs when so many integrative chart
+libraries exist out there (<a href="http://www.highcharts.com/">Highcharts</a> , <a href="https://developers.google.com/chart/">Google Chart Tools</a>  &#8230;)? Precisely because
+it is <strong>low-level</strong>. That means you have to put in more effort upfront, but in
+return you gain <strong>total control of your data visualization</strong>, you are more flexible,
+and you can freely use the full power of existing technologies (CSS3, HTML5, SVG &#8230;)
+to visualize data however you want (as a graph or otherwise).</p>
+
+<p>This example uses SVG. It&#8217;s not a problem if you are not used to it, as it is very
+straightforward, but you may still want to check <a href="https://developer.mozilla.org/en/SVG">the MDN tutorial on SVG</a>.
+Now let&#8217;s take a look at the code for the chart:</p>
+
+<div><script src='https://gist.github.com/2601663.js?file='></script>
+<noscript><pre><code>// Suppose there is currently one div with id &quot;d3TutoGraphContainer&quot; in the DOM
+// We append a 600x300 empty SVG container in the div
+var chart = d3.select(&quot;#d3TutoGraphContainer&quot;).append(&quot;svg&quot;).attr(&quot;width&quot;, &quot;600&quot;).attr(&quot;height&quot;, &quot;300&quot;);
+
+// There is no rectangle on which we can bind data in the SVG container
+// All the data will thus be bound in the enter
+var rects = chart.selectAll('rect').data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
+                 .enter().append('rect')                           // Add a rectangle for each data in the enter
+                 .attr(&quot;stroke&quot;, &quot;none&quot;).attr(&quot;fill&quot;, &quot;steelblue&quot;) // All rectangles are blue with no borders
+                 .attr(&quot;x&quot;, 0)
+                 .attr(&quot;y&quot;, function(d, i) { return 25 * i; } )
+                 .attr(&quot;width&quot;, function(d) { return 20 * d; } )
+                 .attr(&quot;height&quot;, &quot;20&quot;);
+
+rects.on('click', function() {
+                    rects.transition().duration(2000).delay(200)
+                         .attr(&quot;width&quot;, function(d) { return 500 * Math.random(); } )
+                  });</code></pre></noscript></div>
+
+
+<p>The first thing you should notice is that d3 uses method chaining. Every d3 function
+returns a d3 object on which you can apply another d3 function. This makes for code that
+reads almost like a sentence, for example the first line would be &#8220;select the div with id
+<em>d3TutoGraphContainer</em> and create a SVG element with width 600 and height 300&#8221;.</p>
+
+<h2>Selecting elements</h2>
+
+<p>This is the core of D3: selecting elements of the DOM, and doing stuff with them.
+D3 uses CSS3 selectors, also used by jQuery. You can select nodes by tag name, css class or id.<br/>
+<code>d3.select(selector)</code> selects the first node matching <em>selector</em> and returns a d3 object
+containing this node on which you can apply any d3 function.<br/>
+<code>d3.selectAll(selector)</code> selects all nodes matching <em>selector</em> and returns a d3
+object containing these nodes on which you can apply any d3 function. So in our example:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Select the element with id &#39;d3TutoGraphContainer&#39;</span>
+</span><span class='line'><span class="c1">// and store it in the variable &#39;chart&#39;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">chart</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;#d3TutoGraphContainer&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can also apply <code>select</code> to an existing selection, to select among the children
+of the existing selection. This is usually useful to ensure that all d3 manipulations
+will take place in a container div (&#8216;d3TutoGraphContainer&#8217; in our example):</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Select all SVG rectangles children of this div</span>
+</span><span class='line'><span class="c1">// At this point this selection is empty but all inserted</span>
+</span><span class='line'><span class="c1">// rectangles will populate it so that we can reference</span>
+</span><span class='line'><span class="c1">// it later in the &#39;click&#39; callback</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">rects</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">&quot;rect&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Inserting in and removing from the DOM</h2>
+
+<p>d3 provides functions for inserting in and removing from the DOM.
+As usual, these functions apply to d3 selections.<br/>
+<strong>Note :</strong> you may ask why use these functions when we can use jQuery for example.
+The answer is simple : even though you could do it, d3&#8217;s DOM manipulation functions are
+designed to work with other d3 function, so you can use method chaining. It is
+thus easier to use d3 and only d3 to build a data-driven document.</p>
+
+<h3>Inserting in the DOM</h3>
+
+<p><code>selection.append(tag)</code> appends an element of the specified <em>tag</em> as the last child
+of each element of <em>selection</em>. In our example:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Appends a &lt;svg&gt;&lt;/svg&gt; element inside</span>
+</span><span class='line'><span class="c1">// the d3TutoGraphContainer div (selection</span>
+</span><span class='line'><span class="c1">// has only one element)</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">chart</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;#d3TutoGraphContainer&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;svg&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Inserts on rectangle for each piece of data</span>
+</span><span class='line'><span class="c1">// in the enter() selection (more explanations</span>
+</span><span class='line'><span class="c1">// in the data binding paragraph)</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">rects</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">)</span>
+</span><span class='line'>                 <span class="p">.</span><span class="nx">data</span><span class="p">([</span><span class="mi">1</span> <span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+</span><span class='line'>                 <span class="p">.</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There is another way to insert elements in the DOM: <code>selection.insert(name, before)</code>
+which inserts, as a child of every element in <em>selection</em>, an element of type <em>name</em>
+before the first element selectable by the CSS selector <em>before</em>. This is useful to
+control which SVG elements appear on top of the others (the last one in the page is on top).</p>
+
+<h3>Removing from the DOM</h3>
+
+<p>Removing all the elements from a selection is done with the <code>d3.remove()</code> function,
+like this : <code>selection.remove()</code>. This is often used with the <code>exit()</code> function, also covered in
+the &#8220;Binding data&#8221; section below.</p>
+
+<h2>Binding data</h2>
+
+<p>Binding data is the core of d3. The <code>d3.data</code> function binds data to the selection
+to which it was applied, and returns three selections:</p>
+
+<ul>
+<li>The <em>update</em> selection: all the DOM elements from the selection to which we could bind data</li>
+<li>The <em>enter</em> selection: the &#8216;surplus&#8217; (if any) data for which there was no DOM element</li>
+<li>The <em>exit</em> selection: all the &#8216;surplus&#8217; (if any) DOM elements for which there was no data</li>
+</ul>
+
+
+<p>Of course, at least one of the <em>enter</em> and the <em>exit</em> has to be empty, both are if the data
+has the same size as the selection. In our example we use <code>d3.data()</code> twice:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// #1: use of the enter selection</span>
+</span><span class='line'><span class="c1">// The update will be empty as the selection</span>
+</span><span class='line'><span class="c1">// is empty, the enter will contain all 10</span>
+</span><span class='line'><span class="c1">// elements</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">rects</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">)</span>
+</span><span class='line'>                 <span class="p">.</span><span class="nx">data</span><span class="p">([</span><span class="mi">1</span> <span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+</span><span class='line'>                 <span class="p">.</span><span class="nx">enter</span><span class="p">().</span><span class="nx">doSomething</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// #2: use of the update selection</span>
+</span><span class='line'><span class="c1">// At this point, rects contains the 10 rectangles, and newData contains</span>
+</span><span class='line'><span class="c1">// 10 elements, so the update contains all elements, the enter and the</span>
+</span><span class='line'><span class="c1">// exit are empty</span>
+</span><span class='line'><span class="nx">rects</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="nx">newData</span><span class="p">)</span>
+</span><span class='line'>     <span class="p">.</span><span class="nx">doSomething</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>d3.data()</code> directly returns the <em>update</em> so you can immediately do something on it (that&#8217;s our #2).
+If you want to work on the <em>enter</em> or the <em>exit</em> you need to call <code>d3.enter()</code> or <code>d3.exit()</code> on
+the update (that&#8217;s our #1).</p>
+
+<h2>Modifying the DOM according to the data</h2>
+
+<p>Now it&#8217;s time to use d3 for what it was designed: manipulating the DOM using the data.
+We can modify any attribute of an element, CSS classes, properties, text and even inner HTML.</p>
+
+<h3>Modifying attributes: d3.attr</h3>
+
+<p>Calling <code>selection.attr(attribute, value)</code> modifies (and creates if it doesn&#8217;t exist)
+the attribute <em>attribute</em> to give it the value <em>value</em> for every element of <em>selection</em>.
+<em>value</em> can be a function of data and element index, as in our example:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">rects</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">).</span><span class="nx">data</span><span class="p">([</span><span class="mi">1</span> <span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+</span><span class='line'>
+</span><span class='line'>                 <span class="c1">// Add a rectangle for each data in the enter</span>
+</span><span class='line'>                 <span class="p">.</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>                 <span class="c1">// All rectangles are steelblue with no borders</span>
+</span><span class='line'>                 <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;stroke&quot;</span><span class="p">,</span> <span class="s2">&quot;none&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="s2">&quot;rgb(70, 130, 180)&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>                 <span class="c1">// All rectangles are 0px from the left of</span>
+</span><span class='line'>                 <span class="c1">// the container</span>
+</span><span class='line'>                 <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>                 <span class="c1">// First rectangle (i = 0) is 0px from the</span>
+</span><span class='line'>                 <span class="c1">// top of the container, second onf (i = 1)</span>
+</span><span class='line'>                 <span class="c1">// is 25px from the top and so on</span>
+</span><span class='line'>                 <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">25</span> <span class="o">*</span> <span class="nx">i</span><span class="p">;</span> <span class="p">}</span> <span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>                 <span class="c1">// Rectangles&#39; width is 20 times the bound data</span>
+</span><span class='line'>                 <span class="c1">// The first one is 20px wide, the second</span>
+</span><span class='line'>                 <span class="c1">// one 80px and so on</span>
+</span><span class='line'>                 <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">20</span> <span class="o">*</span> <span class="nx">d</span><span class="p">;</span> <span class="p">}</span> <span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>                 <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s2">&quot;20&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Other modifications</h3>
+
+<p>As this is not a reference, I won&#8217;t show all functions that modify elements.
+You can look into the <a href="https://github.com/mbostock/d3/wiki/API-Reference">d3 reference</a>
+to learn how to modify classes with <code>d3.classed</code>, properties with <code>d3.property</code> and style with <code>d3.style</code>.</p>
+
+<h2>Transitions</h2>
+
+<p>The last, and maybe the most impressive piece of d3 is the transitions engine.
+As we saw in the previous section, d3 enables us to modify any attribute instantly.
+It can also transition number attributes (e.g. position in pixels, width etc)
+from their old to their new value smoothly, using the <code>transition()</code>, <code>duration()</code>
+and <code>delay()</code> functions. You apply this function to any selection and then apply
+the new attributes, which will be transitioned. In our example, we transition the width
+of the bars to animate the graph:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// If we didn&#39;t use transitions, the graph would change immediately</span>
+</span><span class='line'><span class="nx">rects</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="nx">newData</span><span class="p">)</span>
+</span><span class='line'>     <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="mi">20</span> <span class="o">*</span> <span class="nx">d</span><span class="p">;</span> <span class="p">}</span> <span class="p">)</span>
+</span><span class='line'>     <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="nx">newColor</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Simply adding using d3.transition() between new data binding and</span>
+</span><span class='line'><span class="c1">// attribute modification and the change becomes graceful</span>
+</span><span class='line'><span class="nx">rects</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="nx">newData</span><span class="p">)</span>
+</span><span class='line'>     <span class="p">.</span><span class="nx">transition</span><span class="p">().</span><span class="nx">duration</span><span class="p">(</span><span class="mi">2000</span><span class="p">).</span><span class="nx">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+</span><span class='line'>     <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="mi">20</span> <span class="o">*</span> <span class="nx">d</span><span class="p">;</span> <span class="p">}</span> <span class="p">)</span>
+</span><span class='line'>     <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="nx">newColor</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Cool, isn&#8217;t it ? The use of <code>delay()</code> is optional, as you can imagine. The <code>transition()</code> can only
+transition number attributes, so for example it can&#8217;t work with color strings such as
+&#8220;steelblue&#8221; and &#8220;red&#8221;. However, d3 being as smart as it is, it can understand when a
+string contains numbers, and smoothly transition the number parts of the string.
+That&#8217;s why you see a rainbow transition in the example at the top of this article.</p>
+
+<h3>Advanced transitions</h3>
+
+<p>What I explained are just the default, basic transition engine, which works very well.
+You may need to customize your transition interpolation function, tween or easing function.
+For example, I did that to animate a line chart (which is a SVG path).</p>
+
+<h2>Conclusion</h2>
+
+<p>With this tutorial, you should know more than enough to create awesome custom
+graphs or data visualizations. Since you have total control, you can even create this kind
+of <a href="http://bl.ocks.org/1256572">crazy animations</a>!</p>
+
+<p>Also, it is the only way I found to build smooth animated graphs on the iPad, other libraries such
+as Highcharts were too slow.</p>
+</div>
+  
+  
+        
+          <a href="/blog/2012/05/09/d3-tutorial/#disqus_thread">Comments</a>
+        
+
+
+  
+    <div class="sharing">
+  
+    
+    <a href="http://twitter.com/share" class="twitter-share-button" data-text="Introduction to d3: Build an Animated Graph in 19 Lines of Code" data-url="http://needforair.com/blog/2012/05/09/d3-tutorial/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/05/09/d3-tutorial/" >Tweet</a>
+    
+  
+  
+</div>
+
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/07/show-me-the-gist/">Show Me the Gist</a></h1>
+    
+    
+      <p class="meta">
+    
+        <time datetime="2012-05-07T10:29:00+02:00" pubdate><span class='month'>May</span> <span class='day'>07</span> <span class='year'>2012</span></time>
+        | 
+  
+
+<span class="byline author vcard"><span class="fn">Charles Miglietti</span></span>
+
+    
+      </p>
+    
+  </header>
+
+
+
+
+  <div class="entry-content"><p>The other day on Hacker News I came across this
+<a href="http://www.inc.com/magazine/201205/burt-helm/turntable-founders-sxsw-where-did-our-love-go.html">article of the Inc. Magazine</a>. Article seemed very interesting, talking about
+<a href="http://turntable.fm">Turntable.fm</a>. It had been a while since I hadn&#8217;t read about Turnable,
+all news about collaborative experiences on the web excite me,
+the title was linkbaity: I clicked.</p>
+
+<p><img src="http://farm8.staticflickr.com/7094/7151646789_12625e7615.jpg" width="350" alt="Abstract" /></p>
+
+<p>The first thing I do when I come to a new page is to check the length of
+the article. <em>How long will it take me to read this article?</em> This one
+made me wince: a very long article split in 4 pages. Two things
+scared me: pagination and length.</p>
+
+<p>First I don&#8217;t like pagination on news website. I am under the
+impression of being on Google looking for something and having to go to
+page 4 to find it. This article was also too long for me because it was not the only one
+I was planning to read. My time is not extensible, there was still work
+waiting for me. As I don&#8217;t want to be a
+<a href="http://needforair.com/blog/2012/04/27/capitalize-on-what-you-read/">passive reader</a> a long article
+requires a lot of time to deal with.</p>
+
+<p>I told myself <em>Ok, this article is quite long but I will
+force myself to go till the end because that&#8217;s something really
+intriguing</em>. That&#8217;s how it began. I read the first page without
+skipping a line then began the second page. But I couldn&#8217;t do it.
+The article was too long. Way too long. Not boring but inappropriately long for what I expected.
+How did it end? I skipped most of the article, read some random
+statements to grasp the main ideas. I&#8217;m not proud of myself as I really
+wanted to get more involved in the subject but
+<a href="http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers/">I&#8217;m a nutcracker</a>.</p>
+
+<p>I don&#8217;t think I am the only one in this situation. I <em>really</em> like reading,
+documenting myself but I can&#8217;t always make it with theses long articles. They make
+the web interesting to browse, they bring a lot of value but their
+barrier to entry is too high and they don&#8217;t fit into every reading time. We could
+really lower this barrier to entry for such articles though, by providing a summary.
+That&#8217;s what scientific researchers do with the abstract
+they add to their publications, so couldn&#8217;t web writers do it too?</p>
+</div>
+  
+  
+        
+          <a href="/blog/2012/05/07/show-me-the-gist/#disqus_thread">Comments</a>
+        
+
+
+  
+    <div class="sharing">
+  
+    
+    <a href="http://twitter.com/share" class="twitter-share-button" data-text="Show Me the Gist" data-url="http://needforair.com/blog/2012/05/07/show-me-the-gist/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/05/07/show-me-the-gist/" >Tweet</a>
+    
+  
+  
+</div>
+
+  
+
+
+    </article>
   
   
     <article>
@@ -442,250 +922,6 @@ understanding of what you memorize.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/22/dns-redirections/">Tutorial: Domain Name System for Beginners</a></h1>
-    
-    
-      <p class="meta">
-    
-        <time datetime="2012-04-22T08:30:00+02:00" pubdate><span class='month'>Apr</span> <span class='day'>22</span> <span class='year'>2012</span></time>
-        | 
-  
-
-<span class="byline author vcard"><span class="fn">Louis Chatriot</span></span>
-
-    
-      </p>
-    
-  </header>
-
-
-
-
-  <div class="entry-content"><p>If you build a website, you will want your own domain name, which means
-you will need to manage your Domain Name System (DNS). While there is nothing very
-complicated here, the info is scattered across the Internet, so I decided
-to write a &#8220;cheat sheet&#8221;-like tutorial which will hopefully save you some time!</p>
-
-<p><a href="http://www.flickr.com/photos/49502986585@N01/277341190/"><img src="http://farm1.staticflickr.com/122/277341190_3f098a08a4_n.jpg" alt="Code" /></a>
-<em>by <a href="http://www.flickr.com/photos/ezu/" title="Author">Ezu</a></em></p>
-
-<h2>What is the DNS?</h2>
-
-<p>The DNS is a system that helps your computer translate human-readable <strong>domain names</strong>
-into computer-usable <strong>IP addresses</strong> (4 numbers between 0 and 255
-identifying a server).</p>
-
-<p>A domain name must have two parts, separated by a dot: the <strong>actual domain</strong> (e.g. <em>google</em>) and the
-<strong>top-level domain</strong> (e.g. <em>com</em>). In this example, the domain name is
-<em>google.com</em>. Optionally, you can also use different <strong>subdomains</strong>, so
-that users typing <em>subdomain1.domain.tld</em> and <em>subdomain2.domain.tld</em>
-arrive on two different pages. The well-known <em>www</em> is a subdomain of
-<em>google.com</em> in the address <em>www.google.com</em>.</p>
-
-<p>To use your own custom domain name, you need
-to buy one from a <strong>registrar</strong> (such as <a href="https://www.gandi.net/">Gandi</a>).</p>
-
-<h2>How to manage it: the zone file</h2>
-
-<p>Most registrars will let you use Web forwardings, which are simple
-redirections (what happens when the webpage you are looking at automatically changes to another page). However, you should
-avoid those for the following reasons:</p>
-
-<ul>
-<li>Simple redirections will replace your domain name by your IP address,
-which is the best way to scare off users</li>
-<li>Masked redirections will not scare off users, but they will give you a
-very poor search-engine rating</li>
-</ul>
-
-
-<p>You will need to use the <strong>zone file</strong>. It is a simple text file
-describing the structure of your DNS zone (usually your domain) to the global DNS
-(i.e. the world). Let&#8217;s take a look at a sample zone file (the zone file on
-Gandi for our blog <a href="http://needforair.com">needforair.com</a>.</p>
-
-<p>These are the DNS rules for our domain <code>needforair.com</code>:</p>
-
-<pre><code>@ 3600 IN A 184.106.20.102
-www 3600 IN CNAME needforair.com.
-wik 3600 IN CNAME fr.wikipedia.org.
-</code></pre>
-
-<p>You usually also find lines similar to the following in a zone file.
-They manage the email server your registrar provides you, and shouldn&#8217;t
-touch them:</p>
-
-<pre><code>@ 3600 IN MX 10 spool.mail.gandi.net.
-@ 3600 IN MX 50 fb.mail.gandi.net.
-smtp 3600 IN CNAME relay.mail.gandi.net.
-webmail 3600 IN CNAME agent.mail.gandi.net.
-pop 3600 IN CNAME access.mail.gandi.net.
-imap 3600 IN CNAME access.mail.gandi.net.
-</code></pre>
-
-<p>The most important points here are:</p>
-
-<ul>
-<li>Each line corresponds to one rule (a record)</li>
-<li>The <code>@</code> character represents your bare domain (needforair.com in our example) as opposed
-to subdomains such as <code>test.needforair.com</code> or <code>www.needforair.com</code></li>
-<li>An <code>A</code> record points to an IP address, usually your server. In our example, <code>@ 3600 IN A 184.106.20.102</code>
-indicates that a user typing &#8216;needforair.com&#8217; in his address bar will request content from the IP address 184.106.20.102.
-The <code>3600</code> number is the <a href="http://en.wikipedia.org/wiki/Time_to_live#DNS_records">Time To Live (TTL)</a> of the record,
-the time (in seconds) during which a nameserver will cache the record and not ask the authoritative server (Gandi here)
-if queried again</li>
-<li>A <code>CNAME</code> record points to any domain or subdomain, either in your zone or outside.
-In our example, <code>www 3600 IN CNAME needforair.com.</code> means that a user typing <code>www.needforair.com</code> will request content
-from the same IP address as needforair.com (that&#8217;s not the case by default). You can of course use a CNAME to any other
-domain, in our example <code>wik 3600 IN CNAME fr.wikipedia.org.</code> which will make users typing &#8220;wik.needforair.com&#8221; in their
-address bar go to the French version of Wikipedia instead (don&#8217;t try it
-we removed it!)</li>
-<li><strong>Don&#8217;t forget the period (&#8216;.&#8217;) at the end of your CNAMEs !!!</strong> For example, use &#8220;needforair.com.&#8221;, and NOT &#8220;needforair.com&#8221;.
-If you forget the period, the record simply won&#8217;t work, and you will
-spend an awful lot of time to figure out why</li>
-</ul>
-
-
-<p>There are lots of other types of rules, but this should be enough to set up your DNS.</p>
-
-<p>Last note: keep in mind that <strong>changes to the zone file take some time</strong>,
-usually a few hours, to propagate through the Internet. So don&#8217;t make a
-mistake or they will take some time to spot and correct!</p>
-
-<h2>Discover more</h2>
-
-<ul>
-<li><a href="http://continuations.com/post/16405180072/tech-tuesday-dns">A great primer on DNS for the non-technical</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Zone_file">Wikipedia&#8217;s article on the Zone file</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Domain_Name_System">Wikipedia&#8217;s article on the DNS</a>.</li>
-</ul>
-
-</div>
-  
-  
-        
-          <a href="/blog/2012/04/22/dns-redirections/#disqus_thread">Comments</a>
-        
-
-
-  
-    <div class="sharing">
-  
-    
-    <a href="http://twitter.com/share" class="twitter-share-button" data-text="Tutorial: Domain Name System for Beginners" data-url="http://needforair.com/blog/2012/04/22/dns-redirections/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/04/22/dns-redirections/" >Tweet</a>
-    
-  
-  
-</div>
-
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/">Twitter Lets You Talk to World-Class Experts</a></h1>
-    
-    
-      <p class="meta">
-    
-        <time datetime="2012-04-20T04:35:00+02:00" pubdate><span class='month'>Apr</span> <span class='day'>20</span> <span class='year'>2012</span></time>
-        | 
-  
-
-<span class="byline author vcard"><span class="fn">Stanislas Marion</span></span>
-
-    
-      </p>
-    
-  </header>
-
-
-
-
-  <div class="entry-content"><p>The other day I had a conversation on Twitter with <a href="http://twitter.com/#!/rjs">Ryan
-Singer</a> of <a href="http://37signals.com">37 Signals</a>
-fame. Ryan is a world-class expert in product design and had just posted an <a href="http://feltpresence.com/articles/16-managing-product-development-by-integrating-around-concerns">article</a>
-on his excellent <a href="http://feltpresence.com/">blog</a>. The thing is I am a
-nobody in product design or in the tech scene in general. I&#8217;m not saying
-I&#8217;m dumb or anything, just that nobody knows me. And yet I was
-still able to have a great and stimulating conversation with an expert
-who&#8217;s email inbox is presumably very full, lives thousands of kilometers
-away from me and doesn&#8217;t know anything about me. This was not the first
-time I&#8217;ve been amazed by the power of Twitter, so I decided to blog about
-it.</p>
-
-<p><a href="http://www.flickr.com/photos/brajeshwar/3428525318/in/photostream"><img src="http://farm4.staticflickr.com/3393/3428525318_0729579705_n.jpg" alt="Twitter Mosaic" /></a>
-<em><a href="http://creativecommons.org/licenses/by-nc-sa/2.0" title="license">CC license</a> - by <a href="http://www.flickr.com/photos/brajeshwar/" title="Author">Brajeshwar</a></em></p>
-
-<h2>140 characters Enable Improbable Conversations</h2>
-
-<p>That length constraint compels people to get straight to the point.
-There is no fluff. No awkward openings, no pompous endings, no walls of
-text. People expect direct questions and answers and wouldn&#8217;t have it any other
-way.</p>
-
-<p>This magically enables you to talk to some people you would never have sent an
-email to. And busy people that don&#8217;t know you at all, that might be
-thought leaders or experts, will answer you if
-you ask an interesting question. Because the constraint also works for
-the response: they don&#8217;t have to send you a long well thought-out answer,
-they don&#8217;t need to get context to answer, they can just type 140
-characters.</p>
-
-<p>I have asked questions to succesful entrepreneurs, or VCs, and almost
-always gotten a quick answer. This is incredibly cool and powerful. And
-these people don&#8217;t know me at all.</p>
-
-<h2>No Social Pressure or Awkwardness</h2>
-
-<p>The Twitter feed moves so swiftly that conversations are extremely
-ephemeral. I think this is key to enabling these kinds of improbable
-conversations. The fact that it moves so quickly reduces the social
-pressure: few people will see it, it will not mark your Twitter profile
-for a long time, and nobody will assume that the two people conversing
-are great friends or anything. Twitter enables conversations in a
-vacuum, without having to build up a relationship. There is no pressure
-for the expert to become friend with the person he is talking to.</p>
-
-<p>When you try to email or talk on the phone to an expert, you always want to be super apologetic,
-respectful and you don&#8217;t really focus on the content of the
-conversation you&#8217;re trying to have but instead you focus on the
-asymmetry of the relationship and that makes you uncomfortable. Twitter makes all these concerns vanish.</p>
-
-<p>I love Twitter for these opportunities.</p>
-</div>
-  
-  
-        
-          <a href="/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/#disqus_thread">Comments</a>
-        
-
-
-  
-    <div class="sharing">
-  
-    
-    <a href="http://twitter.com/share" class="twitter-share-button" data-text="Twitter Lets You Talk to World-Class Experts" data-url="http://needforair.com/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/" >Tweet</a>
-    
-  
-  
-</div>
-
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -701,6 +937,14 @@ asymmetry of the relationship and that makes you uncomfortable. Twitter makes al
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/05/09/d3-tutorial/">Introduction to d3: Build an Animated Graph in 19 Lines of Code</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/07/show-me-the-gist/">Show Me the Gist</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/05/03/we-wrote-a-book/">We Wrote a Book!</a>
       </li>
     
@@ -710,14 +954,6 @@ asymmetry of the relationship and that makes you uncomfortable. Twitter makes al
     
       <li class="post">
         <a href="/blog/2012/04/22/dns-redirections/">Tutorial: Domain Name System for Beginners</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/04/20/twitter-lets-you-talk-to-wordclass-experts/">Twitter Lets You Talk to World-Class Experts</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/04/18/game-of-go/">The Game of Go: a Programmer&#8217;s Perspective</a>
       </li>
     
   </ul>
