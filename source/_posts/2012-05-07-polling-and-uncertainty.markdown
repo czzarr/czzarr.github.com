@@ -7,6 +7,11 @@ author: Charles Miglietti
 categories: [math]
 ---
 
+_This article is quite technical and requires a mathematical background
+for a comprehensive understanding. All
+technical points have a reference to the corresponding Wikipedia's article for further
+explanations._
+
 We are in an election time in France. Everyday news is rythmed by
 polls. _Nicolas Sarkozy is falling from 2% in today's poll from IPSOS_,
 _Francois Hollande slipped below 33% after the crisis_ etc... Everybody
