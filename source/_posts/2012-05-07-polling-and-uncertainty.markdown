@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Behind Opinion polls: Fundamentals and Reliability"
-date: 2012-05-10 20:12
+date: 2012-05-15 20:12
 comments: true
 author: Charles Miglietti
 categories: [math]
