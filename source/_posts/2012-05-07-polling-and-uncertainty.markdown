@@ -190,39 +190,79 @@ is _95%_ of chance that the true value is:
 
 ## Numeric Application
 
-A quick numeric application gives us the result that if we have an
-opinion poll realized on 1020 people which gives _33%_ as an estimation
-for the vote intention for one candidate there is _95%_ of chance that the
-true vote intention is between _30%_ and _36%_.
+With the simple slider and graphic you can see by yourself the influence
+of the number of people polled for an opinion poll. The box represents
+the _95%_ interval of confidence that means there is _95%_ of chance that the
+true vote intention is within this interval.
 
 
-<div id='PollingNumericApplication'></div>
+<div id='PollingNumericApplication' style="text-align:center;"></div>
 <script src="http://d3js.org/d3.v2.min.js"></script>
-<script>
+<div style="text-align:center;">
+  <label style="width:200px;float:left;"> Size of population</label>
+  <input  id='polling-slider' style="width:160px;margin-left:-300px;" type="range" min="500" max="5000" value="1000"/>
+  <span id="polling-range">1000</span><br/>
+  <label style="width:200px;float:left;"> Estimated Mean </label>
+  <input style="text-align:center;width:30px;" id='polling-mean' type="text"  value="35"/> <br/>
+</div>
+<script >
 // Suppose there is currently one div with id "d3TutoGraphContainer" in the DOM
 // We append a 600x300 empty SVG container in the div
-var chart = d3.select("#PollingNumericApplication").append("svg").attr("width", "400").attr("height", "50");
+var pollingChart = d3.select("#PollingNumericApplication").append("svg").attr("width", "600").attr("height", "150");
 
 // Create the bar chart which consists of ten SVG rectangles, one for each piece of data
-var rects = chart.selectAll('rect').data([1000])
+var pollingIntervals = pollingChart.selectAll('rect').data([1000])
                  .enter().append('rect')
                  .attr("stroke", "none").attr("fill", "rgb(7, 130, 180)")
-                 .attr("x", 0)
+                 .attr("x", function(d) {return 300 - 2580*1.96/Math.sqrt(d);})
                  .attr("y", function(d, i) { return 25 * i; } )
-                 .attr("width", function(d) { return d/10.; } )
+                 .attr("width", function(d) { return 5160*1.96/Math.sqrt(d); } )
                  .attr("height", "20");
+var pollingTickers = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
 
-</script>
-<input id='polling-slider' type="range" min="500" max="5000" value="1000"/>
-<span id="polling-range">1000</span>
-<script >
+
+var pollinggetX = function(d) { return 50 + 500 * d; };
+
+var pollingLines = pollingChart.selectAll('.tickers').data(pollingTickers)
+                 .enter().append('rect')
+                 .classed('tickers', true)
+                 .attr("fill", "steelblue")
+                 .attr("x", pollinggetX)
+                 .attr("y", 60)
+                 .attr("width", 1)
+                 .attr("height", 10);
+
+var pollingLabels = pollingChart.selectAll('.tickerlabels').data(pollingTickers)
+                  .enter().append('text')
+                  .classed('tickerlabels', true)
+                  .attr("x", pollinggetX)
+                  .attr("y", 100)
+                  .attr("width", 1)
+                  .attr("height", 10)
+                  .attr('text-anchor', 'middle')
+                  .text(function(d) { return '' + (30+d * 10) + '%'; } );
+
 $('#polling-slider').on('change',function ()
 {
   var newValue = parseInt(this.value, '10');
-  rects.data([newValue])
-       .transition()
-       .attr("width", function(d) { return d/10. ; } );
+  pollingIntervals.data([newValue])
+       .attr("x", function(d) {return 300 - 2580*1.96/Math.sqrt(d);})
+       .attr("width", function(d) { return 5160*1.96/Math.sqrt(d); } );
 	document.getElementById('polling-range').innerHTML = newValue; 
+});
+$('#polling-mean').on('change',function (){
+
+  var newValue = parseInt(this.value, '10');
+ pollingLabels = pollingChart.selectAll('.tickerlabels').remove();
+ pollingLabels = pollingChart.selectAll('.tickerlabels').data(pollingTickers)
+                  .enter().append('text')
+                  .classed('tickerlabels', true)
+                  .attr("x", pollinggetX)
+                  .attr("y", 100)
+                  .attr("width", 1)
+                  .attr("height", 10)
+                  .attr('text-anchor', 'middle')
+                  .text(function(d) { return '' + (newValue - 5+d * 10) + '%'; } );
 });
 </script>
 
