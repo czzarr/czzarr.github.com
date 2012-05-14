@@ -1,0 +1,268 @@
+---
+layout: post
+title: "Introduction to d3: Build an Animated Graph in 19 Lines of Code"
+date: 2012-05-09 12:05
+comments: true
+author: Louis Chatriot
+categories: [d3, animated graphs, tutorial]
+---
+
+
+The goal of this tutorial is to give an introduction to [d3.js](http://d3js.org/) by using the example of a simple 
+animated bar chart. Before anything else, let's take a look at it. 
+Click on any bar of this chart -you can do it multiple times- to see what happens!  
+
+
+<div id='d3TutoGraphContainer'></div>
+<script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
+<script type="text/javascript">
+// Suppose there is currently one div with id "d3TutoGraphContainer" in the DOM
+// We append a 600x300 empty SVG container in the div
+var chart = d3.select("#d3TutoGraphContainer").append("svg").attr("width", "600").attr("height", "300");
+
+// Create the bar chart which consists of ten SVG rectangles, one for each piece of data
+var rects = chart.selectAll('rect').data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
+                 .enter().append('rect')
+                 .attr("stroke", "none").attr("fill", "rgb(7, 130, 180)")
+                 .attr("x", 0)
+                 .attr("y", function(d, i) { return 25 * i; } )
+                 .attr("width", function(d) { return 20 * d; } )
+                 .attr("height", "20");
+
+// Transition on click managed by jQuery
+rects.on('click', function() {
+    // Generate randomly a data set with 10 elements
+    var newData = [];
+    for (var i=0; i<10; i+=1) { newData.push(Math.floor(24 * Math.random())); }
+
+    // Generate a random color
+    var newColor = 'rgb(' + Math.floor(255 * Math.random()) +
+                     ', ' + Math.floor(255 * Math.random()) +
+                     ', ' + Math.floor(255 * Math.random()) + ')';
+
+    rects.data(newData)
+         .transition().duration(2000).delay(200)
+         .attr("width", function(d) { return d * 20; } )
+         .attr("fill", newColor);
+  });
+</script>
+
+
+
+Pretty neat, huh? You can see the gist of a standalone working HTML
+[here](https://gist.github.com/2601571). We're going to go through the
+javascript part which consists of 19 lines of javascript (comments and
+blank lines excluded of course), on top of the [d3 library](http://d3js.org/). 
+d3 (for **d**ata **d**riven **d**ocument) is a **low-level javascript 
+framework that allows you to easily bind data to elements of the 
+DOM and manipulate them**. Even though d3's most frequent use is for 
+drawing charts, **it is not a visualization library**, it just handles 
+data binding and data-driven DOM manipulation, which is arguably the 
+boring -even though not the easiest- part, and lets you focus on content creation.  
+
+So **why** use a low-level framework to draw graphs when so many integrative chart 
+libraries exist out there ([Highcharts](http://www.highcharts.com/) , [Google Chart Tools](https://developers.google.com/chart/)  ...)? Precisely because 
+it is **low-level**. That means you have to put in more effort upfront, but in 
+return you gain **total control of your data visualization**, you are more flexible, 
+and you can freely use the full power of existing technologies (CSS3, HTML5, SVG ...) 
+to visualize data however you want (as a graph or otherwise).  
+
+This example uses SVG. It's not a problem if you are not used to it, as it is very 
+straightforward, but you may still want to check [the MDN tutorial on SVG](https://developer.mozilla.org/en/SVG). 
+Now let's take a look at the code for the chart:
+
+
+{% gist 2601663 %}
+
+
+The first thing you should notice is that d3 uses method chaining. Every d3 function 
+returns a d3 object on which you can apply another d3 function. This makes for code that 
+reads almost like a sentence, for example the first line would be "select the div with id 
+*d3TutoGraphContainer* and create a SVG element with width 600 and height 300".  
+
+
+## Selecting elements
+This is the core of D3: selecting elements of the DOM, and doing stuff with them. 
+D3 uses CSS3 selectors, also used by jQuery. You can select nodes by tag name, css class or id.  
+`d3.select(selector)` selects the first node matching _selector_ and returns a d3 object 
+containing this node on which you can apply any d3 function.  
+`d3.selectAll(selector)` selects all nodes matching _selector_ and returns a d3 
+object containing these nodes on which you can apply any d3 function. So in our example:  
+
+{% codeblock lang:javascript %}
+// Select the element with id 'd3TutoGraphContainer'
+// and store it in the variable 'chart'
+var chart = d3.select("#d3TutoGraphContainer");
+{% endcodeblock %}
+
+You can also apply `select` to an existing selection, to select among the children 
+of the existing selection. This is usually useful to ensure that all d3 manipulations 
+will take place in a container div ('d3TutoGraphContainer' in our example):  
+
+{% codeblock lang:javascript %}
+// Select all SVG rectangles children of this div
+// At this point this selection is empty but all inserted
+// rectangles will populate it so that we can reference
+// it later in the 'click' callback
+var rects = chart.selectAll("rect");
+{% endcodeblock %}
+
+
+## Inserting in and removing from the DOM
+d3 provides functions for inserting in and removing from the DOM. 
+As usual, these functions apply to d3 selections.  
+**Note :** you may ask why use these functions when we can use jQuery for example. 
+The answer is simple : even though you could do it, d3's DOM manipulation functions are 
+designed to work with other d3 function, so you can use method chaining. It is 
+thus easier to use d3 and only d3 to build a data-driven document.  
+
+### Inserting in the DOM
+`selection.append(tag)` appends an element of the specified _tag_ as the last child 
+of each element of _selection_. In our example:  
+
+{% codeblock lang:javascript %}
+// Appends a <svg></svg> element inside
+// the d3TutoGraphContainer div (selection
+// has only one element)
+var chart = d3.select("#d3TutoGraphContainer").append("svg"); 
+    
+// Inserts on rectangle for each piece of data
+// in the enter() selection (more explanations
+// in the data binding paragraph)
+var rects = chart.selectAll('rect')
+                 .data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
+                 .enter().append('rect');
+{% endcodeblock %}
+
+There is another way to insert elements in the DOM: `selection.insert(name, before)` 
+which inserts, as a child of every element in _selection_, an element of type _name_ 
+before the first element selectable by the CSS selector _before_. This is useful to
+control which SVG elements appear on top of the others (the last one in the page is on top).
+
+
+### Removing from the DOM
+Removing all the elements from a selection is done with the `d3.remove()` function, 
+like this : `selection.remove()`. This is often used with the `exit()` function, also covered in 
+the "Binding data" section below.  
+
+
+## Binding data
+Binding data is the core of d3. The `d3.data` function binds data to the selection 
+to which it was applied, and returns three selections:  
+
+* The *update* selection: all the DOM elements from the selection to which we could bind data
+* The *enter* selection: the 'surplus' (if any) data for which there was no DOM element
+* The *exit* selection: all the 'surplus' (if any) DOM elements for which there was no data
+
+Of course, at least one of the *enter* and the *exit* has to be empty, both are if the data 
+has the same size as the selection. In our example we use `d3.data()` twice:  
+
+{% codeblock lang:javascript %}
+// #1: use of the enter selection
+// The update will be empty as the selection
+// is empty, the enter will contain all 10
+// elements
+var rects = chart.selectAll('rect')
+                 .data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])    
+                 .enter().doSomething();                     
+
+// #2: use of the update selection
+// At this point, rects contains the 10 rectangles, and newData contains
+// 10 elements, so the update contains all elements, the enter and the
+// exit are empty
+rects.data(newData)     
+     .doSomething();    
+{% endcodeblock %}
+
+`d3.data()` directly returns the *update* so you can immediately do something on it (that's our #2). 
+If you want to work on the *enter* or the *exit* you need to call `d3.enter()` or `d3.exit()` on 
+the update (that's our #1).  
+
+
+## Modifying the DOM according to the data
+Now it's time to use d3 for what it was designed: manipulating the DOM using the data. 
+We can modify any attribute of an element, CSS classes, properties, text and even inner HTML.
+
+### Modifying attributes: d3.attr
+Calling `selection.attr(attribute, value)` modifies (and creates if it doesn't exist) 
+the attribute _attribute_ to give it the value _value_ for every element of _selection_. 
+_value_ can be a function of data and element index, as in our example:  
+
+{% codeblock lang:javascript %}
+var rects = chart.selectAll('rect').data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 20])
+
+                 // Add a rectangle for each data in the enter
+                 .enter().append('rect')                           
+                     
+                 // All rectangles are steelblue with no borders
+                 .attr("stroke", "none").attr("fill", "rgb(70, 130, 180)")
+                     
+                 // All rectangles are 0px from the left of
+                 // the container
+                 .attr("x", 0)                                     
+                                                                   
+                                                                       
+                 // First rectangle (i = 0) is 0px from the
+                 // top of the container, second onf (i = 1)
+                 // is 25px from the top and so on
+                 .attr("y", function(d, i) { return 25 * i; } ) 
+                     
+                 // Rectangles' width is 20 times the bound data
+                 // The first one is 20px wide, the second
+                 // one 80px and so on
+                 .attr("width", function(d) { return 20 * d; } ) 
+                                                                       
+                 .attr("height", "20");
+{% endcodeblock %}
+
+### Other modifications
+As this is not a reference, I won't show all functions that modify elements. 
+You can look into the [d3 reference](https://github.com/mbostock/d3/wiki/API-Reference) 
+to learn how to modify classes with `d3.classed`, properties with `d3.property` and style with `d3.style`.
+
+
+## Transitions
+The last, and maybe the most impressive piece of d3 is the transitions engine. 
+As we saw in the previous section, d3 enables us to modify any attribute instantly. 
+It can also transition number attributes (e.g. position in pixels, width etc) 
+from their old to their new value smoothly, using the `transition()`, `duration()` 
+and `delay()` functions. You apply this function to any selection and then apply 
+the new attributes, which will be transitioned. In our example, we transition the width 
+of the bars to animate the graph:  
+
+{% codeblock lang:javascript %}
+// If we didn't use transitions, the graph would change immediately
+rects.data(newData)
+     .attr("width", function(d) {return 20 * d; } )
+     .attr("fill", newColor);
+
+// Simply adding using d3.transition() between new data binding and
+// attribute modification and the change becomes graceful
+rects.data(newData)
+     .transition().duration(2000).delay(200)
+     .attr("width", function(d) {return 20 * d; } )
+     .attr("fill", newColor);
+{% endcodeblock %}
+
+Cool, isn't it ? The use of `delay()` is optional, as you can imagine. The `transition()` function can 
+transition number attributes, but can also understand when a 
+string contains numbers, and smoothly transition the number parts of the string -that's how I
+built the rainbow transition in the example at the top of this article. It also understands some specific
+types of strings, for example colors (i.e. it can transition from 'steelblue' to 'red'). Visit the [d3.js website](http://d3js.org/) for more on this!    
+
+
+### Advanced transitions
+What I explained are just the default, basic transition engine, which works very well. 
+You may need to customize your transition interpolation function, tween or easing function. 
+For example, I did that to animate a line chart (which is a SVG path). 
+
+
+## Conclusion
+With this tutorial, you should know more than enough to create awesome custom 
+graphs or data visualizations. Since you have total control, you can even create this kind
+of [crazy animations](http://bl.ocks.org/1256572)!  
+
+Also, it is the only way I found to build smooth animated graphs on the iPad, other libraries such 
+as Highcharts were too slow.
+
+
