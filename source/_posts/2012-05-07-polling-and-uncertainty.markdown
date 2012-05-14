@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Go Behind Opinion polls: Fundamentals and Reliability"
+title: "Behind Opinion polls: Fundamentals and Reliability"
 date: 2012-05-10 20:12
 comments: true
 author: Charles Miglietti
@@ -188,10 +188,46 @@ is _95%_ of chance that the true value is:
 \[ I_t = [\hat{\pi}_{j,n} - \frac{1}{\sqrt{n}}, \hat{\pi}_{j,n} + \frac{1}{\sqrt{n}}] \]
 </div>
 
+## Numeric Application
+
 A quick numeric application gives us the result that if we have an
 opinion poll realized on 1020 people which gives _33%_ as an estimation
 for the vote intention for one candidate there is _95%_ of chance that the
 true vote intention is between _30%_ and _36%_.
+
+
+<div id='PollingNumericApplication'></div>
+<script src="http://d3js.org/d3.v2.min.js"></script>
+<script>
+// Suppose there is currently one div with id "d3TutoGraphContainer" in the DOM
+// We append a 600x300 empty SVG container in the div
+var chart = d3.select("#PollingNumericApplication").append("svg").attr("width", "400").attr("height", "50");
+
+// Create the bar chart which consists of ten SVG rectangles, one for each piece of data
+var rects = chart.selectAll('rect').data([1000])
+                 .enter().append('rect')
+                 .attr("stroke", "none").attr("fill", "rgb(7, 130, 180)")
+                 .attr("x", 0)
+                 .attr("y", function(d, i) { return 25 * i; } )
+                 .attr("width", function(d) { return d/10.; } )
+                 .attr("height", "20");
+
+</script>
+<input id='polling-slider' type="range" min="500" max="5000" value="1000"/>
+<span id="polling-range">1000</span>
+<script >
+$('#polling-slider').on('change',function ()
+{
+  var newValue = parseInt(this.value, '10');
+  rects.data([newValue])
+       .transition()
+       .attr("width", function(d) { return d/10. ; } );
+	document.getElementById('polling-range').innerHTML = newValue; 
+});
+</script>
+
+
+## Conclusion
 
 This quick refresher on opinion polls should remind us that opinion polls
 can be quite far from reality. And there is one variable that I
