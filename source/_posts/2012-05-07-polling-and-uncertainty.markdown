@@ -16,7 +16,11 @@ We are in an election time in France. Everyday news is rythmed by
 polls. _Nicolas Sarkozy is falling from 2% in today's poll from IPSOS_,
 _Francois Hollande slipped below 33% after the crisis_ etc... Everybody
 seems to give a lot of credit to these polls forgetting most of the time
-that they are just statistical estimations of the reality. But how reliable are they?  
+that they are just statistical estimations of the reality. But how reliable are they? 
+The results for the first round of the french presidential election
+seemed to surprise so many people and medias that it pushed me to dig
+into my maths lessons from college to look for some scientific
+explanation if any.
 
 ## Organizing the Opinion Poll
 
