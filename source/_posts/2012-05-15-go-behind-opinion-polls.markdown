@@ -22,6 +22,8 @@ seemed to surprise so many people and medias that it pushed me to dig
 into my maths lessons from college to look for some scientific
 explanation if any.
 
+[![Polling](http://farm5.staticflickr.com/4073/4875527294_cacbf9601e_n.jpg)](http://www.flickr.com/photos/ownipics/4875527294/)
+
 ## Organizing the Opinion Poll
 
 Opinion polls tend to estimate the percentage of people who will vote
