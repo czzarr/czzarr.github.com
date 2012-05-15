@@ -17,7 +17,8 @@ order to clear the air, I've started playing poker when I was in
 college/grad school, and won mid 6 figures in quite a short time
 starting from a free 50 bucks, rising
 pretty fast once I "got it". However I was never even close to a top
-player like Jungleman, Sauce123, TheAshman103, let alone legends such as
+player like Jungleman, Sauce123, TheAshman103, who made millions by the
+time they were 21, let alone legends such as
 durrrr or Phil Ivey. The
 highest I played good players was 1000nl, and I [bumhunted](http://www.kokev.in/2010/12/19/pokers-tragedy-of-the-commons-bumhunting/) up to 5knl
 with some drunken stunts higher (these didn't go too well). I quit
