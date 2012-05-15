@@ -188,7 +188,7 @@ is _95%_ of chance that the true value is:
 \[ I_t = [\hat{\pi}_{j,n} - \frac{1}{\sqrt{n}}, \hat{\pi}_{j,n} + \frac{1}{\sqrt{n}}] \]
 </div>
 
-## Numeric Application
+## In Practice
 
 With the simple slider and graphic you can see by yourself the influence
 of the number of people polled for an opinion poll. The box represents
