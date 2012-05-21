@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How the Startup Ecosystem Is Mirroring what Online Poker Used to Be"
+title: "History is Repeating Itself: from Online Poker to Startups"
 author: Stanislas Marion
 date: 2012-05-21 12:49
 comments: true
@@ -236,3 +236,5 @@ time I won't settle for bumhunting or an easy way out.
 Also I actually will make something useful instead of
 just taking people's money by just clicking buttons at 4am in my
 underpants with pizza boxes and bottle of cokes surrounding me.
+Hopefully the startup world won't crash like online poker did
+on [Black Friday](http://www.pokernews.com/news/2011/04/a-closer-look-at-online-poker-black-friday-indictment-10224.htm).
