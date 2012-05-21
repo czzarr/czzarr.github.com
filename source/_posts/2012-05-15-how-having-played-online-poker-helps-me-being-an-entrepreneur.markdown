@@ -1,11 +1,14 @@
 ---
 layout: post
-title: "How Having Played Online Poker Helps Me Being An Entrepreneur"
+title: "How the Startup Ecosystem Is Mirroring what Online Poker Used to Be"
 author: Stanislas Marion
 date: 2012-05-15 16:49
 comments: true
-categories: [online poker, entrepreneurship, risks] 
+categories: [online poker, startups, ecosystem] 
 ---
+
+<img alt="Graph of Isildur1's winnings against durrrr" src="http://i38.tinypic.com/34telxc.jpg" height="350px" width="500px">
+_Image courtesy of [High Stakes DB](http://highstakesdb.com)_
 
 Poker is often used as an analogy for [investing](http://www.avc.com/a_vc/2012/03/from-the-archives-the-poker-analogy.html)
 or daytrading. The rationale being that there is money at stake, some randomness involved and people are actually winning
@@ -14,15 +17,15 @@ these elements but rather on how the startup ecosystem is going through
 exactly the same thing the online poker ecosystem went through a few
 years ago. In
 order to clear the air, I've started playing poker when I was in
-college/grad school, and won mid 6 figures in quite a short time
+college/grad school, and won mid 6 figures playing heads-up cash games in quite a short time
 starting from a free 50 bucks, rising
-pretty fast once I "got it". However I was never even close to a top
-player like Jungleman, Sauce123, TheAshman103, who made millions by the
-time they were 21, let alone legends such as
-durrrr or Phil Ivey. The
-highest I played good players was 1000nl, and I [bumhunted](http://www.kokev.in/2010/12/19/pokers-tragedy-of-the-commons-bumhunting/) up to 5knl
-with some drunken stunts higher (these didn't go too well). I quit
-poker completely little more than a year ago.
+pretty fast once I "got it". But I was never even close to a top
+player like [jungleman12](http://www.highstakesdb.com/profiles/jungleman12.aspx) or [Sauce123](http://www.highstakesdb.com/profiles/pokerstars/Sauce123.aspx) who made millions by the
+time they were 21. The
+highest I played good players was 1000nl
+with some drunken stunts much higher (these didn't go too well). _For those
+who don't know, 1000nl means $5/$10 blinds no limit, meaning you usually
+play with a $1000+ stack)._
 
 ## A Brief History of Online Poker
 
@@ -108,7 +111,8 @@ on Full Tilt Poker (rip).
 
 ### Established Top Players Help Each Other
 
-As available stakes rose from 2knl to 100knl, high stakes players
+As available stakes rose from 2knl to 100knl, swings became huge and few
+players were properly bankrolled for those stakes. High stakes players
 started taking a piece of one another all the time, leading to confusing
 and some time embarassing or devastating scenarios, although some
 probably did very well at staking and swapping percentages.
@@ -142,7 +146,7 @@ People are writing books, [The Lean Startup](http://theleanstartup.com/book),
 The Startup Manual and a
 slew of others come to
 mind (although these are much more affordable than poker books). Hell
-even we wrote a book!
+even we wrote a [book](http://leanpub.com/startupflow)!
 People are making [videos](http://www.udemy.com/search?q=startup), [selling](http://www.skillshare.com/Course-Launching-Your-Startup-Idea/2055575858) 
 [classes](http://www.skillshare.com/Employee-Equity-Overview/890814338) about 
 [startups](http://www.skillshare.com/site/search?q=startup&city=nyc) on
@@ -210,7 +214,10 @@ Established entrepreneurs, are taking pieces of each other's companies
 all the time as most of them are very active angel investors from what I
 can read on Techcrunch, just like high-stakes players would stake each
 other. Not sure how this will end for most of them, if we follow the poker analogy,
-probably badly in a lot of cases.
+probably badly in a lot of cases. However I'm sure these investments are
+dealt with in a more professional way than 18 year-old kids simply chatting on AIM and transfering hundreds
+of thousands of $ to one another just by clicking a few buttons
+on a poker site, which led to a lot of confusion and scams.
 
 ### People Say It's Now Impossible to Become a Legend
 
