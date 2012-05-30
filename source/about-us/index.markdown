@@ -19,7 +19,7 @@ footer: true
 ## [Louis Chatriot](https://twitter.com/#!/louisChatriot) <a href="https://twitter.com/louisChatriot" class="twitter-follow-button" data-show-count="false">Follow @louisChatriot</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-There are three things I want when I work: to solve an interesting problem, to be confronted with big challenges and to be responsible for my projects from A to Z. That's why I quit my job to found tldr.io with Stan and Charles, in order to try and solve the information overload problem.
+There are three things I want when I work: to solve interesting problems, to be confronted with big challenges and to be responsible for my projects from A to Z. That's why I quit my job to found tldr.io with Stan and Charles, in order to try and solve the information overload problem.
 
 Before working on tldr.io, I worked about 2 years as a management consultant for Bain & Company, and before that I spent 6 months as a software engineer at Robinsons Participations.
 
