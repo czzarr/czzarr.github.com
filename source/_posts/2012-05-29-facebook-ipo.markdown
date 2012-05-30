@@ -8,17 +8,16 @@ categories: [Facebook, IPO]
 ---
 
 
-According to Wall Street and the press, Facebook's IPO is a flop and Facebook itself is not so hot anymore.
-The current price of a share about 25% lower than the introduction price. 
-Many retail investors and intermediaries lost a lot of money.
-Nonetheless, I don't think the situation is so bad.
+Since the Facebook's IPO fiasco, many commenters (mainly bloggers and Wall Street analysts) 
+seem keen to say that Facebook is really not worth that much. I don't agree, because I think 
+that trying to determine Facebook's value is premature.
 
 
 <a href="http://www.flickr.com/photos/kevinkrejci/7218818780/" target="_blank"><img alt="Facebook headquarters" src="http://farm6.staticflickr.com/5320/7218818780_9507a57365_n.jpg" height="320px" width="320px"></a>
 _CC Licence - Author: [Kevin Krejci](http://www.flickr.com/photos/kevinkrejci/)_
 
 
-## IPOs Favor Wall Street Insiders
+## Facebook's IPO Surely Didn't Go Well
 It's a well-known fact, but it always makes me cringe: I still don't
 understand why [well-connected people would have the right to buy shares
 at a better price than "normal" investors](http://www.huffingtonpost.com/daniel-dicker/facebook-retail-investors_b_1549602.html). 
@@ -45,5 +44,6 @@ the business model (think GM, Total or even Apple). In Facebook's case,
 we don't know how they're going to monetize their 900M users. Is it
 going to be through advertising? A premium version? Will they be able to
 make money on mobile platforms? We (at least I) don't know. A Facebook share is a lottery 
-ticket, whose value today has nothing to do with its value tomorrow. So I will 
-just sit back, relax, and see what the Facebook team will do. 
+ticket, whose value today has nothing to do with its value tomorrow. I for one am 
+no Facebook expert, so instead of trying to guess the future, I will 
+just sit back, relax, and see how the Facebook team continues to innovate.  
