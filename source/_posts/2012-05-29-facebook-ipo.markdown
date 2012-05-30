@@ -9,8 +9,8 @@ categories: [Facebook, IPO]
 
 
 According to Wall Street and the press, Facebook's IPO is a flop and Facebook itself is not so hot anymore.
-The current price of a share about 20% lower than the introduction price. 
-Many retails investors and intermediaries lost a lot of money.
+The current price of a share about 25% lower than the introduction price. 
+Many retail investors and intermediaries lost a lot of money.
 Nonetheless, I don't think the situation is so bad.
 
 
@@ -24,7 +24,8 @@ understand why [well-connected people would have the right to buy shares
 at a better price than "normal" investors](http://www.huffingtonpost.com/daniel-dicker/facebook-retail-investors_b_1549602.html). 
 But it's a fact: if you are one of the underwriters' best clients, you
 will be able to purchase the stock at its opening price (in Facebook's
-case $38 per share). If you're not, you will have to wait. In this IPO,
+case $38 per share). You will even able to purchase the stock before the IPO, at a lower price than $38. 
+If you're not, you will have to wait. In this IPO,
 retail ("normal") investors had to [wait until the stock traded at $42 a
 share](http://www.cnbc.com/id/47043815//) before being able to buy. On
 top of this common IPO problem, key information was known to insiders but not
