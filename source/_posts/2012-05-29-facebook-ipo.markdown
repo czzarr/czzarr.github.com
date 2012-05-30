@@ -14,7 +14,8 @@ Many retails investors and intermediaries lost a lot of money.
 Nonetheless, I don't think the situation is so bad.
 
 
-// PHOTO
+<a href="http://www.flickr.com/photos/kevinkrejci/7218818780/" target="_blank"><img alt="Facebook headquarters" src="http://farm6.staticflickr.com/5320/7218818780_9507a57365_n.jpg" height="320px" width="320px"></a>
+_CC Licence - Author: [Kevin Krejci](http://www.flickr.com/photos/kevinkrejci/)_
 
 
 ## IPOs Favor Wall Street Insiders
