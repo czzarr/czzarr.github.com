@@ -26,7 +26,7 @@ Before working on tldr.io, I worked about 2 years as a management consultant for
 I graduated from Ecole Polytechnique (majored in CS) and have a MS in Management Science and Engineering from Stanford University.
 <br><br>
 
-![Stanislas Marion](http://www.gravatar.com/avatar/087d06c94e96171dc78fe6121e0fb5ba.png "Stanislas Marion")
+![Stanislas Marion](http://www.gravatar.com/avatar/087d06c94e96171dc78fe6121e0fb5ba?s=80 "Stanislas Marion")
 ## [Stanislas Marion](https://twitter.com/#!/stanmarion) <a href="https://twitter.com/stanmarion" class="twitter-follow-button" data-show-count="false">Follow @stanmarion</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
