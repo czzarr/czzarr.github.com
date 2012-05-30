@@ -8,7 +8,7 @@ categories: [Facebook, IPO]
 ---
 
 
-So, according to Wall Street and the press, Facebook's IPO is a flop.
+According to Wall Street and the press, Facebook's IPO is a flop.
 The current price of a share about 20% lower than the introduction price. 
 Many retails investors and intermediaries lost a lot of money.
 Nonetheless, I don't think the situation is so bad.
