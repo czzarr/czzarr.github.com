@@ -35,7 +35,11 @@ everyone that challenges them, because they focus on one thing:
 the game. They don't care about PR, rakeback deals,
 staking, how big their bankroll is at any given time, what they're gonna
 be able to buy with that $500k they just won in a few hours, saving for
-their retirement or whatever. All they
+their retirement or whatever. 
+
+[![I Don't give a shit](http://cdn.memegenerator.net/instances/400x/11882883.jpg)](http://memegenerator.net)
+
+All they
 care about is making the best play every single time, to the best
 of their ability. That's how Tom 'durrrr' Dwan lost 5 millions (we're
 talking about a self-made 20-something year-old guy here) in
