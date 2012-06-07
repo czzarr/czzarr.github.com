@@ -20,7 +20,7 @@ poker gods and starts playing as though one is due for some good run of
 cards. It usually ends up pretty badly. Self control is the key
 to moving up in stakes and being succesful at online poker.
 
-However, the one thing I noticed that differentiated the the very best, the smartest, the most
+However, the one thing I noticed that differentiated the very best, the smartest, the most
 crazy good players from the merely very good players is that although
 poker is a money game
 these guys didn't give a fuck about money. They're ready to lose it all,
