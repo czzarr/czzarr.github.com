@@ -21,6 +21,7 @@ now](http://leanpub.com/startupflow) and spread the word!
 
 Here is a photograph of the article (the quality is not too good as it was taken with an iPhone 3GS):
 
-<img src="../images/challenges_article.jpg" />
+<a target='_blank' title='ImageShack - Image And Video Hosting' href='http://imageshack.us/photo/my-images/692/challengesarticlez.jpg/'><img src='http://img692.imageshack.us/img692/6048/challengesarticlez.jpg' border='0'/></a>
 
 Thank you *Challenges*!
+
