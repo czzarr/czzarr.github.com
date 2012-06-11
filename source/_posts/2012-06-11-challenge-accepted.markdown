@@ -19,4 +19,4 @@ now](http://leanpub.com/startupflow) and spread the word!
 
 Here is a photograph/scan of the article :
 
-// PHOTO
+<img src="../images/challenge_article.jpg" />
