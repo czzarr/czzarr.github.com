@@ -1,7 +1,8 @@
 ---
 layout: post
+author: Charles Miglietti
 title: "Challenge Accepted"
-date: 2012-06-07 14:33
+date: 2012-06-11 14:33
 comments: true
 categories: [startup flow, book, challenges, PR]
 ---
