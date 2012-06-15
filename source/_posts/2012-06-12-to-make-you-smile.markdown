@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "To Make You Smile"
-date: 2012-06-12 10:29
+date: 2012-06-15 10:29
 author: Charles Miglietti
 comments: true
 categories: 
@@ -23,6 +23,9 @@ model](http://www.bothsidesofthetable.com/2012/05/23/its-morning-in-venture-capi
 go deeper in the reasons and say that their success comes from their [core beliefs
 ](http://betashop.com/post/13607881842/10-ways-fab-is-building-a-different-type-of-company) 
 and the energy they put to broadcast them.
+
+[![BroCode](http://img163.imageshack.us/img163/8470/brocode.png)](http://imageshack.us/photo/my-images/163/brocode.png/)
+
 
 They _believe_ in a vision, in core principles they love to repeat as
 much as possible. This is even their first statements in their [Happy
