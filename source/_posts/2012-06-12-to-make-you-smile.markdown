@@ -12,7 +12,7 @@ This week Fab celebrated [their first anniversary](http://betashop.com/post/2475
 (since their pivot, as [Fab was not an overnight success on day
  one](http://betashop.com/post/19456853116/fab-was-an-overnight-success-on-day-474)). 
 
-Their growth has been amazing: 4.75 members and +100 Millions in sales in just
+Their growth has been amazing: 4.75 M members and +100 M in sales in just
 one year. And it seems like it's just the beginning as they've been successfully
 conquering mobile users: 30% to 40% of Fab’s daily visits are now via mobile. As mobile is the biggest
 growth lever that an ecommerce company can have, these figures is a
