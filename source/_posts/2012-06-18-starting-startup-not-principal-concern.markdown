@@ -16,7 +16,9 @@ which is less favorable to unexperienced and non-technical founders.
 So to the question [_What to do instead of starting a company?_](http://robgo.org/2012/06/10/what-to-do-instead-of-starting-a-company/)
 he answers: _Join the winningest company you can find in a sector you care about with people you like_. 
 Should you agree or not, this recommendation has its pros and cons but one can't come to 
-a decision easily. The most important lesson to learn comes at the end:
+a decision easily. The most important lesson to learn comes at the end:  
+
+{% img right http://img84.imageshack.us/img84/2324/imagerxss.jpg 220 %}
 
 >I think there is just the inherent satisfaction of being a part of a 
 >company that is making a big dent in the world.  We’d all like to be the
@@ -37,7 +39,7 @@ It's a very interesting analysis as he doesn't try to give a clear cut
 and general solution applicable to everybody. Instead he takes into
 account the personality of people who could be disposed to start a
 company, noting that founding a startup is not necesseraly the best fit for them. 
-The true concern one should have is to make a dent in the world. Mark Bivens
+The true concern one should have is to make a dent in the world. [Mark Bivens](http://markbivens.com/m/about)
 came to the same conclusion: [People need to feel a part of something bigger](http://markbivens.com/m/archives/feeling-a-part-of-something-bigger)
 and joining a startup could be the best answer to this feeling. It will never be 
 be too late to found its company after such an experience, on the
