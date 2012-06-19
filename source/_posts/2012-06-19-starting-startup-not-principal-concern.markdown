@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Starting a Startup Should Not Be The Principal Concern"
-date: 2012-06-18 13:12
+date: 2012-06-19 13:12
 comments: true
 author: Charles Miglietti
 categories: 
