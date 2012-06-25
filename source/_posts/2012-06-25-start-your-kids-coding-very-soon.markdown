@@ -29,7 +29,7 @@ there is a big lack of great programmers, that [data-scientist is the
 hottest job at this time](http://www.networkworld.com/news/2012/060412-data-scientist-259697.html) 
 or that [learning to code is a great move](http://www.elezea.com/2012/04/programming-and-thinking/). 
 So we should foster our kids to embrace this activity as soon as
-possible as informatics, hardware is everywhere. By extending the base
+possible as informatics, hardware will be everywhere. By extending the base
 of people having the skills to program we foster the future innovation.
 
 The earlier we start learning something the better we are good at it and the
