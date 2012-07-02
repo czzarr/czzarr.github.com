@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Enhancing the User Experience With the Continuous Client 
+title: Enhancing the User Experience With a Continuous Client 
 date: 2012-07-01 20:51
+author: Charles Miglietti
 comments: true
 categories: 
 ---
@@ -20,6 +21,9 @@ But that's not my point. I prefer to talk about the sync functionnality
 that Google Chrome on iOS offers: by activating the sync on your
 different devices (desktop, iPad, iPhone...) you can open a tab you were
 viewing in one device on another one. The [Continous Client](http://www.engadget.com/2010/05/26/a-modest-proposal-the-continuous-client/) becomes real.
+
+
+{% img right http://img802.imageshack.us/img802/3818/passthebaton.jpg 340 %}
 
 >So what is a Continuous Client you ask? Well the premise is simple: when you leave one device, you pick up your session in exactly the same place on the next device you use. Meaning your IM, Twitter, web browsing, applications, even your windows appear just as they did on the previous device. The situation I describe above would be obviated by this setup, allowing me to move from my laptop to iPad in a seamless manner which would in no way disrupt the activity I was currently engaged in. [...] Put simply, you are placeshifting your computing experience from one device to the next with no break in your work, timelines, or conversations.
 
