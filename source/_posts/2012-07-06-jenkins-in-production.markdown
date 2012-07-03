@@ -14,8 +14,41 @@ a fairly well-known engineering practice, but we wanted to take it one
 step further, and use continuous deployment. As the name implies, this
 means that any new code pushed to the server will automatically be
 built, tested and then go live and be used by our users right away. It
-turns out that is fairly easy to set up, except for a few caveats.
+turns out that is fairly easy to set up -except for a few caveats-, and
+I will describe our setup. This by no means a step-by-step tutorial but
+rather a "here is what you can do" article.
 
 // PHOTO
 
 
+## Our Tech Stack - The Part Of It That Matters For This Article
+Our server runs on Ubuntu 12.04 LTS, our version control system is Git
+(we use [Github flow](http://scottchacon.com/2011/08/31/github-flow.html)) and our
+code is hosted on Github. We chose to use [Jenkins](http://jenkins-ci.org/) as 
+the CI server. Even though it is poorly documented and has a definite
+'so nineties' feel, it is very easy to deploy and intuitive.
+
+
+## Install And Keep Jenkins Up And Running At All Times
+Jenkins is contained in a WAR file, so you can simply download and execute it with
+java (command `java -jar /path/to/jenkins.war`). Of course, this is only
+suitable for testing purposes. In production, you will want to use an 
+[Upstart](http://upstart.ubuntu.com/) script so that Jenkins respawns if
+it crashes unexpectedly and starts on boot.  
+
+When Jenkins is up, you have
+access to a web interface to manage it (you can configure the port on which
+it listens). Make sure to enable security -I recommend matrix based security- unless you want anyone to be
+able to take control of your servers! One thing to watch out for is that
+you need to enable the "overall read" permission for the anonymous user,
+or else Jenkins won't be able to communicate with Github (pretty stupid
+behaviour I know, but no security issue here).
+
+
+## Build On Push To Master
+We enable the Git and Github plugins. The [Github plugin](https://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin) 
+enables us to connect Jenkins to Github's post-receive hook. That way,
+whenever someone pushes to master (usually by merging a feature branch),
+our Jenkins "build" job pulls the new version of the code, builds it and
+test it. For us, that's really a two-line script, as we [check all
+modules in to Git](http://www.mikealrogers.com/posts/nodemodules-in-git.html).
