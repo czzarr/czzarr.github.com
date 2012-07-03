@@ -11,13 +11,13 @@ categories:
 At Google I/O there were [many interesting announcements](http://www.businessinsider.com/google-io-product-announcements-2012-6?op=1): [Nexus 7](http://gigaom.com/mobile/nexus-7-first-look-its-here-to-snuff-kindles-fire/), Google
 Glass, etc. (Perhaps too many as one can say that [Google is fighting too
 many ennemies on too many fronts](http://gigaom.com/2012/06/27/google-vs-everyone/)). 
-One news that drew my attention is the arrival of Google Chrome on iOs. [Don't expect the change is browsing
-experience](http://techcrunch.com/2012/06/28/hands-on-with-googles-chrome-for-ios-just-like-chrome-for-android-only-slower/)
-you could have had on your desktop as this app is merely a graphical
+One news that drew my attention is the arrival of Google Chrome on iOs. [Don't expect browsing
+experience improvement](http://techcrunch.com/2012/06/28/hands-on-with-googles-chrome-for-ios-just-like-chrome-for-android-only-slower/)
+you had on your desktop as this app is merely a graphical
 layer on top of Apple's WebView from its SDK. Basically the engine is the same as Safari ...
 just slower. 
 
-But that's not my point. I prefer to talk about the sync functionnality
+But that's not my point. I want to talk about the sync functionnality
 that Google Chrome on iOS offers: by activating the sync on your
 different devices (desktop, iPad, iPhone...) you can open a tab you were
 viewing in one device on another one. The [Continous Client](http://www.engadget.com/2010/05/26/a-modest-proposal-the-continuous-client/) becomes real.
@@ -29,16 +29,15 @@ viewing in one device on another one. The [Continous Client](http://www.engadget
 
 After using the cloud to [store persistent data easily](https://www.dropbox.com/) and
 [seamlessly](https://www.icloud.com/),
-one can now use it as a relay to keep a continuity in the browsing experience 
-between different devices.
+one can now use it as a relay to get a continuous browsing experience 
+across different devices.
 
-We can however imagine various implementations of the continuous client to enhance our global user experience.
+We can moreover imagine various implementations of the continuous client to enhance our global user experience.
 For example, [Invoxia](http://www.invoxia.com/en/) with its business dock adopts the same
 vision for phone by bridging mobile and office calls.
 
 My experience of these two continous clients is so magic but nonetheless so
-natural that I'm looking forward of future ones startups or existing
-companies will invent to make our everyday life even more
+natural that I'm looking forward to future ones that will be invented to make our everyday life even more
 pleasant and interruptions-free. 
 
 And you, do you know another usecase where a continuous client architecture is
