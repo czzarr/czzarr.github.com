@@ -42,8 +42,8 @@ access to a web interface to manage it (you can configure the port on which
 it listens). Make sure to enable security -I recommend matrix based security- unless you want anyone to be
 able to take control of your servers! One thing to watch out for is that
 you need to enable the "overall read" permission for the anonymous user,
-or else Jenkins won't be able to communicate with Github (pretty stupid
-behaviour I know, but no security issue here).
+or else Jenkins won't be able to communicate with third-party services - in our case Github and Hipchat. Pretty stupid
+behaviour I know, but at least it doesn't create security holes.
 
 
 ## Build On Push To Master
