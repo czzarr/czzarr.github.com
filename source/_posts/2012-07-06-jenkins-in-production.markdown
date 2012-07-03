@@ -8,7 +8,7 @@ categories: continuous deployment, server setup
 ---
 
 
-As all team working on a web application, we had to setup a [continuous
+As all teams working on a web application, we had to setup a [continuous
 integration](http://en.wikipedia.org/wiki/Continuous_integration) server. This is 
 a fairly well-known engineering practice, but we wanted to take it one
 step further, and use continuous deployment. As the name implies, this
