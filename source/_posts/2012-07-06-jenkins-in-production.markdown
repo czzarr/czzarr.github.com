@@ -18,7 +18,8 @@ turns out that is fairly easy to set up -except for a few caveats-, and
 I will describe our setup. This by no means a step-by-step tutorial but
 rather a "here is what you can do" article.
 
-// PHOTO
+
+<a href="http://jenkins-ci.org/" target="_blank"><img alt="Jenkins CI" src="http://jenkins-ci.org/sites/default/files/jenkins_logo.png"></a>
 
 
 ## Our Tech Stack - The Part Of It That Matters For This Article
