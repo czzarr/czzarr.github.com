@@ -47,7 +47,7 @@ behaviour I know, but at least it doesn't create security holes.
 
 
 ## Build On Push To Master
-We enable the Git and Github plugins. The [Github plugin](https://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin) 
+We have the Git and Github plugins enabled. The [Github plugin](https://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin) 
 enables us to connect Jenkins to Github's post-receive hook. That way,
 whenever someone pushes to master (usually by merging a feature branch),
 our Jenkins "build" job pulls the new version of the code, builds it and
