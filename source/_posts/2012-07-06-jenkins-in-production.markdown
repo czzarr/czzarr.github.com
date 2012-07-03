@@ -51,4 +51,27 @@ enables us to connect Jenkins to Github's post-receive hook. That way,
 whenever someone pushes to master (usually by merging a feature branch),
 our Jenkins "build" job pulls the new version of the code, builds it and
 test it. For us, that's really a two-line script, as we [check all
-modules in to Git](http://www.mikealrogers.com/posts/nodemodules-in-git.html).
+modules in to Git](http://www.mikealrogers.com/posts/nodemodules-in-git.html).  
+
+If everything was successful, the "deploy" job is now called. It pulls
+the new version of the code in the live repository, then restarts the
+node server (since we use nodejs, we can overwrite the javascript files
+when the server is running without impacting it). Node starts pretty
+fast, so we only have ~0.1s downtime (no load balancer to achieve 0s downtime - for now!). And since we use an external store
+to manage sessions, nobody gets logged out.
+
+
+## Be Notified
+The last part of the puzzle is how we get notified of the build result.
+We use [Hipchat](https://www.hipchat.com/), so we installed the Hipchat
+plugin that notifies us of build results in a dedicated chat room. Most
+of the time it just says "Build successful". But no sweat if a build
+fails, since the "deploy" job was not called our users don't see
+anything wrong!
+
+
+## And That's All There's To It!
+Yup. It is indeed simple enough to get a robust continuous deployment
+system up and running, that most of the time safely deploys your code
+through a simple `git push` on your part. I'm interested in anything you
+would have to say on this setup or any tip you'd like to share!
