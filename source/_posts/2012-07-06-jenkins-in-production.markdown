@@ -34,7 +34,10 @@ Our server runs on Ubuntu 12.04 LTS, our version control system is Git
 (we use [Github flow](http://scottchacon.com/2011/08/31/github-flow.html)) and our
 code is hosted on Github. We chose to use [Jenkins](http://jenkins-ci.org/) as 
 the CI server. Even though it is poorly documented and has a definite
-'so nineties' feel, it is very easy to deploy and intuitive.
+'so nineties' feel, it is very easy to deploy and intuitive. Basically, you use it 
+to set up jobs that are run when you launch them manually or when an external event, such 
+as a code push, is triggered. These jobs can be anything that's executable, I usually use 
+simple bash scripts but you can use any kind of script, makefiles and so on.
 
 
 ## Install And Keep Jenkins Up And Running At All Times
