@@ -10,7 +10,14 @@ categories: continuous deployment, server setup
 
 As all teams working on a web application, we had to setup a [continuous
 integration](http://en.wikipedia.org/wiki/Continuous_integration) server. This is 
-a fairly well-known engineering practice, but we wanted to take it one
+a fairly well-known engineering practice, where you want your code to be built and tested 
+regularly on the server so that you spot problems as soon as they arrive and not when
+you push three months' worth of work to production. Also, it makes deployment a much less 
+stressful experience, because you know it will work. You avoid getting in the situation 
+of a friend of mine who could not have coffee with me because he was deploying and didn't want 
+to mess it up!  
+
+We also wanted to take it one
 step further, and use continuous deployment. As the name implies, this
 means that any new code pushed to the server will automatically be
 built, tested and then go live and be used by our users right away. It
