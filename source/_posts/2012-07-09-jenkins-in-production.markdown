@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How We Use Jenkins for Continuous Deployment"
-date: 2012-07-06 12:00
+date: 2012-07-09 12:00
 author: Louis Chatriot
 comments: true
 categories: continuous deployment, server setup
