@@ -4,7 +4,7 @@
   <title><![CDATA[Need for Air]]></title>
   <link href="http://needforair.com/atom.xml" rel="self"/>
   <link href="http://needforair.com/"/>
-  <updated>2012-05-30T15:07:41+02:00</updated>
+  <updated>2012-07-09T16:09:44+02:00</updated>
   <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
@@ -12,6 +12,358 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How We Use Jenkins for Continuous Deployment]]></title>
+    <link href="http://needforair.com/blog/2012/07/09/jenkins-in-production/"/>
+    <updated>2012-07-09T12:00:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/07/09/jenkins-in-production</id>
+    <content type="html"><![CDATA[<p>As all teams working on a web application, we had to setup a <a href="http://en.wikipedia.org/wiki/Continuous_integration">continuous
+integration</a> server. This is
+a fairly well-known engineering practice, where you want your code to be built and tested
+regularly on the server so that you spot problems as soon as they arrive and not when
+you push three months&#8217; worth of work to production. Also, it makes deployment a much less
+stressful experience, because you know it will work. You avoid getting in the situation
+of a friend of mine who could not have coffee with me because he was deploying and didn&#8217;t want
+to mess it up!</p>
+
+<p>We also wanted to take it one
+step further, and use continuous deployment. As the name implies, this
+means that any new code pushed to the server will automatically be
+built, tested and then go live and be used by our users right away. It
+turns out that is fairly easy to set up -except for a few caveats-, and
+I will describe our setup. This by no means a step-by-step tutorial but
+rather a &#8220;here is what you can do&#8221; article.</p>
+
+<p><a href="http://jenkins-ci.org/" target="_blank"><img alt="Jenkins CI" src="http://jenkins-ci.org/sites/default/files/jenkins_logo.png"></a></p>
+
+<h2>Our Tech Stack - The Part Of It That Matters For This Article</h2>
+
+<p>Our server runs on Ubuntu 12.04 LTS, our version control system is Git
+(we use <a href="http://scottchacon.com/2011/08/31/github-flow.html">Github flow</a>) and our
+code is hosted on Github. We chose to use <a href="http://jenkins-ci.org/">Jenkins</a> as
+the CI server. Even though it is poorly documented and has a definite
+&#8216;so nineties&#8217; feel, it is very easy to deploy and intuitive. Basically, you use it
+to set up jobs that are run when you launch them manually or when an external event, such
+as a code push, is triggered. These jobs can be anything that&#8217;s executable, I usually use
+simple bash scripts but you can use any kind of script, makefiles and so on.</p>
+
+<h2>Install And Keep Jenkins Up And Running At All Times</h2>
+
+<p>Jenkins is contained in a WAR file, so you can simply download and execute it with
+java (command <code>java -jar /path/to/jenkins.war</code>). Of course, this is only
+suitable for testing purposes. In production, you will want to use an
+<a href="http://upstart.ubuntu.com/">Upstart</a> script so that Jenkins respawns if
+it crashes unexpectedly and starts on boot.</p>
+
+<p>When Jenkins is up, you have
+access to a web interface to manage it (you can configure the port on which
+it listens). Make sure to enable security -I recommend matrix based security- unless you want anyone to be
+able to take control of your servers! One thing to watch out for is that
+you need to enable the &#8220;overall read&#8221; permission for the anonymous user,
+or else Jenkins won&#8217;t be able to communicate with third-party services - in our case Github and Hipchat. Pretty stupid
+behaviour I know, but at least it doesn&#8217;t create security holes.</p>
+
+<h2>Build On Push To Master</h2>
+
+<p>We have the Git and Github plugins enabled. The <a href="https://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin">Github plugin</a>
+enables us to connect Jenkins to Github&#8217;s post-receive hook. That way,
+whenever someone pushes to master (usually by merging a feature branch),
+our Jenkins &#8220;build&#8221; job pulls the new version of the code, builds it and
+test it. For us, that&#8217;s really a two-line script, as we <a href="http://www.mikealrogers.com/posts/nodemodules-in-git.html">check all
+modules in to Git</a>.</p>
+
+<p>If everything was successful, the &#8220;deploy&#8221; job is now called. It pulls
+the new version of the code in the live repository, then restarts the
+node server (since we use nodejs, we can overwrite the javascript files
+when the server is running without impacting it). Node starts pretty
+fast, so we only have ~0.1s downtime (no load balancer to achieve 0s downtime - for now!). And since we use an external store
+to manage sessions, nobody gets logged out.</p>
+
+<h2>Be Notified</h2>
+
+<p>The last part of the puzzle is how we get notified of the build result.
+We use <a href="https://www.hipchat.com/">Hipchat</a>, so we installed the Hipchat
+plugin that notifies us of build results in a dedicated chat room. Most
+of the time it just says &#8220;Build successful&#8221;. But no sweat if a build
+fails, since the &#8220;deploy&#8221; job was not called our users don&#8217;t see
+anything wrong!</p>
+
+<h2>And That&#8217;s All There&#8217;s To It!</h2>
+
+<p>Yup. It is indeed simple enough to get a robust continuous deployment
+system up and running, that most of the time safely deploys your code
+through a simple <code>git push</code> on your part. I&#8217;m interested in anything you
+would have to say on this setup or any tip you&#8217;d like to share!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Enhancing the User Experience With a Continuous Client]]></title>
+    <link href="http://needforair.com/blog/2012/07/01/new-era-continuous-client/"/>
+    <updated>2012-07-01T20:51:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/07/01/new-era-continuous-client</id>
+    <content type="html"><![CDATA[<p>At Google I/O there were <a href="http://www.businessinsider.com/google-io-product-announcements-2012-6?op=1">many interesting announcements</a>: <a href="http://gigaom.com/mobile/nexus-7-first-look-its-here-to-snuff-kindles-fire/">Nexus 7</a>, Google
+Glass, etc. (Perhaps too many as one can say that <a href="http://gigaom.com/2012/06/27/google-vs-everyone/">Google is fighting too
+many ennemies on too many fronts</a>).
+One news that drew my attention is the arrival of Google Chrome on iOs. <a href="http://techcrunch.com/2012/06/28/hands-on-with-googles-chrome-for-ios-just-like-chrome-for-android-only-slower/">Don&#8217;t expect browsing
+experience improvement</a>
+you had on your desktop as this app is merely a graphical
+layer on top of Apple&#8217;s WebView from its SDK. Basically the engine is the same as Safari &#8230;
+just slower.</p>
+
+<p>But that&#8217;s not my point. I want to talk about the sync functionnality
+that Google Chrome on iOS offers: by activating the sync on your
+different devices (desktop, iPad, iPhone&#8230;) you can open a tab you were
+viewing in one device on another one. The <a href="http://www.engadget.com/2010/05/26/a-modest-proposal-the-continuous-client/">Continous Client</a> becomes real.</p>
+
+<p><img class="right" src="http://img802.imageshack.us/img802/3818/passthebaton.jpg" width="340"></p>
+
+<blockquote><p>So what is a Continuous Client you ask? Well the premise is simple: when you leave one device, you pick up your session in exactly the same place on the next device you use. Meaning your IM, Twitter, web browsing, applications, even your windows appear just as they did on the previous device. The situation I describe above would be obviated by this setup, allowing me to move from my laptop to iPad in a seamless manner which would in no way disrupt the activity I was currently engaged in. [&#8230;] Put simply, you are placeshifting your computing experience from one device to the next with no break in your work, timelines, or conversations.</p></blockquote>
+
+<p>After using the cloud to <a href="https://www.dropbox.com/">store persistent data easily</a> and
+<a href="https://www.icloud.com/">seamlessly</a>,
+one can now use it as a relay to get a continuous browsing experience
+across different devices.</p>
+
+<p>We can moreover imagine various implementations of the continuous client to enhance our global user experience.
+For example, <a href="http://www.invoxia.com/en/">Invoxia</a> with its business dock adopts the same
+vision for phone by bridging mobile and office calls.</p>
+
+<p>My experience of these two continous clients is so magic but nonetheless so
+natural that I&#8217;m looking forward to future ones that will be invented to make our everyday life even more
+pleasant and interruptions-free.</p>
+
+<p>And you, do you know another usecase where a continuous client architecture is
+already available?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Start Your Kids Coding Very Soon]]></title>
+    <link href="http://needforair.com/blog/2012/06/25/start-your-kids-coding-very-soon/"/>
+    <updated>2012-06-25T10:18:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/06/25/start-your-kids-coding-very-soon</id>
+    <content type="html"><![CDATA[<p>On <a href="http://freddestin.com/2012/06/get-your-kid-coding-with-codeclub-with-free-viral-video.html">Fred Destin&#8217;s initiative</a>, the big stars
+at <a href="http://foundersforum.eu/">Founders Forum</a>, including Niklas ZennStröm
+(Skype), Chad Hurley (Youtube) and many others, shooted last week a funny
+and viral video to promote <a href="http://www.codeclub.org.uk/">CodeClub</a>.
+CodeClub is a brilliant action which aims at <em>inspiring kids to learn
+code and creating a nationwide after school coding club for children aged 10-11</em>.</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/FxhGIajRsq4" frameborder="0" allowfullscreen></iframe>
+
+
+<p>Kids are the future, everybody knows it. Computer are, too. When we see what
+our generation&#8217;s geniuses made and how they revolutionized our world
+when computer science and coding were at their premises, one
+can only urge the next generation to dive into code as
+soon as possible.</p>
+
+<p>Supporting this initiative is supporting a long term vision for our
+economy and our education system. There is no day without reading that
+there is a big lack of great programmers, that <a href="http://www.networkworld.com/news/2012/060412-data-scientist-259697.html">data-scientist is the
+hottest job at this time</a>
+or that <a href="http://www.elezea.com/2012/04/programming-and-thinking/">learning to code is a great move</a>.
+So we should foster our kids to embrace this activity as soon as
+possible as informatics, hardware will be everywhere. By extending the base
+of people having the skills to program we foster the future innovation.</p>
+
+<p>The earlier we start learning something the better we are good at it and the
+less we fear it. We belong to a generation where there is
+still a big proportion of people who are not at ease with computers or
+smartphones. Even an entreprising friend of mine judges that it&#8217;s too
+late for him to start learning how to code whereas he&#8217;s only 25! But have you
+experienced <a href="http://www.youtube.com/watch?v=aXV-yaFmQNk">kids change of behaviour</a> towards our world?
+I don&#8217;t think there will be many kids in 10 years who won&#8217;t know how to
+use a smartphone. And I do want to think that these kids in 10 years won&#8217;t
+be as reluctant to learn code as people can be today. Perhaps the
+qualifiers <em>geeky</em> or <em>nerd</em> won&#8217;t exist anymore, or have a very distant meaning,
+commensurate to what these people have created by now.
+Who knows ?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Starting a Startup Should Not Be The Primary Concern]]></title>
+    <link href="http://needforair.com/blog/2012/06/19/starting-startup-not-principal-concern/"/>
+    <updated>2012-06-19T13:12:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/06/19/starting-startup-not-principal-concern</id>
+    <content type="html"><![CDATA[<p>Last week, <a href="http://robgo.org/about/">Rob Go</a> from <a href="http://nextviewventures.com/">NextViewVentures</a>
+explained why in his opinion people should <a href="http://robgo.org/2012/05/14/think-twice-before-starting-a-company/">think twice before starting a
+company</a>: too much
+hype, harder to stand out, we are at the end of one innovation cycle and at the beginning of a new one
+which is less favorable to unexperienced and non-technical founders.</p>
+
+<p>So to the question <a href="http://robgo.org/2012/06/10/what-to-do-instead-of-starting-a-company/"><em>What to do instead of starting a company?</em></a>
+he answers: <em>Join the winningest company you can find in a sector you care about with people you like</em>.
+Should you agree or not, this recommendation has its pros and cons but one can&#8217;t come to
+a decision easily. The most important lesson to learn comes at the end:</p>
+
+<p><img class="right" src="http://img84.imageshack.us/img84/2324/imagerxss.jpg" width="220"></p>
+
+<blockquote><p>I think there is just the inherent satisfaction of being a part of a
+company that is making a big dent in the world.  We’d all like to be the
+person who started that company, but there is a huge amount of pride to
+be had in being a contributor, even if you aren’t a leader.  Also,
+scale and success give companies the right to do something meaningful.
+I often hear founders of failed companies lament “I realized that I
+just wasn’t that excited about X, Y, or Z market.”  Well, the truth
+is, most people probably aren’t that excited about about helping
+merchants process credit cards (until Square) or the apartment
+rental industry (until Air BnB) or local advertising (until FourSquare),
+or the private car industry (until Uber) etc etc. Being part of a successful
+company that is shaping the future of an industry is usually inherently
+interesting and motivating, and it’s a great way to spend a few years
+of your life until the time is right for you to start a company that will do the same.</p></blockquote>
+
+<p>It&#8217;s a very interesting analysis as he doesn&#8217;t try to give a clear cut
+and general solution applicable to everybody. Instead he takes into
+account the personality of people who could be disposed to start a
+company, noting that founding a startup is not necesseraly the best fit for them.
+The true concern one should have is to make a dent in the world. <a href="http://markbivens.com/m/about">Mark Bivens</a>
+came to the same conclusion: <a href="http://markbivens.com/m/archives/feeling-a-part-of-something-bigger">People need to feel a part of something bigger</a>
+and joining a startup could be the best answer to this feeling. It will never be
+be too late to found its company after such an experience, on the
+contrary it can only make things easier.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[To Make You Smile]]></title>
+    <link href="http://needforair.com/blog/2012/06/15/to-make-you-smile/"/>
+    <updated>2012-06-15T10:29:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/06/15/to-make-you-smile</id>
+    <content type="html"><![CDATA[<p>This week Fab celebrated <a href="http://betashop.com/post/24759506656/happy-fabiversary-1-year-of-fab">their first anniversary</a>
+(since their pivot, as <a href="http://betashop.com/post/19456853116/fab-was-an-overnight-success-on-day-474">Fab was not an overnight success on day
+ one</a>).</p>
+
+<p>Their growth has been amazing: 4.75 M members and +100 M in sales in just
+one year. And it seems like it&#8217;s just the beginning as they&#8217;ve been successfully
+conquering mobile users: 30% to 40% of Fab’s daily visits are now via mobile. As mobile is the biggest
+growth lever that an ecommerce company can have, these figures is a
+good sign for the future Fab&#8217;s sales.</p>
+
+<p>How did they perform so well? Mark Suster would say that they <a href="http://www.bothsidesofthetable.com/2012/05/23/its-morning-in-venture-capital/">flawlessly executed their business
+model</a> but I&#8217;d
+go deeper in the reasons and say that their success comes from their <a href="http://betashop.com/post/13607881842/10-ways-fab-is-building-a-different-type-of-company">core beliefs
+</a>
+and the energy they put to broadcast them.</p>
+
+<p><a href="http://imageshack.us/photo/my-images/163/brocode.png/"><img src="http://img163.imageshack.us/img163/8470/brocode.png" alt="BroCode" /></a></p>
+
+<p>They <em>believe</em> in a vision, in core principles they love to repeat as
+much as possible. This is even their first statements in their <a href="http://betashop.com/post/24759506656/happy-fabiversary-1-year-of-fab">Happy
+Fabiversary blog post</a>. You can search for
+each of these belief in their blog to see how often they come back. These values stand at
+the epicenter of their attitude and drive.</p>
+
+<p>Fab communicates their beliefs with such a passion that we can
+feel them behind every single line of text in their
+website, behind every single quote from Jason Goldberg. Their gimmick
+<em>To Make You Smile</em> underlies all their decisions and choices: <em>Color is
+very important, color makes people smile.</em> At Fab they have their core
+principles and they stick to it: <em>We care more about making people smile
+than making money from them</em>.</p>
+
+<p>Even if one could argue that they do it just for marketing purposes I
+truly think they do it because they uphold totally their core beliefs. They communicate their
+vision perfectly and make people adhere to it because they act like
+passionate leaders.</p>
+
+<p>Choosing core values and placing every single decision the company makes
+in the perspective of these values is what makes me smile.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Challenge Accepted]]></title>
+    <link href="http://needforair.com/blog/2012/06/11/challenge-accepted/"/>
+    <updated>2012-06-11T14:33:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/06/11/challenge-accepted</id>
+    <content type="html"><![CDATA[<p>Our book <a href="http://leanpub.com/startupflow">Startup
+Flow</a> is featured at page 97 of this week&#8217;s edition of <em><a href="http://www.challenges.fr/">Challenges</a></em>,
+a French weekly newspaper dedicated to business and the economy.</p>
+
+<p><img src="http://online.milibris.com/thumbnail/issue/75c743fd-bebd-4fd4-ac17-dccfcf5c9f53/front/catalog-cover-icon.png?force_display=1" alt="Challenges Cover" /></p>
+
+<p><em>Challenges</em> says
+the book is <em>&#8220;Ideal and time-saving for teams looking for the most productive workflow&#8221;</em>, which is
+exactly what we had in mind when we wrote the book.</p>
+
+<p>If you haven&#8217;t read the book yet, <a href="http://leanpub.com/startupflow">do it right
+now</a> and spread the word!</p>
+
+<p>Here is a photograph of the article (the quality is not too good as it was taken with an iPhone 3GS):</p>
+
+<p><a target='_blank' title='ImageShack - Image And Video Hosting' href='http://imageshack.us/photo/my-images/692/challengesarticlez.jpg/'><img src='http://img692.imageshack.us/img692/6048/challengesarticlez.jpg' border='0'/></a></p>
+
+<p>Thank you <em>Challenges</em>!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rockstars Don't Give a Fuck]]></title>
+    <link href="http://needforair.com/blog/2012/06/07/rockstars-dont-give-a-fuck/"/>
+    <updated>2012-06-07T17:59:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/06/07/rockstars-dont-give-a-fuck</id>
+    <content type="html"><![CDATA[<p>Most of what I consider genuinely useful and insightful
+in my life today I learned from my parents and from my poker days. Poker made me fearless,
+it made me think about long term, about positive expected value, it made me believe that you can get
+really big even if you start with close to nothing.</p>
+
+<p>Getting good at poker takes hard work, a lot of time dedicated to studying
+theory, regular opponents, patterns, but also, and most importantly, a
+lot of work on yourself to prevent tilt. Tilt is the name poker players
+give to the phenomenon that happens when one gets a few bad beats in a
+row and loses it. Somehow one feels forgotten, unjustly punished by the
+poker gods and starts playing as though one is due for some good run of
+cards. It usually ends up pretty badly. Self control is the key
+to moving up in stakes and being succesful at online poker.</p>
+
+<p>However, the one thing I noticed that differentiated the the very best, the smartest, the most
+crazy good players from the merely very good players is that although
+poker is a money game
+these guys didn&#8217;t give a fuck about money. They&#8217;re ready to lose it all,
+to lose $500k in one night even if that is 100% of their net worth
+(acquired from poker exclusively usually)
+because they 300% believe in their game, their edge and what
+they&#8217;re doing. They are unfathomably focused on outplaying their
+opponent, not winning money. Somehow these players always end up
+super rich. They end up going on killing sprees, annihilating
+everyone that challenges them, because they focus on one thing:
+the game. They don&#8217;t care about PR, rakeback deals,
+staking, how big their bankroll is at any given time, what they&#8217;re gonna
+be able to buy with that $500k they just won in a few hours, saving for
+their retirement or whatever.</p>
+
+<p><a href="http://memegenerator.net"><img src="http://cdn.memegenerator.net/instances/400x/11882883.jpg" alt="I Don't give a shit" /></a></p>
+
+<p>All they
+care about is making the best play every single time, to the best
+of their ability. That&#8217;s how Tom &#8216;durrrr&#8217; Dwan lost 5 millions (we&#8217;re
+talking about a self-made 20-something year-old guy here) in
+a few days to Isildur1, some even younger Swedish sicko who appeared at of
+nowhere and suddenly started beating every top player on Full Tilt Poker. Tom
+Dwan continued playing because he thought he had an edge. He
+didn&#8217;t care about the money or he would&#8217;ve stopped way sooner.
+Nobody likes to lose a few millions in a matter of hours. But he
+bounced back. Not in this match, not against Isildur1. But in some
+other games. It&#8217;s all about passion. If you want to be the best at
+something, you need to dive into it without asking questions, without
+thinking about the risks, nor the rewards. Do it because that&#8217;s what
+make you pulse and feel alive.</p>
+
+<p>Look at Mark Zuckerberg. He is the epitome of the startup rockstar. He is all about Facebook. He doesn&#8217;t shift his focus from Facebook, doesn&#8217;t care what people say about him or Facebook.
+He is not afraid of losing one round, he makes all the moves that he
+thinks are best for Facebook.
+ He just plows away and in this regard reminds me
+of the best poker players, only he plays at different stakes. And this why I&#8217;m gonna buy
+Facebook stock as soon as my brokerage account is open.</p>
+
+<p><em>Disclaimer: this is not professional investment advice.</em></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Some Positive Thoughts About the Facebook IPO]]></title>
@@ -1609,480 +1961,6 @@ most importants for voters, which are nowadays the economic crisis and
 unemployment. This is where I think the <a href="http://en.wikipedia.org/wiki/Pirate_Party">Pirate Party</a> has a huge role to play. Even though they are still a fringe party today, they <a href="http://www.nytimes.com/2011/09/20/world/europe/in-berlin-pirates-win-8-9-percent-of-vote-in-regional-races.html">have had some electoral success</a> and have shown the political world that voters do care about Internet-related issues. If they continue to be successful, I am pretty sure that mainstream politicians, who hold the real power, will want to understand the Internet better, leading to a more fruitful public debate.</p>
 
 <p>It will surely take some time, but I think <strong>it will happen</strong>, because it already happened in the past: 30 years ago, neither voters nor politicians cared about the environment, and the Green parties were regarded the same way the Pirate party is today. Now, ecology is a significant political topic in many European countries. The Internet is next.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The Role of Computers in Text Summarization]]></title>
-    <link href="http://needforair.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/"/>
-    <updated>2012-04-06T08:30:00+02:00</updated>
-    <id>http://needforair.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text</id>
-    <content type="html"><![CDATA[<p>As Stanislas explained in <a href="http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/" title="Information Overload">this previous post</a>, we believe we are dealing with too much information to keep up on the Internet. The natural solution is text summarization, and computers can help us there.</p>
-
-<p><a href="http://www.flickr.com/photos/xeeliz/3558255554/sizes/l/in/photostream/"><img src="http://farm4.staticflickr.com/3376/3558255554_9f9c480132_n.jpg" alt="Summary" /></a>
-<em>by <a href="http://www.flickr.com/photos/xeeliz/" title="Author">Xeeiliz</a></em></p>
-
-<p>There are roughly two kinds of summaries: the ones that consist of a few of
-the most important sentences extracted from the text, the keyphrases, and the ones that
-are written from scratch without necessarily using the same phrasing, called abstract summaries.</p>
-
-<h2>Finding the most relevant content: keyphrase extraction</h2>
-
-<p>The big advantage of keyphrase-based summaries is that there is no risk
-of miscomprehension since they are composed of unrephrased pieces of the
-text. Moreover, computers are able to compute them and get decent
-results. There are two main ways to do it: supervised and unsupervised
-extraction.</p>
-
-<h3>When you know the context: extraction as supervised learning</h3>
-
-<p>One way to perform this task is described by Peter Turney in <a href="http://webdocs.cs.ualberta.ca/~lindek/650/papers/turney.pdf">this paper</a>. He found that using a custom-designed algorithm that incorporates specialized domain knowledge on a text generates yields very good results: 80% of keyphrases are deemed acceptable by human readers. The problem with this approach is that it requires the computer to know the topic beforehand. It is possible to use a prior first step to determine what it is, but this is difficult and the results are terrible if we get it wrong.</p>
-
-<h3>Applicable to any text: unsupervised keyphrase extraction</h3>
-
-<p>This approaches enables us to extract keyphrases from a text without any
-prior knowledge, which is a tremendous improvement upon the previous method. There a several algorithms, and one notable current example is <a href="http://www.summly.com/">Summly</a>. I will explain one of those, named TextRank, to give you a feeling of the kind of techniques used in this field.</p>
-
-<p>The TextRank algorithm was developped by Rada Mihalcea and Paul Tarau in
-<a href="http://acl.ldc.upenn.edu/acl2004/emnlp/pdf/Mihalcea.pdf">this paper</a>. The key idea is that a text
-unit (word or phrase depending on the need) that is close to a lot of other important text units is likely a keyphrase. Using the parallel between the &#8220;close to&#8221; relation and the &#8220;referred to by&#8221; relation of hyperlinks, TextRank uses Google&#8217;s <a href="http://en.wikipedia.org/wiki/PageRank">PageRank</a> to determine which text units are the most important. It works well, its main author was even awarded a $100k grant by Google for her work on keyphrase extraction.</p>
-
-<h2>The best: abstract summarization</h2>
-
-<p>Even though they can be very useful, keyphrase-based summaries are still
-rudimentary compared to abstract summaries, because they are much nicer
-to read, and we are sure no important information was &#8220;left behind&#8221; (i.e a keyphrase was not extracted). Also, keyphrase extraction algorithms still find it hard to
-summarize technical articles.</p>
-
-<p>Abstract summarization is the limit of what computers can do today. The
-main reason for this is that they struggle with the following tasks:</p>
-
-<ul>
-<li><strong>Coreferences understanding</strong>. For example, who does &#8216;he&#8217;
-references in the sentence &#8216;Paul told John he should play squash&#8217;?</li>
-<li><strong>Word sense disambiguation</strong>. In &#8216;I need batteries for
-my mouse&#8217;, are we talking about the animal or the device?</li>
-<li><strong>Sentiment analysis</strong>. Understanding the mood of the writer is often
-key to understanding a text, all the more when there is sarcasm.</li>
-</ul>
-
-
-<h2>Computers can help humans summarize a text</h2>
-
-<p>To sum it up, I believe that humans still cannot be replaced by
-algorithms if we want to produce quality summaries. Nonetheless, a
-computer really can help a us by providing a keyphrase-based summary,
-so that we spend less time scanning the text for them. In addition, if
-we were able to train algorithms by comparing their output with a human
-summary a lot of times for articles on a certain topic, I think it is possible we see significant improvements.</p>
-
-<p><em>Note: some examples were taken from <a href="https://class.coursera.org/nlp/">Stanford&#8217;s Natural Language
-Processing online class</a>. If you couldn&#8217;t take
-it this quarter, look for it, it is a terrific place to learn about this
-topic</em></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[What We Didn't Learn In College]]></title>
-    <link href="http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college/"/>
-    <updated>2012-04-04T23:38:00+02:00</updated>
-    <id>http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college</id>
-    <content type="html"><![CDATA[<p>Albert Wenger is right:
-<a href="http://continuations.com/post/20112755144/students-are-woefully-prepared-for-internet-age-job">we are woefully prepared for internet age job market</a>.
-The three of us graduated in Computer Science in college, following a solid
-engineering cursus. But during the
-numerous courses we took we never heard of <a href="http://github.com/">Github</a> nor <a href="http://stackoverflow.com/">StackOverflow</a>.
-People attending creative and artistic
-formation don&#8217;t hear of <a href="http://www.etsy.com/">Etsy</a> neither.</p>
-
-<p><img src="http://farm8.staticflickr.com/7044/7046351459_53d8ed3283.jpg" alt="Jeff Atwood" /></p>
-
-<p>You could argue: &#8220;What&#8217;s the problem with that? You aren&#8217;t supposed to learn
-how to use these platforms in school but core skills in your field!&#8221;</p>
-
-<p>But that would be missing a point. The education we all receive has one final
-goal: be prepared to get the best job as possible. In our current
-era <strong>finding a job doesn&#8217;t come down to respond to job offers by sending
-cover letters and resume</strong> nor spam by email all our contacts in the industry
-to get an interview.</p>
-
-<p>We are lucky to live through the emergence and the
-expansion of specialized platforms which can help us build our personal
-and professional identity. With these platforms <strong>we can easily have a
-professional visibility, expose our skills so they can be assessed by
-everyone and acquire real experience with real work.</strong></p>
-
-<p>The very first recommendation we should receive beginning a course in
-a topic is registering on all the platforms related to this topic. The
-professors should foster us to leverage these platform to develop our
-skills, build our expertise and gain some fame. Such platforms work this way: they play with
-our ego to encourage us to contribute more and more and make our
-achievements visible for everyone in return. <strong>They are built to be our showcase</strong> and
-we should take advantage of it. We do so many interesting projects in
-school, sometimes state of the art implementations in CS, that get lost
-on our machine. They should be public to catch recruiters&#8217; attention on
-our profile and skills or help us <a href="http://cdixon.org/2012/02/26/the-internet-is-reshaping-our-economy-from-one-of-huge-corporations-with-lots-of-jobs-to-huge-platforms-with-lots-of-income-streams/">create our future income streams</a>.</p>
-
-<p>So at which level can we improve the promotion of such platforms? At the school&#8217;s level?
-At the professors&#8217; level? They should all keep up with the internet economy like they
-usually keep up with the <em>real</em> economy. Schools should increase professors&#8217; awareness, who
-are mainly researchers in engineering schools for example, to this
-concern but it&#8217;s up to the professors to promote personaly the right
-platforms. Professors do already a great job teaching us their
-knowledge, <strong>they should go further and encourage us to capitalize on their
-teaching</strong>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Siri or the Reinvention of Mobile Search User Experience]]></title>
-    <link href="http://needforair.com/blog/2012/03/31/siri-or-the-reinvention-of-mobile-search-ux/"/>
-    <updated>2012-03-31T17:58:00+02:00</updated>
-    <id>http://needforair.com/blog/2012/03/31/siri-or-the-reinvention-of-mobile-search-ux</id>
-    <content type="html"><![CDATA[<p>Search is a behavior, it is what people do when they want to find
-something and don&#8217;t know exactly what they&#8217;re looking for, or when they
-know what they&#8217;re looking for but don&#8217;t know where to find it.
-But search on computers or on the web has traditionally been either
-intuitive and useless or unintuitive and powerful, as I&#8217;m going to show
-you.
-Even searching on Google used to be <a href="http://www.avc.com/a_vc/2003/10/search.html">hard and
-unintuitive</a>
-for the layperson. But Google improved the UX and it was so
-powerful that people just learned to use it.</p>
-
-<p>Until now
-search was basically equated to Google (a single-entry point to all of
-the resources available on the web), but with the major
-<a href="http://www.codinghorror.com/blog/2012/03/welcome-to-the-post-pc-era.html">shift</a> from computers to mobile devices,
-search UX needs to be reinvented.</p>
-
-<p><a href="http://www.flickr.com/photos/37161567@N04/6751892711/"><img src="http://farm8.staticflickr.com/7143/6751892711_f59c0452e8.jpg" alt="Siri helps Doggy" /></a>
-<em><a href="http://creativecommons.org/licenses/by/2.0" title="license">CC license</a> - by <a href="http://www.flickr.com/photos/37161567@N04/" title="Author">Yogesh Mhatre</a></em></p>
-
-<h2>Fact: Mobile Search User Experience Sucks</h2>
-
-<p>Searching on smartphones is currently a terrible user experience. Screens are
-tiny, typos frequent, missclicks incredibly annoying. Search results
-don&#8217;t account well for the fact that smartphones are not simply smaller versions of
-computers. Recently for instance, an <a href="http://itunes.apple.com/bw/app/quickmaps/id506283203?mt=8">iphone app</a> that is a
-simple user interface for frequent
-Google Maps queries received a very positive feedback and was an instant
-success.</p>
-
-<p>That&#8217;s why most search on mobile is done on vertically differentiated
-apps: one searches for places to stay on the Airbnb app, and looks for movies on the IMDB
-app. These apps provide a better search experience, from the query to
-the results &#8220;page&#8221;. The problem with that scheme is when you don&#8217;t know
-the particular app that suits your needs. Unless you follow Techcrunch
-or HackerNews religiously it can get tricky. The beauty of Google and
-other search engines was that they provided a single entry point for web
-content. You didn&#8217;t have to know anything else, and a lot of people
-still google &#8220;facebook&#8221; to reach the facebook website.</p>
-
-<p>But the UX of single entry point search is so bad on mobile that people
-don&#8217;t bother using it. Instead they&#8217;re left with discovering content
-through social media apps which offer a very decent UX for that. But they
-cannot look for something from a single-entry point unless they muster
-enough courage to deal with Google&#8217;s web app, and that&#8217;s too bad.</p>
-
-<h2>Lets Go Back In Time</h2>
-
-<p>When Windows arrived on the market, it represented a major shift in UX.
-Before Windows, people interacted with computers using a command-line
-interface(CLI), otherwise known as the shell. Command-line means that instead
-of clicking around, navigating in your folders and moving files
-visually, you gave a command to the computer and it executed your
-command. The CLI was (and still is) a great UX for search of files in a
-computer. Windows&#8217; graphical user interface, on the other hand, was absolutely terrible at this.</p>
-
-<p>Can you remember when you still had Windows? Looking for a file was
-absurdly hard and difficult, borderline impossible. That&#8217;s why most
-people just used their brain to remember where they put their files on
-their hard drive, and went looking for it by opening folder after
-folder. So Windows was a huge regression in search UX from the days when there was no graphical
-interface.</p>
-
-<p>Windows was arguably more intuitive than the CLI, you didn&#8217;t have to
-learn any commands to use it. All you had to do is click buttons and move your cursor
-around. But as you gained intuitiveness, you lost the power of the CLI.</p>
-
-<p>The reason why I&#8217;m talking about
-all this is we are currently witnessing a similar change of paradigms
-as websites are becoming webapps or even native mobile apps, that cannot
-be cleanly separated into different pages anymore. And again search UX
-is getting the bitter end of the deal.</p>
-
-<p>Apps are more intuitive, there are no more files, no more links, it&#8217;s
-pure visual and intuition heaven such that 2-year olds are comfortable with iPads,
-but powerful search is not part of the experience.</p>
-
-<h2>Enters Siri</h2>
-
-<p>Siri is the new personal assistant that lives in all iPhones 4S. You
-talk to her and she executes your wishes to the best of her abilities.</p>
-
-<p>A lot of people say it&#8217;s a gadget, it&#8217;s not actionable,
-it&#8217;s an Apple marketing ploy to sell you an iPhone 4 at a 20% premium. I
-think however that it&#8217;s much more than that and that these critics are
-missing the elephant in the room. For me, Siri is the new
-command-line interface.</p>
-
-<p>Think about what Siri does. You ask her to set your
-alarm, to give you the weather, to find a restaurant, to look for places, all from a single entry point.
-Basically, it&#8217;s a <strong>vocal recognition enabled command interface</strong>.
-And even though it&#8217;s still rough on the
-edges, I&#8217;m positive it&#8217;s going to become much more powerful in the near
-future. Vocal commands are the ultimate user experience, everybody gets
-it. The sole interface that beat vocal commands would be a mind-reading
-interface.
-So for the first time we have a <strong>search UX that is both intuitive
-and powerful</strong> (or promising to be at least). Siri is abstracting links
-and complicated queries from the end-user. Most people don&#8217;t care about
-links, they just want the data, the resource that the links point to.</p>
-
-<p>Siri is going to bring search back to mobile devices, and make search a
-huge part of the mobile ecosystem once it opens its API to developers.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SOPA, the entertainment industry and the future of culture]]></title>
-    <link href="http://needforair.com/blog/2012/03/29/sopa-hadopi-future-of-culture/"/>
-    <updated>2012-03-29T08:24:00+02:00</updated>
-    <id>http://needforair.com/blog/2012/03/29/sopa-hadopi-future-of-culture</id>
-    <content type="html"><![CDATA[<p>The entertainment industry is busy trying to make the US adopt the SOPA
-law which is considered dangerous for the Internet by <a href="http://www.guardian.co.uk/technology/2012/jan/18/sopa-wikipedia-blackout-google-reddit" title="many">many</a>. This brings two questions:</p>
-
-<ul>
-<li>What can the future model for accessing culture look like? Will today&#8217;s
-giants be part of it?</li>
-<li>How can we ensure that laws are made by people with sufficient
-knowledge of the field they try to regulate?</li>
-</ul>
-
-
-<p>I give my consumer and tech enthusiast point of view on the first question in this post and I will tackle the second one in a few days.</p>
-
-<p><a href="http://www.flickr.com/photos/27539822@N05/3697785107/"><img src="http://farm3.staticflickr.com/2608/3697785107_579dac8a0f_n.jpg" alt="Concert" /></a>
-<em>by <a href="http://www.christianholmer.com/" title="Author">Christian Holmer</a></em></p>
-
-<h2>How the Internet disrupted the entertainment industry&#8217;s business model</h2>
-
-<p>The major movie and music producers (Hollywood, Sony, Universal to name a few) engage in the <a href="http://musicfacts2.wordpress.com/2010/06/25/15-analysis-of-the-cost-structure/">following activities</a>: content production (recording in the case of music), royalties payments to artists and copyrights holders,  marketing and promotion, purchase, manufacturing, warehousing and distribution. The first four can be referred to as &#8220;creating the content and making it known&#8221;, and the Internet didn&#8217;t have much impact on them.</p>
-
-<p>On the contrary, the last four (&#8220;bringing the content to consumers&#8221;), have been completely disrupted by the arrival of the Internet, which brings these costs close to zero. In my opinion, the major labels have failed to accept this fact, which is why they took such a long time to open downloading services. And even then, the online prices have not gone down by as much as they could. They may have every right to tell consumers that they always have the option not to get music/videos, but I think that&#8217;s not a <a href="http://www.marco.org/2012/02/25/right-vs-pragmatic" title="pragmatic">pragmatic approach</a>. I want to listen to music and watch movies, but I don&#8217;t like to pay for CDs that are DRM-locked, or for a zone 1 DVD that only works in 2 countries and begins with an <a href="http://www.youtube.com/watch?v=OWPfcEOr2Yg" title="Bender piracy warning">&#8220;illegal downloading is ripping out a beating human heart&#8221; ad</a>. In fact, I don&#8217;t even want to have to drive to the nearest Virgin Megastore to get the latest season of Game of Thrones. <em>What I want is to be able to get access to music and videos freely from my home</em>.</p>
-
-<h2>People still want to pay for what they love</h2>
-
-<p>Does that mean that labels and artists are doomed to be left destitute as we all get their work for free? I really don&#8217;t think so. People (myself included) <em>want</em> to pay for what they love. For example, you can look at <a href="http://flattr.com/" title="Flattr">Flattr</a>. Or you can consider the fact that <a href="http://www.wired.com/listening_post/2007/10/estimates-radio/" title="Radiohead">Radiohead made between $6M and $10M from a
-&#8220;pay-what-you-want&#8221; downloadable album</a>.</p>
-
-<p>But what I love is music, movies, tv series. In a word, <em>culture</em>. Now that I&#8217;ve seen how easy it is to access it on the Internet, I want the paying offer to be at least as good as the free one: a large choice, fast downloads and unlimited access from anywhere. I am sick of DVDs rendered unreadable due to copy-protection (happened again last week), and music I can&#8217;t copy however I wish.</p>
-
-<h2>How labels and artists can get paid</h2>
-
-<p>In my opinion, a <em>global subscription model</em>, much like Spotify&#8217;s, would be a very nice solution. I estimate the number of Internet subscriptions in North America to be 80M (it was <a href="http://www.internetworldstats.com/am/us.htm">70M in the US alone in 2009</a>). The <a href="http://grabstats.com/statmain.asp?StatID=74">music industry made a total of $26.5B in the same region in 2011</a>, which corresponds to about $28 per subscribtion and per month. I share one subscription with my girlfriend whom I live with, so that means I would have to pay $14 per month for unlimited and legal music. I would do that gladly!</p>
-
-<p>The exchanges could be
-monitored so that the most downloaded artists receive more money than
-the others. This redistribution system could also be tweaked in favor of smaller, unknown artists to support discovery.</p>
-
-<p>The above only concerns personal content consumption. <em>There
-are alternative revenue streams for artists and labels that cannot be copied nor downloaded</em>: concerts, movie theatres, goodies and so on. For example, <a href="http://grabstats.com/statmain.asp?StatID=73">the total 2011 revenue for live music in North America is $10.3B</a>. It seems to be enough to sustain music creation, doesn&#8217;t it?</p>
-
-<p><a href="http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers/">In a nutshell</a>, I think that major labels still have a role to play, but should focus on content creation and marketing, where their true value addition resides. I fear that if they continue to try to keep the old business model in place, they will be replaced by more suited players.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[We Are All Nutcrackers]]></title>
-    <link href="http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers/"/>
-    <updated>2012-03-26T18:20:00+02:00</updated>
-    <id>http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers</id>
-    <content type="html"><![CDATA[<p><em>In a nutshell&#8230;</em> Have you never been looking for this expression
-while reading an article? The fact is that we are all fond of digested
-information. With Internet and social medias the quantity of information
-one has access to has become huge; we are coping with an
-<a href="http://needforair.com/information-overload-and-how-to-keep-up-with-5849" title="Overload">information overload problem</a>.
-We can potentially be aware of everything that is going on everywhere, instantaneously
-and regarding any topic. <strong>In this context, the demand for digested
-information is growing tremendously.</strong><br/>
-Recently, many startups have been leveraging that fondness to
-succeed. <a href="http://www.fanbridge.com/" title="Fanbridge">Franbridge</a> with its
-<a href="http://www.fanbridge.com/blog/introducing-social-digest" title="Social Digest">Social digest</a>
-will soon reach <a href="http://pandodaily.com/2012/03/21/as-it-turns-out-fanbridges-most-exciting-product-is-boring-old-email/">10 millions subscribers</a>!<br/>
-Why people do love and value digested information so much?</p>
-
-<p><a href="http://freshcode.co/post/Nameservers-in-a-Nutshell-Fresh-Insights-7.aspx"><img src="http://freshcode.co/image.axd?picture=2011%2f7%2fnutshell.jpg" width="220" alt="Nutshell" /></a>
-<em>by <a href="http://freshcode.co/" title="Author">FreshCode</a></em></p>
-
-<h2>Digested information is our natural representation of information</h2>
-
-<p>We all love digested information because it makes the information easy
-to grasp.
-It is very popular because it replicates the mental
-process we do when reading. We look for headlines, bold text, headers,
-we scan the text to form our overall picture of the content. Digested
-information gathers all those clues and eases this process.<br/>
-Part of this cognitive process is the memorisation. Digested information
-makes memorisation more accessible. Remember those cheatsheets you
-religiously wrote down for your exam preparation in college? Reading the digest of an
-article has the same effect. When building our personal knowledge
-database we store those keywords, key sentences. Digested information is
-the natural form of information our brain manipulates when it internally
-classifies, archives, queries our memory.</p>
-
-<h2>Digested information piques reader&#8217;s curiosity</h2>
-
-<p>While reading we like it when the content arouses our curiosity. I would even say
-that we expect an article to <em>catch</em> us. Digested information provides
-the gist that drives us to the dive in the details. It avoids the wall of text effect and
-stimulates our willingness to dig further into subject. It&#8217;s like reading gossips! You
-get hooked and then you want to know more about it.</p>
-
-<p>Digested information is a very valuable resource and its era should come soon.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[Digest] BizDev vs SEO - Google+ value]]></title>
-    <link href="http://needforair.com/blog/2012/03/26/digest-bizdev-new-seo-google-plus-value/"/>
-    <updated>2012-03-26T16:59:00+02:00</updated>
-    <id>http://needforair.com/blog/2012/03/26/digest-bizdev-new-seo-google-plus-value</id>
-    <content type="html"><![CDATA[<p><em>Digests are summaries of articles posted by entrepreneurs, VCs, and
-other people who write about startups and technology in general, curated
-by yours truly. The goal is to make them shorter to read by extracting the most relevant
-information from our point of view and then to encourage you to go read the complete post
-should you find the topic interesting.</em></p>
-
-<h2><a href="http://also.roybahat.com/post/19307918051/bd-is-the-new-seo" title="Source">BizDev is the new SEO</a></h2>
-
-<p><em>by <a href="https://twitter.com/#!/roybahat">@roybahat</a> - Mar 16, 2012</em></p>
-
-<p>Roy Bahat writes a follow up to Roger and Mike&#8217;s
-<a href="http://rogerandmike.com/post/18870279638/what-is-the-hypernet" title="Hypernet">article on the Hypernet</a>.
-He explains why business development may replace SEO in the next
-Internet era.</p>
-
-<ul>
-<li><strong>Changes</strong>
-
-<ul>
-<li>the iPhone changed the internet, by taking us away from the SEO-driven world of URLs and websites</li>
-<li>Search won’t come first. New services succeed without ever really needing to master search (Pinterest, Angry Birds etc.)</li>
-</ul>
-</li>
-<li><strong>New perspectives</strong>
-
-<ul>
-<li>Some think social media optimization will replace search engine optimization but that&#8217;s not all</li>
-<li>In the next era, you can get discovered merely by having a strong relationship with one of the platforms of discovery</li>
-<li>Business development may take the place of SEO.  This could be great for companies with well-known brands based on a quality service</li>
-<li>That’s awful for new services with great content but no way to get an <em>in</em> – but it’s great for wonderful brands who might otherwise have struggled with the strange world of search algorithms</li>
-</ul>
-</li>
-</ul>
-
-
-<h2><a href="http://www.jacquesmattheij.com/What+you+could+do+if+you+were+google+and+had+their+databases" title="Source">What you could do if you were google and had their databases</a></h2>
-
-<p><em>by <a href="https://twitter.com/#!/jmattheij">@jmattheij</a> - Mar 15, 2012</em></p>
-
-<p>Jacques Mattheij thinks about the value of Google+ for Google and why
-they are pushing it so hard. This article outlines a hypothetical way in which Google+ could be of major strategic value for Google in its core business, search.</p>
-
-<ul>
-<li><p><strong>The value of links is decreasing</strong></p>
-
-<ul>
-<li>People that relied on links will now rely on Google reducing the value of links between sites</li>
-<li>People that realize that Google values links will create lots of them still further reducing the value of links between sites</li>
-</ul>
-</li>
-<li><p><strong>Why Google is promoting Google+</strong></p>
-
-<ul>
-<li>analytics + social network tells you what social circles are reading which articles</li>
-<li>Someone that is professionally engaged in a certain field carefully studying an article in that same field is likely a good indicator that such an article is at least worthy of some notice</li>
-<li>There is no algorithm as good at discriminating bad content from good content as the human mind</li>
-<li>Every user in Google+ is actually now an unpaid Google employee whose actions are used to influence the google search results as a way to stop further erosion of the results due to spam</li>
-</ul>
-</li>
-</ul>
-
-
-<p><em>If you would like your article not to be summarized on this blog,
-please contact us and we&#8217;ll take it down
-asap</em></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Why We Write Digests of Interesting Content]]></title>
-    <link href="http://needforair.com/blog/2012/03/21/why-we-write-digests-of-interesting-content/"/>
-    <updated>2012-03-21T12:00:00+01:00</updated>
-    <id>http://needforair.com/blog/2012/03/21/why-we-write-digests-of-interesting-content</id>
-    <content type="html"><![CDATA[<p>All three of us read a lot. Blogs, <a href="http://news.ycombinator.com" title="Hacker News">Hacker News</a>, links we get through
-Twitter, etc. Browsing dozens of articles a week to stay informed is great but do we get the most out of it? <strong>Do we
-actually memorize the gist of all that content we are reading?</strong> Spending
-so much time reading would be a huge waste if it wasn&#8217;t consolidated in
-some fashion. That&#8217;s why we decided to write summaries of the best
-articles we find.</p>
-
-<p><a href="http://www.flickr.com/photos/60546721@N00/102673733/"><img src="http://farm1.staticflickr.com/42/102673733_39cbb51495_n.jpg" alt="Keep the gist" /></a>
-<em><a href="http://creativecommons.org/licenses/by/2.0" title="license">CC license</a> - by <a href="http://www.flickr.com/photos/60546721@N00">aroid</a></em></p>
-
-<h2>It forces you to really understand what the article is about</h2>
-
-<p>My Math and Physics professors would always say that the best way to learn
-was to get to the point where you are able to
-<strong>recap the course materials in writing</strong> (theroems, proofs, case studies).</p>
-
-<p>In order to select the most critical parts of an article you need to
-really read through the whole article and pick up the signal that you
-want to remember. This means you should understand thoroughly what the
-article is about and the author&#8217;s reasoning. Why she spent time on some
-subject and not on others.</p>
-
-<p>When writing up a summary, be it by mere copy/pasting or rephrasing, you put yourself
-in an active cognitive process. You are not simply consuming
-anymore, you are disecting and structuring information. Not only will
-your memory be more deeply impressed than if you just read but it will
-be more structured and organized.</p>
-
-<h2>You can go back to it later</h2>
-
-<p>Bookmarking is currently the only way of organizing and keeping up with the content that you
-loved and that you would want to be able to find again later and share
-to others via tools such as <a href="http://delicious.com" title="Delicious">Delicious</a>,
-or <a href="http://pinboard.in" title="Pinboard">Pinboard</a>.
-However you still need to reread the whole article once you go back to
-it, which can be a waste of time in some cases. <a href="http://evernote.com" title="Evernote">Evernote</a> is better in that regard as
-you make save notes on any topic.</p>
-
-<p><strong>If you had summaries for each of your bookmarks</strong>, you could go back to
-that content and filter it in a much more effective fashion, deciding
-whether or not you want to delve into the whole article or not. It is
-something between the title and the article that is missing to help you
-filter through your bookmarks and consume your content.</p>
-
-<p>We keep all of our digests in an organized way so that they are easily
-searchable and consumable.</p>
-
-<h2>Sharing becomes easier</h2>
-
-<p>Digests also make it easier to share content. Ever tried to send a link
-to someone, and never got any feedback? Chances are they
-are receiving hundreds of links per day, by email, facebook, twitter, etc.
-You&#8217;re asking that person for too much work. She doesn&#8217;t have enough time
-to read yet another whole article without knowing it&#8217;s high quality content.</p>
-
-<p><strong>If you include a short digest</strong> of the article or video or podcast in your
-email, you can be sure there is a much higher chance that she reads the
-digest and eventually clicks the link, intrigued. And you&#8217;ll be
-able to have a conversation about it. That is sharing. Sending naked links is not sharing,
-it&#8217;s spamming.</p>
 ]]></content>
   </entry>
   

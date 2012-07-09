@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>How We Use Jenkins for Continuous Deployment - Need for Air</title>
+  <meta name="author" content="Need for Air">
+
+  
+  <meta name="description" content="As all teams working on a web application, we had to setup a continuous
+integration server. This is
+a fairly well-known engineering practice, where &hellip;">
+  
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://needforair.com/blog/2012/07/09/jenkins-in-production">
+  <link href="/favicon.png" rel="icon">
+  <script type="text/javascript" src="http://use.typekit.com/zcp2xbp.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>  
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/NeedForAir" rel="alternate" title="Need for Air" type="application/atom+xml">
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+  
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts 
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-29357304-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+<body   >
+
+	<div class="container">
+
+		<div class="four columns">
+  			<nav role="navigation"><ul class="title">
+</ul>
+<ul class="main-navigation">
+
+  <li class="other"><a href="/">Blog</a></li>
+  <li class="other"><a href="/about-us">About Us</a></li>
+  <li class="other"><a href="/blog/archives">Archives</a></li>
+  <li class="other"><a href="/our-book">Our Book</a></li>
+</ul>
+
+<ul class="subscription" data-subscription="rss email">
+  <li class="other"><a href="http://feeds.feedburner.com/NeedForAir"
+    rel="subscribe-rss" title="subscribe via RSS">Subscribe by RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=NeedForAir" rel="subscribe-email"
+      title="subscribe via email">Subscribe by Email</a></li>
+  
+</ul>
+  
+
+
+
+</nav>
+        <aside class="sidebar">
+          
+            <section>
+  <h1 class="tweets">Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/09/jenkins-in-production/">How We Use Jenkins for Continuous Deployment</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/01/new-era-continuous-client/">Enhancing the User Experience With a Continuous Client</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/25/start-your-kids-coding-very-soon/">Start Your Kids Coding Very Soon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/19/starting-startup-not-principal-concern/">Starting a Startup Should Not Be The Primary Concern</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/15/to-make-you-smile/">To Make You Smile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section id="twitter">
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/NeedForAir" class="twitter-follow-button" data-show-count="false">Follow @NeedForAir</a>
+  
+</section>
+
+<section>
+  <h1 class="tweets">Read our Book</h1>
+  <a href="http://leanpub.com/startupflow"><img
+    src="http://titlepages.leanpub.com/startupflow/small?1335536785"
+    alt="Startup Flow"></a>
+</section>
+
+          
+
+
+
+        </aside>    
+  	</div>
+    
+
+    <header class="twelve columns" role="banner">
+    
+<hgroup>
+  <h1>Need for Air</h1>
+  
+    <h2>Solving the Information Overload Problem</h2>
+  
+</hgroup>
+
+    </header>
+
+
+  	<div id="main" class="twelve columns">
+	    <div id="content">
+	      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">How We Use Jenkins for Continuous Deployment</h1>
+    
+    
+      <p class="meta">
+    
+        <time datetime="2012-07-09 12:00:00 +0200" pubdate><span class='month'>Jul</span> <span class='day'>09</span> <span class='year'>2012</span></time>
+        | 
+  
+
+<span class="byline author vcard"><span class="fn">Louis Chatriot</span></span>
+
+    
+      </p>
+    
+  </header>
+
+
+
+
+<div class="entry-content"><p>As all teams working on a web application, we had to setup a <a href="http://en.wikipedia.org/wiki/Continuous_integration">continuous
+integration</a> server. This is
+a fairly well-known engineering practice, where you want your code to be built and tested
+regularly on the server so that you spot problems as soon as they arrive and not when
+you push three months&#8217; worth of work to production. Also, it makes deployment a much less
+stressful experience, because you know it will work. You avoid getting in the situation
+of a friend of mine who could not have coffee with me because he was deploying and didn&#8217;t want
+to mess it up!</p>
+
+<p>We also wanted to take it one
+step further, and use continuous deployment. As the name implies, this
+means that any new code pushed to the server will automatically be
+built, tested and then go live and be used by our users right away. It
+turns out that is fairly easy to set up -except for a few caveats-, and
+I will describe our setup. This by no means a step-by-step tutorial but
+rather a &#8220;here is what you can do&#8221; article.</p>
+
+<p><a href="http://jenkins-ci.org/" target="_blank"><img alt="Jenkins CI" src="http://jenkins-ci.org/sites/default/files/jenkins_logo.png"></a></p>
+
+<h2>Our Tech Stack - The Part Of It That Matters For This Article</h2>
+
+<p>Our server runs on Ubuntu 12.04 LTS, our version control system is Git
+(we use <a href="http://scottchacon.com/2011/08/31/github-flow.html">Github flow</a>) and our
+code is hosted on Github. We chose to use <a href="http://jenkins-ci.org/">Jenkins</a> as
+the CI server. Even though it is poorly documented and has a definite
+&#8216;so nineties&#8217; feel, it is very easy to deploy and intuitive. Basically, you use it
+to set up jobs that are run when you launch them manually or when an external event, such
+as a code push, is triggered. These jobs can be anything that&#8217;s executable, I usually use
+simple bash scripts but you can use any kind of script, makefiles and so on.</p>
+
+<h2>Install And Keep Jenkins Up And Running At All Times</h2>
+
+<p>Jenkins is contained in a WAR file, so you can simply download and execute it with
+java (command <code>java -jar /path/to/jenkins.war</code>). Of course, this is only
+suitable for testing purposes. In production, you will want to use an
+<a href="http://upstart.ubuntu.com/">Upstart</a> script so that Jenkins respawns if
+it crashes unexpectedly and starts on boot.</p>
+
+<p>When Jenkins is up, you have
+access to a web interface to manage it (you can configure the port on which
+it listens). Make sure to enable security -I recommend matrix based security- unless you want anyone to be
+able to take control of your servers! One thing to watch out for is that
+you need to enable the &#8220;overall read&#8221; permission for the anonymous user,
+or else Jenkins won&#8217;t be able to communicate with third-party services - in our case Github and Hipchat. Pretty stupid
+behaviour I know, but at least it doesn&#8217;t create security holes.</p>
+
+<h2>Build On Push To Master</h2>
+
+<p>We have the Git and Github plugins enabled. The <a href="https://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin">Github plugin</a>
+enables us to connect Jenkins to Github&#8217;s post-receive hook. That way,
+whenever someone pushes to master (usually by merging a feature branch),
+our Jenkins &#8220;build&#8221; job pulls the new version of the code, builds it and
+test it. For us, that&#8217;s really a two-line script, as we <a href="http://www.mikealrogers.com/posts/nodemodules-in-git.html">check all
+modules in to Git</a>.</p>
+
+<p>If everything was successful, the &#8220;deploy&#8221; job is now called. It pulls
+the new version of the code in the live repository, then restarts the
+node server (since we use nodejs, we can overwrite the javascript files
+when the server is running without impacting it). Node starts pretty
+fast, so we only have ~0.1s downtime (no load balancer to achieve 0s downtime - for now!). And since we use an external store
+to manage sessions, nobody gets logged out.</p>
+
+<h2>Be Notified</h2>
+
+<p>The last part of the puzzle is how we get notified of the build result.
+We use <a href="https://www.hipchat.com/">Hipchat</a>, so we installed the Hipchat
+plugin that notifies us of build results in a dedicated chat room. Most
+of the time it just says &#8220;Build successful&#8221;. But no sweat if a build
+fails, since the &#8220;deploy&#8221; job was not called our users don&#8217;t see
+anything wrong!</p>
+
+<h2>And That&#8217;s All There&#8217;s To It!</h2>
+
+<p>Yup. It is indeed simple enough to get a robust continuous deployment
+system up and running, that most of the time safely deploys your code
+through a simple <code>git push</code> on your part. I&#8217;m interested in anything you
+would have to say on this setup or any tip you&#8217;d like to share!</p>
+</div>
+
+
+  
+    <div class="sharing">
+  
+    
+      <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://needforair.com/blog/2012/07/09/jenkins-in-production/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/07/09/jenkins-in-production/" >Tweet</a>
+    
+  
+  
+</div>
+
+  
+
+
+  <footer>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/07/01/new-era-continuous-client/" title="Previous Post: Enhancing the User Experience With a Continuous Client">&laquo; Previous post</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1 class="comments">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+	    </div>
+  	</div>
+  
+  <footer role="contentinfo"  class="sixteen columns"><center>
+<p class="credit">
+  <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />
+   <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Need for Air</span> by.
+   <a xmlns:cc="http://creativecommons.org/ns#" href="http://needforair.com" property="cc:attributionName" rel="cc:attributionURL">Need for Air</a> is licensed under a
+   <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.<br>
+   <span class="credit">Contributors include <a href="http://twitter.com/#!/stanmarion">Stanislas Marion</a>, <a href="http://twitter.com/#!/charlesmigli">Charles Miglietti</a> and <a href="http://twitter.com/#!/louisChatriot">Louis Chatriot</a></span><br>
+   <span class="credit">Powered by <a href="http://github.com">GitHub</a>, <a href="https://github.com/imathis/octopress">Octopress</a>, &amp; <a href="https://github.com/dhgamache/Skeleton">Skeleton</a></span>.<br>
+   <span class="credit">Thanks to <a href="http://ryandeussing.com">Ryan Deussing</a> for the theme.</span>
+</p>
+</center>
+
+</footer>
+  
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'needforair';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://needforair.com/blog/2012/07/09/jenkins-in-production/';
+        var disqus_url = 'http://needforair.com/blog/2012/07/09/jenkins-in-production/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+
+  <script >
+    $("header")
+    .css('cursor', 'pointer')
+    .click( function () {
+      window.location = "/";
+    });
+  </script>
+
+<script>
+  jQuery.noConflict()('li.other').hover (
+    function () {
+    jQuery.noConflict()(this).toggleClass("current-menu-item")
+  });
+</script>
+
+</body>
+</html>
+
+
+	</div> <!-- container -->

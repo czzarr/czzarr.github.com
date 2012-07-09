@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: PR | Need for Air]]></title>
+  <link href="http://needforair.com/blog/categories/pr/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-07-09T16:09:44+02:00</updated>
+  <id>http://needforair.com/</id>
+  <author>
+    <name><![CDATA[Need for Air]]></name>
+    
+  </author>
+  <generator uri="http://ryandeussing.com/">Ryan Deussing</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Challenge Accepted]]></title>
+    <link href="http://needforair.com/blog/2012/06/11/challenge-accepted/"/>
+    <updated>2012-06-11T14:33:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/06/11/challenge-accepted</id>
+    <content type="html"><![CDATA[<p>Our book <a href="http://leanpub.com/startupflow">Startup
+Flow</a> is featured at page 97 of this week's edition of <em><a href="http://www.challenges.fr/">Challenges</a></em>,
+a French weekly newspaper dedicated to business and the economy.</p>
+
+<p><img src="http://online.milibris.com/thumbnail/issue/75c743fd-bebd-4fd4-ac17-dccfcf5c9f53/front/catalog-cover-icon.png?force_display=1" alt="Challenges Cover" /></p>
+
+<p><em>Challenges</em> says
+the book is <em>"Ideal and time-saving for teams looking for the most productive workflow"</em>, which is
+exactly what we had in mind when we wrote the book.</p>
+
+<p>If you haven't read the book yet, <a href="http://leanpub.com/startupflow">do it right
+now</a> and spread the word!</p>
+
+<p>Here is a photograph of the article (the quality is not too good as it was taken with an iPhone 3GS):</p>
+
+<p><a target='_blank' title='ImageShack - Image And Video Hosting' href='http://imageshack.us/photo/my-images/692/challengesarticlez.jpg/'><img src='http://img692.imageshack.us/img692/6048/challengesarticlez.jpg' border='0'/></a></p>
+
+<p>Thank you <em>Challenges</em>!</p>
+]]></content>
+  </entry>
+  
+</feed>
