@@ -10,8 +10,11 @@ categories: server setup, process supervisor
 
 _tl;dr version:  
 
-* 
-
+* We should stop having software handle system tasks like daemonization
+  or privilege-dropping
+* That's a job for a supervisor. For example we use [Upstart](http://upstart.ubuntu.com/)
+* Nodejs plays nicely with Upstart, for example see [this Upstart
+  script for launching a nodejs application](https://gist.github.com/3385102)
 _
 
 
