@@ -8,12 +8,12 @@ categories: server setup, process supervisor
 ---
 
 
-_tl;dr version:  
+_tl;dr version_:  
 
-* We should stop having software handle system tasks like daemonization
-  or privilege-dropping
-* That's a job for a supervisor. For example we use [Upstart](http://upstart.ubuntu.com/)
-* Nodejs plays nicely with Upstart, for example see [this Upstart
+* _We should stop having software handle system tasks like daemonization
+  or privilege-dropping_
+* _That's a job for a supervisor. For example we use [Upstart](http://upstart.ubuntu.com/)_
+* _Nodejs plays nicely with Upstart, for example see [this Upstart
   script for launching a nodejs application](https://gist.github.com/3385102)_
 
 
@@ -37,7 +37,7 @@ example [gunicorn](http://gunicorn.org/) - which is also great
 otherwise). It's bad, because as a result, some of these softwares don't
 play nicely with supervisors like Upstart. People tend to resort to
 strange and not well understood scripts (I even saw an Upstart script
-that called the _start stop daemon_ to launch a gunicorn process which
+that called the _start\_stop\_daemon_ to launch a gunicorn process which
 daemonized itself!).
 
 
