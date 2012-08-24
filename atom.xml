@@ -4,7 +4,7 @@
   <title><![CDATA[Need for Air]]></title>
   <link href="http://needforair.com/atom.xml" rel="self"/>
   <link href="http://needforair.com/"/>
-  <updated>2012-07-09T16:09:44+02:00</updated>
+  <updated>2012-08-24T16:06:37+02:00</updated>
   <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
@@ -12,6 +12,72 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[What To Use Upstart (And Other Supervisors) For]]></title>
+    <link href="http://needforair.com/blog/2012/08/22/upstart-and-node/"/>
+    <updated>2012-08-22T12:00:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/08/22/upstart-and-node</id>
+    <content type="html"><![CDATA[<p><em>tl;dr version</em>:</p>
+
+<ul>
+<li><em>We should stop having software handle system tasks like daemonization
+or privilege-dropping</em></li>
+<li><em>That&#8217;s a job for a supervisor. For example we use <a href="http://upstart.ubuntu.com/">Upstart</a></em></li>
+<li><em>Nodejs plays nicely with Upstart, for example see <a href="https://gist.github.com/3385102">this Upstart
+script for launching a nodejs application</a></em></li>
+</ul>
+
+
+<p>We are currently building a webapp with the following stack: nodejs,
+mongoDB, nginx and redis. We also use a certain number of services,
+like <a href="http://needforair.com/blog/2012/07/09/jenkins-in-production/">Jenkins</a> and Graphite.
+To use these softwares in production, we need to be able to daemonize
+them, run them as specific users (usually with low privileges), and have
+tham restart automatically if case of an unexpected crash.</p>
+
+<p><a href="http://upstart.ubuntu.com/" target="_blank"><img alt="Jenkins CI" src="http://upstart.ubuntu.com/img/upstart80.png"></a></p>
+
+<p>These are quite common needs. But people are often confused as to what
+part of the system is responsible for what task. I often see software
+handling the privilege drop (for example the otherwise excellent
+<a href="http://graphite.wikidot.com/">Graphite</a>), or the daemonization (for
+example <a href="http://gunicorn.org/">gunicorn</a> - which is also great
+otherwise). It&#8217;s bad, because as a result, some of these softwares don&#8217;t
+play nicely with supervisors like Upstart. People tend to resort to
+strange and not well understood scripts (I even saw an Upstart script
+that called the <em>start_stop_daemon</em> to launch a gunicorn process which
+daemonized itself!).</p>
+
+<p>There is a simple rule to follow to avoid this confusion:
+<strong>softwares should not daemonize or handle privilege drop</strong>. These are
+jobs for the supervisor. That&#8217;s all, separation of concerns, folks. For
+example, we use Upstart to launch our processes as services. That way,
+we get added benefits: they get respawned in case they crash, they
+restart automatically if we need to reboot the server, and we can
+specify rules such as &#8220;service A should not start before service B has started
+and is ready&#8221;. I see no reason not to it that way!</p>
+
+<p>An example of software that respects these rules is nodejs. Here is <a href="https://gist.github.com/3385102">the
+Upstart script</a> we use with it. It enables us to start our app as any
+user, log all output and get the added benefits I was referring to
+earlier. It really is all you need with nodejs and most software you
+will use. This is not an Upstart tutorial (<a href="http://upstart.ubuntu.com/cookbook/">their doc</a> is pretty good),
+but let me explain the most important parts:</p>
+
+<ul>
+<li>The privilege drop is done through the <code>su -s /bin/sh -c 'exec "$0" "$@"' $RUN_AS -- command</code> part.
+This line executes <code>command</code> as user <code>$RUN_AS</code>. Unfortunately, we have to use this method because the standard
+<code>sudo -u</code> doesn&#8217;t work from within an Upstart script.</li>
+<li>The log file needs to be <code>touch</code>ed in case it doesn&#8217;t exist, then <code>chown</code>ed to user <code>$RUN_AS</code>, because otherwise
+it will belong to user root (which the user executing the Upstart script)</li>
+<li>The rest is pretty standard</li>
+</ul>
+
+
+<p>Of course, this script doesn&#8217;t work just for nodejs! So you have no excuse not to use it now :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How We Use Jenkins for Continuous Deployment]]></title>
@@ -1932,35 +1998,6 @@ There is still lots of
 them to structure out there, lots of people waiting to
 share and collaborate with their peers. Who are they? What can we do for
 them?</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Why the Pirate Party Will Help Improve Internet Regulation]]></title>
-    <link href="http://needforair.com/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation/"/>
-    <updated>2012-04-09T10:38:00+02:00</updated>
-    <id>http://needforair.com/blog/2012/04/09/why-the-pirate-party-will-help-improve-internet-regulation</id>
-    <content type="html"><![CDATA[<p>In the past years, we have seen a lot of developped countries
-governments pushing for more regulation of the Internet, and less
-privacy for users. There are three main reasons: protection of
-children, prevention of terrorism and <a href="http://needforair.com/blog/2012/03/29/sopa-hadopi-future-of-culture/">fight against illegal downloading</a>. This has led to very repressive and usually inefficient laws, for example in Australia, in France (Hadopi) and <a href="http://thehill.com/blogs/hillicon-valley/technology/220181-dodd-says-sopa-can-live-again">possibly soon</a> in the US. I think that a big part of this problem is that a very large portion of the people making these laws understand next to nothing about the Internet, and are thus afraid of it. What can we do about it?</p>
-
-<p><a href="http://www.flickr.com/photos/20888197@N00/103031916/"><img src="http://farm1.staticflickr.com/43/103031916_5c6c0a51af_m.jpg" alt="Pirate" /></a>
-<em>by <a href="http://www.flickr.com/photos/opid/" title="Author">sereneonion</a></em></p>
-
-<h2>Direct education is not enough</h2>
-
-<p>Direct education is the most natural answer. Initiatives like Google&#8217;s
-<a href="http://www.20thingsilearned.com/en-US">20 things I learned about browsers and the Web</a> for example, aim at explaining very simply the basics to beginners. More focused initiatives like the <a href="http://www.eg8forum.com/en/">electronic G8 forum</a>, which was held last year in Paris are interesting too. But unfortunately, none of these will make a real impact as long as politicians have so little interest for this world. What we really need is to make them <strong>want</strong> to learn about the Internet.</p>
-
-<h2>The Pirate Party can play a significant role</h2>
-
-<p>What politicians really care about is of course to get (re)elected. And
-since they are busy people, they only tackle the subjects they feel are the
-most importants for voters, which are nowadays the economic crisis and
-unemployment. This is where I think the <a href="http://en.wikipedia.org/wiki/Pirate_Party">Pirate Party</a> has a huge role to play. Even though they are still a fringe party today, they <a href="http://www.nytimes.com/2011/09/20/world/europe/in-berlin-pirates-win-8-9-percent-of-vote-in-regional-races.html">have had some electoral success</a> and have shown the political world that voters do care about Internet-related issues. If they continue to be successful, I am pretty sure that mainstream politicians, who hold the real power, will want to understand the Internet better, leading to a more fruitful public debate.</p>
-
-<p>It will surely take some time, but I think <strong>it will happen</strong>, because it already happened in the past: 30 years ago, neither voters nor politicians cared about the environment, and the Green parties were regarded the same way the Pirate party is today. Now, ecology is a significant political topic in many European countries. The Internet is next.</p>
 ]]></content>
   </entry>
   

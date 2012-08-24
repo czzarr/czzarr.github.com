@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: supervisor | Need for Air]]></title>
+  <link href="http://needforair.com/blog/categories/supervisor/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2012-08-24T16:06:37+02:00</updated>
+  <id>http://needforair.com/</id>
+  <author>
+    <name><![CDATA[Need for Air]]></name>
+    
+  </author>
+  <generator uri="http://ryandeussing.com/">Ryan Deussing</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[What To Use Upstart (And Other Supervisors) For]]></title>
+    <link href="http://needforair.com/blog/2012/08/22/upstart-and-node/"/>
+    <updated>2012-08-22T12:00:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/08/22/upstart-and-node</id>
+    <content type="html"><![CDATA[<p><em>tl;dr version</em>:</p>
+
+<ul>
+<li><em>We should stop having software handle system tasks like daemonization
+or privilege-dropping</em></li>
+<li><em>That's a job for a supervisor. For example we use <a href="http://upstart.ubuntu.com/">Upstart</a></em></li>
+<li><em>Nodejs plays nicely with Upstart, for example see <a href="https://gist.github.com/3385102">this Upstart
+script for launching a nodejs application</a></em></li>
+</ul>
+
+
+<p>We are currently building a webapp with the following stack: nodejs,
+mongoDB, nginx and redis. We also use a certain number of services,
+like <a href="http://needforair.com/blog/2012/07/09/jenkins-in-production/">Jenkins</a> and Graphite.
+To use these softwares in production, we need to be able to daemonize
+them, run them as specific users (usually with low privileges), and have
+tham restart automatically if case of an unexpected crash.</p>
+
+<p><a href="http://upstart.ubuntu.com/" target="_blank"><img alt="Jenkins CI" src="http://upstart.ubuntu.com/img/upstart80.png"></a></p>
+
+<p>These are quite common needs. But people are often confused as to what
+part of the system is responsible for what task. I often see software
+handling the privilege drop (for example the otherwise excellent
+<a href="http://graphite.wikidot.com/">Graphite</a>), or the daemonization (for
+example <a href="http://gunicorn.org/">gunicorn</a> - which is also great
+otherwise). It's bad, because as a result, some of these softwares don't
+play nicely with supervisors like Upstart. People tend to resort to
+strange and not well understood scripts (I even saw an Upstart script
+that called the <em>start_stop_daemon</em> to launch a gunicorn process which
+daemonized itself!).</p>
+
+<p>There is a simple rule to follow to avoid this confusion:
+<strong>softwares should not daemonize or handle privilege drop</strong>. These are
+jobs for the supervisor. That's all, separation of concerns, folks. For
+example, we use Upstart to launch our processes as services. That way,
+we get added benefits: they get respawned in case they crash, they
+restart automatically if we need to reboot the server, and we can
+specify rules such as "service A should not start before service B has started
+and is ready". I see no reason not to it that way!</p>
+
+<p>An example of software that respects these rules is nodejs. Here is <a href="https://gist.github.com/3385102">the
+Upstart script</a> we use with it. It enables us to start our app as any
+user, log all output and get the added benefits I was referring to
+earlier. It really is all you need with nodejs and most software you
+will use. This is not an Upstart tutorial (<a href="http://upstart.ubuntu.com/cookbook/">their doc</a> is pretty good),
+but let me explain the most important parts:</p>
+
+<ul>
+<li>The privilege drop is done through the <code>su -s /bin/sh -c 'exec "$0" "$@"' $RUN_AS -- command</code> part.
+This line executes <code>command</code> as user <code>$RUN_AS</code>. Unfortunately, we have to use this method because the standard
+<code>sudo -u</code> doesn't work from within an Upstart script.</li>
+<li>The log file needs to be <code>touch</code>ed in case it doesn't exist, then <code>chown</code>ed to user <code>$RUN_AS</code>, because otherwise
+it will belong to user root (which the user executing the Upstart script)</li>
+<li>The rest is pretty standard</li>
+</ul>
+
+
+<p>Of course, this script doesn't work just for nodejs! So you have no excuse not to use it now :)</p>
+]]></content>
+  </entry>
+  
+</feed>

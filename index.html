@@ -9,9 +9,9 @@
   <meta name="author" content="Need for Air">
 
   
-  <meta name="description" content="As all teams working on a web application, we had to setup a continuous
-integration server. This is
-a fairly well-known engineering practice, where &hellip;">
+  <meta name="description" content="tl;dr version: We should stop having software handle system tasks like daemonization
+or privilege-dropping
+That&#8217;s a job for a supervisor. For &hellip;">
   
 
 
@@ -41,7 +41,7 @@ a fairly well-known engineering practice, where &hellip;">
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-29357304-2']);
+    _gaq.push(['_setAccount', 'UA-33856769-1']);
     _gaq.push(['_trackPageview']);
 
     (function() {
@@ -90,6 +90,10 @@ a fairly well-known engineering practice, where &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/22/upstart-and-node/">What To Use Upstart (And Other Supervisors) For</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/09/jenkins-in-production/">How We Use Jenkins for Continuous Deployment</a>
       </li>
     
@@ -103,10 +107,6 @@ a fairly well-known engineering practice, where &hellip;">
     
       <li class="post">
         <a href="/blog/2012/06/19/starting-startup-not-principal-concern/">Starting a Startup Should Not Be The Primary Concern</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/15/to-make-you-smile/">To Make You Smile</a>
       </li>
     
   </ul>
@@ -150,6 +150,111 @@ a fairly well-known engineering practice, where &hellip;">
 	    <div id="content">
 	      <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/22/upstart-and-node/">What to Use Upstart (and Other Supervisors) For</a></h1>
+    
+    
+      <p class="meta">
+    
+        <time datetime="2012-08-22T12:00:00+02:00" pubdate><span class='month'>Aug</span> <span class='day'>22</span> <span class='year'>2012</span></time>
+        | 
+  
+
+<span class="byline author vcard"><span class="fn">Louis Chatriot</span></span>
+
+    
+      </p>
+    
+  </header>
+
+
+
+
+  <div class="entry-content"><p><em>tl;dr version</em>:</p>
+
+<ul>
+<li><em>We should stop having software handle system tasks like daemonization
+or privilege-dropping</em></li>
+<li><em>That&#8217;s a job for a supervisor. For example we use <a href="http://upstart.ubuntu.com/">Upstart</a></em></li>
+<li><em>Nodejs plays nicely with Upstart, for example see <a href="https://gist.github.com/3385102">this Upstart
+script for launching a nodejs application</a></em></li>
+</ul>
+
+
+<p>We are currently building a webapp with the following stack: nodejs,
+mongoDB, nginx and redis. We also use a certain number of services,
+like <a href="http://needforair.com/blog/2012/07/09/jenkins-in-production/">Jenkins</a> and Graphite.
+To use these softwares in production, we need to be able to daemonize
+them, run them as specific users (usually with low privileges), and have
+tham restart automatically if case of an unexpected crash.</p>
+
+<p><a href="http://upstart.ubuntu.com/" target="_blank"><img alt="Jenkins CI" src="http://upstart.ubuntu.com/img/upstart80.png"></a></p>
+
+<p>These are quite common needs. But people are often confused as to what
+part of the system is responsible for what task. I often see software
+handling the privilege drop (for example the otherwise excellent
+<a href="http://graphite.wikidot.com/">Graphite</a>), or the daemonization (for
+example <a href="http://gunicorn.org/">gunicorn</a> - which is also great
+otherwise). It&#8217;s bad, because as a result, some of these softwares don&#8217;t
+play nicely with supervisors like Upstart. People tend to resort to
+strange and not well understood scripts (I even saw an Upstart script
+that called the <em>start_stop_daemon</em> to launch a gunicorn process which
+daemonized itself!).</p>
+
+<p>There is a simple rule to follow to avoid this confusion:
+<strong>softwares should not daemonize or handle privilege drop</strong>. These are
+jobs for the supervisor. That&#8217;s all, separation of concerns, folks. For
+example, we use Upstart to launch our processes as services. That way,
+we get added benefits: they get respawned in case they crash, they
+restart automatically if we need to reboot the server, and we can
+specify rules such as &#8220;service A should not start before service B has started
+and is ready&#8221;. I see no reason not to it that way!</p>
+
+<p>An example of software that respects these rules is nodejs. Here is <a href="https://gist.github.com/3385102">the
+Upstart script</a> we use with it. It enables us to start our app as any
+user, log all output and get the added benefits I was referring to
+earlier. It really is all you need with nodejs and most software you
+will use. This is not an Upstart tutorial (<a href="http://upstart.ubuntu.com/cookbook/">their doc</a> is pretty good),
+but let me explain the most important parts:</p>
+
+<ul>
+<li>The privilege drop is done through the <code>su -s /bin/sh -c 'exec "$0" "$@"' $RUN_AS -- command</code> part.
+This line executes <code>command</code> as user <code>$RUN_AS</code>. Unfortunately, we have to use this method because the standard
+<code>sudo -u</code> doesn&#8217;t work from within an Upstart script.</li>
+<li>The log file needs to be <code>touch</code>ed in case it doesn&#8217;t exist, then <code>chown</code>ed to user <code>$RUN_AS</code>, because otherwise
+it will belong to user root (which the user executing the Upstart script)</li>
+<li>The rest is pretty standard</li>
+</ul>
+
+
+<p>Of course, this script doesn&#8217;t work just for nodejs! So you have no excuse not to use it now :)</p>
+</div>
+  
+  
+        
+          <a href="/blog/2012/08/22/upstart-and-node/#disqus_thread">Comments</a>
+        
+
+
+  
+    <div class="sharing">
+  
+    
+    <a href="http://twitter.com/share" class="twitter-share-button" data-text="What To Use Upstart (And Other Supervisors) For" data-url="http://needforair.com/blog/2012/08/22/upstart-and-node/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/08/22/upstart-and-node/" >Tweet</a>
+    
+  
+  
+</div>
+
+  
+
+
+    </article>
   
   
     <article>
@@ -439,90 +544,6 @@ Who knows ?</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/19/starting-startup-not-principal-concern/">Starting a Startup Should Not Be the Primary Concern</a></h1>
-    
-    
-      <p class="meta">
-    
-        <time datetime="2012-06-19T13:12:00+02:00" pubdate><span class='month'>Jun</span> <span class='day'>19</span> <span class='year'>2012</span></time>
-        | 
-  
-
-<span class="byline author vcard"><span class="fn">Charles Miglietti</span></span>
-
-    
-      </p>
-    
-  </header>
-
-
-
-
-  <div class="entry-content"><p>Last week, <a href="http://robgo.org/about/">Rob Go</a> from <a href="http://nextviewventures.com/">NextViewVentures</a>
-explained why in his opinion people should <a href="http://robgo.org/2012/05/14/think-twice-before-starting-a-company/">think twice before starting a
-company</a>: too much
-hype, harder to stand out, we are at the end of one innovation cycle and at the beginning of a new one
-which is less favorable to unexperienced and non-technical founders.</p>
-
-<p>So to the question <a href="http://robgo.org/2012/06/10/what-to-do-instead-of-starting-a-company/"><em>What to do instead of starting a company?</em></a>
-he answers: <em>Join the winningest company you can find in a sector you care about with people you like</em>.
-Should you agree or not, this recommendation has its pros and cons but one can&#8217;t come to
-a decision easily. The most important lesson to learn comes at the end:</p>
-
-<p><img class="right" src="http://img84.imageshack.us/img84/2324/imagerxss.jpg" width="220"></p>
-
-<blockquote><p>I think there is just the inherent satisfaction of being a part of a
-company that is making a big dent in the world.  We’d all like to be the
-person who started that company, but there is a huge amount of pride to
-be had in being a contributor, even if you aren’t a leader.  Also,
-scale and success give companies the right to do something meaningful.
-I often hear founders of failed companies lament “I realized that I
-just wasn’t that excited about X, Y, or Z market.”  Well, the truth
-is, most people probably aren’t that excited about about helping
-merchants process credit cards (until Square) or the apartment
-rental industry (until Air BnB) or local advertising (until FourSquare),
-or the private car industry (until Uber) etc etc. Being part of a successful
-company that is shaping the future of an industry is usually inherently
-interesting and motivating, and it’s a great way to spend a few years
-of your life until the time is right for you to start a company that will do the same.</p></blockquote>
-
-<p>It&#8217;s a very interesting analysis as he doesn&#8217;t try to give a clear cut
-and general solution applicable to everybody. Instead he takes into
-account the personality of people who could be disposed to start a
-company, noting that founding a startup is not necesseraly the best fit for them.
-The true concern one should have is to make a dent in the world. <a href="http://markbivens.com/m/about">Mark Bivens</a>
-came to the same conclusion: <a href="http://markbivens.com/m/archives/feeling-a-part-of-something-bigger">People need to feel a part of something bigger</a>
-and joining a startup could be the best answer to this feeling. It will never be
-be too late to found its company after such an experience, on the
-contrary it can only make things easier.</p>
-</div>
-  
-  
-        
-          <a href="/blog/2012/06/19/starting-startup-not-principal-concern/#disqus_thread">Comments</a>
-        
-
-
-  
-    <div class="sharing">
-  
-    
-    <a href="http://twitter.com/share" class="twitter-share-button" data-text="Starting a Startup Should Not Be The Primary Concern" data-url="http://needforair.com/blog/2012/06/19/starting-startup-not-principal-concern/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/06/19/starting-startup-not-principal-concern/" >Tweet</a>
-    
-  
-  
-</div>
-
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -538,6 +559,10 @@ contrary it can only make things easier.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/22/upstart-and-node/">What To Use Upstart (And Other Supervisors) For</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/09/jenkins-in-production/">How We Use Jenkins for Continuous Deployment</a>
       </li>
     
@@ -551,10 +576,6 @@ contrary it can only make things easier.</p>
     
       <li class="post">
         <a href="/blog/2012/06/19/starting-startup-not-principal-concern/">Starting a Startup Should Not Be The Primary Concern</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/15/to-make-you-smile/">To Make You Smile</a>
       </li>
     
   </ul>

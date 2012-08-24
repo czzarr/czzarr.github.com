@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>What To Use Upstart (And Other Supervisors) For - Need for Air</title>
+  <meta name="author" content="Need for Air">
+
+  
+  <meta name="description" content="tl;dr version: We should stop having software handle system tasks like daemonization
+or privilege-dropping
+That&#8217;s a job for a supervisor. For &hellip;">
+  
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://needforair.com/blog/2012/08/22/upstart-and-node">
+  <link href="/favicon.png" rel="icon">
+  <script type="text/javascript" src="http://use.typekit.com/zcp2xbp.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>  
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/NeedForAir" rel="alternate" title="Need for Air" type="application/atom+xml">
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+  
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts 
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33856769-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+<body   >
+
+	<div class="container">
+
+		<div class="four columns">
+  			<nav role="navigation"><ul class="title">
+</ul>
+<ul class="main-navigation">
+
+  <li class="other"><a href="/">Blog</a></li>
+  <li class="other"><a href="/about-us">About Us</a></li>
+  <li class="other"><a href="/blog/archives">Archives</a></li>
+  <li class="other"><a href="/our-book">Our Book</a></li>
+</ul>
+
+<ul class="subscription" data-subscription="rss email">
+  <li class="other"><a href="http://feeds.feedburner.com/NeedForAir"
+    rel="subscribe-rss" title="subscribe via RSS">Subscribe by RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=NeedForAir" rel="subscribe-email"
+      title="subscribe via email">Subscribe by Email</a></li>
+  
+</ul>
+  
+
+
+
+</nav>
+        <aside class="sidebar">
+          
+            <section>
+  <h1 class="tweets">Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/08/22/upstart-and-node/">What To Use Upstart (And Other Supervisors) For</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/09/jenkins-in-production/">How We Use Jenkins for Continuous Deployment</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/01/new-era-continuous-client/">Enhancing the User Experience With a Continuous Client</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/25/start-your-kids-coding-very-soon/">Start Your Kids Coding Very Soon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/19/starting-startup-not-principal-concern/">Starting a Startup Should Not Be The Primary Concern</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section id="twitter">
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/NeedForAir" class="twitter-follow-button" data-show-count="false">Follow @NeedForAir</a>
+  
+</section>
+
+<section>
+  <h1 class="tweets">Read our Book</h1>
+  <a href="http://leanpub.com/startupflow"><img
+    src="http://titlepages.leanpub.com/startupflow/small?1335536785"
+    alt="Startup Flow"></a>
+</section>
+
+          
+
+
+
+        </aside>    
+  	</div>
+    
+
+    <header class="twelve columns" role="banner">
+    
+<hgroup>
+  <h1>Need for Air</h1>
+  
+    <h2>Solving the Information Overload Problem</h2>
+  
+</hgroup>
+
+    </header>
+
+
+  	<div id="main" class="twelve columns">
+	    <div id="content">
+	      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">What to Use Upstart (and Other Supervisors) For</h1>
+    
+    
+      <p class="meta">
+    
+        <time datetime="2012-08-22 12:00:00 +0200" pubdate><span class='month'>Aug</span> <span class='day'>22</span> <span class='year'>2012</span></time>
+        | 
+  
+
+<span class="byline author vcard"><span class="fn">Louis Chatriot</span></span>
+
+    
+      </p>
+    
+  </header>
+
+
+
+
+<div class="entry-content"><p><em>tl;dr version</em>:</p>
+
+<ul>
+<li><em>We should stop having software handle system tasks like daemonization
+or privilege-dropping</em></li>
+<li><em>That&#8217;s a job for a supervisor. For example we use <a href="http://upstart.ubuntu.com/">Upstart</a></em></li>
+<li><em>Nodejs plays nicely with Upstart, for example see <a href="https://gist.github.com/3385102">this Upstart
+script for launching a nodejs application</a></em></li>
+</ul>
+
+
+<p>We are currently building a webapp with the following stack: nodejs,
+mongoDB, nginx and redis. We also use a certain number of services,
+like <a href="http://needforair.com/blog/2012/07/09/jenkins-in-production/">Jenkins</a> and Graphite.
+To use these softwares in production, we need to be able to daemonize
+them, run them as specific users (usually with low privileges), and have
+tham restart automatically if case of an unexpected crash.</p>
+
+<p><a href="http://upstart.ubuntu.com/" target="_blank"><img alt="Jenkins CI" src="http://upstart.ubuntu.com/img/upstart80.png"></a></p>
+
+<p>These are quite common needs. But people are often confused as to what
+part of the system is responsible for what task. I often see software
+handling the privilege drop (for example the otherwise excellent
+<a href="http://graphite.wikidot.com/">Graphite</a>), or the daemonization (for
+example <a href="http://gunicorn.org/">gunicorn</a> - which is also great
+otherwise). It&#8217;s bad, because as a result, some of these softwares don&#8217;t
+play nicely with supervisors like Upstart. People tend to resort to
+strange and not well understood scripts (I even saw an Upstart script
+that called the <em>start_stop_daemon</em> to launch a gunicorn process which
+daemonized itself!).</p>
+
+<p>There is a simple rule to follow to avoid this confusion:
+<strong>softwares should not daemonize or handle privilege drop</strong>. These are
+jobs for the supervisor. That&#8217;s all, separation of concerns, folks. For
+example, we use Upstart to launch our processes as services. That way,
+we get added benefits: they get respawned in case they crash, they
+restart automatically if we need to reboot the server, and we can
+specify rules such as &#8220;service A should not start before service B has started
+and is ready&#8221;. I see no reason not to it that way!</p>
+
+<p>An example of software that respects these rules is nodejs. Here is <a href="https://gist.github.com/3385102">the
+Upstart script</a> we use with it. It enables us to start our app as any
+user, log all output and get the added benefits I was referring to
+earlier. It really is all you need with nodejs and most software you
+will use. This is not an Upstart tutorial (<a href="http://upstart.ubuntu.com/cookbook/">their doc</a> is pretty good),
+but let me explain the most important parts:</p>
+
+<ul>
+<li>The privilege drop is done through the <code>su -s /bin/sh -c 'exec "$0" "$@"' $RUN_AS -- command</code> part.
+This line executes <code>command</code> as user <code>$RUN_AS</code>. Unfortunately, we have to use this method because the standard
+<code>sudo -u</code> doesn&#8217;t work from within an Upstart script.</li>
+<li>The log file needs to be <code>touch</code>ed in case it doesn&#8217;t exist, then <code>chown</code>ed to user <code>$RUN_AS</code>, because otherwise
+it will belong to user root (which the user executing the Upstart script)</li>
+<li>The rest is pretty standard</li>
+</ul>
+
+
+<p>Of course, this script doesn&#8217;t work just for nodejs! So you have no excuse not to use it now :)</p>
+</div>
+
+
+  
+    <div class="sharing">
+  
+    
+      <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://needforair.com/blog/2012/08/22/upstart-and-node/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/08/22/upstart-and-node/" >Tweet</a>
+    
+  
+  
+</div>
+
+  
+
+
+  <footer>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/07/09/jenkins-in-production/" title="Previous Post: How We Use Jenkins for Continuous Deployment">&laquo; Previous post</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1 class="comments">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+	    </div>
+  	</div>
+  
+  <footer role="contentinfo"  class="sixteen columns"><center>
+<p class="credit">
+  <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />
+   <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Need for Air</span> by.
+   <a xmlns:cc="http://creativecommons.org/ns#" href="http://needforair.com" property="cc:attributionName" rel="cc:attributionURL">Need for Air</a> is licensed under a
+   <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.<br>
+   <span class="credit">Contributors include <a href="http://twitter.com/#!/stanmarion">Stanislas Marion</a>, <a href="http://twitter.com/#!/charlesmigli">Charles Miglietti</a> and <a href="http://twitter.com/#!/louisChatriot">Louis Chatriot</a></span><br>
+   <span class="credit">Powered by <a href="http://github.com">GitHub</a>, <a href="https://github.com/imathis/octopress">Octopress</a>, &amp; <a href="https://github.com/dhgamache/Skeleton">Skeleton</a></span>.<br>
+   <span class="credit">Thanks to <a href="http://ryandeussing.com">Ryan Deussing</a> for the theme.</span>
+</p>
+</center>
+
+</footer>
+  
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'needforair';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://needforair.com/blog/2012/08/22/upstart-and-node/';
+        var disqus_url = 'http://needforair.com/blog/2012/08/22/upstart-and-node/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+
+  <script >
+    $("header")
+    .css('cursor', 'pointer')
+    .click( function () {
+      window.location = "/";
+    });
+  </script>
+
+<script>
+  jQuery.noConflict()('li.other').hover (
+    function () {
+    jQuery.noConflict()(this).toggleClass("current-menu-item")
+  });
+</script>
+
+</body>
+</html>
+
+
+	</div> <!-- container -->
