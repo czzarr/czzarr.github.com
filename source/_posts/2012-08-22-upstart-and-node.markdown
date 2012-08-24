@@ -41,8 +41,8 @@ that called the _start\_stop\_daemon_ to launch a gunicorn process which
 daemonized itself!).
 
 
-This should be a simple problem. The rule to follow is that
-*softwares should not daemonize or handle privilege drop*. These are
+There is a simple rule to follow to avoid this confusion:
+**softwares should not daemonize or handle privilege drop**. These are
 jobs for the supervisor. That's all, separation of concerns, folks. For
 example, we use Upstart to launch our processes as services. That way,
 we get added benefits: they get respawned in case they crash, they
@@ -55,4 +55,14 @@ An example of software that respects these rules is nodejs. Here is [the
 Upstart script](https://gist.github.com/3385102) we use with it. It enables us to start our app as any
 user, log all output and get the added benefits I was referring to
 earlier. It really is all you need with nodejs and most software you
-will use. You have no excuse not to use it now :)
+will use. This is not an Upstart tutorial ([their doc](http://upstart.ubuntu.com/cookbook/) is pretty good), 
+but let me explain the most important parts:  
+
+* The privilege drop is done through the `su -s /bin/sh -c 'exec "$0" "$@"' $RUN_AS -- command` part. 
+This line executes `command` as user `$RUN_AS`. Unfortunately, we have to use this method because the standard
+`sudo -u` doesn't work from within an Upstart script.
+* The log file needs to be `touch`ed in case it doesn't exist, then `chown`ed to user `$RUN_AS`, because otherwise 
+it will belong to user root (which the user executing the Upstart script)
+* The rest is pretty standard
+
+Of course, this script doesn't work just for nodejs! So you have no excuse not to use it now :)
