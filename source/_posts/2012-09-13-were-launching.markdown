@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "We're launching"
+title: "We're launching tl;dr, summarize all the internet!"
 author: "Stanislas Marion"
 date: 2012-09-13 18:04
 comments: true
 categories: [tldr, launch, big day]
 ---
 
-## tl;dr is live!
+## [tl;dr](http:tldr.io) ([too long; didn't read](http://www.urbandictionary.com/define.php?term=Too+long+didn't+read)) is live!
 
 We're super excited to announce that we have finally launched our new product: **tl;dr**!
 The three of us quit our dayjobs at the end of 2011 and for the past 5 months we've been hard at work on it, and we're very
@@ -27,7 +27,7 @@ more educational/topical content. It's been said and resaid that we're
 in an age of information overload. There is simply too much content that
 is published everyday and it's getting harder and harder to not only keep up with
 the firehose but also filter what needs to be read and remembered. Often times we feel like it would
-be nice to write down the few key ideas that are worth remembering of an
+be nice to have access the few key ideas that are worth remembering of an
 article we just read.
 
 We also thought *'Wouldn't it be cool if upon arriving on a web page we
@@ -35,13 +35,22 @@ could display its summary to rapidly see what it's about?* Indeed
 everyone now knows to choose catchy titles to attract readers. Other signals such as
 likes, shares, or upvotes aren't really related to the actual content
 and need of the reader. We wanted something that focused on the content,
-so that people to make their own opinion about it.
-So we decided to allow people to attach one
+so that people would be able to make their own opinion about it.
+This is why we decided to allow people to attach one
 summary to any URL on the web in order to describe what's in it. Sort of
-an entry point to each webpage. Once it is written, the tl;dr benefits
+an entry point to each webpage. Turns out there's already an name for
+such a summary on the internet: it's **tl;dr**. Once it is written, the tl;dr benefits
 everybody in the world. Anyone will be able to get a clean, standardized
-preview of what holds the webpage they're about to browse. This can be
+preview of what the webpage they're about to browse contains. This can be
 very useful on unknown busy webpages that are hard to sift through.
+
+At this point we must point out that we do not want to prevent people
+from reading original content. We simply want to pique the interest of the
+right people and drive them to content they're looking for by lowering
+its barrier to entry for them. Since we believe that summarized
+information is one of the most powerful force that drives interest (as
+evidenced by academic paper abstracts, google results extracts, etc.) we
+think people-contributed summaries will work wonders.
 
 ## A word of caution
 
