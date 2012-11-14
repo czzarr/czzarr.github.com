@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "We're launching tl;dr, summarize all the internet!"
+title: "We're launching tldr.io!"
 author: "Stanislas Marion"
 date: 2012-09-13 18:04
 comments: true
 categories: [tldr, launch, big day]
 ---
 
-## [tl;dr](http:tldr.io) ([too long; didn't read](http://www.urbandictionary.com/define.php?term=Too+long+didn't+read)) is live!
+## [tl;dr](http://tldr.io) (too long; didn't read)
 
 We're super excited to announce that we have finally launched our new product: **tl;dr**!
 The three of us quit our dayjobs at the end of 2011 and for the past 5 months we've been hard at work on it, and we're very
