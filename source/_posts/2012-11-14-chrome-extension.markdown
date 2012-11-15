@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "We're launching our Chrome extension for Hacker News"
+title: "Chrome extension to read summaries of Hacker News links without leaving the front page"
 author: "Louis Chatriot"
 date: 2012-11-14 18:04
 comments: true
@@ -12,7 +12,7 @@ categories: [tldr, launch, extension]
 You love reading the front page articles. But you don't always have the
 time to click on all the links to see whether they're interesting or not. That's
 why we built this Chrome extension that enables you, simply by hovering on a
-link, to read a summary of the article. We find it pretty damn useful,
+link, to read a summary of the article. We find it pretty damn useful and convenient,
 so we think you should ...
 
 ## <a href="http://tldr.io/crx" target="_blank">Try it and install it</a>
@@ -21,7 +21,7 @@ so we think you should ...
 ## Why does it only work on Hacker News? I want it everywhere!
 We know. We want that too. But as you know, our summaries are
 human-written because [computers are bad at summarizing](http://needforair.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/). 
-So today, we are about the only ones creating these summaries. We want
+Today, the community writing summaries is still very small and can't handle a huge load. We summaries
 them to be of the highest quality, so we chose to focus on Hacker News
 so that we could bring a lot of value to our users while still having
 the time to run our company.
@@ -32,7 +32,7 @@ overload or if you simply want tldr.io's coverage of the front page to
 be even higher, you can [use our contribution bookmarklet](http://tldr.io/whatisit#install-bm-section) 
 and start creating summaries too. We review all the summaries our users
 create to ensure they stick to the original author's point of view, but
-you contributing really helps the community.
+your contributing really helps the community.
 
 ## Why is it a Chrome extension? I want it on Firefox!
 We too! We're currently focusing on a Chrome extension to see how people
