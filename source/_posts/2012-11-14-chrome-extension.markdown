@@ -9,10 +9,15 @@ categories: [tldr, launch, extension]
 
 
 ## Yo dawg, we heard you like reading Hacker News, so we put summaries in your links
+
+When you discovered that Superman could see through walls you told yourself that it was the awesomest thing ever. Naturally you wanted to have the same superpower. 
+Well let's say you can do that now on your browser and see through hyperlinks with our Chome Extension.
+
 You love reading the front page articles. But you don't always have the
 time to click on all the links to see whether they're interesting or not. That's
-why we built this Chrome extension that enables you, simply by hovering on a
-link, to read a summary of the article. We find it pretty damn useful and convenient. 
+why we built this Chrome extension that enables you, simply by hovering over a
+link, to read a summary of the article. How exciting is this?  
+
 Here is what this looks like:
 
 
