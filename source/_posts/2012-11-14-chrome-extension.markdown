@@ -13,8 +13,8 @@ categories: [tldr, launch, extension]
 When you discovered that Superman could see through walls you told yourself that it was the awesomest thing ever. Naturally you wanted to have the same superpower. 
 Well let's say you can do that now on your browser and <strong>see through hyperlinks with our Chome Extension</strong>.
 
-You love reading the front page articles. But you don't always have the
-time to click on all the links to see whether they're interesting or not. That's
+You love reading the [Hacker News](http://news.ycombinator.com) front page articles. But you don't always have the
+time to click the links and read them all. That's
 why we built this Chrome extension that enables you, <strong>simply by hovering over a
 link, to read a summary of the article.</strong> How exciting is this?  
 
