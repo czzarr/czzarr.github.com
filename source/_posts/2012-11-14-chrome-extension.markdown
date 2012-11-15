@@ -12,8 +12,13 @@ categories: [tldr, launch, extension]
 You love reading the front page articles. But you don't always have the
 time to click on all the links to see whether they're interesting or not. That's
 why we built this Chrome extension that enables you, simply by hovering on a
-link, to read a summary of the article. We find it pretty damn useful and convenient,
-so we think you should ...
+link, to read a summary of the article. We find it pretty damn useful and convenient. 
+Here is what this looks like:
+
+
+<br><img src="http://i.imgur.com/LEwCV.png" alt="Tldr extension screenshot">
+
+<br>
 
 <a href="https://chrome.google.com/webstore/detail/tldr/ohmamcbkcmfalompaelgoepcnbnpiioe" style="padding:25px;background:#008CD4;display:block;width:150px;font-size:32px;font-family:CassanetBold, Helvetica Neue, Helvetica,border-radius:5px;color:white;border-radius:5px;">Install it!</a>
 
