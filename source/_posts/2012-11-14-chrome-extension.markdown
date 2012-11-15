@@ -15,8 +15,7 @@ why we built this Chrome extension that enables you, simply by hovering on a
 link, to read a summary of the article. We find it pretty damn useful and convenient,
 so we think you should ...
 
-## <a href="http://tldr.io/crx" target="_blank">Try it and install it</a>
-<br>
+<a href="https://chrome.google.com/webstore/detail/tldr/ohmamcbkcmfalompaelgoepcnbnpiioe" style="padding:25px;background:#008CD4;display:block;width:150px;font-size:32px;font-family:CassanetBold, Helvetica Neue, Helvetica,border-radius:5px;color:white;border-radius:5px;">Install it!</a>
 
 ## Why does it only work on Hacker News? I want it everywhere!
 We know. We want that too. But as you know, our summaries are
