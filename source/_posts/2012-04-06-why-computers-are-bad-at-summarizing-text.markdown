@@ -54,13 +54,12 @@ main reason for this is that they struggle with the following tasks:
   key to understanding a text, all the more when there is sarcasm.
 
 
-## Computers can help humans summarize a text
-To sum it up, I believe that humans still cannot be replaced by
-algorithms if we want to produce quality summaries. Nonetheless, a
-computer really can help a us by providing a keyphrase-based summary,
-so that we spend less time scanning the text for them. In addition, if
-we were able to train algorithms by comparing their output with a human
-summary a lot of times for articles on a certain topic, I think it is possible we see significant improvements.  
+## Can computers help humans summarize text?
+Today, computers are not good at summarizing text, and they probably
+will be for a long time. Nevertheless, we may be able to make
+significant progress if we had a huge database of summarize. That's what
+we're working on, so future will tell!
+
 
 
 *Note: some examples were taken from [Stanford's Natural Language
