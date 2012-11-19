@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Chrome extension to read summaries of Hacker News links without leaving the front page - Need for Air</title>
+  <meta name="author" content="Need for Air">
+
+  
+  <meta name="description" content="Yo dawg, we heard you like reading Hacker News, so we put summaries in your links When you discovered that Superman could see through walls you told &hellip;">
+  
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://needforair.com/blog/2012/11/14/chrome-extension">
+  <link href="/favicon.png" rel="icon">
+  <script type="text/javascript" src="http://use.typekit.com/zcp2xbp.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>  
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/NeedForAir" rel="alternate" title="Need for Air" type="application/atom+xml">
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+  
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts 
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33856769-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+<body   >
+
+	<div class="container">
+
+		<div class="four columns">
+  			<nav role="navigation"><ul class="title">
+</ul>
+<ul class="main-navigation">
+
+  <li class="other"><a href="/">Blog</a></li>
+  <li class="other"><a href="/about-us">About Us</a></li>
+  <li class="other"><a href="/blog/archives">Archives</a></li>
+  <li class="other"><a target="_blank" href="http://tldr.io">tldr.io</a></li>
+  <li class="other"><a href="/our-book">Our Book</a></li>
+</ul>
+
+<ul class="subscription" data-subscription="rss email">
+  <li class="other"><a href="http://feeds.feedburner.com/NeedForAir"
+    rel="subscribe-rss" title="subscribe via RSS">Subscribe by RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=NeedForAir" rel="subscribe-email"
+      title="subscribe via email">Subscribe by Email</a></li>
+  
+</ul>
+  
+
+
+
+</nav>
+        <aside class="sidebar">
+          
+            <section>
+  <h1 class="tweets">Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/11/14/chrome-extension/">Chrome extension to read summaries of Hacker News links without leaving the front page</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/13/were-launching/">We're launching tldr.io!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/22/upstart-and-node/">What To Use Upstart (And Other Supervisors) For</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/09/jenkins-in-production/">How We Use Jenkins for Continuous Deployment</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/01/new-era-continuous-client/">Enhancing the User Experience With a Continuous Client</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section id="twitter">
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/NeedForAir" class="twitter-follow-button" data-show-count="false">Follow @NeedForAir</a>
+  
+</section>
+
+<section>
+  <h1 class="tweets">Read our Book</h1>
+  <a href="http://leanpub.com/startupflow"><img
+    src="http://titlepages.leanpub.com/startupflow/small?1335536785"
+    alt="Startup Flow"></a>
+</section>
+
+          
+
+
+
+        </aside>    
+  	</div>
+    
+
+    <header class="twelve columns" role="banner">
+    
+<hgroup>
+  <h1>Need for Air</h1>
+  
+    <h2>Solving the Information Overload Problem</h2>
+  
+</hgroup>
+
+    </header>
+
+
+  	<div id="main" class="twelve columns">
+	    <div id="content">
+	      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Chrome Extension to Read Summaries of Hacker News Links Without Leaving the Front Page</h1>
+    
+    
+      <p class="meta">
+    
+        <time datetime="2012-11-14 18:04:00 +0100" pubdate><span class='month'>Nov</span> <span class='day'>14</span> <span class='year'>2012</span></time>
+        | 
+  
+
+<span class="byline author vcard"><span class="fn">Louis Chatriot</span></span>
+
+    
+      </p>
+    
+  </header>
+
+
+
+
+<div class="entry-content"><h2>Yo dawg, we heard you like reading Hacker News, so we put summaries in your links</h2>
+
+<p>When you discovered that Superman could see through walls you told yourself that it was the awesomest thing ever. Naturally you wanted to have the same superpower.
+Well let&#8217;s say you can do that now on your browser and <strong>see through hyperlinks with our Chome Extension</strong>.</p>
+
+<p>You love reading the <a href="http://news.ycombinator.com">Hacker News</a> front page articles. But you don&#8217;t always have the
+time to click the links and read them all. That&#8217;s
+why we built this Chrome extension that enables you, <strong>simply by hovering over a
+link, to read a summary of the article.</strong> How exciting is this?</p>
+
+<p>Here is what this looks like:</p>
+
+<br><img src="http://i.imgur.com/LEwCV.png" alt="Tldr extension screenshot">
+
+
+
+
+<br>
+
+
+<p><a target="_blank" href="https://chrome.google.com/webstore/detail/tldr/ohmamcbkcmfalompaelgoepcnbnpiioe" style="padding:25px;background:#008CD4;display:block;width:297px;margin:30px auto 0px auto;font-size:22px;font-family:CassanetBold, Helvetica Neue, Helvetica,border-radius:5px;color:white;border-radius:5px;" onClick="_gaq.push(['_trackEvent', 'Buttons', 'Click', 'Go to CRX install page']);">Install this awesome extension!</a></p>
+
+<h2>Why does it only work on Hacker News? I want it everywhere!</h2>
+
+<p>We know. We want that too. But as you know, <strong>our summaries are
+human-written</strong> because <a href="http://needforair.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/">computers are bad at summarizing</a>.
+Today, the community writing summaries is still very small and can&#8217;t handle a huge load. We summaries
+them to be of the highest quality, so we chose to focus on Hacker News
+so that we could bring a lot of value to our users while still having
+the time to run our company.</p>
+
+<p>You can help! If you like to find the key information in a technical
+blogpost, if you want to help other people fight the information
+overload or if you simply want tldr.io&#8217;s coverage of the front page to
+be even higher, you can <a href="http://tldr.io/whatisit#install-bm-section"><strong>use our contribution bookmarklet</a>
+and start creating summaries</strong> too. We review all the summaries our users
+create to ensure they stick to the original author&#8217;s point of view, but
+your contributing really helps the community.</p>
+
+<h2>Why is it a Chrome extension? I want it on Firefox!</h2>
+
+<p>We too! We&#8217;re currently focusing on a Chrome extension to see how people
+use it and how useful they find it. Once we think we have a clear idea
+of what the extension should be, we will make a Firefox version. If you
+have some ideas, <a href="http://tldr.io/forum/topics/50a4b8f45f5d3cd04a0001b7">please tell us here, we are interested</a>.</p>
+</div>
+
+
+  
+    <div class="sharing">
+  
+    
+      <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://needforair.com/blog/2012/11/14/chrome-extension/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/11/14/chrome-extension/" >Tweet</a>
+    
+  
+  
+</div>
+
+  
+
+
+  <footer>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/09/13/were-launching/" title="Previous Post: We're launching tldr.io!">&laquo; Previous post</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1 class="comments">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+	    </div>
+  	</div>
+  
+  <footer role="contentinfo"  class="sixteen columns"><center>
+<p class="credit">
+  <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />
+   <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Need for Air</span> by.
+   <a xmlns:cc="http://creativecommons.org/ns#" href="http://needforair.com" property="cc:attributionName" rel="cc:attributionURL">Need for Air</a> is licensed under a
+   <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.<br>
+   <span class="credit">Contributors include <a href="http://twitter.com/#!/stanmarion">Stanislas Marion</a>, <a href="http://twitter.com/#!/charlesmigli">Charles Miglietti</a> and <a href="http://twitter.com/#!/louisChatriot">Louis Chatriot</a></span><br>
+   <span class="credit">Powered by <a href="http://github.com">GitHub</a>, <a href="https://github.com/imathis/octopress">Octopress</a>, &amp; <a href="https://github.com/dhgamache/Skeleton">Skeleton</a></span>.<br>
+   <span class="credit">Thanks to <a href="http://ryandeussing.com">Ryan Deussing</a> for the theme.</span>
+</p>
+</center>
+
+</footer>
+  
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'needforair';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://needforair.com/blog/2012/11/14/chrome-extension/';
+        var disqus_url = 'http://needforair.com/blog/2012/11/14/chrome-extension/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+
+  <script >
+    $("header")
+    .css('cursor', 'pointer')
+    .click( function () {
+      window.location = "/";
+    });
+  </script>
+
+<script>
+  jQuery.noConflict()('li.other').hover (
+    function () {
+    jQuery.noConflict()(this).toggleClass("current-menu-item")
+  });
+</script>
+
+</body>
+</html>
+
+
+	</div> <!-- container -->

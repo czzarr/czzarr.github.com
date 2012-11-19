@@ -4,7 +4,7 @@
   <title><![CDATA[Need for Air]]></title>
   <link href="http://needforair.com/atom.xml" rel="self"/>
   <link href="http://needforair.com/"/>
-  <updated>2012-09-17T10:56:07+02:00</updated>
+  <updated>2012-11-19T12:25:21+01:00</updated>
   <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
@@ -12,6 +12,121 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Chrome extension to read summaries of Hacker News links without leaving the front page]]></title>
+    <link href="http://needforair.com/blog/2012/11/14/chrome-extension/"/>
+    <updated>2012-11-14T18:04:00+01:00</updated>
+    <id>http://needforair.com/blog/2012/11/14/chrome-extension</id>
+    <content type="html"><![CDATA[<h2>Yo dawg, we heard you like reading Hacker News, so we put summaries in your links</h2>
+
+<p>When you discovered that Superman could see through walls you told yourself that it was the awesomest thing ever. Naturally you wanted to have the same superpower.
+Well let&#8217;s say you can do that now on your browser and <strong>see through hyperlinks with our Chome Extension</strong>.</p>
+
+<p>You love reading the <a href="http://news.ycombinator.com">Hacker News</a> front page articles. But you don&#8217;t always have the
+time to click the links and read them all. That&#8217;s
+why we built this Chrome extension that enables you, <strong>simply by hovering over a
+link, to read a summary of the article.</strong> How exciting is this?</p>
+
+<p>Here is what this looks like:</p>
+
+<br><img src="http://i.imgur.com/LEwCV.png" alt="Tldr extension screenshot">
+
+
+
+
+<br>
+
+
+<p><a target="_blank" href="https://chrome.google.com/webstore/detail/tldr/ohmamcbkcmfalompaelgoepcnbnpiioe" style="padding:25px;background:#008CD4;display:block;width:297px;margin:30px auto 0px auto;font-size:22px;font-family:CassanetBold, Helvetica Neue, Helvetica,border-radius:5px;color:white;border-radius:5px;" onClick="_gaq.push(['_trackEvent', 'Buttons', 'Click', 'Go to CRX install page']);">Install this awesome extension!</a></p>
+
+<h2>Why does it only work on Hacker News? I want it everywhere!</h2>
+
+<p>We know. We want that too. But as you know, <strong>our summaries are
+human-written</strong> because <a href="http://needforair.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/">computers are bad at summarizing</a>.
+Today, the community writing summaries is still very small and can&#8217;t handle a huge load. We summaries
+them to be of the highest quality, so we chose to focus on Hacker News
+so that we could bring a lot of value to our users while still having
+the time to run our company.</p>
+
+<p>You can help! If you like to find the key information in a technical
+blogpost, if you want to help other people fight the information
+overload or if you simply want tldr.io&#8217;s coverage of the front page to
+be even higher, you can <a href="http://tldr.io/whatisit#install-bm-section"><strong>use our contribution bookmarklet</a>
+and start creating summaries</strong> too. We review all the summaries our users
+create to ensure they stick to the original author&#8217;s point of view, but
+your contributing really helps the community.</p>
+
+<h2>Why is it a Chrome extension? I want it on Firefox!</h2>
+
+<p>We too! We&#8217;re currently focusing on a Chrome extension to see how people
+use it and how useful they find it. Once we think we have a clear idea
+of what the extension should be, we will make a Firefox version. If you
+have some ideas, <a href="http://tldr.io/forum/topics/50a4b8f45f5d3cd04a0001b7">please tell us here, we are interested</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[We're launching tldr.io!]]></title>
+    <link href="http://needforair.com/blog/2012/09/13/were-launching/"/>
+    <updated>2012-09-13T18:04:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/09/13/were-launching</id>
+    <content type="html"><![CDATA[<h2><a href="http://tldr.io">tl;dr</a> (too long; didn&#8217;t read)</h2>
+
+<p>We&#8217;re super excited to announce that we have finally launched our new product: <strong>tl;dr</strong>!
+The three of us quit our dayjobs at the end of 2011 and for the past 5 months we&#8217;ve been hard at work on it, and we&#8217;re very
+proud of what we&#8217;re releasing.</p>
+
+<p>In a nutshell, our product solves the problem of wanting to know what&#8217;s in a webpage
+without losing precious time. It allows you to display a summary of the webpage you&#8217;re
+currently browsing. The summaries are written by people who found the
+webpage interesting before you. If the summary you&#8217;re asking for doesn&#8217;t exist yet,
+you&#8217;ll be offered to create it. We decided to rely on people because summarizing
+information is a skill people are vastly better at than computers.</p>
+
+<h2>So why did we build this product?</h2>
+
+<p>We read a lot of blogs, be it news or
+more educational/topical content. It&#8217;s been said and resaid that we&#8217;re
+in an age of information overload. There is simply too much content that
+is published everyday and it&#8217;s getting harder and harder to not only keep up with
+the firehose but also filter what needs to be read and remembered. Often times we feel like it would
+be nice to have access the few key ideas that are worth remembering of an
+article we just read.</p>
+
+<p>We also thought <em>&#8216;Wouldn&#8217;t it be cool if upon arriving on a web page we
+could display its summary to rapidly see what it&#8217;s about?</em> Indeed
+everyone now knows to choose catchy titles to attract readers. Other signals such as
+likes, shares, or upvotes aren&#8217;t really related to the actual content
+and need of the reader. We wanted something that focused on the content,
+so that people would be able to make their own opinion about it.
+This is why we decided to allow people to attach one
+summary to any URL on the web in order to describe what&#8217;s in it. Sort of
+an entry point to each webpage. Turns out there&#8217;s already an name for
+such a summary on the internet: it&#8217;s <strong>tl;dr</strong>. Once it is written, the tl;dr benefits
+everybody in the world. Anyone will be able to get a clean, standardized
+preview of what the webpage they&#8217;re about to browse contains. This can be
+very useful on unknown busy webpages that are hard to sift through.</p>
+
+<p>At this point we must point out that we do not want to prevent people
+from reading original content. We simply want to pique the interest of the
+right people and drive them to content they&#8217;re looking for by lowering
+its barrier to entry for them. Since we believe that summarized
+information is one of the most powerful force that drives interest (as
+evidenced by academic paper abstracts, google results extracts, etc.) we
+think people-contributed summaries will work wonders.</p>
+
+<h2>A word of caution</h2>
+
+<p>This is our first release and shouldn&#8217;t be considered perfect. There is
+still a lot of work ahead of us, we have a big and clear vision for our
+company but we&#8217;re taking baby steps. You should expect new features
+regularly, as well as bugs! Besides, since we are building a company,
+and a company needs to make money, expect some pricing plans for our
+service to come out very soon. For those interested, we&#8217;ve been
+bootstrapping for now and haven&#8217;t taken any investor money.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[What To Use Upstart (And Other Supervisors) For]]></title>
@@ -1888,116 +2003,6 @@ result, and assigns them a lower probability.</li>
 <p><em>I am a Go player myself, even though not very good! During an
 internship in a Computer Science laboratory, I worked on <a href="http://www.lri.fr/~teytaud/mogo.html">MoGo</a> for 2 months in 2008.</em><br/>
 <em>Special thanks to <a href="http://www.linkedin.com/pub/arpad-rimmel/b/9a7/847">Arpad Rimmel</a> for having reviewed this article. He spent 3 years working on Mogo when he was a PhD student.</em></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Startup, Music and Buzz]]></title>
-    <link href="http://needforair.com/blog/2012/04/15/startup-music-and-buzz/"/>
-    <updated>2012-04-15T11:33:00+02:00</updated>
-    <id>http://needforair.com/blog/2012/04/15/startup-music-and-buzz</id>
-    <content type="html"><![CDATA[<p>Various creative initiatives face the same challenges as startups.
-In its
-<a href="http://leanpub.com/manifesto">manifesto</a>, <a href="http://leanpub.com/">Leanpub</a> points out the similarities
-between writing a book and launching a startup: <em>both are risky, creative
-processes, often undertaken in stealth mode and with hit-driven economics.</em></p>
-
-<p>The same parallel can be drawn with the music industry or more generally
-with independant creative activities. Crowdfunding platforms
-<a href="http://www.mymajorcompany.com/">MyMajorCompany</a> or <a href="http://www.kickstarter.com/">KickStarter</a>
-illustrate the similarities between all these processes.
-Independant singers who are not supported by famous productors bear the risk,
-have to build their <em>product</em> and develop their marketing
-strategy on their own.</p>
-
-<p>Once the beta version of the product is ready to showcase, a single in
-the case of singers, the difficulty is to market it. How can one achieve
-some traction? One option that seems profitable is to place the
-product in a favourable context by attaching it to an event which
-benefits from a good media coverage. Mainstream and new medias alike have such a big impact
-on the crowd that they can drain lots of attention. Leveraging these
-media can be key.</p>
-
-<p>Recently in France a singer succeeded in creating a buzz
-on the internet, hitting more than 600 000 views on Youtube, with its
-single on a candidate for the presidential elections. In the same vein
-as <a href="http://www.youtube.com/watch?v=wKsoXHYICqU"><em>I got a crush on Obama</em></a> she drew the media attention in a very
-effective way by leveraging the current context.</p>
-
-<p><a href="http://vimeo.com/40084651"><img src="http://www.lalsace.fr/fr/images/A7098988-85DA-4603-8E31-654249FE82BB/ALS_03/capture-d-ecran-du-clip-musical-de-victoire-passage-prends-le-pouvoir-sur-moi-jean-luc-melenchon.jpg" width="400" alt="Video" /></a></p>
-
-<p>Making a buzz gives the impression of success. But how can we be assured it is going to last? Does a spike in the audience really help to succeed with
-one&#8217;s product? When one realize that <a href="http://simply.io/blog/2012/03/welcome-to-the-real-world-just-because-youre-on-techcrunch-doesnt-mean-youve-won/">90% of the companies appearing on TC
-are abandoned within 6 months</a>
-one can question the relevance of the press coverage and the buzz one
-can create to build a durable success. Instead, one should be focused
-on building one&#8217;s audience. Successfull startups and creators don&#8217;t
-rely on a single shot try, they build their success gradually at the same
-time as their audience.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The Golden Age Of Community Organizing Platforms]]></title>
-    <link href="http://needforair.com/blog/2012/04/11/community-organizing-platforms/"/>
-    <updated>2012-04-11T08:58:00+02:00</updated>
-    <id>http://needforair.com/blog/2012/04/11/community-organizing-platforms</id>
-    <content type="html"><![CDATA[<p>I <a href="http://needforair.com/blog/2012/04/04/what-we-didnt-learn-in-college/">already wrote</a> about how
-you can leverage some <a href="https://github.com/">social platforms</a> to build
-your visibility on the internet, but they offer much more.
-They provide appropriate tools that help people to be more productive
-and better organized. They are much more functional than pure social networks
-and even more valuable as the communities are active.</p>
-
-<p><img src="http://cardview.net/wp-content/uploads/2010/04/nation-builder.jpg" height="220" alt="Keep the gist" /></p>
-
-<h2>Platforms structure communities</h2>
-
-<p>We can call such a platform a <em>community organizing platform</em> because
-it allows a community to have a place to gather, discuss and share. It
-provides the global structure the community needs to get organized.
-Ten years ago the forums laid the foundation but today these platforms
-achieve what&#8217;s been initiated.</p>
-
-<p>Using these platforms everyone creates and manages a business card that
-is accessible by everyone else.
-People can easily be identified, followed, consulted and appraised. You
-don&#8217;t have to go to as many conferences or events to meet new people
-because it can be done very efficiently online.</p>
-
-<h2>Community organizing platforms offer more than pure social networks</h2>
-
-<p>Pure social networks like Twitter offer ways to
-organize communities but don&#8217;t provide the structure
-and tools needed for effective collaboration. They are mainly focus on
-sharing.</p>
-
-<p>While community organizing platforms provide a social layer they
-also offer services geared towards the community itself. This
-combination is what&#8217;s really valuable.
-<a href="http://nationbuilder.com/">Nation Builder</a>
-is the perfect example: it features volunteer organization, donation
-monitoring, website creation&#8230; a comprehensive package
-political leaders need to interact with their audience.</p>
-
-<h2>Active communities are driven by knowledge</h2>
-
-<p>We can distinguish communities built upon friendship, professional
-activity or common interests. The most active
-are the ones based on a common interest, where knowledge and
-feedback is a valuable resource. In these ones people spend a lot of time
-looking for information. They also create a lot of content in order to
-improve their reputation. Such platforms are even more
-important for small communities because the resources they want to access are not always well
-indexed by search engines.</p>
-
-<p>As sharing information, working collaboratively and giving feedbacks to peers is key in
-these communities even a very little one
-can be very active.
-There is still lots of
-them to structure out there, lots of people waiting to
-share and collaborate with their peers. Who are they? What can we do for
-them?</p>
 ]]></content>
   </entry>
   

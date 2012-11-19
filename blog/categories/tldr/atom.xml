@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tldr | Need for Air]]></title>
   <link href="http://needforair.com/blog/categories/tldr/atom.xml" rel="self"/>
   <link href="http://needforair.com/"/>
-  <updated>2012-09-17T10:56:07+02:00</updated>
+  <updated>2012-11-19T12:25:21+01:00</updated>
   <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
@@ -12,6 +12,121 @@
   </author>
   <generator uri="http://ryandeussing.com/">Ryan Deussing</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Chrome extension to read summaries of Hacker News links without leaving the front page]]></title>
+    <link href="http://needforair.com/blog/2012/11/14/chrome-extension/"/>
+    <updated>2012-11-14T18:04:00+01:00</updated>
+    <id>http://needforair.com/blog/2012/11/14/chrome-extension</id>
+    <content type="html"><![CDATA[<h2>Yo dawg, we heard you like reading Hacker News, so we put summaries in your links</h2>
+
+<p>When you discovered that Superman could see through walls you told yourself that it was the awesomest thing ever. Naturally you wanted to have the same superpower.
+Well let's say you can do that now on your browser and <strong>see through hyperlinks with our Chome Extension</strong>.</p>
+
+<p>You love reading the <a href="http://news.ycombinator.com">Hacker News</a> front page articles. But you don't always have the
+time to click the links and read them all. That's
+why we built this Chrome extension that enables you, <strong>simply by hovering over a
+link, to read a summary of the article.</strong> How exciting is this?</p>
+
+<p>Here is what this looks like:</p>
+
+<br><img src="http://i.imgur.com/LEwCV.png" alt="Tldr extension screenshot">
+
+
+
+
+<br>
+
+
+<p><a target="_blank" href="https://chrome.google.com/webstore/detail/tldr/ohmamcbkcmfalompaelgoepcnbnpiioe" style="padding:25px;background:#008CD4;display:block;width:297px;margin:30px auto 0px auto;font-size:22px;font-family:CassanetBold, Helvetica Neue, Helvetica,border-radius:5px;color:white;border-radius:5px;" onClick="_gaq.push(['_trackEvent', 'Buttons', 'Click', 'Go to CRX install page']);">Install this awesome extension!</a></p>
+
+<h2>Why does it only work on Hacker News? I want it everywhere!</h2>
+
+<p>We know. We want that too. But as you know, <strong>our summaries are
+human-written</strong> because <a href="http://needforair.com/blog/2012/04/06/why-computers-are-bad-at-summarizing-text/">computers are bad at summarizing</a>.
+Today, the community writing summaries is still very small and can't handle a huge load. We summaries
+them to be of the highest quality, so we chose to focus on Hacker News
+so that we could bring a lot of value to our users while still having
+the time to run our company.</p>
+
+<p>You can help! If you like to find the key information in a technical
+blogpost, if you want to help other people fight the information
+overload or if you simply want tldr.io's coverage of the front page to
+be even higher, you can <a href="http://tldr.io/whatisit#install-bm-section"><strong>use our contribution bookmarklet</a>
+and start creating summaries</strong> too. We review all the summaries our users
+create to ensure they stick to the original author's point of view, but
+your contributing really helps the community.</p>
+
+<h2>Why is it a Chrome extension? I want it on Firefox!</h2>
+
+<p>We too! We're currently focusing on a Chrome extension to see how people
+use it and how useful they find it. Once we think we have a clear idea
+of what the extension should be, we will make a Firefox version. If you
+have some ideas, <a href="http://tldr.io/forum/topics/50a4b8f45f5d3cd04a0001b7">please tell us here, we are interested</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[We're launching tldr.io!]]></title>
+    <link href="http://needforair.com/blog/2012/09/13/were-launching/"/>
+    <updated>2012-09-13T18:04:00+02:00</updated>
+    <id>http://needforair.com/blog/2012/09/13/were-launching</id>
+    <content type="html"><![CDATA[<h2><a href="http://tldr.io">tl;dr</a> (too long; didn't read)</h2>
+
+<p>We're super excited to announce that we have finally launched our new product: <strong>tl;dr</strong>!
+The three of us quit our dayjobs at the end of 2011 and for the past 5 months we've been hard at work on it, and we're very
+proud of what we're releasing.</p>
+
+<p>In a nutshell, our product solves the problem of wanting to know what's in a webpage
+without losing precious time. It allows you to display a summary of the webpage you're
+currently browsing. The summaries are written by people who found the
+webpage interesting before you. If the summary you're asking for doesn't exist yet,
+you'll be offered to create it. We decided to rely on people because summarizing
+information is a skill people are vastly better at than computers.</p>
+
+<h2>So why did we build this product?</h2>
+
+<p>We read a lot of blogs, be it news or
+more educational/topical content. It's been said and resaid that we're
+in an age of information overload. There is simply too much content that
+is published everyday and it's getting harder and harder to not only keep up with
+the firehose but also filter what needs to be read and remembered. Often times we feel like it would
+be nice to have access the few key ideas that are worth remembering of an
+article we just read.</p>
+
+<p>We also thought <em>'Wouldn't it be cool if upon arriving on a web page we
+could display its summary to rapidly see what it's about?</em> Indeed
+everyone now knows to choose catchy titles to attract readers. Other signals such as
+likes, shares, or upvotes aren't really related to the actual content
+and need of the reader. We wanted something that focused on the content,
+so that people would be able to make their own opinion about it.
+This is why we decided to allow people to attach one
+summary to any URL on the web in order to describe what's in it. Sort of
+an entry point to each webpage. Turns out there's already an name for
+such a summary on the internet: it's <strong>tl;dr</strong>. Once it is written, the tl;dr benefits
+everybody in the world. Anyone will be able to get a clean, standardized
+preview of what the webpage they're about to browse contains. This can be
+very useful on unknown busy webpages that are hard to sift through.</p>
+
+<p>At this point we must point out that we do not want to prevent people
+from reading original content. We simply want to pique the interest of the
+right people and drive them to content they're looking for by lowering
+its barrier to entry for them. Since we believe that summarized
+information is one of the most powerful force that drives interest (as
+evidenced by academic paper abstracts, google results extracts, etc.) we
+think people-contributed summaries will work wonders.</p>
+
+<h2>A word of caution</h2>
+
+<p>This is our first release and shouldn't be considered perfect. There is
+still a lot of work ahead of us, we have a big and clear vision for our
+company but we're taking baby steps. You should expect new features
+regularly, as well as bugs! Besides, since we are building a company,
+and a company needs to make money, expect some pricing plans for our
+service to come out very soon. For those interested, we've been
+bootstrapping for now and haven't taken any investor money.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The Golden Age Of Community Organizing Platforms]]></title>
@@ -132,14 +247,12 @@ key to understanding a text, all the more when there is sarcasm.</li>
 </ul>
 
 
-<h2>Computers can help humans summarize a text</h2>
+<h2>Can computers help humans summarize text?</h2>
 
-<p>To sum it up, I believe that humans still cannot be replaced by
-algorithms if we want to produce quality summaries. Nonetheless, a
-computer really can help a us by providing a keyphrase-based summary,
-so that we spend less time scanning the text for them. In addition, if
-we were able to train algorithms by comparing their output with a human
-summary a lot of times for articles on a certain topic, I think it is possible we see significant improvements.</p>
+<p>Today, computers are not good at summarizing text, and they probably
+will be for a long time. Nevertheless, we may be able to make
+significant progress if we had a huge database of summarize. That's what
+we're working on, so future will tell!</p>
 
 <p><em>Note: some examples were taken from <a href="https://class.coursera.org/nlp/">Stanford's Natural Language
 Processing online class</a>. If you couldn't take
@@ -195,152 +308,6 @@ stimulates our willingness to dig further into subject. It's like reading gossip
 get hooked and then you want to know more about it.</p>
 
 <p>Digested information is a very valuable resource and its era should come soon.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Why We Write Digests of Interesting Content]]></title>
-    <link href="http://needforair.com/blog/2012/03/21/why-we-write-digests-of-interesting-content/"/>
-    <updated>2012-03-21T12:00:00+01:00</updated>
-    <id>http://needforair.com/blog/2012/03/21/why-we-write-digests-of-interesting-content</id>
-    <content type="html"><![CDATA[<p>All three of us read a lot. Blogs, <a href="http://news.ycombinator.com" title="Hacker News">Hacker News</a>, links we get through
-Twitter, etc. Browsing dozens of articles a week to stay informed is great but do we get the most out of it? <strong>Do we
-actually memorize the gist of all that content we are reading?</strong> Spending
-so much time reading would be a huge waste if it wasn't consolidated in
-some fashion. That's why we decided to write summaries of the best
-articles we find.</p>
-
-<p><a href="http://www.flickr.com/photos/60546721@N00/102673733/"><img src="http://farm1.staticflickr.com/42/102673733_39cbb51495_n.jpg" alt="Keep the gist" /></a>
-<em><a href="http://creativecommons.org/licenses/by/2.0" title="license">CC license</a> - by <a href="http://www.flickr.com/photos/60546721@N00">aroid</a></em></p>
-
-<h2>It forces you to really understand what the article is about</h2>
-
-<p>My Math and Physics professors would always say that the best way to learn
-was to get to the point where you are able to
-<strong>recap the course materials in writing</strong> (theroems, proofs, case studies).</p>
-
-<p>In order to select the most critical parts of an article you need to
-really read through the whole article and pick up the signal that you
-want to remember. This means you should understand thoroughly what the
-article is about and the author's reasoning. Why she spent time on some
-subject and not on others.</p>
-
-<p>When writing up a summary, be it by mere copy/pasting or rephrasing, you put yourself
-in an active cognitive process. You are not simply consuming
-anymore, you are disecting and structuring information. Not only will
-your memory be more deeply impressed than if you just read but it will
-be more structured and organized.</p>
-
-<h2>You can go back to it later</h2>
-
-<p>Bookmarking is currently the only way of organizing and keeping up with the content that you
-loved and that you would want to be able to find again later and share
-to others via tools such as <a href="http://delicious.com" title="Delicious">Delicious</a>,
-or <a href="http://pinboard.in" title="Pinboard">Pinboard</a>.
-However you still need to reread the whole article once you go back to
-it, which can be a waste of time in some cases. <a href="http://evernote.com" title="Evernote">Evernote</a> is better in that regard as
-you make save notes on any topic.</p>
-
-<p><strong>If you had summaries for each of your bookmarks</strong>, you could go back to
-that content and filter it in a much more effective fashion, deciding
-whether or not you want to delve into the whole article or not. It is
-something between the title and the article that is missing to help you
-filter through your bookmarks and consume your content.</p>
-
-<p>We keep all of our digests in an organized way so that they are easily
-searchable and consumable.</p>
-
-<h2>Sharing becomes easier</h2>
-
-<p>Digests also make it easier to share content. Ever tried to send a link
-to someone, and never got any feedback? Chances are they
-are receiving hundreds of links per day, by email, facebook, twitter, etc.
-You're asking that person for too much work. She doesn't have enough time
-to read yet another whole article without knowing it's high quality content.</p>
-
-<p><strong>If you include a short digest</strong> of the article or video or podcast in your
-email, you can be sure there is a much higher chance that she reads the
-digest and eventually clicks the link, intrigued. And you'll be
-able to have a conversation about it. That is sharing. Sending naked links is not sharing,
-it's spamming.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Keep Up With the Information Overload]]></title>
-    <link href="http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload/"/>
-    <updated>2012-03-09T12:00:00+01:00</updated>
-    <id>http://needforair.com/blog/2012/03/09/how-to-keep-up-with-the-information-overload</id>
-    <content type="html"><![CDATA[<p>Facebook notifications, Twitter feeds, RSS feeds, emails, news
-aggregators and now so much
-more. We are constantly hit by new information, throughout the day, and
-the night. There are so many things we want to read or watch.
-The fact that the Web is a strictly <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">RESTful</a> application (or should I say
-<a href="http://blog.steveklabnik.com/posts/2012-02-13-an-api-ontology">Hypermedia</a>) doesn't help because one link usually leads to more links. I'm sure
-you've already experienced having more than 20 tabs open in your browser
-and thinking "<em>God, when am I going to read all of this?</em>" but instead
-of starting reading you scan the links of the page in front of you and
-just open more tabs. And this was only made worse by tools such as
-<a href="http://instapaper.com" title="Instapaper">Instapaper</a> that make you feel good
-about saving stuff for later, even if you know deep inside you'll never
-come back to it.</p>
-
-<p><a href="http://www.flickr.com/photos/martinofranchi/2925760927/"><img src="http://farm4.staticflickr.com/3244/2925760927_a9db10926e_m.jpg" alt="Information overload" /></a></p>
-
-<h2>Current solutions</h2>
-
-<p>It's extremely hard to keep up with all that information, and you
-basically have 3 options at the moment:</p>
-
-<h4>Let loose</h4>
-
-<p>Accept that you can't follow it all and if something is really important
-it will come back to you one way or another so that missing it the first
-time is not a big deal.
-I personnally don't like this solution because it means giving up
-control on what I read and learn, and it basically amounts to a random
-filter with some bias towards the most important news that isn't always
-the most interesting.</p>
-
-<h4>Algorithmic filters</h4>
-
-<p>Use tools such as <a href="http://news.me" title="News.me">News.me</a> or <a href="http://focus.io" title="Focus.io">Focus.io</a> that
-use machine learning techniques to serve you the stories you might be
-interested in the most. However, again, not knowing how these algorithms
-work exactly, I fear I am going to lose the serendipity of scanning
-myself all the input and selecting the hidden little gem that would be
-considered as noise by these algorithms. Again, I hate losing control. I
-do think these are better solutions than just letting loose.</p>
-
-<h4>Reducing the input</h4>
-
-<p>This for me is the best alternative. Following sort of a <em>less is more</em> convention,
-I am looking to reduce the number of sources rather than increasing it,
-keeping only the outstanding ones. I am constantly reevaluating the
-quality of the twitter accounts and bloggers I follow in order to remove
-those that either tweet too much  or whose content quality has suffered.
-I am very rarely looking for new people to follow, and when I try
-someone new it is always an experiment, never set in stone. I'd actually
-like it if an algorithm could do that for me, again, not knowing the
-inner workings of the services that offer news recommendation is too
-bad. I'm willing to bet none of them though is going to unfollow someone
-on twitter for you, or experiment with a new follower, based on the
-quality of the links provided in the tweets. Same for RSS feeds.</p>
-
-<h2>We need a new tool to find good content</h2>
-
-<p>Basically none of today's tools are good at finding good news and
-information. You can use a combination of tools (such as <a href="http://quora.com" title="Quora">Quora</a> and <a href="http://stackexchange.com" title="StackEchange">StackExchange</a> but it is more
-difficult than one tool and is conducive to a lot of noise. Plus we are
-missing a linking tool between content of the same nature and topics,
-that would transcend time. There are services like <a href="http://delicious.com" title="Delicious">Delicious</a> that you
-can browse by searching for tags, but it is not powerful enough in the
-way it presents the information. There are still too many links and not
-enough clues as to which are interesting and which are not.</p>
-
-<p>But don't worry, we're working on it ;)</p>
-
-<p>Photo credit: <a href="http://www.flickr.com/photos/martinofranchi/">Martino</a></p>
 ]]></content>
   </entry>
   
