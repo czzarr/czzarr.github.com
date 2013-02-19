@@ -28,7 +28,7 @@ blog about technical stuff.
 
 <a target="_blank" href="http://blog.tldr.io" style="padding:25px;background:#008CD4;display:block;width:200px;margin:30px auto 0px auto;font-size:22px;font-family:CassanetBold, Helvetica Neue, Helvetica,border-radius:5px;color:white;border-radius:5px; text-align: center;">Go read the tldr.io blog</a>
 
-## We won't kill this blog though
+## We won't kill NeedForAir though
 There are still a lot of people coming to this blog (mainly from
 Google), so we won't shut it down. If you liked what you found here, be
 sure to check [the tldr.io blog](http://blog.tldr.io) out! And to wrap NeedForAir up, here are the five most-read articles:
