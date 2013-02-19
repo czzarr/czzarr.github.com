@@ -9,13 +9,13 @@ categories: [tldr.io, blog, launch, tldr]
 
 
 ## We are still alive!
-You may have noticed, but we have been pretty silent lately, our last
-blogpost dates back to November 14th and announced our Chrome extension.
+You may have noticed, we have been pretty silent lately. Our last
+blogpost dates back to November 14th when we announced the first release of our Chrome extension.
 As you can imagine, we were pretty busy working on
 [tldr.io](http://tldr.io) and didn't have enough time to maintain this
 blog. Lots of crazy stuff happened: we won
-[Seedcamp](http://seedcamp.com), we built a lot of new features
-including a brand new Chrome extension with which you can contribute and
+[Seedcamp Paris](http://www.seedcamp.com/2012/12/a-worthy-finish-to-2012-seedcamp-paris.html), we built a lot of new features
+including a brand new Chrome extension with which you can read or contribute the summary of any web page and
 our community is growing faster than ever.
 
 <br><img src="http://i.imgur.com/Uq82yyl.jpg" alt="Haven't seen you in a while"><br><br>
@@ -23,15 +23,15 @@ our community is growing faster than ever.
 ## What's next?
 We have decided to start blogging again, but as tldr.io and not
 NeedForAir anymore. We'll use this [new blog](http://blog.tldr.io) to
-keep you updated about tldr.io feature releases, news and we'll also
-blog about technical stuff.
+keep you updated about tldr.io feature releases, best content and we'll also
+blog about engineering and entrepreneurial challenges.
 
 <a target="_blank" href="http://blog.tldr.io" style="padding:25px;background:#008CD4;display:block;width:200px;margin:30px auto 0px auto;font-size:22px;font-family:CassanetBold, Helvetica Neue, Helvetica,border-radius:5px;color:white;border-radius:5px; text-align: center;">Go read the tldr.io blog</a>
 
 ## We won't kill NeedForAir though
 There are still a lot of people coming to this blog (mainly from
-Google), so we won't shut it down. If you liked what you found here, be
-sure to check [the tldr.io blog](http://blog.tldr.io) out! And to wrap NeedForAir up, here are the five most-read articles:
+search) for the tutorials we posted, so we won't shut it down. If you liked what you found here, be
+sure to check [the tldr.io blog](http://blog.tldr.io) out and update your RSS subscription! And to wrap NeedForAir up, here are the five most-read articles:
 
 <ul>
   <li><a href="http://needforair.com/blog/2012/05/09/d3-tutorial/">Introduction to D3: Build an Animated Graph in 19 Lines of Code</a></li>
@@ -42,3 +42,5 @@ sure to check [the tldr.io blog](http://blog.tldr.io) out! And to wrap NeedForAi
   <li><a href="http://needforair.com/blog/2012/08/22/upstart-and-node/">What to Use Upstart (and Other Supervisors) For</a></li>
 
 </ul>
+
+Thank you for reading us thus far!
