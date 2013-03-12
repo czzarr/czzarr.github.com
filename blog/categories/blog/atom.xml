@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: blog | Need for Air]]></title>
+  <link href="http://needforair.com/blog/categories/blog/atom.xml" rel="self"/>
+  <link href="http://needforair.com/"/>
+  <updated>2013-03-12T15:40:25+01:00</updated>
+  <id>http://needforair.com/</id>
+  <author>
+    <name><![CDATA[Need for Air]]></name>
+    
+  </author>
+  <generator uri="http://ryandeussing.com/">Ryan Deussing</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Need For Air, over and out. Say hello to the tldr.io blog!]]></title>
+    <link href="http://needforair.com/blog/2013/02/19/final-post/"/>
+    <updated>2013-02-19T12:00:00+01:00</updated>
+    <id>http://needforair.com/blog/2013/02/19/final-post</id>
+    <content type="html"><![CDATA[<h2>We are still alive!</h2>
+
+<p>You may have noticed, we have been pretty silent lately. Our last
+blogpost dates back to November 14th when we announced the first release of our Chrome extension.
+As you can imagine, we were pretty busy working on
+<a href="http://tldr.io">tldr.io</a> and didn't have enough time to maintain this
+blog. Lots of crazy stuff happened: we won
+<a href="http://www.seedcamp.com/2012/12/a-worthy-finish-to-2012-seedcamp-paris.html">Seedcamp Paris</a>, we built a lot of new features
+including a brand new Chrome extension with which you can read or contribute the summary of any web page and
+our community is growing faster than ever.</p>
+
+<br><img src="http://i.imgur.com/Uq82yyl.jpg" alt="Haven't seen you in a while"><br><br>
+
+
+<h2>What's next?</h2>
+
+<p>We have decided to start blogging again, but as tldr.io and not
+NeedForAir anymore. We'll use this <a href="http://blog.tldr.io">new blog</a> to
+keep you updated about tldr.io feature releases, best content and we'll also
+blog about engineering and entrepreneurial challenges.</p>
+
+<p><a target="_blank" href="http://blog.tldr.io" style="padding:25px;background:#008CD4;display:block;width:200px;margin:30px auto 0px auto;font-size:22px;font-family:CassanetBold, Helvetica Neue, Helvetica,border-radius:5px;color:white;border-radius:5px; text-align: center;">Go read the tldr.io blog</a></p>
+
+<h2>We won't kill NeedForAir though</h2>
+
+<p>There are still a lot of people coming to this blog (mainly from
+search) for the tutorials we posted, so we won't shut it down. If you liked what you found here, be
+sure to check <a href="http://blog.tldr.io">the tldr.io blog</a> out and update your RSS subscription! And to wrap NeedForAir up, here are the five most-read articles:</p>
+
+<ul>
+  <li><a href="http://needforair.com/blog/2012/05/09/d3-tutorial/">Introduction to D3: Build an Animated Graph in 19 Lines of Code</a></li>
+  <li><a href="http://needforair.com/blog/2012/04/22/dns-redirections/">Tutorial: Domain Name System for Beginners</a></li>
+  <li><a href="http://needforair.com/blog/2012/07/09/jenkins-in-production/">How We Use Jenkins for Continuous Deployment</a> (a bit outdated since we don't use Jenkins anymore,
+ we coded our own CI)</li>
+  <li><a href="http://needforair.com/blog/2012/04/18/game-of-go/">The Game of Go: A Programmer's Perspective</a></li>
+  <li><a href="http://needforair.com/blog/2012/08/22/upstart-and-node/">What to Use Upstart (and Other Supervisors) For</a></li>
+
+</ul>
+
+
+<p>Thank you for reading us thus far!</p>
+]]></content>
+  </entry>
+  
+</feed>

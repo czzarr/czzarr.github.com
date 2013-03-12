@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tldr | Need for Air]]></title>
   <link href="http://needforair.com/blog/categories/tldr/atom.xml" rel="self"/>
   <link href="http://needforair.com/"/>
-  <updated>2013-03-11T14:47:49+01:00</updated>
+  <updated>2013-03-12T15:40:25+01:00</updated>
   <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
@@ -12,6 +12,55 @@
   </author>
   <generator uri="http://ryandeussing.com/">Ryan Deussing</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Need For Air, over and out. Say hello to the tldr.io blog!]]></title>
+    <link href="http://needforair.com/blog/2013/02/19/final-post/"/>
+    <updated>2013-02-19T12:00:00+01:00</updated>
+    <id>http://needforair.com/blog/2013/02/19/final-post</id>
+    <content type="html"><![CDATA[<h2>We are still alive!</h2>
+
+<p>You may have noticed, we have been pretty silent lately. Our last
+blogpost dates back to November 14th when we announced the first release of our Chrome extension.
+As you can imagine, we were pretty busy working on
+<a href="http://tldr.io">tldr.io</a> and didn't have enough time to maintain this
+blog. Lots of crazy stuff happened: we won
+<a href="http://www.seedcamp.com/2012/12/a-worthy-finish-to-2012-seedcamp-paris.html">Seedcamp Paris</a>, we built a lot of new features
+including a brand new Chrome extension with which you can read or contribute the summary of any web page and
+our community is growing faster than ever.</p>
+
+<br><img src="http://i.imgur.com/Uq82yyl.jpg" alt="Haven't seen you in a while"><br><br>
+
+
+<h2>What's next?</h2>
+
+<p>We have decided to start blogging again, but as tldr.io and not
+NeedForAir anymore. We'll use this <a href="http://blog.tldr.io">new blog</a> to
+keep you updated about tldr.io feature releases, best content and we'll also
+blog about engineering and entrepreneurial challenges.</p>
+
+<p><a target="_blank" href="http://blog.tldr.io" style="padding:25px;background:#008CD4;display:block;width:200px;margin:30px auto 0px auto;font-size:22px;font-family:CassanetBold, Helvetica Neue, Helvetica,border-radius:5px;color:white;border-radius:5px; text-align: center;">Go read the tldr.io blog</a></p>
+
+<h2>We won't kill NeedForAir though</h2>
+
+<p>There are still a lot of people coming to this blog (mainly from
+search) for the tutorials we posted, so we won't shut it down. If you liked what you found here, be
+sure to check <a href="http://blog.tldr.io">the tldr.io blog</a> out and update your RSS subscription! And to wrap NeedForAir up, here are the five most-read articles:</p>
+
+<ul>
+  <li><a href="http://needforair.com/blog/2012/05/09/d3-tutorial/">Introduction to D3: Build an Animated Graph in 19 Lines of Code</a></li>
+  <li><a href="http://needforair.com/blog/2012/04/22/dns-redirections/">Tutorial: Domain Name System for Beginners</a></li>
+  <li><a href="http://needforair.com/blog/2012/07/09/jenkins-in-production/">How We Use Jenkins for Continuous Deployment</a> (a bit outdated since we don't use Jenkins anymore,
+ we coded our own CI)</li>
+  <li><a href="http://needforair.com/blog/2012/04/18/game-of-go/">The Game of Go: A Programmer's Perspective</a></li>
+  <li><a href="http://needforair.com/blog/2012/08/22/upstart-and-node/">What to Use Upstart (and Other Supervisors) For</a></li>
+
+</ul>
+
+
+<p>Thank you for reading us thus far!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Chrome extension to read summaries of Hacker News links without leaving the front page]]></title>
@@ -258,56 +307,6 @@ we're working on, so future will tell!</p>
 Processing online class</a>. If you couldn't take
 it this quarter, look for it, it is a terrific place to learn about this
 topic</em></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[We Are All Nutcrackers]]></title>
-    <link href="http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers/"/>
-    <updated>2012-03-26T18:20:00+02:00</updated>
-    <id>http://needforair.com/blog/2012/03/26/we-are-all-nutcrackers</id>
-    <content type="html"><![CDATA[<p><em>In a nutshell...</em> Have you never been looking for this expression
-while reading an article? The fact is that we are all fond of digested
-information. With Internet and social medias the quantity of information
-one has access to has become huge; we are coping with an
-<a href="http://needforair.com/information-overload-and-how-to-keep-up-with-5849" title="Overload">information overload problem</a>.
-We can potentially be aware of everything that is going on everywhere, instantaneously
-and regarding any topic. <strong>In this context, the demand for digested
-information is growing tremendously.</strong><br/>
-Recently, many startups have been leveraging that fondness to
-succeed. <a href="http://www.fanbridge.com/" title="Fanbridge">Franbridge</a> with its
-<a href="http://www.fanbridge.com/blog/introducing-social-digest" title="Social Digest">Social digest</a>
-will soon reach <a href="http://pandodaily.com/2012/03/21/as-it-turns-out-fanbridges-most-exciting-product-is-boring-old-email/">10 millions subscribers</a>!<br/>
-Why people do love and value digested information so much?</p>
-
-<p><a href="http://freshcode.co/post/Nameservers-in-a-Nutshell-Fresh-Insights-7.aspx"><img src="http://freshcode.co/image.axd?picture=2011%2f7%2fnutshell.jpg" width="220" alt="Nutshell" /></a>
-<em>by <a href="http://freshcode.co/" title="Author">FreshCode</a></em></p>
-
-<h2>Digested information is our natural representation of information</h2>
-
-<p>We all love digested information because it makes the information easy
-to grasp.
-It is very popular because it replicates the mental
-process we do when reading. We look for headlines, bold text, headers,
-we scan the text to form our overall picture of the content. Digested
-information gathers all those clues and eases this process.<br/>
-Part of this cognitive process is the memorisation. Digested information
-makes memorisation more accessible. Remember those cheatsheets you
-religiously wrote down for your exam preparation in college? Reading the digest of an
-article has the same effect. When building our personal knowledge
-database we store those keywords, key sentences. Digested information is
-the natural form of information our brain manipulates when it internally
-classifies, archives, queries our memory.</p>
-
-<h2>Digested information piques reader's curiosity</h2>
-
-<p>While reading we like it when the content arouses our curiosity. I would even say
-that we expect an article to <em>catch</em> us. Digested information provides
-the gist that drives us to the dive in the details. It avoids the wall of text effect and
-stimulates our willingness to dig further into subject. It's like reading gossips! You
-get hooked and then you want to know more about it.</p>
-
-<p>Digested information is a very valuable resource and its era should come soon.</p>
 ]]></content>
   </entry>
   

@@ -9,8 +9,9 @@
   <meta name="author" content="Need for Air">
 
   
-  <meta name="description" content="At Google I/O there were many interesting announcements: Nexus 7, Google
-Glass, etc. (Perhaps too many as one can say that Google is fighting too &hellip;">
+  <meta name="description" content="As all teams working on a web application, we had to setup a continuous
+integration server. This is
+a fairly well-known engineering practice, where &hellip;">
   
 
 
@@ -90,6 +91,10 @@ Glass, etc. (Perhaps too many as one can say that Google is fighting too &hellip
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/19/final-post/">Need For Air, over and out. Say hello to the tldr.io blog!</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/11/14/chrome-extension/">Chrome extension to read summaries of Hacker News links without leaving the front page</a>
       </li>
     
@@ -103,10 +108,6 @@ Glass, etc. (Perhaps too many as one can say that Google is fighting too &hellip
     
       <li class="post">
         <a href="/blog/2012/07/09/jenkins-in-production/">How We Use Jenkins for Continuous Deployment</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/01/new-era-continuous-client/">Enhancing the User Experience With a Continuous Client</a>
       </li>
     
   </ul>
@@ -144,12 +145,138 @@ Glass, etc. (Perhaps too many as one can say that Google is fighting too &hellip
 </hgroup>
 
     </header>
-
+<span style="background-color: #fcf8e3; color: #c09853; padding: 10px; border-style: solid; border-width: 1px; border-color: #fbeed5; border-radius: 4px;">
+<a href="http://blog.tldr.io" target="_blank" style="color: #c09853;">We are not writing here anymore, check the tldr.io blog out!</a>
+</span>
 
   	<div id="main" class="twelve columns">
 	    <div id="content">
 	      <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/09/jenkins-in-production/">How We Use Jenkins for Continuous Deployment</a></h1>
+    
+    
+      <p class="meta">
+    
+        <time datetime="2012-07-09T12:00:00+02:00" pubdate><span class='month'>Jul</span> <span class='day'>09</span> <span class='year'>2012</span></time>
+        | 
+  
+
+<span class="byline author vcard"><span class="fn">Louis Chatriot</span></span>
+
+    
+      </p>
+    
+  </header>
+
+
+
+
+  <div class="entry-content"><p>As all teams working on a web application, we had to setup a <a href="http://en.wikipedia.org/wiki/Continuous_integration">continuous
+integration</a> server. This is
+a fairly well-known engineering practice, where you want your code to be built and tested
+regularly on the server so that you spot problems as soon as they arrive and not when
+you push three months&#8217; worth of work to production. Also, it makes deployment a much less
+stressful experience, because you know it will work. You avoid getting in the situation
+of a friend of mine who could not have coffee with me because he was deploying and didn&#8217;t want
+to mess it up!</p>
+
+<p>We also wanted to take it one
+step further, and use continuous deployment. As the name implies, this
+means that any new code pushed to the server will automatically be
+built, tested and then go live and be used by our users right away. It
+turns out that is fairly easy to set up -except for a few caveats-, and
+I will describe our setup. This by no means a step-by-step tutorial but
+rather a &#8220;here is what you can do&#8221; article.</p>
+
+<p><a href="http://jenkins-ci.org/" target="_blank"><img alt="Jenkins CI" src="http://jenkins-ci.org/sites/default/files/jenkins_logo.png"></a></p>
+
+<h2>Our Tech Stack - The Part Of It That Matters For This Article</h2>
+
+<p>Our server runs on Ubuntu 12.04 LTS, our version control system is Git
+(we use <a href="http://scottchacon.com/2011/08/31/github-flow.html">Github flow</a>) and our
+code is hosted on Github. We chose to use <a href="http://jenkins-ci.org/">Jenkins</a> as
+the CI server. Even though it is poorly documented and has a definite
+&#8216;so nineties&#8217; feel, it is very easy to deploy and intuitive. Basically, you use it
+to set up jobs that are run when you launch them manually or when an external event, such
+as a code push, is triggered. These jobs can be anything that&#8217;s executable, I usually use
+simple bash scripts but you can use any kind of script, makefiles and so on.</p>
+
+<h2>Install And Keep Jenkins Up And Running At All Times</h2>
+
+<p>Jenkins is contained in a WAR file, so you can simply download and execute it with
+java (command <code>java -jar /path/to/jenkins.war</code>). Of course, this is only
+suitable for testing purposes. In production, you will want to use an
+<a href="http://upstart.ubuntu.com/">Upstart</a> script so that Jenkins respawns if
+it crashes unexpectedly and starts on boot.</p>
+
+<p>When Jenkins is up, you have
+access to a web interface to manage it (you can configure the port on which
+it listens). Make sure to enable security -I recommend matrix based security- unless you want anyone to be
+able to take control of your servers! One thing to watch out for is that
+you need to enable the &#8220;overall read&#8221; permission for the anonymous user,
+or else Jenkins won&#8217;t be able to communicate with third-party services - in our case Github and Hipchat. Pretty stupid
+behaviour I know, but at least it doesn&#8217;t create security holes.</p>
+
+<h2>Build On Push To Master</h2>
+
+<p>We have the Git and Github plugins enabled. The <a href="https://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin">Github plugin</a>
+enables us to connect Jenkins to Github&#8217;s post-receive hook. That way,
+whenever someone pushes to master (usually by merging a feature branch),
+our Jenkins &#8220;build&#8221; job pulls the new version of the code, builds it and
+test it. For us, that&#8217;s really a two-line script, as we <a href="http://www.mikealrogers.com/posts/nodemodules-in-git.html">check all
+modules in to Git</a>.</p>
+
+<p>If everything was successful, the &#8220;deploy&#8221; job is now called. It pulls
+the new version of the code in the live repository, then restarts the
+node server (since we use nodejs, we can overwrite the javascript files
+when the server is running without impacting it). Node starts pretty
+fast, so we only have ~0.1s downtime (no load balancer to achieve 0s downtime - for now!). And since we use an external store
+to manage sessions, nobody gets logged out.</p>
+
+<h2>Be Notified</h2>
+
+<p>The last part of the puzzle is how we get notified of the build result.
+We use <a href="https://www.hipchat.com/">Hipchat</a>, so we installed the Hipchat
+plugin that notifies us of build results in a dedicated chat room. Most
+of the time it just says &#8220;Build successful&#8221;. But no sweat if a build
+fails, since the &#8220;deploy&#8221; job was not called our users don&#8217;t see
+anything wrong!</p>
+
+<h2>And That&#8217;s All There&#8217;s To It!</h2>
+
+<p>Yup. It is indeed simple enough to get a robust continuous deployment
+system up and running, that most of the time safely deploys your code
+through a simple <code>git push</code> on your part. I&#8217;m interested in anything you
+would have to say on this setup or any tip you&#8217;d like to share!</p>
+</div>
+  
+  
+        
+          <a href="/blog/2012/07/09/jenkins-in-production/#disqus_thread">Comments</a>
+        
+
+
+  
+    <div class="sharing">
+  
+    
+    <a href="http://twitter.com/share" class="twitter-share-button" data-text="How We Use Jenkins for Continuous Deployment" data-url="http://needforair.com/blog/2012/07/09/jenkins-in-production/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/07/09/jenkins-in-production/" >Tweet</a>
+    
+  
+  
+</div>
+
+  
+
+
+    </article>
   
   
     <article>
@@ -399,92 +526,6 @@ contrary it can only make things easier.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/15/to-make-you-smile/">To Make You Smile</a></h1>
-    
-    
-      <p class="meta">
-    
-        <time datetime="2012-06-15T10:29:00+02:00" pubdate><span class='month'>Jun</span> <span class='day'>15</span> <span class='year'>2012</span></time>
-        | 
-  
-
-<span class="byline author vcard"><span class="fn">Charles Miglietti</span></span>
-
-    
-      </p>
-    
-  </header>
-
-
-
-
-  <div class="entry-content"><p>This week Fab celebrated <a href="http://betashop.com/post/24759506656/happy-fabiversary-1-year-of-fab">their first anniversary</a>
-(since their pivot, as <a href="http://betashop.com/post/19456853116/fab-was-an-overnight-success-on-day-474">Fab was not an overnight success on day
- one</a>).</p>
-
-<p>Their growth has been amazing: 4.75 M members and +100 M in sales in just
-one year. And it seems like it&#8217;s just the beginning as they&#8217;ve been successfully
-conquering mobile users: 30% to 40% of Fab’s daily visits are now via mobile. As mobile is the biggest
-growth lever that an ecommerce company can have, these figures is a
-good sign for the future Fab&#8217;s sales.</p>
-
-<p>How did they perform so well? Mark Suster would say that they <a href="http://www.bothsidesofthetable.com/2012/05/23/its-morning-in-venture-capital/">flawlessly executed their business
-model</a> but I&#8217;d
-go deeper in the reasons and say that their success comes from their <a href="http://betashop.com/post/13607881842/10-ways-fab-is-building-a-different-type-of-company">core beliefs
-</a>
-and the energy they put to broadcast them.</p>
-
-<p><a href="http://imageshack.us/photo/my-images/163/brocode.png/"><img src="http://img163.imageshack.us/img163/8470/brocode.png" alt="BroCode" /></a></p>
-
-<p>They <em>believe</em> in a vision, in core principles they love to repeat as
-much as possible. This is even their first statements in their <a href="http://betashop.com/post/24759506656/happy-fabiversary-1-year-of-fab">Happy
-Fabiversary blog post</a>. You can search for
-each of these belief in their blog to see how often they come back. These values stand at
-the epicenter of their attitude and drive.</p>
-
-<p>Fab communicates their beliefs with such a passion that we can
-feel them behind every single line of text in their
-website, behind every single quote from Jason Goldberg. Their gimmick
-<em>To Make You Smile</em> underlies all their decisions and choices: <em>Color is
-very important, color makes people smile.</em> At Fab they have their core
-principles and they stick to it: <em>We care more about making people smile
-than making money from them</em>.</p>
-
-<p>Even if one could argue that they do it just for marketing purposes I
-truly think they do it because they uphold totally their core beliefs. They communicate their
-vision perfectly and make people adhere to it because they act like
-passionate leaders.</p>
-
-<p>Choosing core values and placing every single decision the company makes
-in the perspective of these values is what makes me smile.</p>
-</div>
-  
-  
-        
-          <a href="/blog/2012/06/15/to-make-you-smile/#disqus_thread">Comments</a>
-        
-
-
-  
-    <div class="sharing">
-  
-    
-    <a href="http://twitter.com/share" class="twitter-share-button" data-text="To Make You Smile" data-url="http://needforair.com/blog/2012/06/15/to-make-you-smile/" data-via="NeedForAir" data-counturl="http://needforair.com/blog/2012/06/15/to-make-you-smile/" >Tweet</a>
-    
-  
-  
-</div>
-
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -502,6 +543,10 @@ in the perspective of these values is what makes me smile.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/19/final-post/">Need For Air, over and out. Say hello to the tldr.io blog!</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/11/14/chrome-extension/">Chrome extension to read summaries of Hacker News links without leaving the front page</a>
       </li>
     
@@ -515,10 +560,6 @@ in the perspective of these values is what makes me smile.</p>
     
       <li class="post">
         <a href="/blog/2012/07/09/jenkins-in-production/">How We Use Jenkins for Continuous Deployment</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/01/new-era-continuous-client/">Enhancing the User Experience With a Continuous Client</a>
       </li>
     
   </ul>
