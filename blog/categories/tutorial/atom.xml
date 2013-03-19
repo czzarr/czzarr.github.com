@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tutorial | Need for Air]]></title>
   <link href="http://needforair.com/blog/categories/tutorial/atom.xml" rel="self"/>
   <link href="http://needforair.com/"/>
-  <updated>2013-03-14T17:53:05+01:00</updated>
+  <updated>2013-03-19T11:21:27+01:00</updated>
   <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
@@ -407,7 +407,13 @@ as Highcharts were too slow.</p>
     <link href="http://needforair.com/blog/2012/04/22/dns-redirections/"/>
     <updated>2012-04-22T08:30:00+02:00</updated>
     <id>http://needforair.com/blog/2012/04/22/dns-redirections</id>
-    <content type="html"><![CDATA[<p>If you build a website, you will want your own domain name, which means
+    <content type="html"><![CDATA[<blockquote class="tldr-embed-widget" data-align="center">      <p>      <a href="http://tldr.io/tldrs/51483b6727b0e2933d00024a/tutorial-domain-name-system-for-beginners-need-for-air" class="link-to-tldr-page" target="_blank">Summary of "Tutorial: Domain Name System for Beginners - Need for Air"</a> (via <a href="http://tldr.io" target="_blank">tldr.io</a>)      <ul>          <li style="margin-bottom: 10px; line-height: 130%;">The Domain Name System (DNS in short) is what your computer uses to translate human-readable domain names (e.g. www.google.com) into compter-usable IP addresses</li>          <li style="margin-bottom: 10px; line-height: 130%;">It is a distributed system, meaning that no computer contains it whole. Pieces of information are on many computers (some dedicated and some not). Even yours.</li>          <li style="margin-bottom: 10px; line-height: 130%;">To use your own domain name (e.g. tldr.io), you need to purchase one from a registrar such as Gandi.</li>          <li style="margin-bottom: 10px; line-height: 130%;">You use a zone file to manage it. It is a simple text file describing the structure of your DNS zone.</li>          <li style="margin-bottom: 10px; line-height: 130%;">Changes to the zone file take time to propagate through the DNS, usually a few hours.</li>      </ul>      </p></blockquote>
+
+
+<script async src="http://needforair.com//tldr.io/embed/widget-embed.js" charset="utf-8"></script>
+
+
+<p>If you build a website, you will want your own domain name, which means
 you will need to manage your Domain Name System (DNS). While there is nothing very
 complicated here, the info is scattered across the Internet, so I decided
 to write a "cheat sheet"-like tutorial which will hopefully save you some time!</p>
