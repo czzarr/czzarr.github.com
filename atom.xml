@@ -4,7 +4,7 @@
   <title><![CDATA[Need for Air]]></title>
   <link href="http://needforair.com/atom.xml" rel="self"/>
   <link href="http://needforair.com/"/>
-  <updated>2013-03-19T11:21:27+01:00</updated>
+  <updated>2013-03-19T11:25:08+01:00</updated>
   <id>http://needforair.com/</id>
   <author>
     <name><![CDATA[Need for Air]]></name>
@@ -182,15 +182,10 @@ bootstrapping for now and haven&#8217;t taken any investor money.</p>
     <link href="http://needforair.com/blog/2012/08/22/upstart-and-node/"/>
     <updated>2012-08-22T12:00:00+02:00</updated>
     <id>http://needforair.com/blog/2012/08/22/upstart-and-node</id>
-    <content type="html"><![CDATA[<p><em>tl;dr version</em>:</p>
+    <content type="html"><![CDATA[<blockquote class="tldr-embed-widget" data-align="center">      <p>      <a href="http://tldr.io/tldrs/504def5fe1eaddb23a00002c/what-to-use-upstart-and-other-supervisors-for-" class="link-to-tldr-page" target="_blank">Summary of &#8220;What To Use Upstart (And Other Supervisors) For -&#8221;</a> (via <a href="http://tldr.io" target="_blank">tldr.io</a>)      <ul>          <li style="margin-bottom: 10px; line-height: 130%;">We should stop having software handle system tasks like daemonization or privilege-dropping</li>          <li style="margin-bottom: 10px; line-height: 130%;">That’s a job for a supervisor. For example we use Upstart</li>          <li style="margin-bottom: 10px; line-height: 130%;">Nodejs plays nicely with Upstart, article links to an Upstart script for launching a nodejs application</li>      </ul>      </p></blockquote>
 
-<ul>
-<li><em>We should stop having software handle system tasks like daemonization
-or privilege-dropping</em></li>
-<li><em>That&#8217;s a job for a supervisor. For example we use <a href="http://upstart.ubuntu.com/">Upstart</a></em></li>
-<li><em>Nodejs plays nicely with Upstart, for example see <a href="https://gist.github.com/3385102">this Upstart
-script for launching a nodejs application</a></em></li>
-</ul>
+
+<script async src="http://needforair.com//tldr.io/embed/widget-embed.js" charset="utf-8"></script>
 
 
 <p>We are currently building a webapp with the following stack: nodejs,
