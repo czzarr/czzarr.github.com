@@ -7,6 +7,8 @@ comments: true
 categories: continuous deployment, server setup
 ---
 
+<blockquote class="tldr-embed-widget" data-align="center">      <p>      <a href="http://tldr.io/tldrs/50b88a6e094d8edc2b00013e/how-we-use-jenkins-for-continuous-deployment" class="link-to-tldr-page" target="_blank">Summary of "How We Use Jenkins for Continuous Deployment"</a> (via <a href="http://tldr.io" target="_blank">tldr.io</a>)      <ul>          <li style="margin-bottom: 10px; line-height: 130%;">Continuous integration is a must for software projects. It makes deployment stressless and lets you spot problems as soon as they arrive, not 3 months later.</li>          <li style="margin-bottom: 10px; line-height: 130%;">We take it one step further and use continuous deployment. Whenever one of us Git-pushes to master, the new code is tested and goes live right away.</li>          <li style="margin-bottom: 10px; line-height: 130%;">Jenkins makes it easy. With the Github plugin, you connect Jenkins to Github's post-receive hook so that any code pushed to our repo triggers the Jenkins job.</li>          <li style="margin-bottom: 10px; line-height: 130%;">The Hipchat plugin lets Jenkins notify us whether the build was successful or not. That way we can react quickly if something goes wrong.</li>      </ul>      </p></blockquote><script async src="//tldr.io/embed/widget-embed.js" charset="utf-8"></script>
+
 
 As all teams working on a web application, we had to setup a [continuous
 integration](http://en.wikipedia.org/wiki/Continuous_integration) server. This is 
