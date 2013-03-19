@@ -8,14 +8,7 @@ categories: server setup, process supervisor
 ---
 
 
-_tl;dr version_:  
-
-* _We should stop having software handle system tasks like daemonization
-  or privilege-dropping_
-* _That's a job for a supervisor. For example we use [Upstart](http://upstart.ubuntu.com/)_
-* _Nodejs plays nicely with Upstart, for example see [this Upstart
-  script for launching a nodejs application](https://gist.github.com/3385102)_
-
+<blockquote class="tldr-embed-widget" data-align="center">      <p>      <a href="http://tldr.io/tldrs/504def5fe1eaddb23a00002c/what-to-use-upstart-and-other-supervisors-for-" class="link-to-tldr-page" target="_blank">Summary of "What To Use Upstart (And Other Supervisors) For -"</a> (via <a href="http://tldr.io" target="_blank">tldr.io</a>)      <ul>          <li style="margin-bottom: 10px; line-height: 130%;">We should stop having software handle system tasks like daemonization or privilege-dropping</li>          <li style="margin-bottom: 10px; line-height: 130%;">That’s a job for a supervisor. For example we use Upstart</li>          <li style="margin-bottom: 10px; line-height: 130%;">Nodejs plays nicely with Upstart, article links to an Upstart script for launching a nodejs application</li>      </ul>      </p></blockquote><script async src="//tldr.io/embed/widget-embed.js" charset="utf-8"></script>
 
 
 We are currently building a webapp with the following stack: nodejs,
